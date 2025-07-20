@@ -1,5 +1,5 @@
 site_name: Bou CSE Resources
-site_url: https://rakibulhashanr.github.io/boucse/
+site_url: https://boucseresources.github.io/all/
 # nav:
 #   - Home: index.md
 #   - Resources:
@@ -10,7 +10,6 @@ site_url: https://rakibulhashanr.github.io/boucse/
 
 theme:
   name: material
-  custom_dir: overrides
   font:
     text: Noto Serif Bengali
     code: Roboto Mono
