@@ -27,6 +27,6 @@ jobs:
             mkdocs-material-
       - name: Install dependencies
         run: |
-          pip install mkdocs-material mkdocs-glightbox mkdocs-obsidian-bridge mkdocs-get-deps mkdocs-awesome-pages-plugin
+          pip install mkdocs-material mkdocs-glightbox mkdocs-obsidian-bridge mkdocs-get-deps mkdocs-awesome-pages-plugin 
 
       - run: mkdocs gh-deploy --force
