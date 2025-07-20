@@ -1,0 +1,7 @@
+mkdocs
+mkdocs-material
+mkdocs-glightbox
+mkdocs-obsidian-bridge
+pymdown-extensions
+mkdocs-get-depsmkdocs-get-deps
+pip install -r requirements.txt 

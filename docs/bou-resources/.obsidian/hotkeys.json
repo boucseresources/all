@@ -1,0 +1,11 @@
+{
+  "obsidian-linter:lint-all-files-in-folder": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "L"
+    }
+  ]
+}
