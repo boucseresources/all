@@ -1,0 +1,234 @@
+{
+  "main": {
+    "id": "1ed7258c83ee8559",
+    "type": "split",
+    "children": [
+      {
+        "id": "604d1edc9baff0a2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5f82e895ed710b96",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "bou-cse/12 Semester/Structured Programming Language/Learning C/Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "35bf8bdbb2bc478e",
+    "type": "split",
+    "children": [
+      {
+        "id": "7c2355f2b54773a5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e230003f34d13f19",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "57161c616ebab1ad",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "64007d034e7e2ff2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "54348d370f617154",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {},
+              "icon": "layout-grid",
+              "title": "Navigator"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ac3b98c8496a3b76",
+    "type": "split",
+    "children": [
+      {
+        "id": "4aa9da6098230ad6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "770442e79436ff8a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Business/[Chapter wise] Questions.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for [Chapter wise] Questions"
+            }
+          },
+          {
+            "id": "362b56f7317531bf",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Business/[Chapter wise] Questions.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from [Chapter wise] Questions"
+            }
+          },
+          {
+            "id": "b6178f2fe8109945",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "00f261cf6a562b8d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Business/[Chapter wise] Questions.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of [Chapter wise] Questions"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "math-indicator-changer:Change math indicator": false,
+      "chat-with-bard:New Gemini Chat": false,
+      "edge-tts:Read note aloud": false
+    }
+  },
+  "active": "5f82e895ed710b96",
+  "lastOpenFiles": [
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/C and JavaScript comparison.md",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/Untitled.md",
+    "bou-cse/12 Semester/Linear Algebra and Differential Equations/Linear Algebra and Differential Equations.md",
+    "bou-cse/12 Semester/Linear Algebra and Differential Equations/[DFL] Prev. Question Analysis.md",
+    "bou-cse/12 Semester/12 Semester.md",
+    "bou-cse/12 Semester/Structured Programming Language/Structured Programming Language.md",
+    "Media Library/image-35.png.~tmp",
+    "bou-cse/11 Semester/11semester.md",
+    "bou-cse/11 Semester/PHY/Heat and Thermodynamics/Heat and Thermodynamics.md",
+    "bou-cse/11 Semester/EEE/[SOLUTION] Prev. year question/গাউস থেইকা কুলম্ব.md",
+    "bou-cse/11 Semester/EEE/[SOLUTION] Prev. year question/[SOLUTION] Prev. year question.md",
+    "bou-cse/11 Semester/EEE/[SOLUTION] Prev. year question/[Old Q7 (i)] Short note Electric flux (part of Gauss's Law topic)..md",
+    "bou-cse/11 Semester/EEE/[SOLUTION] Prev. year question/Electric Field and Electric Flux.md",
+    "bou-cse/11 Semester/EEE/[SOLUTION] Prev. year question/Ampère’s Law.md",
+    "bou-cse/11 Semester/EEE/[SOLUTION] Prev. year question/171 Term Q1(a) Define electric field and electric field intensity..md",
+    "bou-cse/11 Semester/EEE/Practical EEE/Untitled.md",
+    "bou-cse/11 Semester/EEE/Practical EEE/Practical EEE.md",
+    "bou-cse/11 Semester/PHY/Wave",
+    "bou-cse/11 Semester/PHY/testing for ofsidian sync thinking.md",
+    "bou-cse/11 Semester/PHY/Physics Full Suggestion.md",
+    "bou-cse/11 Semester/PHY/PHY.md",
+    "bou-cse/11 Semester/PHY/Heat and Thermodynamics",
+    "bou-cse/11 Semester/MATH/[Solution] Function - Pre..md",
+    "bou-cse/11 Semester/MATH/[Analysis] - MATH prev. yr question.md",
+    "bou-cse/11 Semester/MATH/Untitled.md",
+    "bou-cse/11 Semester/MATH/MATH.md",
+    "bou-cse/11 Semester/MATH/MATH - Previous Y. Question.md",
+    "bou-cse/11 Semester/MATH/MAT - Study Plan.md",
+    "bou-cse/11 Semester/MATH/Anl - Exact Questions.md",
+    "bou-cse/11 Semester/EEE/[SOLUTION] Prev. year question",
+    "bou-cse/11 Semester/EEE/Practical EEE",
+    "bou-cse/11 Semester/PHY",
+    "bou-cse/11 Semester/MATH",
+    "bou-cse/11 Semester/ENG",
+    "bou-cse/11 Semester/EEE",
+    "bou-cse/11 Semester/CSE",
+    "Media Library/image-38.png",
+    "Media Library/BOU CSE Admission Circular pdf colour2024 conv 1.jpeg",
+    "Media Library/image-36.png",
+    "Media Library/image-35.png",
+    "Media Library/image-34.png",
+    "Media Library/obaidul-kader BOU admission conv 1.jpeg",
+    "Media Library/image-33.png",
+    "Media Library/image-32.png",
+    "bou-cse/1 1 Semester/Business/e6bc26c7a2617dafea44379d5d236b97.gif",
+    "Media Library/image-31.png"
+  ]
+}

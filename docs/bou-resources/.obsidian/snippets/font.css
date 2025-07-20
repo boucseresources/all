@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wdth,wght@62.5..100,100..900&display=swap');
+/*font
+fami IY*/
+:root{
+
+	--font-family-list : "Noto Serif Bengali", serif;
+--font-family-major: "Noto Serif Bengali", serif;
+--font-family-hl: "Noto Serif Bengali", serif;
+--font-family-h2: "Noto Serif Bengali", serif;
+--font-family-h3: "Noto Serif Bengali", serif;
+--font-family-h4: "Noto Serif Bengali", serif;
+--font-family-h5: "Noto Serif Bengali", serif;
+--font-family-h6: "Noto Serif Bengali", serif;
+--font-family-title: "Noto Serif Bengali", serif;
+}

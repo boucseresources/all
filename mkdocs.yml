@@ -1,0 +1,111 @@
+site_name: Bou CSE Resources
+site_url: https://rakibulhashanr.github.io/boucse/
+# nav:
+#   - Home: index.md
+#   - Resources:
+#       - Overview: bou-resources/index.md # This fixes the `/bou-resources/` link
+#       - Tags: bou-resources/Tags/index.md
+#   - CSE Topics:
+#       - All: bou-resources/bou-cse/
+
+theme:
+  name: material
+  custom_dir: overrides
+  font:
+    text: Noto Serif Bengali
+    code: Roboto Mono
+  logo: assets/logo-bou.png
+  favicon: assets/logo-bou.png
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.footer
+    - navigation.sections
+    - navigation.indexes
+    - toc.follow
+    # - navigation.expand
+    - navigation.top
+  palette:
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+      primary: deep purple
+      accent: light green
+
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+      primary: blue
+      accent: deep orange
+plugins:
+  - search
+  - glightbox
+  - obsidian-bridge
+  - awesome-pages
+
+# git branch -M main
+
+# git push -u origin main
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/rakibulhashanrabbi/
+  meta:
+    - name: google-site-verification
+      content: WF9pE13AKFsCCA2jWrdrIyYoY6uIxRTfKLnmglH1W-g
+    - name: description
+      content: "Free CSE study materials for Bangladesh Open University students."
+    - name: keywords
+      content: "bou admission, bou cse admission, bou cse admission circular, bou cse, bou cse resources, bangladesh open university, bou sst"
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - markdown.extensions.nl2br
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+        # extra:
+        #   social:
+        #     - icon: simple/youtube
+        #       link: https://youtube.com/@james-willett
+        #     - icon: simple/linkedin
+        #       link: https://linkedin.com/in/willettjames
+
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+copyright: Copyright &copy; 2025 Rakibul Hashan

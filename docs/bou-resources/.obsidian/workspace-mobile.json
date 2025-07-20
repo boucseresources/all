@@ -1,0 +1,208 @@
+{
+  "main": {
+    "id": "27addd9871d20139",
+    "type": "split",
+    "children": [
+      {
+        "id": "a2163aac13772bbb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5e176c99376707b1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "bou-cse/README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "561455b2ce57dac1",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "dae73411410fab51",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": false
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Files"
+        }
+      },
+      {
+        "id": "6d3b4d1198d4359b",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Search"
+        }
+      },
+      {
+        "id": "dd701546e1071ec9",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-tags",
+          "title": "Tags"
+        }
+      },
+      {
+        "id": "70a686fbec3e1a2d",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Bookmarks"
+        }
+      },
+      {
+        "id": "27b8930ae002ac4f",
+        "type": "leaf",
+        "state": {
+          "type": "mk-path-view",
+          "state": {},
+          "icon": "layout-grid",
+          "title": "Navigator"
+        }
+      }
+    ],
+    "currentTab": 5
+  },
+  "right": {
+    "id": "9d28a5e1c8baf024",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "8643e4cb779099f9",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "EEE/Previous year question analysis.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Backlinks"
+        }
+      },
+      {
+        "id": "b74ea655d2779891",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "PHY/testing for ofsidian sync thinking.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Outgoing links"
+        }
+      },
+      {
+        "id": "44ad23fede7c5883",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "PHY/testing for ofsidian sync thinking.md",
+            "followCursor": false,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-list",
+          "title": "Outline"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "edge-tts:Read note aloud": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "math-indicator-changer:Change math indicator": false
+    }
+  },
+  "active": "5e176c99376707b1",
+  "lastOpenFiles": [
+    "Business/[Study Plan] Business.md",
+    "Vault.md",
+    "bou-cse/1 1 Semester/PHY/Heat and Thermodynamics/Heat and Thermodynamics.md",
+    "bou-cse/1 1 Semester/EEE/[SOLUTION] Prev. year question/গাউস থেইকা কুলম্ব.md",
+    "bou-cse/1 1 Semester/EEE/[SOLUTION] Prev. year question/171 Term Q1(a) Define electric field and electric field intensity..md",
+    "bou-cse/1 1 Semester/EEE/[SOLUTION] Prev. year question/[SOLUTION] Prev. year question.md",
+    "bou-cse/1 1 Semester/EEE/[SOLUTION] Prev. year question/Electric Field and Electric Flux.md",
+    "bou-cse/1 1 Semester/EEE/[SOLUTION] Prev. year question/[Old Q7 (i)] Short note Electric flux (part of Gauss's Law topic)..md",
+    "bou-cse/1 1 Semester/EEE/[SOLUTION] Prev. year question/Ampère’s Law.md",
+    "bou-cse/1 1 Semester/EEE/Practical EEE/Practical EEE.md",
+    "bou-cse/1 1 Semester/EEE/Practical EEE/Untitled.md",
+    "bou-cse/1 1 Semester/PHY/testing for ofsidian sync thinking.md",
+    "bou-cse/1 1 Semester/PHY/Physics Full Suggestion.md",
+    "bou-cse/1 1 Semester/PHY/PHY.md",
+    "bou-cse/1 1 Semester/PHY/Wave",
+    "bou-cse/1 1 Semester/PHY/Heat and Thermodynamics",
+    "bou-cse/1 1 Semester/MATH/[Analysis] - MATH prev. yr question.md",
+    "bou-cse/1 1 Semester/MATH/MATH.md",
+    "bou-cse/1 1 Semester/MATH/MAT - Study Plan.md",
+    "bou-cse/1 1 Semester/MATH/[Solution] Function - Pre..md",
+    "bou-cse/1 1 Semester/MATH/All Formula.md",
+    "bou-cse/1 1 Semester/MATH/Anl - Exact Questions.md",
+    "bou-cse/1 1 Semester/MATH/Untitled.md",
+    "bou-cse/1 1 Semester/MATH/MATH - Previous Y. Question.md",
+    "bou-cse/1 1 Semester/ENG/Vocabulary.md",
+    "bou-cse/1 1 Semester/ENG/Stress.md",
+    "bou-cse/1 1 Semester/ENG/Prev - Year Questions  11 English.md",
+    "bou-cse/1 1 Semester/ENG/Writings Part.md",
+    "bou-cse/1 1 Semester/EEE/[SOLUTION] Prev. year question",
+    "bou-cse/1 1 Semester/EEE/Practical EEE",
+    "bou-cse/1 1 Semester/PHY",
+    "bou-cse/1 1 Semester/MATH",
+    "bou-cse/1 1 Semester/ENG",
+    "bou-cse/1 1 Semester/EEE",
+    "bou-cse/1 1 Semester/CSE",
+    "bou-cse/1 1 Semester/Business",
+    "image-17.png"
+  ]
+}
