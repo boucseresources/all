@@ -17,6 +17,8 @@ theme:
   favicon: assets/logo-bou.png
   features:
     - navigation.instant
+    - search.suggest
+    - search.highlight
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.instant.prefetch
@@ -100,6 +102,7 @@ markdown_extensions:
 
 
 extra_javascript:
+  - meta-inject.js
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - javascripts/katex.js
