@@ -12,9 +12,17 @@ The program is structured into **4 academic years**, each consisting of **2 seme
 
     [10 Batch DRC Google Drive](https://drive.google.com/drive/folders/19kpt_tGQx-n6eeMbTlfHixPcpop21odu?usp=sharing)
 
+    [10 Batch DUET Google Drive](https://drive.google.com/drive/folders/13YhlgtlmYUjok_UJLqkjJi7WsB_bp88e?usp=drive_link)
+
+    [8th Batch DRC Google Drive](https://drive.google.com/drive/folders/1P3aQWtg6fGxKgVz2MkfJV8tQgHxXgQXy?usp=drive_link)
+    
+    [6th Batch DRC Google Drive](https://drive.google.com/drive/folders/1OkUZ6aF_y4ofv9SDDABiHElcBZ8FHOJv?usp=drive_link)
+
 === "1️⃣ First Year"
 
     [10 Batch DRC Google Drive](https://drive.google.com/drive/folders/19kpt_tGQx-n6eeMbTlfHixPcpop21odu?usp=sharing)
+    [8th Batch DUET Google Drive](https://drive.google.com/drive/folders/1mL-0g9laSPyZ607l5WjaePDf0vWPAsIB?usp=drive_link)
+
 
 === "2️⃣ Second Year"
 
