@@ -51,9 +51,6 @@ plugins:
   - obsidian-bridge
   - awesome-pages
 
-# git branch -M main
-
-# git push -u origin main
 
 extra:
   social:
