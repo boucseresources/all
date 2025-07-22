@@ -1,0 +1,5157 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://boucseresources.github.io/all/bou-resources/bou-cse/11%20Semester/CSE/Number%20System%20%28Addition%29/">
+      
+      
+        <link rel="prev" href="../Evolution%20of%20Computers/">
+      
+      
+        <link rel="next" href="../Number%20System/">
+      
+      
+      <link rel="icon" href="../../../../../assets/logo-bou.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Number System (Addition) - Bou CSE Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+Bengali:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif Bengali";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-L5PLKJC0BE"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-L5PLKJC0BE",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-L5PLKJC0BE",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="light-green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#binary-addition-section-top-part-of-the-page" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Bou CSE Resources" class="md-header__button md-logo" aria-label="Bou CSE Resources" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo-bou.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bou CSE Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Number System (Addition)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="light-green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../Admission%20Information/bou-cse-admission-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  BOU Resources
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://bou.ac.bd" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Visit BOU
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Bou CSE Resources" class="md-nav__button md-logo" aria-label="Bou CSE Resources" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo-bou.png" alt="logo">
+
+    </a>
+    Bou CSE Resources
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    BOU Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            BOU Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Admission Information
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Admission Information
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Admission%20Information/bou-cse-admission-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    আমার BOU CSE ভর্তি যাত্রা
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    CSE Program
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            CSE Program
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Kichcu nai
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Kichcu nai
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11semester/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hello
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_2" id="__nav_2_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Business
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Business
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Business/Accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accounting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Business/CT%2002%20Question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CT 02 Question
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Business/Introduction%20to%20Business/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Business
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Business/Join%20Stock%20Company/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Join Stock Company
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Business/Journal%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Journal Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Business/Journal%20and%20Tabular%20Sheet%20Rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Journal and Tabular Sheet Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Business/Partnership/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Partnership
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Business/Previous%20Year%20Question%20-%20Business/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Previous Year Question   Business
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Business/Revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Revision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Business/%5BChapter%20wise%5D%20Questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Chapter wise] Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Business/%5BStudy%20Plan%5D%20Business/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Study Plan] Business
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_3" id="__nav_2_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CSE
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            CSE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis%20-%20CSE%20Prev.%20Yr%20Questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Analysis   CSE Prev. Yr Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic%20Computer%20Organization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basic Computer Organization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CSEFUND%20-%20Repeated%20Questions%20analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSEFUND   Repeated Questions analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter%20Data%20Communication%20%26%20Networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter Data Communication & Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Softwares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Softwares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Evolution%20of%20Computers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evolution of Computers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Number System (Addition)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Number System (Addition)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#binary-addition-section-top-part-of-the-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔢 Binary Addition Section (Top Part of the Page)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Explanation:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-the-trick-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 What’s the Trick Here?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-addition-shortcut-mental-math-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚡️ Binary Addition Shortcut (Mental Math Style)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚡️ Binary Addition Shortcut (Mental Math Style)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-shortcut" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Step-by-Step Shortcut:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trick-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Trick Summary:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-trick-from-the-image-top-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      📸 Your Trick from the Image (Top part):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-happening-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚡ What’s Happening Here?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-addition-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔁 Column Addition Breakdown
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trick-summary-from-your-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Trick Summary (from your image):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-memory-binary-trick-for-09-use-8-4-2-1-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 No-Memory Binary Trick for 0–9 (Use 8-4-2-1 Grid)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 No-Memory Binary Trick for 0–9 (Use 8-4-2-1 Grid)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Examples:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Examples:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 → Binary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 → Binary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 → Binary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-hand-trick-using-4-fingers" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ BONUS: Hand Trick (using 4 fingers)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-column-addition-trick-using-subtraction-from-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Binary Column Addition Trick (Using Subtraction from Base)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 Binary Column Addition Trick (Using Subtraction from Base)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-adding-5-ones-in-a-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Example: Adding 5 ones in a column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔁 General Pattern:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-in-column-addition" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 How to Use in Column Addition:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-line-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ One-Line Rule:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-add-these-5-binary-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 Example: Add these 5 binary numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-4-rightmost" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 Column 4 (rightmost):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 Column 3:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 Column 2:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-1-leftmost" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 Column 1 (leftmost):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-step-add-remaining-carry-3-as-new-left-bits" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧮 Final step: Add remaining carry (3) as new left bits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Final Answer:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Number%20System/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Number System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pre.%20Yr%20questions%20-%20All/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pre. Yr questions   All
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Untitled%201/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Untitled 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Untitled/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Untitled
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5BAnalysis%5D%20Prev.%20Year%20Question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Analysis] Prev. Year Question
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_4" id="__nav_2_2_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    EEE
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            EEE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/Circuit%20Principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Circuit Principles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/EEE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EEE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/Magnetism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Magnetism
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/Pre.%20Year%20Ques./" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pre. Year Ques.
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/Previous%20year%20question%20analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Previous year question analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/Solution%20-%20Prev.%20Y%20Question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Solution   Prev. Y Question
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/Study%20Target/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Study Target
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/These%20directions%20are%20opposite%20due%20to%20their%20definitions%20and%20physical%20meaning./" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    These directions are opposite due to their definitions and physical meaning.
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/VC%20Sir%20Notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VC Sir Notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/VC%20Sir%20Notes.sync-conflict-20250530-231336-6YJCLFC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VC Sir Notes.sync conflict 20250530 231336 6YJCLFC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_4_11" id="__nav_2_2_1_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practical EEE
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_1_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            Practical EEE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/Practical%20EEE/Practical%20EEE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Practical EEE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/Practical%20EEE/Untitled/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Untitled
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_4_12" id="__nav_2_2_1_4_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    [SOLUTION] Prev. year question
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_1_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            [SOLUTION] Prev. year question
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/%5BSOLUTION%5D%20Prev.%20year%20question/171%20Term%20Q1%28a%29%20Define%20electric%20field%20and%20electric%20field%20intensity./" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    171 Term Q1(a) Define electric field and electric field intensity.
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/%5BSOLUTION%5D%20Prev.%20year%20question/Amp%C3%A8re%E2%80%99s%20Law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ampère’s Law
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/%5BSOLUTION%5D%20Prev.%20year%20question/Electric%20Field%20and%20Electric%20Flux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Electric Field and Electric Flux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/%5BSOLUTION%5D%20Prev.%20year%20question/%5BOld%20Q7%20%28i%29%5D%20Short%20note%20Electric%20flux%20%28part%20of%20Gauss%27s%20Law%20topic%29./" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Old Q7 (i)] Short note Electric flux (part of Gauss's Law topic).
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/%5BSOLUTION%5D%20Prev.%20year%20question/%5BSOLUTION%5D%20Prev.%20year%20question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [SOLUTION] Prev. year question
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EEE/%5BSOLUTION%5D%20Prev.%20year%20question/%E0%A6%97%E0%A6%BE%E0%A6%89%E0%A6%B8%20%E0%A6%A5%E0%A7%87%E0%A6%87%E0%A6%95%E0%A6%BE%20%E0%A6%95%E0%A7%81%E0%A6%B2%E0%A6%AE%E0%A7%8D%E0%A6%AC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    গাউস থেইকা কুলম্ব
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_5" id="__nav_2_2_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ENG
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            ENG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/ENG%20-%20Study%20Plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ENG   Study Plan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/ENG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ENG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/IPA%20Transcription%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IPA Transcription Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/Letter%20Writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Letter Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/Phonetics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phonetics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/Pre%20Year%20Q.%20Solution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pre Year Q. Solution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/Prev%20-%20Year%20Questions%20%2011%20English/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prev   Year Questions  11 English
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/Reading%20and%20Listening/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reading and Listening
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/Revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Revision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/Stress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stress
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/Vocabulary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vocabulary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/Writings%20Part/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Writings Part
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/%5BAnalysis%20%5D%20-%20ENG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Analysis ]   ENG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENG/%5BChapt%20Wise%20%5D%20Previous%20year%20question%20ENG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Chapt Wise ] Previous year question ENG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_6" id="__nav_2_2_1_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MATH
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            MATH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MATH/All%20Formula/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    All Formula
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MATH/Anl%20-%20Exact%20Questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MAT1134: Differential and Integral Calculus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MATH/MAT%20-%20Study%20Plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MAT   Study Plan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MATH/MATH%20-%20Previous%20Y.%20Question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MATH   Previous Y. Question
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MATH/MATH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MATH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MATH/Untitled/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Untitled
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MATH/%5BAnalysis%5D%20-%20MATH%20prev.%20yr%20question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Analysis]   MATH prev. yr question
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MATH/%5BSolution%5D%20Function%20-%20Pre./" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Solution] Function   Pre.
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_7" id="__nav_2_2_1_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PHY
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            PHY
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PHY/PHY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PHY
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PHY/Physics%20Full%20Suggestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Physics Full Suggestion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PHY/testing%20for%20ofsidian%20sync%20thinking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing for ofsidian sync thinking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PHY/Heat%20and%20Thermodynamics/Heat%20and%20Thermodynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Heat and Thermodynamics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    12 Semester
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            12 Semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/12%20Semester/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12 Semester
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_2" id="__nav_2_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    21 Semester
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            21 Semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/21%20Semester/21%20Semester/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    21 Semester
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_3" id="__nav_2_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linear Algebra and Differential Equations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Linear Algebra and Differential Equations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/Linear%20Algebra%20and%20Differential%20Equations/Linear%20Algebra%20and%20Differential%20Equations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linear Algebra and Differential Equations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/Linear%20Algebra%20and%20Differential%20Equations/%5BDFL%5D%20Prev.%20Question%20Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [DFL] Prev. Question Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_4" id="__nav_2_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Structured Programming Language
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Structured Programming Language
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/Structured%20Programming%20Language/STP%20Previous%20Year%20Question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STP Previous Year Question
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/Structured%20Programming%20Language/Structured%20Programming%20Language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Structured Programming Language
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/Structured%20Programming%20Language/%5BAnalysis%5D%20STP%20Prev.%20Question%20analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Analysis] STP Prev. Question analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/Structured%20Programming%20Language/%5BStudy%20Plan%5D%20for%20Structured%20Programming%20Language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Study Plan] for Structured Programming Language
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_4_5" id="__nav_2_2_2_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Learning C
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_2_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Learning C
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/Structured%20Programming%20Language/Learning%20C/C%20Format%20Specifiers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C Format Specifiers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/Structured%20Programming%20Language/Learning%20C/C%20and%20JavaScript%20comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C and JavaScript comparison
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/Structured%20Programming%20Language/Learning%20C/Learning%20C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Learning C
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12%20Semester/Structured%20Programming%20Language/Learning%20C/Untitled/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Untitled
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    21 Semester
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            21 Semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../21%20Semester/21%20Semester/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    21 Semester
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    22 Semester
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            22 Semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../22%20Semester/22%20Semester/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    22 Semester
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    31 Semester
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            31 Semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../31%20Semester/31%20Semester/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    31 Semester
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    32 Semester
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            32 Semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../32%20Semester/32%20Semester/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    32 Semester
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_8" id="__nav_2_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    41 Semester
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            41 Semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../41%20Semester/41%20Semester/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    41 Semester
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_9" id="__nav_2_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    42 Semester
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            42 Semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../42%20Semester/42%20Semester/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    42 Semester
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bou.ac.bd" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visit BOU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#binary-addition-section-top-part-of-the-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔢 Binary Addition Section (Top Part of the Page)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Explanation:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-the-trick-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 What’s the Trick Here?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-addition-shortcut-mental-math-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚡️ Binary Addition Shortcut (Mental Math Style)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚡️ Binary Addition Shortcut (Mental Math Style)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-shortcut" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Step-by-Step Shortcut:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trick-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Trick Summary:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-trick-from-the-image-top-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      📸 Your Trick from the Image (Top part):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-happening-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚡ What’s Happening Here?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-addition-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔁 Column Addition Breakdown
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trick-summary-from-your-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Trick Summary (from your image):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-memory-binary-trick-for-09-use-8-4-2-1-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 No-Memory Binary Trick for 0–9 (Use 8-4-2-1 Grid)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 No-Memory Binary Trick for 0–9 (Use 8-4-2-1 Grid)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Examples:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Examples:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 → Binary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 → Binary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 → Binary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-hand-trick-using-4-fingers" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ BONUS: Hand Trick (using 4 fingers)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-column-addition-trick-using-subtraction-from-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Binary Column Addition Trick (Using Subtraction from Base)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 Binary Column Addition Trick (Using Subtraction from Base)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-adding-5-ones-in-a-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Example: Adding 5 ones in a column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔁 General Pattern:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-in-column-addition" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 How to Use in Column Addition:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-line-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ One-Line Rule:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-add-these-5-binary-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 Example: Add these 5 binary numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-4-rightmost" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 Column 4 (rightmost):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 Column 3:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 Column 2:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-1-leftmost" class="md-nav__link">
+    <span class="md-ellipsis">
+      📍 Column 1 (leftmost):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-step-add-remaining-carry-3-as-new-left-bits" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧮 Final step: Add remaining carry (3) as new left bits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Final Answer:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Number System (Addition)</h1>
+
+<p>Sure! Let me explain the binary addition trick shown in your image step-by-step:</p>
+<hr />
+<h3 id="binary-addition-section-top-part-of-the-page">🔢 <strong>Binary Addition Section (Top Part of the Page)</strong></h3>
+<p>You’re adding <strong>4 binary numbers</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  110111   (55 in decimal)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>+ 101101   (45 in decimal)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+ 111111   (63 in decimal)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>+ 101101   (45 in decimal)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>---------
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>10000000   (128 in decimal)
+</span></code></pre></div>
+<hr />
+<h3 id="explanation">✅ <strong>Explanation:</strong></h3>
+<ol>
+<li><strong>Align All Numbers</strong>:</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Carry →       0 0 0 0 0 0 0
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>            110111
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>            101101
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>            111111
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>          + 101101
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>          ----------
+</span></code></pre></div>
+<ol>
+<li>
+<p><strong>Column-wise Addition from Right to Left:</strong><br />
+   Start adding bits just like decimal addition, but using binary rules:</p>
+</li>
+<li>
+<p><code>0 + 1 = 1</code></p>
+</li>
+<li><code>1 + 1 = 10</code> (which is 0 with a carry of 1)</li>
+<li><code>1 + 1 + 1 = 11</code> (which is 1 with a carry of 1)</li>
+<li>
+<p><code>1 + 1 + 1 + 1 = 100</code> (which is 0 with a carry of 2 → propagate carry)</p>
+</li>
+<li>
+<p>After adding all, you get <code>10000000</code> (which is 128 in decimal).</p>
+</li>
+</ol>
+<hr />
+<h3 id="whats-the-trick-here">🧠 What’s the Trick Here?</h3>
+<p>When adding multiple binary numbers:</p>
+<ul>
+<li>If <strong>sum at any column ≥ 2</strong>, you carry over to the next.</li>
+<li>Use the idea: <code>sum % 2 = result bit</code>, <code>carry = floor(sum / 2)</code></li>
+</ul>
+<p>For example:</p>
+<ul>
+<li>
+<p><code>1 + 1 + 1 = 3</code></p>
+</li>
+<li>
+<p><code>3 % 2 = 1</code> → result bit</p>
+</li>
+<li><code>3 / 2 = 1</code> (floor) → carry</li>
+<li>You can keep adding carry to the next column as you would in decimal.</li>
+</ul>
+<hr />
+<h3 id="binary-addition-shortcut-mental-math-style">⚡️ Binary Addition Shortcut (Mental Math Style)</h3>
+<p>Let’s say you're adding:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>110111  
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>101101  
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>111111  
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>101101  
+</span></code></pre></div>
+<h4 id="step-by-step-shortcut">🧠 Step-by-Step Shortcut:</h4>
+<ol>
+<li>
+<p><strong>Convert each binary number to decimal</strong> (fast if you know powers of 2):</p>
+</li>
+<li>
+<p><code>110111</code> → <strong>55</strong></p>
+</li>
+<li><code>101101</code> → <strong>45</strong></li>
+<li><code>111111</code> → <strong>63</strong></li>
+<li>
+<p><code>101101</code> → <strong>45</strong></p>
+</li>
+<li>
+<p><strong>Add them in decimal</strong>:</p>
+</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>55 + 45 = 100  
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>100 + 63 = 163  
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>163 + 45 = **208**
+</span></code></pre></div>
+<ol>
+<li><strong>Convert 208 back to binary</strong>:</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>208 ÷ 2 = 104 R0  
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>104 ÷ 2 = 52  R0  
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>52 ÷ 2  = 26  R0  
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>26 ÷ 2  = 13  R0  
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>13 ÷ 2  = 6   R1  
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>6 ÷ 2   = 3   R0  
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>3 ÷ 2   = 1   R1  
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>1 ÷ 2   = 0   R1
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>→ Binary: **11010000**
+</span></code></pre></div>
+<p>✅ You now have the answer without doing column-wise carry.</p>
+<hr />
+<h3 id="trick-summary">✅ Trick Summary:</h3>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Tip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Convert binary → decimal</td>
+<td>Use quick lookup or memorize small ones</td>
+</tr>
+<tr>
+<td>2. Add in decimal</td>
+<td>Much faster than manual binary sum</td>
+</tr>
+<tr>
+<td>3. Convert result → binary</td>
+<td>Use divide-by-2 shortcut</td>
+</tr>
+</tbody>
+</table>
+<h3 id="your-trick-from-the-image-top-part">📸 <strong>Your Trick from the Image (Top part):</strong></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Carry →         0
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>             110111
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>             101101
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>             111111
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>           + 101101
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>          ----------
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>             10000000
+</span></code></pre></div>
+<hr />
+<h3 id="whats-happening-here">⚡ What’s Happening Here?</h3>
+<p>You're adding <strong>four binary numbers</strong>, and the trick is:</p>
+<blockquote>
+<p>✅ <strong>Whenever a column sum reaches 4 (in decimal), it triggers 3 steps:</strong></p>
+<ol>
+<li>Convert 4 to binary: <code>100</code></li>
+<li>That means <code>carry = 1</code> to the next left column</li>
+<li>Final result = place a 0 in current column and propagate</li>
+</ol>
+</blockquote>
+<p>In Bengali from your image:</p>
+<blockquote>
+<p><strong>"৪ বা তার বেশি হলেই ০ বসাও, ১ carry যাও, ৩-step হয়"</strong></p>
+</blockquote>
+<p>Translated:<br />
+“If column total is 4 or more → put 0, carry 1, 3 steps happen”</p>
+<hr />
+<h3 id="column-addition-breakdown">🔁 Column Addition Breakdown</h3>
+<p>Let's analyze <strong>column-by-column</strong> from right to left (just like decimal addition), tracking how many 1s you get:</p>
+<table>
+<thead>
+<tr>
+<th>Column #</th>
+<th>Bits being added</th>
+<th>Count of 1s</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (rightmost)</td>
+<td>1 + 1 + 1 + 1</td>
+<td>4</td>
+<td><code>4 = 100</code> → write <code>0</code>, carry <code>1</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>1 + 0 + 1 + 0 + 1 (carry)</td>
+<td>3</td>
+<td><code>3 = 11</code>  → write <code>1</code>, carry <code>1</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>1 + 1 + 1 + 1 + 1 (carry)</td>
+<td>5</td>
+<td><code>5 = 101</code> → write <code>1</code>, carry <code>1</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>0 + 1 + 1 + 0 + 1 (carry)</td>
+<td>3</td>
+<td><code>3 = 11</code>  → write <code>1</code>, carry <code>1</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>1 + 0 + 1 + 1 + 1 (carry)</td>
+<td>4</td>
+<td><code>4 = 100</code> → write <code>0</code>, carry <code>1</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>1 + 1 + 1 + 1 + 1 (carry)</td>
+<td>5</td>
+<td><code>5 = 101</code> → write <code>1</code>, carry <code>1</code></td>
+</tr>
+<tr>
+<td>7 (final carry)</td>
+<td>1 (carry)</td>
+<td>1</td>
+<td>write <code>1</code></td>
+</tr>
+</tbody>
+</table>
+<p>Final answer: <strong><code>10000000</code></strong></p>
+<hr />
+<h3 id="trick-summary-from-your-image">🧠 Trick Summary (from your image):</h3>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>If total in column ≥ 4</td>
+<td>Convert total to binary</td>
+</tr>
+<tr>
+<td>When total = 4 (100 in binary)</td>
+<td>Put 0 in result, carry 1</td>
+</tr>
+<tr>
+<td>When total = 3 (11) or 5 (101)</td>
+<td>Carry 1 and write 1 accordingly</td>
+</tr>
+<tr>
+<td>Carry added just like extra input in next column</td>
+<td>Like decimal carry logic</td>
+</tr>
+</tbody>
+</table>
+<h2 id="no-memory-binary-trick-for-09-use-8-4-2-1-grid">🧠 No-Memory Binary Trick for 0–9 (Use 8-4-2-1 Grid)</h2>
+<p>This is called the <strong>8421 shortcut</strong>, also known as the <strong>binary weight method</strong>.</p>
+<p>Just draw this grid in your mind (or on paper once) 👇</p>
+<table>
+<thead>
+<tr>
+<th>8</th>
+<th>4</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Now just <strong>fill in 1s</strong> to add up to the number!</p>
+<hr />
+<h3 id="examples">✅ Examples:</h3>
+<p>Let’s say you want to convert:</p>
+<h4 id="5-binary">5 → Binary</h4>
+<table>
+<thead>
+<tr>
+<th>8</th>
+<th>4</th>
+<th>2</th>
+<th>1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>→ ✅ <strong>0101</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Because 4 + 1 = 5</p>
+<hr />
+<h4 id="7-binary">7 → Binary</h4>
+<table>
+<thead>
+<tr>
+<th>8</th>
+<th>4</th>
+<th>2</th>
+<th>1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>→ ✅ <strong>0111</strong></td>
+</tr>
+</tbody>
+</table>
+<p>(4 + 2 + 1 = 7)</p>
+<hr />
+<h4 id="9-binary">9 → Binary</h4>
+<table>
+<thead>
+<tr>
+<th>8</th>
+<th>4</th>
+<th>2</th>
+<th>1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>→ ✅ <strong>1001</strong></td>
+</tr>
+</tbody>
+</table>
+<p>(8 + 1 = 9)</p>
+<hr />
+<h2 id="bonus-hand-trick-using-4-fingers">✅ BONUS: Hand Trick (using 4 fingers)</h2>
+<ul>
+<li>Assign fingers:<br />
+  Thumb = 8<br />
+  Index = 4<br />
+  Middle = 2<br />
+  Ring = 1</li>
+</ul>
+<p>Want to show 6? Raise <strong>Index (4) + Middle (2)</strong> → 6 = 0110</p>
+<hr />
+<p>But if you forget?<br />
+👉 <strong>Just use 8-4-2-1 boxes.</strong></p>
+<h2 id="binary-column-addition-trick-using-subtraction-from-base">🧠 Binary Column Addition Trick (Using Subtraction from Base)</h2>
+<p>Let’s say you're adding several <code>1</code>s in a column.<br />
+Each time the <strong>sum ≥ base (2 in binary)</strong>, you:</p>
+<ul>
+<li>Write a <code>0</code> and <strong>carry 1</strong></li>
+<li>Keep subtracting base (2) to find how many <strong>times you carry</strong></li>
+</ul>
+<hr />
+<h3 id="example-adding-5-ones-in-a-column">✅ Example: Adding 5 ones in a column</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>1 + 1 + 1 + 1 + 1 = 5
+</span></code></pre></div>
+<p>Now apply your trick:</p>
+<ul>
+<li>5 − 2 = 3 → Carry 1</li>
+<li>3 − 2 = 1 → Carry 1</li>
+<li>1 &lt; 2 → Stop (final bit = 1)</li>
+</ul>
+<h3 id="final">Final:</h3>
+<ul>
+<li>Result bit = <strong>1</strong></li>
+<li>Carries = <strong>2</strong></li>
+</ul>
+<p>So → <code>5 = 101</code> in binary<br />
+→ You write <code>1</code>, and carry <code>2</code> steps</p>
+<hr />
+<h3 id="general-pattern">🔁 General Pattern:</h3>
+<table>
+<thead>
+<tr>
+<th>Total 1s</th>
+<th>Subtraction Steps (Carry)</th>
+<th>Final Binary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>1 carry</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1 carry</td>
+<td>11</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2 carries</td>
+<td>100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2 carries</td>
+<td>101</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3 carries</td>
+<td>110</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-to-use-in-column-addition">📌 How to Use in Column Addition:</h3>
+<p><strong>Just keep subtracting 2 until ≤1, and count how many times.</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Sum = 5  
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>→ 5 − 2 = 3 (carry 1)  
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>→ 3 − 2 = 1 (carry 1 more)  
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>→ Stop (bit = 1)
+</span></code></pre></div>
+<p>You write down the <strong>last remainder</strong>, and carry as many times as you subtracted 2.</p>
+<h3 id="one-line-rule">✅ One-Line Rule:</h3>
+<blockquote>
+<p>"Keep subtracting 2 from sum, each subtraction is a carry. When remainder &lt; 2, that’s your result bit."</p>
+</blockquote>
+<p>Perfect! Let’s try a full example using the <strong>division &amp; modulo trick</strong> to add multiple binary numbers column by column.</p>
+<hr />
+<h3 id="example-add-these-5-binary-numbers">🧪 Example: Add these 5 binary numbers</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>  1101
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>+ 1111
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>+ 1011
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>+ 0110
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>+ 1001
+</span></code></pre></div>
+<p>Let’s stack them for clarity:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>   1  1  0  1
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a> + 1  1  1  1
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a> + 1  0  1  1
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a> + 0  1  1  0
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a> + 1  0  0  1
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a> ----------------
+</span></code></pre></div>
+<p>We’ll go <strong>column by column</strong>, from <strong>right to left</strong>:</p>
+<hr />
+<h3 id="column-4-rightmost">📍 Column 4 (rightmost):</h3>
+<p>Bits: <code>1 + 1 + 1 + 0 + 1 = 4</code></p>
+<p>→ <code>bit = 4 % 2 = 0</code><br />
+→ <code>carry = 4 / 2 = 2</code></p>
+<p>✅ Write <code>0</code>, carry <code>2</code> to next column</p>
+<hr />
+<h3 id="column-3">📍 Column 3:</h3>
+<p>Bits: <code>0 + 1 + 1 + 1 + 0 = 3</code><br />
+Add carry <code>2</code> → total <code>5</code></p>
+<p>→ <code>bit = 5 % 2 = 1</code><br />
+→ <code>carry = 5 // 2 = 2</code></p>
+<p>✅ Write <code>1</code>, carry <code>2</code></p>
+<hr />
+<h3 id="column-2">📍 Column 2:</h3>
+<p>Bits: <code>1 + 1 + 0 + 1 + 0 = 3</code><br />
+Add carry <code>2</code> → total <code>5</code></p>
+<p>→ <code>bit = 1</code>, carry = 2</p>
+<p>✅ Write <code>1</code>, carry <code>2</code></p>
+<hr />
+<h3 id="column-1-leftmost">📍 Column 1 (leftmost):</h3>
+<p>Bits: <code>1 + 1 + 1 + 0 + 1 = 4</code><br />
+Add carry <code>2</code> → total <code>6</code></p>
+<p>→ <code>bit = 6 % 2 = 0</code><br />
+→ <code>carry = 3</code></p>
+<p>✅ Write <code>0</code>, carry <code>3</code></p>
+<hr />
+<h3 id="final-step-add-remaining-carry-3-as-new-left-bits">🧮 Final step: Add remaining carry (3) as new left bits</h3>
+<p><code>carry = 3 = 11 in binary</code></p>
+<p>So we write:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>  11 0 1 1 0
+</span></code></pre></div>
+<hr />
+<h3 id="final-answer">✅ Final Answer:</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>110110
+</span></code></pre></div>
+<p>Which is <strong>decimal 54</strong></p>
+<hr />
+<p><a class="glightbox" href="../../../../Media%20Library/image-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-22.png" src="../../../../Media%20Library/image-22.png" /></a></p>
+<p><a class="glightbox" href="../../../../Media%20Library/image-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-23.png" src="../../../../Media%20Library/image-23.png" /></a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              
+              
+                
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              
+              
+                
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Evolution%20of%20Computers/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Evolution of Computers">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Evolution of Computers
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Number%20System/" class="md-footer__link md-footer__link--next" aria-label="Next: Number System">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Number System
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Rakibul Hashan
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/rakibulhashanrabbi/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "search.suggest", "search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.footer", "navigation.sections", "navigation.indexes", "toc.follow", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../../../../meta-inject.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
