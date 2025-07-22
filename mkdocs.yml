@@ -51,8 +51,8 @@ plugins:
   - obsidian-bridge
   - awesome-pages
 
-
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/rakibulhashanrabbi/
@@ -103,14 +103,6 @@ markdown_extensions:
   - pymdownx.details
   - attr_list
   - md_in_html
-  - pymdownx.blocks.caption
-
-    # extra:
-    #   social:
-    #     - icon: simple/youtube
-    #       link: https://youtube.com/@james-willett
-    #     - icon: simple/linkedin
-    #       link: https://linkedin.com/in/willettjames
 
 extra_javascript:
   - meta-inject.js
@@ -121,4 +113,5 @@ extra_javascript:
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css
+
 copyright: Copyright &copy; 2025 Rakibul Hashan
