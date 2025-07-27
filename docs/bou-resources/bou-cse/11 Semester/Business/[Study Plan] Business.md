@@ -75,7 +75,7 @@ Let’s create a **Focused 6-Hour Crash Plan + 2 Hours Buffer**:
 
 * **Don't waste time on new topics**.
 * Focus on **frequently asked areas** (ownership, HRM, accounting).
-* **Avoid perfectionism** — aim for 70–80% clarity.
+* **Avoid     perfectionism** — aim for 70–80% clarity.
 * Use mnemonics, bullet points, or Bengali keywords if needed.
 
 ---
