@@ -1,10 +1,8 @@
 ---
-dg-home: false
-dg-publish: true
-aliases: 
-tags:
+comments: true
 ---
-## ✅ Summary Box: Objectives of Business 
+
+## ✅ Summary Box: Objectives of Business
 
 | **Objective**                           | **Easy Explanation**                                           | **Analogy / Example**                                             |
 | --------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -19,7 +17,6 @@ tags:
 | **Capital Investment**                  | Investing money to create or expand the business.              | Buying machines or opening a new outlet.                          |
 | **Exploiting Resources** (সম্পদের শোষণ) | Using natural and human resources smartly and sustainably.     | Like using solar energy instead of diesel.                        |
 
-
 ## ✅ Objectives of Business
 
 ```
@@ -29,12 +26,13 @@ tags:
   |                |              |             |               |
 Profit       Survival       Growth      Social Duty     Internal Role
   |              |              |             |               |
-💰 Earn      💡 Stay     📈 Expand    ❤️ Do good    🧠 Creativity  
-📊 Economic  🧍 Not fail  🔄 More share  🌱 Environment  🛠 Employment  
-            💪 Compete   🤝 Relations  🏷️ Fair pricing  💼 Culture  
+💰 Earn      💡 Stay     📈 Expand    ❤️ Do good    🧠 Creativity
+📊 Economic  🧍 Not fail  🔄 More share  🌱 Environment  🛠 Employment
+            💪 Compete   🤝 Relations  🏷️ Fair pricing  💼 Culture
 ```
 
 # Chapter 02: Ownership Structure
+
 Here is a summarized **revision table** based on the image content about **Sole Proprietorship**:
 
 | **Topic**                               | **Details**                                                                                        |
@@ -90,27 +88,28 @@ A business owned, controlled, and managed by one person who bears all the risks 
 10. **Personal Relations** – Direct relationship with customers, more trust.
 
 ---
+
 ### ✅ **A–Z Short Version (Alphabetical Order)**
 
-* **B** – Better control (business + functions)
-* **D** – Direct motivation (owner keeps all profits)
-* **E** – Easy formation (no legal hassles)
-* **E** – Encourages self-employment
-* **F** – Flexibility in operations (expand/adjust anytime)
-* **F** – Freedom in selection of trade
-* **I** – Incentives for hard work (effort = reward)
-* **L** – Limited area of operation (small scale)
-* **L** – Limited capital (owner arranges funds)
-* **M** – Maintenance of secrecy (no info shared)
-* **M** – Minimum government regulations
-* **N** – No sharing of profit or loss
-* **P** – Personal relations (direct customer link)
-* **Q** – Quick decision and prompt action
-* **S** – Secrecy (keeps all trade secrets)
-* **S** – Single ownership (one-man business)
-* **S** – Social desirability (spreads opportunity)
-* **T** – Tax advantage (lower tax burden)
-* **U** – Unlimited liability (personal assets at risk)
+- **B** – Better control (business + functions)
+- **D** – Direct motivation (owner keeps all profits)
+- **E** – Easy formation (no legal hassles)
+- **E** – Encourages self-employment
+- **F** – Flexibility in operations (expand/adjust anytime)
+- **F** – Freedom in selection of trade
+- **I** – Incentives for hard work (effort = reward)
+- **L** – Limited area of operation (small scale)
+- **L** – Limited capital (owner arranges funds)
+- **M** – Maintenance of secrecy (no info shared)
+- **M** – Minimum government regulations
+- **N** – No sharing of profit or loss
+- **P** – Personal relations (direct customer link)
+- **Q** – Quick decision and prompt action
+- **S** – Secrecy (keeps all trade secrets)
+- **S** – Single ownership (one-man business)
+- **S** – Social desirability (spreads opportunity)
+- **T** – Tax advantage (lower tax burden)
+- **U** – Unlimited liability (personal assets at risk)
 
 ---
 
@@ -120,13 +119,13 @@ Sure! Here's the **quick revision** of **Sole Proprietorship Suitability** in **
 
 ### 🔤 **Alphabetical Format:**
 
-* **C**apital requirement is small and risk is low.
-* **C**ustomers receive personal attention.
-* **L**ocal and small market suited.
-* **M**anual skill-based businesses thrive.
-* **N**ature of business is simple.
-* **O**wner gets full control and profit.
-* **O**ne-man show (complete responsibility).
+- **C**apital requirement is small and risk is low.
+- **C**ustomers receive personal attention.
+- **L**ocal and small market suited.
+- **M**anual skill-based businesses thrive.
+- **N**ature of business is simple.
+- **O**wner gets full control and profit.
+- **O**ne-man show (complete responsibility).
 
 ---
 
@@ -141,29 +140,27 @@ Sure! Here's the **quick revision** of **Sole Proprietorship Suitability** in **
 **C** – Complete profit to owner
 **O** – Organizer, manager, and controller is one person
 
-
-
 # Partnership =====================
 
 ---
 
 ### ✅ **Quick Summary:**
 
-* **Partnership** = An association of **two or more persons** to **carry on business** and **share profit**.
-* Based on **written/legal contract** (without it, no valid partnership).
-* Combines **capital, effort, skill, and responsibility**.
-* Governed by laws like the **Indian Partnership Act, 1932** and **British Partnership Act, 1890**.
+- **Partnership** = An association of **two or more persons** to **carry on business** and **share profit**.
+- Based on **written/legal contract** (without it, no valid partnership).
+- Combines **capital, effort, skill, and responsibility**.
+- Governed by laws like the **Indian Partnership Act, 1932** and **British Partnership Act, 1890**.
 
 ---
 
 ### 🔤 **Alphabetical Format:**
 
-* **A**ssociation of two or more persons
-* **B**ased on legal or written agreement
-* **C**apital, labor, and skill combined
-* **D**efined by various laws (e.g., Indian Partnership Act, UPA, British Act)
-* **E**qual or agreed sharing of profits/losses
-* **F**ormal agreement called Partnership Deed
+- **A**ssociation of two or more persons
+- **B**ased on legal or written agreement
+- **C**apital, labor, and skill combined
+- **D**efined by various laws (e.g., Indian Partnership Act, UPA, British Act)
+- **E**qual or agreed sharing of profits/losses
+- **F**ormal agreement called Partnership Deed
 
 ---
 
@@ -178,6 +175,7 @@ Sure! Here's the **quick revision** of **Sole Proprietorship Suitability** in **
 **R**egulated through Partnership Deed
 
 ---
+
 ### 📘 **Key Definitions of Partnership:**
 
 1. **According to Kent**
@@ -206,11 +204,8 @@ Sure! Here's the **quick revision** of **Sole Proprietorship Suitability** in **
 
 **"Kings Play Business As Investors"**
 
-* **K** – Kent: contract + skill + share profit/loss
-* **P** – Parson: voluntary + capital + skill
-* **B** – British Act: business in common + profit
-* **A** – American Act: co-owners + profit motive
-* **I** – Indian Act: share profits + all or any acting
-
-
-
+- **K** – Kent: contract + skill + share profit/loss
+- **P** – Parson: voluntary + capital + skill
+- **B** – British Act: business in common + profit
+- **A** – American Act: co-owners + profit motive
+- **I** – Indian Act: share profits + all or any acting

@@ -1,21 +1,7 @@
 ---
-dg-home: false
-dg-publish: true
-aliases: 
-tags:
+comments: true
 ---
 
-```table-of-contents
-title: 
-style: nestedList # TOC style (nestedList|nestedOrderedList|inlineFirstLevel)
-minLevel: 0 # Include headings from the specified level
-maxLevel: 0 # Include headings up to the specified level
-include: 
-exclude: 
-includeLinks: true # Make headings clickable
-hideWhenEmpty: false # Hide TOC if no headings are found
-debugInConsole: false # Print debug info in Obsidian console
-```
 ### 📘 **Chapter 1: The Business – Its Nature and Scope**
 
 > Topics: Meaning of Business, Characteristics, Objectives, Scope, Requisites of Successful Business, Difference with Profession, Industry-Commerce-Trade
@@ -88,7 +74,6 @@ debugInConsole: false # Print debug info in Obsidian console
 (a) Define joint stock company. 3
 (b) What are the merits of joint stock company? Discuss in brief. 4
 (c) Narrate the powers and functions of Board of Directors. 7
-
 
 **From 161 Term:**
 
@@ -487,4 +472,3 @@ Prepare a journal and make a tabular analysis.
 (d) What is quality control? \[3]
 
 ---
-
