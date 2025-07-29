@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Variable Names (Identifiers).md",
+                "file": "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types/Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C Variable Names (Identifiers)"
+              "title": "Untitled"
             }
           }
         ]
@@ -105,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Variable Names (Identifiers).md",
+                "file": "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types/Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for C Variable Names (Identifiers)"
+              "title": "Backlinks for Untitled"
             }
           },
           {
@@ -185,16 +185,22 @@
   },
   "active": "5f82e895ed710b96",
   "lastOpenFiles": [
-    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Format Specifiers.md",
-    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Variable Names (Identifiers).md",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types/Untitled.md",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types/C Data Types.md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/005 Variables in C Programming.md",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/TD.md",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Format Specifiers.md",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/C and JavaScript comparison.md",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/00 - Environment Setup.md",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/Learning C.md",
+    "bou-cse/12 Semester/Structured Programming Language/[Analysis] STP Prev. Question analysis.md",
+    "bou-cse/12 Semester/Structured Programming Language/[Study Plan] for Structured Programming Language.md",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Variable Names (Identifiers).md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/006. Variable Declaration vs Definition in C.md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/Untitled.md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Variables.md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables",
-    "bou-cse/12 Semester/Structured Programming Language/Learning C/TD.md",
-    "bou-cse/12 Semester/Structured Programming Language/Learning C/00 - Environment Setup.md",
-    "bou-cse/12 Semester/Structured Programming Language/Learning C/Learning C.md",
     "bou-cse/12 Semester/Structured Programming Language/SPL - Resources.md",
     "bou-cse/12 Semester/Structured Programming Language/Structured Programming Language.md",
     "bou-cse/12 Semester/12 Semester.md",
@@ -207,12 +213,7 @@
     "bou-cse/11 Semester/MATH/Untitled.md",
     "bou-cse/11 Semester/MATH/All Formula.md",
     "bou-cse/41 Semester/41 Semester.md",
-    "bou-cse/12 Semester/Structured Programming Language/[Study Plan] for Structured Programming Language.md",
-    "bou-cse/12 Semester/Structured Programming Language/Learning C/C and JavaScript comparison.md",
-    "bou-cse/12 Semester/Linear Algebra and Differential Equations/Linear Algebra and Differential Equations.md",
-    "bou-cse/12 Semester/Linear Algebra and Differential Equations/[DFL] Prev. Question Analysis.md",
     "Media Library/image-35.png.~tmp",
-    "bou-cse/11 Semester/11semester.md",
     "bou-cse/11 Semester/PHY/Wave",
     "bou-cse/11 Semester/PHY/Heat and Thermodynamics",
     "bou-cse/11 Semester/EEE/[SOLUTION] Prev. year question",
@@ -220,7 +221,6 @@
     "bou-cse/11 Semester/PHY",
     "bou-cse/11 Semester/MATH",
     "bou-cse/11 Semester/ENG",
-    "bou-cse/11 Semester/EEE",
     "Media Library/image-38.png",
     "Media Library/BOU CSE Admission Circular pdf colour2024 conv 1.jpeg",
     "Media Library/image-36.png",

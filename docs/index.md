@@ -4,9 +4,19 @@ title: Home
 
 # BOU CSE Resources
 
+
 Welcome to the **Bangladesh Open University – Computer Science & Engineering (CSE)** resource hub.
 
 This site is dedicated to organizing and sharing study materials, notes, and reference content for all 8 semesters of the BOU CSE program.
+
+<?quiz?>
+question: Are you ready?
+answer-correct: Yes!
+answer: No!
+answer: Maybe!
+content:
+<h2>Provide some additional content</h2>
+<?/quiz?>
 
 <div class="grid cards" markdown>
 
