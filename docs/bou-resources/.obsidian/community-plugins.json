@@ -13,5 +13,6 @@
   "editing-toolbar",
   "make-md",
   "edge-tts",
-  "automatic-table-of-contents"
+  "automatic-table-of-contents",
+  "mermaid-tools"
 ]

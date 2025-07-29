@@ -10,6 +10,7 @@ site_url: https://boucseresources.github.io/all/
 
 theme:
   name: material
+  custom_dir: overrides
   font:
     text: Noto Serif Bengali
     code: Roboto Mono
@@ -47,12 +48,17 @@ theme:
       accent: deep orange
 plugins:
   - search
+  - meta
   - glightbox
   - obsidian-bridge
   - awesome-pages
 
 extra:
   generator: false
+  announcement:
+    type: info # Can be info, warning, error, success
+    text: |
+      🚀 Welcome to the new version of the docs! Check out the [changelog](changelog.md).
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/rakibulhashanrabbi/
