@@ -40,7 +40,6 @@ int age = 21;
 | অক্ষর          | `char`  | `char grade = 'A';` | Single letter          |
 
 🧠 মনে রাখো —
-
 * `int` = পূর্ণ সংখ্যা
 * `float` = ভাসমান দশমিক সংখ্যা
 * `char` = character/letter
@@ -94,7 +93,6 @@ CGPA: 3.65
 Grade: A
 ```
 
-
 ## 🧯 Common Mistakes 🔥
 
 | ❌ Mistake              | ✅ Fix                       | Why?                     |
@@ -103,6 +101,7 @@ Grade: A
 | `float price = 10.5.3` | Use only one `.`            | Multiple dots invalid    |
 | `char grade = A;`      | Use `'A'`                   | Char needs single quotes |
 | Used without declare   | Declare first like `int x;` | C needs pre-declaration  |
+
 
 ---
 

@@ -52,6 +52,8 @@ plugins:
   - glightbox
   - obsidian-bridge
   - awesome-pages
+  - mkdocs_quiz
+
 
 extra:
   generator: false
