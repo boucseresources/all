@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types/Untitled.md",
+                "file": "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Variable - Quiz.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "C Variable - Quiz"
             }
           }
         ]
@@ -105,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types/Untitled.md",
+                "file": "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Variable - Quiz.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Untitled"
+              "title": "Backlinks for C Variable - Quiz"
             }
           },
           {
@@ -185,6 +185,16 @@
   },
   "active": "5f82e895ed710b96",
   "lastOpenFiles": [
+    "bou-cse/11 Semester/EEE/[SOLUTION] Prev. year question/index.md",
+    "bou-cse/11 Semester/EEE/Practical EEE/index.md",
+    "bou-cse/11 Semester/CSE/index.md",
+    "bou-cse/11 Semester/Business/index.md",
+    "Tags/index.md",
+    "Media Library/index.md",
+    "Gemini Chats/index.md",
+    "Admission Information/index.md",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Variable - Quiz.md",
+    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Variables.md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types/Untitled.md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types/C Data Types.md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/005 Variables in C Programming.md",
@@ -199,20 +209,10 @@
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Variable Names (Identifiers).md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/006. Variable Declaration vs Definition in C.md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/Untitled.md",
-    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables/C Variables.md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables",
     "bou-cse/12 Semester/Structured Programming Language/SPL - Resources.md",
     "bou-cse/12 Semester/Structured Programming Language/Structured Programming Language.md",
     "bou-cse/12 Semester/12 Semester.md",
-    "bou-cse/11 Semester/Business/[Study Plan] Business.md",
-    "bou-cse/11 Semester/MATH/MATH.md",
-    "bou-cse/11 Semester/MATH/MAT - Study Plan.md",
-    "bou-cse/11 Semester/MATH/[Solution] Function - Pre..md",
-    "bou-cse/11 Semester/MATH/[Analysis] - MATH prev. yr question.md",
-    "bou-cse/11 Semester/MATH/MATH - Previous Y. Question.md",
-    "bou-cse/11 Semester/MATH/Untitled.md",
-    "bou-cse/11 Semester/MATH/All Formula.md",
-    "bou-cse/41 Semester/41 Semester.md",
     "Media Library/image-35.png.~tmp",
     "bou-cse/11 Semester/PHY/Wave",
     "bou-cse/11 Semester/PHY/Heat and Thermodynamics",

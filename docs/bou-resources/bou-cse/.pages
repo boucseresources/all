@@ -4,8 +4,8 @@
 #   - First Year First Semester: 1 1 Semester
 #   - 12 Semester: 12 Semester
 
-title: CSE Program
+title: All Semesters
 
 arrange:
-  - 11 Semester
-  - 12 Semester
+  - 11-semester
+  - 12-semester

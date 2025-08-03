@@ -2,73 +2,60 @@
 title: Home
 ---
 
-# BOU CSE Resources
+# 🎓 BOU CSE Resources
+
+**BOU-র CSE ডিপার্টমেন্টের সব সেমিস্টারের রিসোর্স এক জায়গায়।**
+
+এই সাইটে আপনি পাবেন ক্লাস নোট, বই, লেকচার স্লাইড, প্রশ্ন, এবং হ্যান্ডরাইটেন সামারি — সব সাজানো ৮টা সেমিস্টার অনুযায়ী।
+??? folder "Folder অনুযায়ী দেখতে Click করুন!"
+    <div class="grid cards" markdown>
+
+    - [![Image 1](docs/assets/folder-images/0.png)](/all/bou-resources/bou-cse/11-semester/)
+    - [![Image 2](docs/assets/folder-images/01.png)](/all/bou-resources/bou-cse/12-semester/)
+    - [![Image 3](docs/assets/folder-images/1.png)](/all/bou-resources/bou-cse/21-semester/)
+    - [![Image 5](docs/assets/folder-images/2.png)](/all/bou-resources/bou-cse/22-semester/)
+    - [![Image 6](docs/assets/folder-images/3.png)](/all/bou-resources/bou-cse/31-semester/)
+    - [![Image 7](docs/assets/folder-images/4.png)](/all/bou-resources/bou-cse/32-semester/)
+    - [![Image 8](docs/assets/folder-images/5.png)](/all/bou-resources/bou-cse/41-semester/)
+    - [![Image 4](docs/assets/folder-images/6.png)](/all/bou-resources/bou-cse/42-semester/)
+
+    </div>
 
 
-Welcome to the **Bangladesh Open University – Computer Science & Engineering (CSE)** resource hub.
 
-This site is dedicated to organizing and sharing study materials, notes, and reference content for all 8 semesters of the BOU CSE program.
-
-<?quiz?>
-question: Are you ready?
-answer-correct: Yes!
-answer: No!
-answer: Maybe!
-content:
-<h2>Provide some additional content</h2>
-<?/quiz?>
-
-<div class="grid cards" markdown>
-
-- [![Image 1](docs/assets/folder-images/0.png)](https://example.com/1)
-
-- [![Image 2](docs/assets/folder-images/01.png)](https://example.com/2)
-
-- [![Image 3](docs/assets/folder-images/1.png)](https://example.com/3)
-
-- [![Image 5](docs/assets/folder-images/2.png)](https://example.com/5)
-
-- [![Image 6](docs/assets/folder-images/3.png)](https://example.com/6)
-
-- [![Image 7](docs/assets/folder-images/4.png)](https://example.com/7)
-
-- [![Image 8](docs/assets/folder-images/5.png)](https://example.com/8)
-- [![Image 4](docs/assets/folder-images/6.png)](https://example.com/4)
-
-</div>
 
 ---
 
-## 📚 What's Inside
+## 📚 কি কি পাবেন?
 
-- **Semester-wise resources** organized for easy access
-- **Class notes**, **lecture slides**, **books**, and **handwritten summaries**
-- Curated content to help you study smarter and stay prepared
-
----
-
-## 🎯 Why This Site?
-
-Many BOU students struggle to find centralized, organized academic content. This site aims to:
-
-- Collect all useful materials in one place
-- Reduce confusion and save time
-- Support students preparing for exams and assignments
+- সেমিস্টারভিত্তিক সাজানো রিসোর্স
+- ক্লাস নোট, লেকচার স্লাইড, রেফারেন্স বই
+- হ্যান্ডরাইটেন সামারি ও প্রশ্ন ব্যাংক
 
 ---
 
-## 📅 Coverage
+## 🤔 কেন এই সাইট?
 
-- Semester 1 to Semester 8
-- Courses include Programming, Data Structures, DBMS, Networking, Web Development, and more
+BOU-এর অনেক ছাত্রছাত্রী একসাথে সব পড়াশোনার ম্যাটেরিয়াল খুঁজে পায় না। তাই এই সাইট:
 
----
-
-## 💡 How to Use
-
-Navigate through the sidebar or choose a semester to start exploring resources.  
-All materials are grouped by course for your convenience.
+- সব দরকারি কনটেন্ট এক জায়গায় দেয়
+- খুঁজতে সময় কম লাগে
+- এক্সাম প্রিপারেশনে হেল্প করে
 
 ---
 
-> This project is community-driven. If you have notes or materials you'd like to contribute, feel free to reach out!
+## 🎯 কাভারেজ
+
+- ১ম থেকে ৮ম সেমিস্টার
+- Programming, Data Structures, DBMS, Networking, Web Development — সব মেইন কোর্স কভারড
+
+---
+
+## 🚀 কিভাবে ব্যবহার করবেন?
+
+সাইডবার থেকে বা উপরের semester card-গুলো থেকে যেকোনো সেমিস্টারে ঢুকে পড়াশোনার রিসোর্স ব্রাউজ করতে পারেন।  
+সবকিছু কোর্স অনুযায়ী সাজানো আছে — খুঁজে পাওয়া সহজ।
+
+---
+
+> 📬 এই প্রজেক্ট community-driven. তোমার কাছে যদি ভালো নোট বা রিসোর্স থাকে, অবশ্যই শেয়ার করো!
