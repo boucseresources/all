@@ -17,6 +17,7 @@ theme:
   logo: assets/logo-bou.png
   favicon: assets/logo-bou.png
   features:
+    # - announce.dismiss
     - navigation.instant
     - search.suggest
     - search.highlight
@@ -28,6 +29,7 @@ theme:
     - navigation.sections
     - navigation.indexes
     - toc.follow
+    - content.code.copy
     # - navigation.expand
     - navigation.top
   palette:
@@ -52,15 +54,14 @@ plugins:
   - glightbox
   - obsidian-bridge
   - awesome-pages
-  - mkdocs_quiz
-
+  - mcq
 
 extra:
   generator: false
   announcement:
     type: info # Can be info, warning, error, success
     text: |
-      🚀 Welcome to the new version of the docs! Check out the [changelog](changelog.md).
+      🚀 Welcome to the new version of the docs! Check out the [changelog](index.md).
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/rakibulhashanrabbi/
@@ -120,6 +121,7 @@ extra_javascript:
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 extra_css:
+  - stylesheets/extra.css
   - https://unpkg.com/katex@0/dist/katex.min.css
 
 copyright: Copyright &copy; 2025 Rakibul Hashan
