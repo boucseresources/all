@@ -18,6 +18,7 @@ theme:
   favicon: assets/logo-bou.png
   features:
     # - announce.dismiss
+    - content.tooltips
     - navigation.instant
     - search.suggest
     - search.highlight
@@ -91,6 +92,7 @@ extra:
       content: "bou admission, bou cse admission, bou cse admission circular, bou cse, bou cse resources, bangladesh open university, bou sst"
 
 markdown_extensions:
+  - abbr
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem
