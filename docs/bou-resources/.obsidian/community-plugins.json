@@ -14,5 +14,6 @@
   "make-md",
   "edge-tts",
   "automatic-table-of-contents",
-  "mermaid-tools"
+  "mermaid-tools",
+  "obsidian-bulk-rename-plugin"
 ]
