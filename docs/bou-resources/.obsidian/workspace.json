@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "604d1edc9baff0a2",
+        "id": "3d587172d643ab9a",
         "type": "tabs",
         "children": [
           {
-            "id": "5f82e895ed710b96",
+            "id": "d38b6be6ce8aeb16",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bou-cse/12-semester/linear-algebra-and-differential-equations/[DFL]-Study-Plan.md",
+                "file": "bou-cse/12-semester/structured-programming-language/Computer-Fundamentals-Review.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "[DFL]-Study-Plan"
+              "title": "Computer-Fundamentals-Review"
             }
           }
         ]
@@ -183,11 +183,17 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "5f82e895ed710b96",
+  "active": "d38b6be6ce8aeb16",
   "lastOpenFiles": [
+    "Gemini Chats/New Chat 2.gemini",
+    "bou-cse/12-semester/structured-programming-language/Computer-Fundamentals-Review.md",
+    "bou-cse/12-semester/structured-programming-language/learning-c/learning-c.md",
+    "bou-cse/12-semester/structured-programming-language/spl-resources.md",
+    "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/C-Type-Conversion.md",
+    "bou-cse/12-semester/structured-programming-language/structured-programming-language.md",
+    "bou-cse/12-semester/linear-algebra-and-differential-equations/[DFL]-Study-Plan.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/[DFL]-Prev.-Question-Analysis.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/[DFL]-Prev-Year-Question.md",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/[DFL]-Study-Plan.md",
     "Media Library/image-39.png",
     "bou-cse/12-semester/structured-programming-language/[Study Plan] for Structured Programming Language.md",
     "bou-cse/11-semester/ENG/eng---study-plan.md",
@@ -207,20 +213,14 @@
     "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/c-data-types-overview.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/c-data-types.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/c-variables/c-variables.md",
-    "bou-cse/12-semester/structured-programming-language/learning-c/learning-c.md",
-    "bou-cse/12-semester/structured-programming-language/structured-programming-language.md",
     "bou-cse/31-semester/31-semester.md",
     "bou-cse/11 Semester/EEE/[SOLUTION] Prev. year question/index.md",
     "bou-cse/11 Semester/EEE/Practical EEE/index.md",
-    "bou-cse/11 Semester/CSE/index.md",
-    "bou-cse/11 Semester/Business/index.md",
-    "Tags/index.md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables",
     "Media Library/image-35.png.~tmp",
     "bou-cse/11 Semester/PHY/Wave",
     "bou-cse/11 Semester/PHY/Heat and Thermodynamics",
-    "bou-cse/11 Semester/EEE/[SOLUTION] Prev. year question",
     "Media Library/image-38.png",
     "Media Library/BOU CSE Admission Circular pdf colour2024 conv 1.jpeg",
     "Media Library/image-36.png",
