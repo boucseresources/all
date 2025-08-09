@@ -43,6 +43,7 @@
 
 - 🔢 **Code**: CSE1235
 - 👨‍🏫 **Teacher**: Prof. Dr. Mohammed Nasir Uddin (MNU)
+    - 📞 **Phone**: 01929-125856
 - 🔗 **Resources**: [View](/all/bou-resources/bou-cse/12-semester/dld/)
 - 📝 **MCQ Practice**: [Start](/quizzes/12-cse1235)
 
