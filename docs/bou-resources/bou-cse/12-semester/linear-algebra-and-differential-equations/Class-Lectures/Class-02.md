@@ -544,3 +544,49 @@ e^y = e^x + \frac{x^3}{3} + C
 $$
 
 ---
+
+
+!!! question "HW-02"
+
+    ❓**H.W.–2:**
+    Show that the differential equation of a family of circles
+
+    $$
+    x^2 + y^2 + 2gx + 2fy + c = 0
+    $$
+
+    is
+
+    $$
+    (1 + y_1^{\,2})\,y_3 - 3y_1\,y_2^{\,2} = 0,
+    $$
+
+    where $y_1=\dfrac{dy}{dx},\; y_2=\dfrac{d^2y}{dx^2},\; y_3=\dfrac{d^3y}{dx^3}$.
+
+
+    Given family:
+
+    $$
+    x^2+y^2+2gx+2fy+c=0 \quad (g,f,c \text{ constants})
+    $$
+
+    1st derivative → $x+yy_1+g+fy_1=0$ … (A)
+
+    2nd derivative → $1+y_1^2+yy_2+fy_2=0$
+
+    $$
+    \Rightarrow\ (y+f)\,y_2=-(1+y_1^2) \quad\text{… (B)}
+    $$
+
+    3rd derivative of (2nd) → $3y_1y_2+(y+f)\,y_3=0$ … (C)
+
+    (B) থেকে $(y+f)=-(1+y_1^2)/y_2$ বসিয়ে (C):
+
+    $$
+    3y_1y_2-\frac{1+y_1^2}{y_2}\,y_3=0
+    $$
+
+    $$
+    \boxed{(1+y_1^2)\,y_3-3y_1\,y_2^2=0}
+    $$
+
