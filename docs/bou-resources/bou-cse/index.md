@@ -4,6 +4,8 @@ Welcome to the **Semester Overview** for the **Bangladesh Open University (BOU)*
 
 The program is structured into **4 academic years**, each consisting of **2 semesters**, making a total of **8 semesters**. Below is a semester-wise breakdown with links to each section.
 
+[[Class-02]]
+
 ---
 
 ## 📅 Semester Breakdown

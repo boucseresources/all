@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-02.md",
+                "file": "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures/CSE-Lab-2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Class-02"
+              "title": "CSE-Lab-2"
             }
           }
         ]
@@ -185,11 +185,15 @@
   },
   "active": "d38b6be6ce8aeb16",
   "lastOpenFiles": [
+    "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures/CSE-Lab-2.md",
+    "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures/Lab-Class-Lectures.md",
+    "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-02.md",
+    "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures",
+    "bou-cse/index.md",
     "Media Library/image-42.png",
     "Media Library/image-41.png",
     "Media Library/Family of Circles Touching the x‑Axis at the Origin — Differential Equation.png",
     "Media Library/image-40.png",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-02.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-Lectures.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class Lectures/.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/C-Type-Conversion.md",
@@ -215,21 +219,17 @@
     "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/Untitled.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/0-c-environment-setup.md",
     "bou-cse/12-semester/index.md",
-    "all/bou-resources/bou-cse/12-semester/bangladesh-studies.md",
     "all/bou-resources/bou-cse/12-semester",
     "all/bou-resources/bou-cse",
     "all/bou-resources",
     "all",
-    "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/c-data-types-overview.md",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types",
     "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables",
     "Media Library/image-35.png.~tmp",
-    "bou-cse/11 Semester/PHY/Wave",
     "Media Library/image-38.png",
     "Media Library/BOU CSE Admission Circular pdf colour2024 conv 1.jpeg",
     "Media Library/image-36.png",
     "Media Library/image-35.png",
-    "Media Library/image-34.png",
-    "Media Library/obaidul-kader BOU admission conv 1.jpeg"
+    "Media Library/image-34.png"
   ]
 }
