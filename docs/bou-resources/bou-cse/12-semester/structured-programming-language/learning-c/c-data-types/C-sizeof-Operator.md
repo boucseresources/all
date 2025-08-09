@@ -1,5 +1,5 @@
 
-# 📏 `sizeof()` Operator in C (Detailed & Organized)
+# `sizeof()` Operator in C
 
 ---
 

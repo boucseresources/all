@@ -18,6 +18,8 @@ theme:
   favicon: assets/logo-bou.png
   features:
     # - announce.dismiss
+    - search.share  
+    - content.code.annotate  
     - content.tooltips
     - navigation.instant
     - search.suggest
@@ -56,6 +58,7 @@ plugins:
   - obsidian-bridge
   - awesome-pages
   - mcq
+  - toggle-sidebar
 
 extra:
   generator: false
@@ -100,6 +103,8 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+  - pymdownx.highlight
+  - pymdownx.keys
   - pymdownx.inlinehilite
   - markdown.extensions.nl2br
   - pymdownx.snippets
@@ -119,7 +124,6 @@ extra_javascript:
   - meta-inject.js
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-  - javascripts/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 extra_css:

@@ -8,6 +8,9 @@ title: Home
 
 এই সাইটে আপনি পাবেন ক্লাস নোট, বই, লেকচার স্লাইড, প্রশ্ন, এবং হ্যান্ডরাইটেন সামারি — সব সাজানো ৮টা সেমিস্টার অনুযায়ী।
 
+
+
+
 <!-- prettier-ignore-start -->
 ??? folder "Folder অনুযায়ী দেখতে Click করুন!"
     <div class="grid cards" markdown>
@@ -62,4 +65,5 @@ BOU-এর অনেক ছাত্রছাত্রী একসাথে স
 > 📬 এই প্রজেক্ট community-driven. তোমার কাছে যদি ভালো নোট বা রিসোর্স থাকে, অবশ্যই শেয়ার করো!
 
 [//]: # "Load global abbreviations"
+
 --8<-- "includes/abbreviations.md"
