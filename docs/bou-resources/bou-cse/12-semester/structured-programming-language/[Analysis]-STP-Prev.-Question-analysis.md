@@ -169,8 +169,83 @@ What is an include file? Why do you need to include STDIO.H when use printf(), p
 #### 📝 182 Term
 
 **Q1(d)(i–iv):**
-Find the output of following programs (4 programs provided; each uses printf and input/output-related logic).
+Find the output of following programs:
 **Marks: 4**
+
+(d) Find the output of following programs.
+**4**
+
+**i.**
+
+```c
+#include <stdio.h>
+main()
+{
+  float x = 1.1;
+  while (x == 1.1)
+  {
+    printf("\n%f", x);
+    x = x - 0.1;
+  }
+}
+```
+
+**ii.**
+
+```c
+#include <stdio.h>
+main()
+{
+  int i = 4, j = -1, k = 0, y, z;
+  y = i + 5 && j + 1 || k + 2;
+  z = i + 5 || j + 1 && k + 2;
+  printf("\ny = %d z = %d", y, z);
+}
+```
+
+**iii.**
+
+```c
+#include <stdio.h>
+main()
+{
+  float a = 3.5;
+  switch (a)
+  {
+    case 0.5:
+      printf("Art of C");
+      break;
+    case 1.5:
+      printf("Spirit of C");
+      break;
+    case 2.5:
+      printf("See C");
+      break;
+    case 3.5:
+      printf("Simply C");
+  }
+}
+```
+
+**iv.**
+
+```c
+#include <stdio.h>
+main()
+{
+  int x = 6, y = 3, z;
+  while (x >= 0)
+  {
+    if (x == y)
+      break;
+    else
+      printf("\n%d %d", x, y);
+    x--;
+    y++;
+  }
+}
+```
+
 
 ---
 ### 📘 **Chapter: Pre-processor Commands**

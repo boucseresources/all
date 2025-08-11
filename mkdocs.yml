@@ -16,6 +16,8 @@ theme:
     code: Roboto Mono
   logo: assets/logo-bou.png
   favicon: assets/logo-bou.png
+  icon:
+    annotation: material/star-four-points-circle
   features:
     # - announce.dismiss
     - search.share  
