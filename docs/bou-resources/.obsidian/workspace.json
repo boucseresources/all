@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures/CSE-Lab-2.md",
+                "file": "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-01.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CSE-Lab-2"
+              "title": "Class-01"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "আরিফ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +85,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -119,6 +119,21 @@
             }
           },
           {
+            "id": "00f261cf6a562b8d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-01.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Class-01"
+            }
+          },
+          {
             "id": "362b56f7317531bf",
             "type": "leaf",
             "state": {
@@ -148,21 +163,17 @@
             }
           },
           {
-            "id": "00f261cf6a562b8d",
+            "id": "c6d45ca01279f143",
             "type": "leaf",
             "state": {
-              "type": "outline",
-              "state": {
-                "file": "Business/[Chapter wise] Questions.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of [Chapter wise] Questions"
+              "type": "mermaid-toolbar-view",
+              "state": {},
+              "icon": "trident-custom",
+              "title": "Mermaid Toolbar"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -180,13 +191,36 @@
       "math-indicator-changer:Change math indicator": false,
       "chat-with-bard:New Gemini Chat": false,
       "edge-tts:Read note aloud": false,
-      "mermaid-tools:Open Mermaid Toolbar": false
+      "mermaid-tools:Open Mermaid Toolbar": false,
+      "aloud-tts:Aloud: text to speech": false
     }
   },
-  "active": "d38b6be6ce8aeb16",
+  "active": "57161c616ebab1ad",
   "lastOpenFiles": [
-    "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures/CSE-Lab-2.md",
+    "bou-cse/12-semester/DLD-lab/DLD-lab.md",
+    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/dld-lab-class-lectures.md",
+    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-01.md",
+    "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures/image-1.png",
+    "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures/image.png",
+    "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures/Class-01.md",
+    "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures",
+    "bou-cse/12-semester/Digital-Logic-Design/Untitled",
+    "bou-cse/12-semester/Digital-Logic-Design",
+    "bou-cse/12-semester/structured-programming-language/learning-c/c-constants.md",
+    "bou-cse/12-semester/structured-programming-language/learning-c/c-constants.c'",
+    "bou-cse/12-semester/linear-algebra-and-differential-equations/linear-algebra-and-differential-equations.md",
+    "bou-cse/12-semester/structured-programming-language/structured-programming-language.md",
     "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures/Lab-Class-Lectures.md",
+    "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-Lectures.md",
+    "bou-cse/12-semester/12-semester.md",
+    "bou-cse/21-semester/21-semester.md",
+    "bou-cse/12-semester/linear-algebra-and-differential-equations/[DFL]-Prev-Year-Question.md",
+    "bou-cse/12-semester/linear-algebra-and-differential-equations/[DFL]-Prev.-Question-Analysis.md",
+    "bou-cse/12-semester/linear-algebra-and-differential-equations/[DFL]-Study-Plan.md",
+    "bou-cse/12-semester/index.md",
+    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures",
+    "bou-cse/12-semester/DLD-lab",
+    "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures/CSE-Lab-2.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-02.md",
     "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures",
     "bou-cse/index.md",
@@ -194,7 +228,6 @@
     "Media Library/image-41.png",
     "Media Library/Family of Circles Touching the x‑Axis at the Origin — Differential Equation.png",
     "Media Library/image-40.png",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-Lectures.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class Lectures/.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/C-Type-Conversion.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures",
@@ -204,32 +237,10 @@
     "bou-cse/12-semester/structured-programming-language/Computer-Fundamentals-Review.md",
     "Gemini Chats/New Chat 2.gemini",
     "bou-cse/12-semester/structured-programming-language/spl-resources.md",
-    "bou-cse/12-semester/structured-programming-language/structured-programming-language.md",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/[DFL]-Study-Plan.md",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/[DFL]-Prev.-Question-Analysis.md",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/[DFL]-Prev-Year-Question.md",
     "Media Library/image-39.png",
-    "bou-cse/12-semester/structured-programming-language/[Study Plan] for Structured Programming Language.md",
-    "bou-cse/11-semester/ENG/eng---study-plan.md",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/linear-algebra-and-differential-equations.md",
-    "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/C-sizeof-Operator.md",
-    "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/C-Set-Decimal-Precision.md",
-    "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/C-Numeric-Data-Types.md",
-    "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/C-Character-Data-Types.md",
-    "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/Untitled.md",
-    "bou-cse/12-semester/structured-programming-language/learning-c/0-c-environment-setup.md",
-    "bou-cse/12-semester/index.md",
     "all/bou-resources/bou-cse/12-semester",
-    "all/bou-resources/bou-cse",
-    "all/bou-resources",
-    "all",
-    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Data Types",
-    "bou-cse/12 Semester/Structured Programming Language/Learning C/C Variables",
-    "Media Library/image-35.png.~tmp",
     "Media Library/image-38.png",
     "Media Library/BOU CSE Admission Circular pdf colour2024 conv 1.jpeg",
-    "Media Library/image-36.png",
-    "Media Library/image-35.png",
-    "Media Library/image-34.png"
+    "Media Library/image-36.png"
   ]
 }

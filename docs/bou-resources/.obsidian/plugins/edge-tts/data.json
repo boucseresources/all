@@ -1,6 +1,6 @@
 {
-  "selectedVoice": "en-US-AvaNeural",
-  "customVoice": "",
+  "selectedVoice": "en-US-AriaNeural",
+  "customVoice": "bn-IN-BashkarNeural",
   "playbackSpeed": 1,
   "showNotices": true,
   "showStatusBarButton": true,
@@ -36,13 +36,16 @@
     }
   },
   "floatingPlayerPosition": {
-    "x": 1064.99560546875,
-    "y": 544.9869384765625
+    "x": 1063.99560546875,
+    "y": 546.9869384765625
   },
   "disablePlaybackControlPopover": false,
   "enableReplayOption": true,
   "enableQueueFeature": true,
-  "queueManagerPosition": null,
+  "queueManagerPosition": {
+    "x": 993,
+    "y": 317
+  },
   "autoPauseOnWindowBlur": false,
   "chunkSize": 9000,
   "enableExperimentalFeatures": false,

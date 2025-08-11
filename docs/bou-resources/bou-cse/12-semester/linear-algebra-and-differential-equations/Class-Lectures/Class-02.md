@@ -545,7 +545,6 @@ $$
 
 ---
 
-
 !!! question "HW-02"
 
     ❓**H.W.–2:**
@@ -555,14 +554,19 @@ $$
     x^2 + y^2 + 2gx + 2fy + c = 0
     $$
 
+    _(এটা হল general equation of a circle, যেখানে g, f, c constant — different circles এর জন্য g, f, c এর মান আলাদা হতে পারে)_
+
     is
 
     $$
     (1 + y_1^{\,2})\,y_3 - 3y_1\,y_2^{\,2} = 0,
     $$
 
+    _(আমাদের লক্ষ্য এই form-টা প্রমাণ করা, যেখানে $y_1, y_2, y_3$ হলো প্রথম, দ্বিতীয় ও তৃতীয় derivative)_
+
     where $y_1=\dfrac{dy}{dx},\; y_2=\dfrac{d^2y}{dx^2},\; y_3=\dfrac{d^3y}{dx^3}$.
 
+    ---
 
     Given family:
 
@@ -570,23 +574,34 @@ $$
     x^2+y^2+2gx+2fy+c=0 \quad (g,f,c \text{ constants})
     $$
 
-    1st derivative → $x+yy_1+g+fy_1=0$ … (A)
+    **1st derivative →** $x+yy_1+g+fy_1=0$ … (A)  
+    _(এখানে দুই পাশে $d/dx$ করলাম; $y^2$ এর derivative = $2y \cdot y_1$, আবার $2fy$ এর derivative = $2f \cdot y_1$, তারপর 2 দিয়ে divide করায় এই ফর্ম পেলাম)_
 
-    2nd derivative → $1+y_1^2+yy_2+fy_2=0$
+    **2nd derivative →** $1+y_1^2+yy_2+fy_2=0$  
+
+    _(আবার derivative করলাম; $y y_1$ এর derivative = $y_1^2 + y y_2$)_
 
     $$
     \Rightarrow\ (y+f)\,y_2=-(1+y_1^2) \quad\text{… (B)}
     $$
 
-    3rd derivative of (2nd) → $3y_1y_2+(y+f)\,y_3=0$ … (C)
+    _(এখানে $y_2$ এর term গুলো একসাথে করে, $y+f$ factor হিসেবে বের করে নিলাম)_
 
-    (B) থেকে $(y+f)=-(1+y_1^2)/y_2$ বসিয়ে (C):
+    **3rd derivative of (2nd) →** $3y_1y_2+(y+f)\,y_3=0$ … (C)  
+
+    _(এবার দ্বিতীয় derivative সমীকরণটার derivative করলাম; $y_1^2$ এর derivative = $2y_1y_2$, সাথে $(y+f) y_2$ এর derivative দিলে $y_1 y_2 + (y+f) y_3$ — সব মিলে $3y_1 y_2 + (y+f) y_3$)_
+
+    **(B) থেকে $(y+f)=-(1+y_1^2)/y_2$ বসিয়ে (C):**  
+    _(আগের ধাপের (B) থেকে $y+f$ এর মান নিলাম এবং (C)-তে বসালাম)_
 
     $$
     3y_1y_2-\frac{1+y_1^2}{y_2}\,y_3=0
     $$
 
+    _(এখানে $y+f$ এর জায়গায় fraction বসেছে, আর minus sign কে adjust করে এই ফর্ম এসেছে)_
+
     $$
     \boxed{(1+y_1^2)\,y_3-3y_1\,y_2^2=0}
     $$
 
+    _(শেষে rearrange করে ঠিক আমাদের প্রমাণ করতে চাওয়া final equation পেলাম ✅)_
