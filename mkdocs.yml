@@ -97,6 +97,9 @@ extra:
       content: "bou admission, bou cse admission, bou cse admission circular, bou cse, bou cse resources, bangladesh open university, bou sst"
 
 markdown_extensions:
+  - toc:
+      permalink: true
+      permalink_title: Anchor link to this section for reference
   - abbr
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji

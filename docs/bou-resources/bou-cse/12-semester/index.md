@@ -46,6 +46,7 @@
     - 📞 **Phone**: 01929-125856
 - 🔗 **Resources**: [View](/all/bou-resources/bou-cse/12-semester/dld/)
 - 📝 **MCQ Practice**: [Start](/quizzes/12-cse1235)
+- **Book**: [Read & Download](https://drive.google.com/file/d/1VltmKbzZEI5TDvGWWPCL09mQeP6YnPXL/view?usp=sharing)
 
 ---
 
