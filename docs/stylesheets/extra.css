@@ -47,3 +47,13 @@
 }
 
 
+/* Horizontal line style override */
+hr {
+  border: none;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2); /* Light mode visible */
+}
+
+[data-md-color-scheme="slate"] hr {
+  background-color: rgba(255, 255, 255, 0.3); /* Dark mode visible */
+}

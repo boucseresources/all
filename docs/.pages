@@ -2,5 +2,5 @@ title: All Semesters
 nav:
   - Home: index.md
   - BOU CSE: bou-resources
-  - FAQs: /all/bou-resources/faq
+  - FAQs: faq.md
   # - Visit BOU: https://bou.ac.bd
