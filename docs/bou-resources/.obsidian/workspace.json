@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-01.md",
+                "file": "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra/boolean-algebra.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Class-01"
+              "title": "boolean-algebra"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "আরিফ",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -84,8 +84,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -124,13 +123,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-01.md",
+                "file": "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra/boolean-algebra.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Class-01"
+              "title": "Outline of boolean-algebra"
             }
           },
           {
@@ -195,11 +194,13 @@
       "aloud-tts:Aloud: text to speech": false
     }
   },
-  "active": "57161c616ebab1ad",
+  "active": "d38b6be6ce8aeb16",
   "lastOpenFiles": [
+    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-01.md",
+    "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra/boolean-algebra.md",
+    "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra",
     "bou-cse/12-semester/DLD-lab/DLD-lab.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/dld-lab-class-lectures.md",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-01.md",
     "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures/image-1.png",
     "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures/image.png",
     "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures/Class-01.md",
@@ -238,7 +239,6 @@
     "Gemini Chats/New Chat 2.gemini",
     "bou-cse/12-semester/structured-programming-language/spl-resources.md",
     "Media Library/image-39.png",
-    "all/bou-resources/bou-cse/12-semester",
     "Media Library/image-38.png",
     "Media Library/BOU CSE Admission Circular pdf colour2024 conv 1.jpeg",
     "Media Library/image-36.png"
