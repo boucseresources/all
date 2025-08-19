@@ -149,6 +149,12 @@ BOU CSE-তে ভর্তি হওয়াটা একটা পূর্ণ�
 ### কিছু সাধারণ প্রশ্নোত্তরঃ
 
 
+!!! question "আগের বছরের প্রশ্ন কোথায় পাবো?"
+    উপরের Pearl নামের বইটা সংগ্রহ করতে পারো। আমিও এটাই পড়েছিলাম।
+
+!!! question "বাউবি CSE তে সিট কতো টোটাল?"
+    ২০২৪-২৫ এর তথ্য মতে এখানে ১২০-১৩০ জনের সিট রয়েছে, সর্বমোট।  কিন্তু এক্সাম + ভাইবা পাশ না করলে আসন খালি রেখেই ব্যাচ শুরু করা হয়। 
+
 !!! question "Need CSE admission question previous year"
     You can collect previous year's CSE admission questions from BOU study centers, seniors, or various educational Facebook groups focused on BOU. Some community websites may also archive past papers.
 
