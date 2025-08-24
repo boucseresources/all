@@ -1,3 +1,4 @@
+<!-- prettier-ignore-start -->
 # DLD - Class 04
 
 !!! info "NAND Gate"
@@ -28,3 +29,16 @@
 
     ###XOR কে connection দেয়ার পরে এমন দেখাবেঃ
     ![Connection Testing](<DLD XOR Gate.gif>)
+
+---
+!!! info "NOR Gate"
+
+    ### NOR Gate Pin Diagram
+    ![NOR Gate Pin Diagram](image-6.png)
+
+    ![NOR Gate Connection](image-8.png)
+    ### NOR কে connection দেয়ার পরে এমন দেখাবেঃ
+    
+    ![NOR gate Connection testing](<NOR gate.gif>)
+
+<!-- prettier-ignore-end-->
