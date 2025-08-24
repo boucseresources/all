@@ -1,8 +1,13 @@
 # 232 Term (1st Year, 2nd Semester)
 
-### Class Routine
+??? question "Class Routine দেখতে ক্লিক করুন"
 
-<iframe src="https://drive.google.com/file/d/1Z9EauGi5MImyfz6bpkFW7I9zEkxIRel-/preview" width="100%" height="600px" allow="autoplay"></iframe>
+    ### Class Routine
+    <iframe src="https://drive.google.com/file/d/1Z9EauGi5MImyfz6bpkFW7I9zEkxIRel-/preview" width="100%" height="600px" allow="autoplay"></iframe>
+
+!!! info "Course Registration & Class Start Time of CSE Program"
+    
+    Link: [https://drive.google.com/file/d/1YTzvfVefx0PWHK2oeZwGwmtfjRYJKCC7/view?usp=sharing](https://drive.google.com/file/d/1YTzvfVefx0PWHK2oeZwGwmtfjRYJKCC7/view?usp=sharing)
 
 ### 📐 Linear Algebra and Differential Equations
 
@@ -43,7 +48,7 @@
 
 - 🔢 **Code**: CSE1235
 - 👨‍🏫 **Teacher**: Prof. Dr. Mohammed Nasir Uddin (MNU)
-    - 📞 **Phone**: 01929-125856
+  - 📞 **Phone**: 01929-125856
 - 🔗 **Resources**: [View](/all/bou-resources/bou-cse/12-semester/dld/)
 - 📝 **MCQ Practice**: [Start](/quizzes/12-cse1235)
 - **Book**: [Read & Download](https://drive.google.com/file/d/1VltmKbzZEI5TDvGWWPCL09mQeP6YnPXL/view?usp=sharing)
