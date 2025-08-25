@@ -40,5 +40,29 @@
     ### NOR কে connection দেয়ার পরে এমন দেখাবেঃ
     
     ![NOR gate Connection testing](<NOR gate.gif>)
+    !!! link "Link to TinkerCad"
+        [Link to TinkerCad](https://www.tinkercad.com/things/lN9gnj2TQYg-dld-nor-gate)
+
+    
+!!! info "XNOR Gate"
+
+    ### XNOR Gate with Truth table
+    ![XNOR Gate with Truth table](image-12.png)
+
+    ## XNOR এর Simplified representation: 
+    ![XNOR এর Simplified representation](image-11.png)
+    ![XNOR Simplified](image-9.png)
+    
+    ## XNOR Gate Connection: 
+    ![XNOR Gate Connection](image-8.png)
+    ### XNOR কে connection দেয়ার পরে এমন দেখাবেঃ
+    
+    
+    ![XNOR gate Connection testing](<XNOR gate connection.gif>)
+   
+    !!! link "Link to TinkerCad"
+        [Link to TinkerCad](https://www.tinkercad.com/things/lN9gnj2TQYg-dld-nor-gate)
+
+    
 
 <!-- prettier-ignore-end-->
