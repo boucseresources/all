@@ -128,22 +128,13 @@ Dividing history into these periods helps scholars and students:
 
 ---
 
-Ahh got it now ✅ — your sir didn’t just mean **Pathan rulers in history**, he also mentioned about **Pathans as a people/ethnic group**, their cultural traits, toughness, and even gave examples like **Shahid Afridi** (Pakistani cricketer, Pathan/Pashtun).
-
-So let me write a **book-style explanation in English** that blends:
-
-* Their **historical role** (entry through Khyber, ruling India for some time)
-* Their **ethnic character** (tough, warrior-like, hard to govern, proud people)
-* Some **casual realities/facts** (sports, present-day society, reputation).
-
----
-
 # 📖 The Pathans: Their Historical and Social Character
 
 ### 1. Who are the Pathans?
 
 The **Pathans (Pashtuns)** are an ethnic group primarily inhabiting Afghanistan and the north-western regions of Pakistan. For centuries, they have been known for their strong tribal identity, warrior spirit, and resilience in the face of challenges. Historically, they entered India through the **Khyber Pass** and played important roles in the Delhi Sultanate and Mughal periods.
 
+![Pathans (Pashtuns)](image.png)
 ---
 
 ### 2. Historical Characteristics
@@ -199,4 +190,395 @@ Equally significant (সমান গুরুত্বপূর্ণ) is the o
 An analogy may help here: imagine a neighbor cannot pronounce your real name and keeps calling you something slightly different. With time, that nickname spreads so widely that it becomes the official name others use for you. The same happened with “Sindhu” becoming “Hindu” and then “Hindustan.”
 
 In short, India’s history cannot be understood without these two aspects: the geographical routes that opened it to external influences and the evolving names that reflected how others perceived (দেখেছে/ভাবেছে) it. The **Khyber Pass and the Pathans** symbolize (প্রতীকী) the human movements that reshaped (পুনর্গঠন করেছে) Indian politics, while the **Sindhu River and the term Hindustan** symbolize how language and culture transformed identity. Together, they show that India’s history is not only about what happened inside the subcontinent but also about how outsiders entered, interacted, and gave new names and meanings to the land.
+
+
+
+---
+
+# 1) Explanation 
+
+## Overview 
+
+Indian Civilization timeline basically বলে দেয়—**কখন কে শাসন করলো** আর **কী পরিবর্তন হলো**। এটা জানলে পরের deep topics (culture, economy, religion, art) বুঝতে সহজ হয়। আমরা একেবারে শুরু থেকে Independence পর্যন্ত **step‑by‑step** যাবো, একদম noob‑friendly ভাবে. ✅
+
+---
+
+## Before We Start
+
+!!! note
+
+    **Goal:** Clear timeline build করা + exam‑style দ্রুত মনে রাখা।
+    **Region:** “Indian subcontinent” = আজকের India + Pakistan + Bangladesh (sometimes Nepal/Sri Lanka context wise).
+    **Year System:**
+    - **BCE** = Before Common Era (পুরনো), **CE** = Common Era (নতুন)।
+    - Approx বছর ব্যবহার করবো (± কয়েক বছর acceptable in school/college answers).
+    **Boundaries (we’ll use):**
+    - **Pre‑Muslim (Ancient/Classical)**: Indus → Janapadas → Maurya → Gupta → Pala → Sena (till **1204/1206 CE**).
+    - **Muslim Era**: **1204/1206–1757 CE** (Delhi Sultanate + Mughals).
+    - **Colonial Era**: **1757–1947 CE** (British dominance).
+    - **Post‑Colonial**: **1947–present** (Partition → India & Pakistan; **1971** → Bangladesh).
+
+    **Quick numeric picture (just to feel the scale):**
+
+    * Indus mature phase \~ **2600–1900 BCE** ≈ **700 years**
+    * Maurya **321–185 BCE** ≈ **136 years**
+    * Gupta **\~320–550 CE** ≈ **230 years**
+    * Mughals **1526–1857 CE** ≈ **331 years**
+    * British dominance **1757–1947 CE** ≈ **190 years**
+
+---
+
+## 🗺️ One‑Screen Quick Summary (Table)
+
+| Era / Dynasty           |                      Rough Years | Capital/Center (typical) | 2–3 Keywords (exam memory)              |
+| ----------------------- | -------------------------------: | ------------------------ | --------------------------------------- |
+| **Indus (Sindhu) Civ.** | 3300–1300 BCE (mature 2600–1900) | Harappa, Mohenjo‑Daro    | Planned city, drainage, trade           |
+| **Maha Janapadas**      |                    \~600–300 BCE | Magadha strong           | 16 states, republics/monarchies         |
+| **Maurya**              |                      321–185 BCE | Pataliputra              | Chandragupta, Ashoka, edicts, Buddhism  |
+| **Gupta (Golden Age)**  |                     \~320–550 CE | Pataliputra/Ujjain       | Zero, decimal, Sanskrit lit., art       |
+| **Pala**                |                      750–1174 CE | Bengal–Bihar             | Buddhism patrons, Nalanda/Vikramashila  |
+| **Sena**                |                     1070–1230 CE | Bengal                   | Hindu revival, after Pala               |
+| **Delhi Sultanate**     |                     1206–1526 CE | Delhi                    | Turko‑Afghan sultans, administration    |
+| **Mughals**             |                     1526–1857 CE | Agra/Delhi               | Akbar, Persianate culture, architecture |
+| **Colonial (British)**  |                     1757–1947 CE | Calcutta/Delhi           | EIC→Crown, railways, drain of wealth    |
+| **Post‑Colonial**       |                     1947–present | —                        | India & Pakistan; 1971 Bangladesh       |
+
+> ⚠️ Years are approximate, but safe for most exams.
+
+---
+
+
+## 🔀 Big Picture Flowchart (with years)
+
+??? info "Click to view the timeline"
+
+    ```mermaid
+    flowchart TB
+    A["Indus Civilization<br>3300–1300 BCE<br>Mature 2600–1900"] --> B["Maha Janapadas\n~600–300 BCE"]
+    B --> C["Maurya Empire <br> 321–185 BCE"]
+    C --> D["Gupta Empire<br>~320–550 CE"]
+    D --> E["Pala Empire<br>750–1174 CE"]
+    E --> F["Sena Dynasty<br>1070–1230 CE"]
+    F --> G["Delhi Sultanate<br>1206–1526"]
+    G --> H["Mughal Empire<br>1526–1857"]
+    H --> I["British Colonial Rule<br>1757–1947"]
+    I --> J["Post-Colonial<br>1947– <br>India • Pakistan → 1971 Bangladesh"]
+    ```
+
+**ASCII fallback:**
+
+```
+Indus → Janapadas → Maurya → Gupta → Pala → Sena → Delhi Sultanate → Mughal → British → Post‑Colonial
+(3300–1300)  (~600–300)  (321–185)  (~320–550)  (750–1174)  (1070–1230)  (1206–1526)   (1526–1857) (1757–1947)  (1947– )
+```
+
+---
+## Era‑by‑Era
+
+### 1) Indus (Sindhu) Valley Civilization
+
+* **Nature:** Highly **urban**—street grid, drainage, baked bricks.
+* **Think modern example:** আজকের planned শহর (like Gulshan/Bashundhara planned roads) — Indus লোকেরা already করত! ✅
+* **Two big sites:** **Harappa** & **Mohenjo‑Daro** (exam favourite).
+* **Trade:** Mesopotamia পর্যন্ত trade evidence।
+* **Script:** Undeciphered (still)।
+* **Why it matters:** South Asia‑র earliest big urbanization।
+
+!!! tip
+    
+    **Memory hack:** “H‑M‑D” → **H**arappa–**M**ohenjo‑**D**aro; **D** = **Drainage** (planned drainage মনে রাখো) 💡
+
+---
+
+### 2) Maha Janapadas (\~600–300 BCE)
+
+* **Meaning:** বড় বড় **states** (monarchy + republic), মোটামুটি **16**।
+* **Magadha** became strongest → later Maurya base।
+* **Everyday analogy:** Bangladesh‑এ divisions/districts যেমন—multiple powerful regions ছিল।
+* **Why it matters:** State formation, later empire‑building এর foundation।
+
+---
+
+### 3) Maurya (321–185 BCE)
+
+* **Founders/Key:** **Chandragupta Maurya**, later **Ashoka**।
+* **Ashoka:** Kalinga war পর **Buddhism** support, **rock edicts** (policy লেখা পাথরে)।
+* **Admin:** Centralized bureaucracy।
+* **Analogy:** Corporate HQ থেকে পুরো দেশের branch control করছে—central rules, governors।
+* **Exam keyword:** “**Ashokan edicts**”, “**spread of Buddhism**”.
+
+---
+
+### 4) Gupta (\~320–550 CE) — **Golden Age**
+
+* **Why ‘Golden’?** **Math:** zero, decimal; **Science/Astronomy**; **Literature** (Kalidasa); **Art**।
+* **Analogy:** Smartphone era‑র মতো একটা **innovation boom**—সবখানে উন্নতি।
+* **Exam line:** “Gupta period = classical achievements in science & culture.” ✅
+
+---
+
+### 5) Pala (750–1174 CE) → Bengal focus
+
+* **Patronage:** **Buddhism**; universities **Nalanda, Vikramashila**।
+* **Geo‑feel:** Bengal–Bihar base → trade routes, monasteries।
+* **Why important:** Later **Tibetan Buddhism**‑এ impact, regional power।
+
+---
+
+### 6) Sena (1070–1230 CE)
+
+* **Came after Pala** in Bengal; **Hindu revival**।
+* **Transition note:** এই সময়ের শেষে **Muslim rule** শুরু (Delhi Sultanate)।
+
+---
+
+### 7) Muslim Era (1204/1206–1757 CE)
+
+* **Phase‑1: Delhi Sultanate (1206–1526)**
+
+  * Turko‑Afghan rulers (Mamluk, Khilji, Tughlaq, Sayyid, Lodi)।
+  * **Admin:** iqta, land‑revenue systems; cities grow.
+* **Phase‑2: Mughals (1526–1857)**
+
+  * **Akbar** (admin/religious policy), **Shah Jahan** (Taj Mahal), **Aurangzeb**।
+  * **Culture:** Persianate court culture, architecture, miniature painting।
+* **Everyday analogy:** Long‑term tenants—বাড়ির decoration, rules, tax system change করেছে; নতুন fusion culture তৈরি হয়েছে।
+
+---
+
+### 8) Colonial Era (1757–1947 CE)
+
+* **Start marker:** **Battle of Plassey (1757)** → British East India Company dominance।
+* **Later:** 1858 থেকে **Crown rule** (after 1857 revolt)।
+* **What changed:** Railways, telegraph, English education—**but** ⚠️ economic **drain of wealth**।
+* **Analogy:** বাইরে থেকে আসা company first business নেয়, পরে **house rules** নিজের মতো করে—local economy suffer।
+
+---
+
+### 9) Post‑Colonial (1947–present)
+
+* **1947:** Partition → **India** & **Pakistan**।
+* **1971:** **Bangladesh** স্বাধীনতা (from Pakistan)।
+* **Focus now:** nation‑building, constitution, development.
+
+---
+
+## 🧭 Micro‑Timeline (Years with key triggers)
+
+```mermaid
+timeline
+    title Key Triggers (Super Short)
+    2600-1900 BCE : Indus mature cities (drainage/trade)
+    ~600-300 BCE   : 16 Janapadas, Magadha rises
+    321-185 BCE    : Maurya; Ashoka's edicts & Buddhism
+    ~320-550 CE    : Gupta Golden Age
+    750-1174 CE    : Pala (Bengal-Bihar), Buddhist patronage
+    1070-1230 CE   : Sena in Bengal
+    1206-1526 CE   : Delhi Sultanate
+    1526-1857 CE   : Mughals (Akbar/Shah Jahan)
+    1757-1947 CE   : British dominance → Independence
+    1947-...       : India & Pakistan; 1971 Bangladesh
+```
+
+---
+
+## 🧯 Common Mistakes & Quick Fixes
+
+* ❌ **Indus = Hindu civilization** বলা → **Wrong**.
+  ✅ বলো: “Indus ছিল early urban culture; later Vedic‑Hindu ধারা আলাদা development।”
+
+* ❌ **Muslim era start** ভুল (1210/1192 confused).
+  ✅ Safe exam line: “**1204/1206 CE** থেকে Delhi Sultanate → Muslim era begins.”
+
+* ❌ **Colonial = শুধু British** ভাবা।
+  ✅ বলো: “Multiple European powers ছিল; **British dominated** (Plassey 1757 থেকে)।”
+
+* ❌ **Gupta = only literature** ভাবা।
+  ✅ যোগ করো: “Math (zero, decimal), astronomy, art—so it’s ‘Golden Age’।”
+
+* ❌ **Bangladesh timeline ignore**।
+  ✅ লিখো: “**1971** Bangladesh স্বাধীনতা”—Post‑Colonial sectionে add করো। ✅
+
+---
+
+## 🧪 Mini Examples (Easy → Medium)
+
+**Example‑1 (Easy):**
+**Q:** “Taj Mahal কোন era?”
+**A:** **Mughal era** (Shah Jahan, 17th c.). ✅
+
+**Example‑2 (Easy):**
+**Q:** “‘Drainage system’ শুনলে কোন era মনে পড়বে?”
+**A:** **Indus Valley** (Mohenjo‑Daro/Harappa)। ✅
+
+**Example‑3 (Medium):**
+**Q:** “Magadha dominance থেকে বড় empire কে গড়ে?”
+**A:** **Maurya** (Chandragupta → Ashoka)। ✅
+
+**Example‑4 (Medium):**
+**Q:** “Railway + English education growth কিন্তু wealth drain—এটা কোন era?”
+**A:** **Colonial (British)**। ✅
+
+---
+
+## 🧠 Memory Trick (1‑line chain)
+
+**Si‑Ja‑Ma‑Gu‑Pa‑Se‑Su‑Mu‑Co‑Po**
+(Sindhu → Janapada → Maurya → Gupta → Pala → Sena → Sultanate → Mughal → Colonial → Post‑colonial)
+
+---
+
+# 2) Just English — Concise, Textbook‑Style
+
+## Overview
+
+The Indian subcontinent’s history moves from early urban settlements to empires, Islamic polities, European colonial rule, and modern nation states. Approximate dates suffice for most exams.
+
+## Assumptions
+
+* Region ≈ India + Pakistan + Bangladesh.
+* Boundaries: Pre‑Muslim (till 1204/1206 CE), Muslim (1204/1206–1757), Colonial (1757–1947), Post‑Colonial (1947–present; Bangladesh 1971).
+* Dates are approximate.
+
+## Snapshot Table
+
+| Era                |                            Years | Core                                        |
+| ------------------ | -------------------------------: | ------------------------------------------- |
+| Indus              | 3300–1300 BCE (mature 2600–1900) | Urban planning, drainage, trade             |
+| Janapadas          |                    \~600–300 BCE | 16 states; Magadha                          |
+| Maurya             |                      321–185 BCE | Chandragupta; Ashoka; Buddhism; edicts      |
+| Gupta              |                     \~320–550 CE | “Golden Age”: zero/decimal, literature, art |
+| Pala               |                      750–1174 CE | Buddhist patronage; Nalanda                 |
+| Sena               |                     1070–1230 CE | Hindu revival (Bengal)                      |
+| Delhi Sultanate    |                        1206–1526 | Turko‑Afghan rule, administration           |
+| Mughal             |                        1526–1857 | Akbar; architecture; Persianate culture     |
+| Colonial (British) |                        1757–1947 | EIC→Crown; railways; economic drain         |
+| Post‑Colonial      |                     1947–present | India & Pakistan; Bangladesh 1971           |
+
+## Decision Flow
+
+* **Year < 1204/1206:** Pre‑Muslim (Indus→…→Sena)
+* **1204/1206–1757:** Muslim (Sultanate+Mughals)
+* **1757–1947:** Colonial (British)
+* **After 1947:** Post‑Colonial (India/Pakistan; Bangladesh 1971)
+
+## Notes
+
+* Do not equate Indus with “Hindu civilization.”
+* 1757 (Plassey) is a clean colonial start marker.
+* Gupta = classical achievements across math, science, literature, art.
+
+---
+
+# 3) Practice Set (with brief answers)
+
+??? example "Try yourself (open to see answers)"
+
+    **Q1.** Name two Indus cities and one signature feature.
+    **A:** Harappa, Mohenjo‑Daro; planned **drainage** ✅
+
+
+    **Q2.** Which era is called the “Golden Age” and why (1–2 points)?  
+    **A:** **Gupta**; innovations in **mathematics** (zero/decimal), **literature** and **art** ✅
+
+    **Q3.** Put these in order: Mughal, Maurya, British, Gupta.  
+    **A:** Maurya → Gupta → Mughal → British ✅
+
+    **Q4.** From which event do we mark British dominance?  
+    **A:** **Battle of Plassey, 1757** ✅
+
+    **Q5.** If the year is 1600 CE, which era? Give one keyword.  
+    **A:** **Mughal era**; e.g., **Akbar/Jahangir**, architecture ✅
+
+    **Q6.** Bangladesh became independent in which year, and under which broad era?  
+    **A:** **1971**, **Post‑Colonial** ✅
+
+
+---
+
+## ⚠️ Final Quick Recap (Exam‑mode)
+
+* Chain: **Indus → Janapada → Maurya → Gupta → Pala → Sena → Sultanate → Mughal → Colonial → Post‑Colonial**.
+* Boundaries to memorize: **1204/1206**, **1757**, **1947**, **1971**.
+* Don’t call Indus “Hindu”; Gupta = Golden Age; Plassey = British start.
+
+
+---
+
+!!! info "How is history written or collected?"
+
+
+    On what basis can history be divided? Explain the different approaches of studying history (such as social, anthropological, literary, manuscript-based, and scientific) with suitable examples
+    ---
+    ![How is history written or collected?](image-3.png)
+    
+    ## Answer
+    History is the record of human experiences across time. To study it properly, scholars often divide it into different branches or approaches. This division is not arbitrary; it is based on the nature of sources, the method of analysis, and the kind of questions historians wish to answer. Each approach provides a unique way of understanding the past, and together they help create a fuller picture of human life and development.
+    History is often divided according to time, such as ancient, medieval and modern. But time is not the only way to classify the past. Historians also divide history on the **basis of study and approach**. This means that depending on which aspect of human life we want to emphasize, history can be read and written in different ways. Such divisions make the subject richer and more comprehensive. Broadly, history can be studied from five main bases: the social science basis, the anthropological basis, the literary basis, the manuscript basis, and the scientific or technological basis.
+
+    ### Social Science Basis
+    This approach studies how people lived in groups, how society was organized, and how institutions like family, caste, class, and religion shaped daily life. Instead of focusing only on kings and battles, it looks at the conditions of ordinary people. For example, the Bhakti and Sufi movements in medieval India are studied not only as religious developments but also as social changes that challenged rigid caste divisions and brought communities closer.
+    In this approach, history is considered as a branch of the social sciences. Just as sociology studies society, economics studies wealth, and political science studies power, history studied in this way examines how these aspects evolved over time. Social science history looks at the organization of family, caste, class, economy, and political institutions. For instance, the history of the caste system in India, the agrarian structure of Bengal villages, or the economic policies of the Mughal emperors are all examples of this approach. This basis helps us understand how societies were built, how they functioned, and how they changed. It shows history not merely as a series of kings and battles but as a living account of society itself.
+    
+
+    ### Anthropological Basis
+
+    The anthropological approach borrows methods from anthropology, such as fieldwork, study of customs, rituals, and material culture, to understand ancient societies. It helps explain how human communities evolved before written records existed. For example, the study of tribal groups in central India gives clues about hunting practices, kinship systems, and oral traditions that resemble the way early humans lived thousands of years ago.
+    The anthropological basis focuses on the human being as the center of study. Anthropology deals with the origin, evolution, and culture of mankind. When historians adopt this perspective, they ask: how did early humans live, what tools did they use, what customs and traditions shaped their communities, and how did cultural practices evolve across generations? This is similar to looking at a family photo album where each generation reveals changes in dress, food habits, rituals, and lifestyles. The study of prehistoric humans, the Indus Valley Civilization, tribal societies, and Aryan cultural practices fall within this division. This approach gives importance to the human story behind historical change, making it more personal and relatable.
+
+    ### Literary Basis
+
+    Literary works, both religious and secular, are also valuable sources for history. Texts such as the Vedas, the Ramayana, the Mahabharata, or Kalidasa’s plays reveal the beliefs, values, and cultural environment of their times. Even though they may include myths or exaggerations, historians carefully compare them with other evidence to extract historical truths. For instance, Sangam literature from Tamil Nadu provides detailed accounts of trade, agriculture, and warfare in early South Indian society.
+    Another important division is the literary basis of history. In many cases, written documents are not available, but literature—such as epics, poetry, drama, and religious texts—preserves valuable information. These works reflect the society, values, and struggles of their time. Literature acts like a diary of a civilization, recording its hopes, fears, and beliefs. For example, the *Ramayana* and *Mahabharata* provide information about ancient Indian life and ideals, while Sangam literature gives a detailed picture of social, political, and cultural conditions in ancient South India. Through literary sources, we can understand how people of different ages thought about morality, duty, war, and social life. Thus, literature complements formal records by offering a cultural and emotional picture of history.
+
+    ### Manuscript and Archaeological Basis
+    Manuscripts are handwritten documents that preserve information from earlier centuries. They may include chronicles, royal decrees, biographies, or travel accounts. For example, the Persian chronicles of Mughal court historians like Abul Fazl (author of Ain-i-Akbari) describe administration, revenue policies, and cultural achievements of Akbar’s reign. Such manuscripts help reconstruct political and economic history in detail.
+
+    The manuscript or archaeological basis is considered more concrete and verifiable because it depends on direct evidence. In this division, history is reconstructed from inscriptions, coins, copper plates, stone carvings, ancient documents, and official orders. These materials are like legal papers or property deeds that a detective might use to solve a case: they provide hard proof rather than imagination. For example, Ashoka’s inscriptions inform us about his policy of Dhamma, the Gupta copper plate inscriptions reveal land grants, and Mughal farmans show administrative practices. Such sources make it possible to reconstruct political, economic, and administrative history with accuracy. Without them, our understanding of the past would remain incomplete and uncertain.
+
+    ### Scientific and Technological Basis
+
+    Modern historians also use scientific techniques to test and support historical findings. Archaeology, carbon dating, satellite imaging, and DNA analysis have transformed our knowledge of the past. The discovery of the Indus Valley Civilization through excavation at Harappa and Mohenjo-Daro is a classic case where science advanced our understanding of early urban life in South Asia. Similarly, scientific study of coins, inscriptions, and pottery helps fix dates and confirm events.
+    Finally, history can also be divided on the basis of science and technology. This approach studies the role of inventions, discoveries, and scientific progress in shaping civilization. Just as we can trace the evolution of mobile phones from simple models to today’s smartphones, historians trace how human life changed with every major invention. The Industrial Revolution in Europe transformed agriculture and industry, the invention of the printing press changed the spread of knowledge, and the Information Technology revolution has reshaped communication and globalization in modern times. This division shows that history is not only about kings and wars but also about human ingenuity and progress.
+
+    ### Importance of These Divisions
+
+    The importance of these divisions is very significant. They make history more manageable and systematic by allowing scholars to focus on one dimension at a time. A political historian may look at kings and governance, while a social historian will study people’s daily lives. An anthropological historian may trace the evolution of culture, while a scientific historian will connect human progress to technology. Together, these approaches give us a balanced and multi-layered understanding of human civilization. Without such divisions, history would remain a scattered collection of events rather than a structured narrative of human development.
+
+    ### Conclusion
+
+    In conclusion, history is not confined to simple chronological periods like ancient, medieval, and modern. On the basis of study, it can also be divided into social science, anthropological, literary, manuscript, and scientific categories. Each basis offers a unique perspective: society, human culture, literature, documentary evidence, and technological growth. When combined, they create a complete picture of our past. Just as different camera angles together make a film more engaging, these different approaches together make history a more meaningful and comprehensive subject.
+
+
+    # 📘 Quick Recap: Bases of History
+
+    History isn’t only divided by time (Ancient–Medieval–Modern). It can also be divided by **approach** depending on what aspect we want to study.
+
+    The **five bases** are:
+
+    1. **Social Science** → society, family, caste, class, economy.
+    2. **Anthropological** → customs, rituals, early humans, tribal life.
+    3. **Literary** → epics, poetry, plays, religious texts as cultural records.
+    4. **Manuscript/Archaeological** → inscriptions, coins, chronicles, decrees.
+    5. **Scientific/Technological** → archaeology, carbon dating, inventions, industrial & IT revolutions.
+
+    ---
+
+    # 📊 Table for Quick Summary
+
+    | Basis                           | Focus                                               | Key Sources / Methods                                    | Example                                                                     |
+    | ------------------------------- | --------------------------------------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------- |
+    | **Social Science**              | Society, institutions, daily life                   | Family, caste, class, economy, religion                  | Bhakti–Sufi movement as social change; Mughal agrarian policies             |
+    | **Anthropological**             | Human evolution, customs, rituals, material culture | Fieldwork, tribal studies, tools, oral traditions        | Study of tribal life in Central India; Indus Valley Civilization            |
+    | **Literary**                    | Culture, beliefs, values, emotions                  | Epics, poems, plays, religious texts                     | Ramayana, Mahabharata, Sangam literature                                    |
+    | **Manuscript / Archaeological** | Verified political & economic history               | Manuscripts, inscriptions, coins, farmans, copper plates | Abul Fazl’s *Ain-i-Akbari*; Ashoka’s inscriptions; Gupta copper plates      |
+    | **Scientific / Technological**  | Progress through inventions, discoveries            | Carbon dating, DNA, excavations, satellite imaging       | Indus Valley (Harappa, Mohenjo-Daro); Industrial Revolution; Printing press |
+
+    ---
+
+    # 📝 Key Takeaways
+
+    * Each basis = different “camera angle” on the past.
+    * Together they create a **complete film** of human history.
+    * Social = society, Anthro = human evolution, Literary = culture, Manuscript = hard evidence, Scientific = progress & tech.
 
