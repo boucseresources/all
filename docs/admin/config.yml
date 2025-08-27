@@ -1,17 +1,20 @@
-# backend:
-#   name: github
-#   repo: boucseresources/all   # <— change
-#   branch: main                   # <— change if needed
-
-# Optional: safer workflow = PRs for review
 publish_mode: editorial_workflow
 
-# Where uploads go (inside your repo)
+# Media
 media_folder: "docs/assets/uploads"
 public_folder: "/assets/uploads"
+
+# Local dev
 local_backend: true
 backend: { name: git-gateway }
 
+# Global editor/slug settings (apply to all collections by default)
+editor:
+  preview: true
+slug:
+  encoding: unicode
+  clean_accents: true
+  sanitize_replacement: "-"
 
 collections:
   - name: pages
@@ -19,13 +22,18 @@ collections:
     folder: "docs"
     create: true
     extension: "md"
-    # Keep nested folder structure when creating new files:
     path: "{{dirname}}/{{slug}}.md"
-    # (Optional) Helps Decap understand subfolders better:
+
+    # Show nested tree (beta)
     nested:
       depth: 100
-    # Show something readable in the list (title + filename fallback feel):
+      summary: "{{title}}"
+
     summary: "{{title}} — {{filename}}"
+
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body",  name: "body",  widget: "markdown" }
+      - label: "Body"
+        name: "body"
+        # widget: "monaco-md"  # use your custom widget here
+        widget: "markdown"  # use your custom widget here
