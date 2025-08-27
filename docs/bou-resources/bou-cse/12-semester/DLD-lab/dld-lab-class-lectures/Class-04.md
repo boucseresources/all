@@ -72,8 +72,10 @@ title: DLD - Class 04
     
     ![XNOR gate Connection testing](<XNOR gate connection.gif>)
    
-    !!! link "Link to TinkerCad"
-        [Link to TinkerCad](https://www.tinkercad.com/things/lN9gnj2TQYg-dld-nor-gate)
+    !!! link "Try yourself"
+
+        <iframe width="725" height="453" src="https://www.tinkercad.com/embed/iA7LAcwc4y7" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        
 
     
 
