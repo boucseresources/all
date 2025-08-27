@@ -1,3 +1,6 @@
+---
+title: DLD - Class 04
+---
 <!-- prettier-ignore-start -->
 # DLD - Class 04
 
