@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra/boolean-algebra.md",
+                "file": "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-01.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "boolean-algebra"
+              "title": "12-EEE-lab-01"
             }
           }
         ]
@@ -75,7 +75,7 @@
             }
           },
           {
-            "id": "f5380dd127db1699",
+            "id": "ae69ed03a7a655a3",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -84,7 +84,8 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -188,16 +189,21 @@
       "command-palette:Open command palette": false,
       "obsidian-excalidraw-plugin:Create new drawing": false,
       "math-indicator-changer:Change math indicator": false,
-      "chat-with-bard:New Gemini Chat": false,
       "edge-tts:Read note aloud": false,
-      "mermaid-tools:Open Mermaid Toolbar": false,
-      "aloud-tts:Aloud: text to speech": false
+      "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
   "active": "d38b6be6ce8aeb16",
   "lastOpenFiles": [
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-01.md",
+    "Media Library/Figure 4_ I-V characteristics in diode.png",
+    "Media Library/Figure 3_ TinkerCAD simulation for circuit 1.png",
+    "Media Library/Figure 2 TinkerCAD simulation for circuit 1.png",
+    "Media Library/image-44.png",
+    "Media Library/output _2_.png",
+    "Media Library/Figure 1_ Internal and circuit representation of a diode.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-01.md",
     "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra/boolean-algebra.md",
+    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-01.md",
     "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra",
     "bou-cse/12-semester/DLD-lab/DLD-lab.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/dld-lab-class-lectures.md",
@@ -228,19 +234,12 @@
     "Media Library/image-42.png",
     "Media Library/image-41.png",
     "Media Library/Family of Circles Touching the x‑Axis at the Origin — Differential Equation.png",
-    "Media Library/image-40.png",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class Lectures/.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/C-Type-Conversion.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures",
     "faq.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/c-data-types.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/learning-c.md",
-    "bou-cse/12-semester/structured-programming-language/Computer-Fundamentals-Review.md",
-    "Gemini Chats/New Chat 2.gemini",
-    "bou-cse/12-semester/structured-programming-language/spl-resources.md",
-    "Media Library/image-39.png",
-    "Media Library/image-38.png",
-    "Media Library/BOU CSE Admission Circular pdf colour2024 conv 1.jpeg",
-    "Media Library/image-36.png"
+    "Gemini Chats/New Chat 2.gemini"
   ]
 }
