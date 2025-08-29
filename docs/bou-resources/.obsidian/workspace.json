@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-01.md",
+                "file": "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-02.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12-EEE-lab-01"
+              "title": "12-EEE-lab-02"
             }
           }
         ]
@@ -195,20 +195,23 @@
   },
   "active": "d38b6be6ce8aeb16",
   "lastOpenFiles": [
+    "Media Library/Figure 5_ I-V characteristics in zener diode.png",
+    "Media Library/Fig. 2. V–I characteristics for Zener Diode..png",
+    "Media Library/Figure 4_ TinkerCAD simulation for circuit 2.png",
+    "Media Library/Fig 3. Circuit diagram for observing V-I characteristics for zener diode..png",
+    "Media Library/Fig.  1_  Zener diode application. a_ Circuit. b_ Ideal transfer characteristic..png",
+    "Media Library/image-43.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-01.md",
     "Media Library/Figure 4_ I-V characteristics in diode.png",
     "Media Library/Figure 3_ TinkerCAD simulation for circuit 1.png",
     "Media Library/Figure 2 TinkerCAD simulation for circuit 1.png",
     "Media Library/image-44.png",
     "Media Library/output _2_.png",
-    "Media Library/Figure 1_ Internal and circuit representation of a diode.png",
-    "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-01.md",
     "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra/boolean-algebra.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-01.md",
     "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra",
     "bou-cse/12-semester/DLD-lab/DLD-lab.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/dld-lab-class-lectures.md",
-    "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures/image-1.png",
-    "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures/image.png",
     "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures/Class-01.md",
     "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures",
     "bou-cse/12-semester/Digital-Logic-Design/Untitled",
@@ -231,9 +234,6 @@
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-02.md",
     "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures",
     "bou-cse/index.md",
-    "Media Library/image-42.png",
-    "Media Library/image-41.png",
-    "Media Library/Family of Circles Touching the x‑Axis at the Origin — Differential Equation.png",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class Lectures/.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/C-Type-Conversion.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures",
