@@ -1,3 +1,9 @@
+---
+title: EEEL - Class 02
+---
+
+<!-- prettier-ignore-start -->
+
 # Zener Diode Lab — ultra-beginner guide
 
 ## 0) What is a Zener diode? (in plain words)
@@ -271,3 +277,5 @@ In reverse breakdown, the Zener **clamps the output near $V_Z$**. When $V_{in}$ 
 
   So **use $R_L \ge 200\,Ω$** for safe regulation. ✅
 
+
+<!-- prettier-ignore-end-->
