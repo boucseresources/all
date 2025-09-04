@@ -5,9 +5,6 @@ title: DLDL - Class 05
 <!-- prettier-ignore-start -->
 # Universal Gate implementation
 
-আচ্ছা ✅ এখন আমি সবগুলো Boolean expression একেবারে **স্ট্যান্ডার্ড বইয়ের মতো Bar Notation** (Complement বোঝাতে উপরে বার টানা) করে লিখে দিলাম।
-
----
 
 # 🔑 Universal Logic Gates
 
@@ -18,6 +15,85 @@ title: DLDL - Class 05
 
 ## 🟩 NAND Universal Logic Gate
 
+!!! note "NOT Gate using NAND"
+
+    <u>
+    ## NAND গেট কী?
+    </u>
+
+    **NAND গেট** হলো এক ধরনের **Universal Logic Gate**। এটার দুই বা তার বেশি ইনপুট থাকতে পারে এবং আউটপুট থাকে সবসময় একটিই।
+
+    👉 যখন **সব ইনপুট = 1**, তখন আউটপুট হবে **0**।
+    👉 অন্য যেকোনো ইনপুট কম্বিনেশনে আউটপুট হবে **1**।
+
+    ![NAND Gate Basics](image-18.png)
+    **NAND গেটের প্রতীক (Symbol)**
+
+    দুই ইনপুট NAND গেটের **Truth Table** নিচে দেওয়া হলো:
+
+    | ইনপুট A | ইনপুট B | আউটপুট Y |
+    | ------- | ------- | -------- |
+    | 0       | 0       | 1        |
+    | 0       | 1       | 1        |
+    | 1       | 0       | 1        |
+    | 1       | 1       | 0        |
+
+    Boolean Function:
+
+    $$
+    Y = \overline{AB}
+    $$
+
+    এখানে $AB$-এর উপর বার চিহ্নটি নির্দেশ করছে AND এর উল্টো মান বা **NOT operation**।
+
+!!! note "NAND gate as NOT"
+
+    <u>
+    ## NAND গেট দিয়ে NOT গেট তৈরি:
+    </u>
+
+
+    এখন দেখা যাক, কিভাবে শুধু NAND গেট ব্যবহার করে **NOT Gate** বানানো যায়।
+
+    NOT গেটের আউটপুট ফাংশন হলো:
+
+    $$
+    Y = \overline{A}
+    $$
+
+    অন্যদিকে, NAND গেটের আউটপুট হলো:
+
+    $$
+    Y = \overline{A \cdot B}
+    $$
+
+    👉 যদি আমরা NAND গেটের দুই ইনপুটকে একই সিগন্যাল দিই, অর্থাৎ $A = B = A$, তাহলে:
+
+    $$
+    Y = \overline{A \cdot A} = \overline{A}
+    $$
+
+    এটাই হচ্ছে **NOT Gate-এর সমান আউটপুট**।
+
+    ## Circuit Diagram
+
+    NOT গেট NAND গেট দিয়ে বানাতে হলে:
+    ![bou-NAND-as-NOT](../../../../Media-Library/bou-NAND-as-NOT-.png)
+    * উভয় ইনপুটকে একসাথে শর্ট করে একই ইনপুট দিতে হবে।
+    * আউটপুট লাইনে পাওয়া যাবে **উল্টানো মান (Inverter Output)**।
+
+    অন্যভাবে, যদি এক ইনপুটকে Logic 1 দেওয়া হয় এবং অন্য ইনপুটে $A$ দেওয়া হয়, তাহলেও আউটপুট হবে:
+
+    $$
+    Y = \overline{A \cdot 1} = \overline{A}
+    $$
+
+    ## Conclusion
+
+    আমরা দেখলাম কীভাবে একটি **NAND Gate** ব্যবহার করে **NOT Gate** তৈরি করা যায়। সার্কিট ডায়াগ্রামের সাহায্যে বিষয়টি আরও পরিষ্কার হয়েছে।
+
+
+
 ### ✅ AND Gate Using NAND Gate
 
 * দরকার হবে 2টা NAND gate |
@@ -25,9 +101,8 @@ title: DLDL - Class 05
 * 2য় NAND Gate → আউটপুট = $\overline{\overline{A \cdot B}} = A \cdot B$ |
 * চূড়ান্ত আউটপুট = AND Gate |
 
----
 ![AND Gate Using NAND Gate](image-16.png)
-
+---
 
 
 ### ✅ OR Gate Using NAND Gate
@@ -37,7 +112,8 @@ title: DLDL - Class 05
 * 2য় NAND Gate → আউটপুট = $\overline{B}$ |
 * 3য় NAND Gate → আউটপুট = $\overline{\overline{A} \cdot \overline{B}} = A + B$ |
 * চূড়ান্ত আউটপুট = OR Gate |
-![OR Gate Using NAND Gate](../../../../Media%20Library/2025-09-04-11-02-54.png)
+
+![[OR-Gate-Using-NAND-Gate.png|OR Gate Using NAND Gate]]
 ---
 
 ### ✅ NOR Gate Using NAND Gate
@@ -48,7 +124,8 @@ title: DLDL - Class 05
 * 3য় NAND Gate → আউটপুট = $\overline{(A \cdot B) \cdot (A \cdot B)} = \overline{A \cdot B}$ |
 * চূড়ান্ত আউটপুট = NOR Gate |
 
----
+![[NOR-Gate-Using-NAND-Gate.png|NOR Gate Using NAND Gate]]
+
 
 ### ✅ XNOR Gate Using NAND Gate
 
