@@ -385,9 +385,11 @@ title: DLDL - Class 05
     ✅ এইভাবেই শুধুমাত্র NAND gate ব্যবহার করে XNOR gate তৈরি করা সম্ভব।
 
 
-
+#### Try yourself:
+<iframe width="725" height="453" src="https://www.tinkercad.com/embed/j8jAf8DulsT?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 ---
+## Universal Logic Gates using only NAND Gates
 ![Universal Logic Gates using only NAND Gates](image-21.png)
 ---
 
