@@ -6,27 +6,55 @@ on:
       - main
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
       - uses: actions/setup-python@v5
         with:
-          python-version: 3.x
+          python-version: "3.x"
+
+      # Cache pip dependencies
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
+          path: ~/.cache/pip
           restore-keys: |
             mkdocs-material-
-      - name: Install dependencies
-        run: |
-          pip install mkdocs-material mkdocs-glightbox mkdocs-obsidian-bridge mkdocs-get-deps mkdocs-awesome-pages-plugin mkdocs-mcq mkdocs-toggle-sidebar-plugin mkdocs-with-pdf
 
-      - run: mkdocs gh-deploy --force
+      # Install Linux dependencies for WeasyPrint
+      - name: Install WeasyPrint system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libcairo2 libpango-1.0-0 libpangocairo-1.0-0 \
+            libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
+
+      # Install Python packages
+      - name: Install Python dependencies
+        run: |
+          pip install mkdocs-material \
+                     mkdocs-glightbox \
+                     mkdocs-obsidian-bridge \
+                     mkdocs-get-deps \
+                     mkdocs-awesome-pages-plugin \
+                     mkdocs-mcq \
+                     mkdocs-toggle-sidebar-plugin \
+                     mkdocs-with-pdf
+
+      # Build with PDF config (creates site/ with the PDF file inside)
+      - name: Build docs with PDF
+        run: mkdocs build -f mkdocs-pdf.yml
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy -f mkdocs-pdf.yml --force
