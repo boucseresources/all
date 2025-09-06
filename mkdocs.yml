@@ -63,7 +63,7 @@ plugins:
   - awesome-pages
   - mcq
   - toggle-sidebar
-
+  
 extra:
   generator: false
   announcement:
