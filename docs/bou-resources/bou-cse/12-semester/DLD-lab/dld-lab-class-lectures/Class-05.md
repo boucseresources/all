@@ -78,7 +78,8 @@ title: DLDL - Class 05
     ## Circuit Diagram
 
     NOT গেট NAND গেট দিয়ে বানাতে হলে:
-    ![bou-NAND-as-NOT](../../../../Media-Library/bou-NAND-as-NOT-.png)
+   
+    ![NAND-as-NOT](image-25.png)
     * উভয় ইনপুটকে একসাথে শর্ট করে একই ইনপুট দিতে হবে।
     * আউটপুট লাইনে পাওয়া যাবে **উল্টানো মান (Inverter Output)**।
 
