@@ -1,0 +1,21 @@
+INHERIT: mkdocs.yml
+
+plugins:
+  - search
+  - offline
+  - privacy
+  - meta
+  - glightbox
+  - obsidian-bridge
+  - awesome-pages
+  - mcq
+  - toggle-sidebar
+  - with-pdf:
+      output_path: assets/BOU-CSE-docs.pdf
+      cover_title: "BOU CSE Notes"
+      cover_subtitle: "Bangladesh Open University"
+      cover_logo: docs/assets/logo.png # optional
+      toc_title: "Table of Contents"
+      author: "Rakibul Hasan"
+      copyright: "© 2025 Rakibul Hasan"
+      ordered_chapter_level: 2
