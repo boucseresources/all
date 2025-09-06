@@ -12,7 +12,8 @@ title: NOT Gate from NOR Gate
 
 ডিজিটাল ইলেকট্রনিক্সে, একটি NOT gate হলো একটি basic logic gate যার কেবল একটি ইনপুট এবং একটি আউটপুট থাকে। এটি এমন এক ধরনের logic gate যার আউটপুট সবসময় ইনপুটের complement হয়। এজন্য NOT gate কে **inverter** নামেও ডাকা হয়।
 
-![What is a NOT Gate](../../../../Media-Library/nand-using-nor.png)
+![What is a NOT Gate](image-4.png)
+
 যদি NOT gate এর ইনপুট LOW (Logic 0) হয়, তাহলে এটি HIGH (Logic 1) আউটপুট দেয়। যদি ইনপুট HIGH (Logic 1) হয়, তাহলে NOT gate LOW (Logic 0) আউটপুট দেয়। Figure-1 এ NOT gate এর লজিক সিম্বল দেখানো হয়েছে।
 
 ### Implementation of NOT Gate From NOR Gate 1
@@ -43,7 +44,8 @@ $$
 \text{NOR Gate} = \text{OR Gate} + \text{NOT Gate}
 $$
 
-![NOR Gate](../../../../Media-Library/nor-gate.png)
+
+![nor-gate](image-5.png)
 
 একটি NOR gate যেকোনো সংখ্যক ইনপুট নিতে পারে এবং একটি আউটপুট দেয়। NOR gate এর আউটপুট HIGH (Logic 1) হবে তখনই যখন সব ইনপুট LOW (Logic 0) থাকে। অন্য যেকোনো ইনপুট কম্বিনেশনে এর আউটপুট LOW (Logic 0) হয়। Figure-2 তে একটি two-input NOR gate এর লজিক সিম্বল দেখানো হয়েছে।
 
@@ -73,7 +75,6 @@ $$
 ---
 
 ### Implementation of NOT Gate from NOR Gate
-![Implementation of NOT Gate from NOR Gate](../../../../Media-Library/not-from-nor.png)
 
 যেমন উপরে আলোচনা করা হয়েছে, একটি NOR gate হলো universal gate, তাই এটি ব্যবহার করে যেকোনো ধরনের logic gate বাস্তবায়ন করা যায়। Figure-3 এ NOR gate ব্যবহার করে NOT gate বাস্তবায়নের চিত্র দেখানো হয়েছে।
 

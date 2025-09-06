@@ -55,6 +55,8 @@ theme:
       accent: deep orange
 plugins:
   - search
+  - offline
+  - privacy
   - meta
   - glightbox
   - obsidian-bridge
