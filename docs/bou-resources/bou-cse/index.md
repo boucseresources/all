@@ -19,6 +19,8 @@ The program is structured into **4 academic years**, each consisting of **2 seme
     [8th Batch DRC Google Drive](https://drive.google.com/drive/folders/1P3aQWtg6fGxKgVz2MkfJV8tQgHxXgQXy?usp=drive_link)
     
     [6th Batch DRC Google Drive](https://drive.google.com/drive/folders/1OkUZ6aF_y4ofv9SDDABiHElcBZ8FHOJv?usp=drive_link)
+    
+
 
 === "1️⃣ First Year"
 
@@ -27,8 +29,9 @@ The program is structured into **4 academic years**, each consisting of **2 seme
 
 
 === "2️⃣ Second Year"
-
-    This is top-level tab 2.
+     
+    [7th Batch DRC Google Drive](https://drive.google.com/drive/folders/10sFr5Jr52mj7pLAQFMFBHDa7jbJgC31u)
+   
 
 ---
 
