@@ -1,5 +1,5 @@
 ---
-title: DLD Lab 4.1 (Circuit Design with K-Map solution )
+title: DLD Lab 4.1 and 4.2 (Circuit Design with K-Map solution )
 ---
 
 
@@ -50,3 +50,9 @@ F(a,b,c) = ac + ab' + b'c + a'bc'
 - \(m_4, m_5 \rightarrow ab'\)
 - \(m_1, m_5 \rightarrow b'c\)
 - \(m_2 \rightarrow a'bc'\)
+
+
+# DLD Lab 4.2 (Circuit Design with K-Map solution )
+---
+
+![[DLD Lab 4.2.png]]
