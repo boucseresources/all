@@ -11,3 +11,6 @@
     ![[charlie-coleman.com.png]]{width=60%}
 - [atozmath.com - KMap](https://atozmath.com/KMap.aspx?q=kmap) এটাও অনেক powerful একটা tool কিন্তু এখানে full solution টা পেতে গেলে ৮-১০ সেকেন্ডের ads দেখতে হয়। তবে Ads blocker থাকলে সেটা থেকে  বাঁচা যায়, তবে ঐ সময়টুকু অপেক্ষা করতেই হয়। 
 	![[atozmath.com - KMap.png]]
+
+- [MadForMath](https://madformath.com/calculators/digital-systems/boolean-functions/function-to-logic-circuit-converter) - এটা আমার ব্যবহার করা সর্বপ্রথম tool. এটাতে অনেক কিছু আছে। মজার বিষয় হচ্ছে এটার execution time অনেক দ্রুত আর  সাথে সাথে সার্কিটও দেখায়। তবে কোন explanation নেই।  যেমনঃ TO TRUTH TABLE,COMPLEMENT,DUAL,TO CIRCUIT,SIMULATOR,TO SUM OF MINTERMS,TO PRODUCT OF MAXTERMS,TO CANONICAL,K-MAP SOLVER (SOP),K-MAP SOLVER (POS). 
+		![[MadForMath.png]]
