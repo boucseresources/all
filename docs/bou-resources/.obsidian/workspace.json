@@ -11,12 +11,14 @@
             "id": "d38b6be6ce8aeb16",
             "type": "leaf",
             "state": {
-              "type": "mk-space",
+              "type": "markdown",
               "state": {
-                "path": "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures"
+                "file": "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-Assignnments/Assignment-01.md",
+                "mode": "source",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "dld-lab-class-lectures"
+              "title": "Assignment-01"
             }
           }
         ]
@@ -73,7 +75,7 @@
             }
           },
           {
-            "id": "28d2f32c3ea900d1",
+            "id": "cce03db5e8a88bc2",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -191,8 +193,9 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "28d2f32c3ea900d1",
+  "active": "d38b6be6ce8aeb16",
   "lastOpenFiles": [
+    "Media Library/circuit orientation.png",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/dld-lab-class-lectures.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-04.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-05.md",
@@ -237,7 +240,6 @@
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class Lectures/.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/C-Type-Conversion.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures",
-    "faq.md",
     "Gemini Chats/New Chat 2.gemini"
   ]
 }
