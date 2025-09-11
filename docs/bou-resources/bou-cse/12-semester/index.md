@@ -59,7 +59,7 @@
 
 - 🔢 **Code**: CSE12P6
 - 👨‍🏫 **Teacher**: Mr. Md. Mahmudul Hasan (MH)
-- 🔗 **Resources**: [View](/all/bou-resources/bou-cse/12-semester/dld-lab/)
+- 🔗 **Resources**:[View](/all/bou-resources/bou-cse/12-semester/DLD-lab/index.html) 
 
 ---
 
