@@ -1,7 +1,7 @@
-title: All Semesters
 nav:
   - Home: index.md
-  - BOU CSE: bou-resources
+  - All Semester Resources: bou-resources
+  - Admission Information: /all/bou-resources/admission-information/bou-cse-admission-guide.html
   - FAQs: faq.md
   - Cover Page: cover-page/cover-page.html
   # - Visit BOU: https://bou.ac.bd

@@ -11,14 +11,12 @@
             "id": "d38b6be6ce8aeb16",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "mk-space",
               "state": {
-                "file": "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-05.md",
-                "mode": "source",
-                "source": false
+                "path": "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures"
               },
               "icon": "lucide-file",
-              "title": "Class-05"
+              "title": "dld-lab-class-lectures"
             }
           }
         ]
@@ -75,7 +73,7 @@
             }
           },
           {
-            "id": "17674c5ebafe9926",
+            "id": "28d2f32c3ea900d1",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -193,8 +191,11 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "d38b6be6ce8aeb16",
+  "active": "28d2f32c3ea900d1",
   "lastOpenFiles": [
+    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/dld-lab-class-lectures.md",
+    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-04.md",
+    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-05.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/image-22.png",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/image-21.png",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/image-20.png",
@@ -205,10 +206,7 @@
     "Media Library/NOR-Gate-Using-NAND-Gate.png",
     "Media Library/OR-Gate-Using-NAND-Gate.png",
     "Media Library/image-45.png",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-05.md",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/dld-lab-class-lectures.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-02.md",
-    "Media Library/Figure 5_ I-V characteristics in zener diode.png",
     "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-01.md",
     "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra/boolean-algebra.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-01.md",
