@@ -1,9 +1,14 @@
-# DLD Lab 4.1 
-# 3-Variable K-Map Solution (Step-by-Step, in 2 parts)
+---
+title: DLD Lab 4.1 (Circuit Design with K-Map solution )
+---
 
-## "Part 1 — Problem Setup"
-**Given**
 
+
+#### 3-Variable K-Map Solution (Step-by-Step, in 2 parts)
+
+**"Part 1 — Problem Setup"**
+
+Given,
 - **Minterms:** \( \Sigma m(1,2,4,5,7) \)  
 - **Don’t cares:** *(none)*  
 - **Variables:** \(a, b, c\)  
@@ -16,8 +21,8 @@
 *Cell–minterm mapping (row \(a=0\): m0, m1, m3, m2; row \(a=1\): m4, m5, m7, m6).*
 
 
+**Part 2 — Grouping & Simplification:**
 
-## "Part 2 — Grouping & Simplification"
 **Group-1:** 2-cell grouping \((5,7)\)  
 Cells: row \(a=1\), cols \(bc=01,11\) → \(b\) changes, \(a=1\), \(c=1\)  
 - **Term:** `ac`
