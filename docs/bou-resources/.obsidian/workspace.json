@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "Class-06"
             }
+          },
+          {
+            "id": "e1683517e504ca6a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-Assignnments/Assignment-01.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Assignment-01"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -75,7 +90,7 @@
             }
           },
           {
-            "id": "cce03db5e8a88bc2",
+            "id": "112831f155ee9091",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -193,8 +208,17 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "d38b6be6ce8aeb16",
+  "active": "e1683517e504ca6a",
   "lastOpenFiles": [
+    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-06.md",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments/image.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments/Assignment-01.md",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Electronic-Device-and-Circuits-LAB.md",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits",
+    "Media Library/image-50.png",
+    "Media Library/F = A'C + AB'D' + ABD.png",
+    "Media Library/TinkerCad of F = B'C + A'BC' + AB' + AC.png",
     "Media Library/DLD Lab 4.2.png",
     "bou-cse/12-semester/Digital-Logic-Design/DLD-Tools.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/atozmath.com_KMap.aspx_q=kmap&q1=2%2c3%2c6%2c7%2c8%2c10%2c13%2c15%60%60a%2cb%2cc%2cd%601&do=1.png",
@@ -202,12 +226,6 @@
     "Media Library/image-49.png",
     "Media Library/atozmath.com - KMap.png",
     "bou-cse/12-semester/Digital-Logic-Design/image.png",
-    "Media Library/charlie-coleman.com.png",
-    "Media Library/allmath.com.png",
-    "Media Library/sublime.tools.png",
-    "Media Library/boolean-algebra.com.png",
-    "Media Library/image-48.png",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-06.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/dld-lab-class-lectures.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-Assignnments/Assignment-01.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-04.md",
@@ -236,10 +254,6 @@
     "bou-cse/12-semester/index.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures",
     "bou-cse/12-semester/DLD-lab",
-    "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures/CSE-Lab-2.md",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-02.md",
-    "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures",
-    "Gemini Chats/New Chat 2.gemini"
+    "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures"
   ]
 }
