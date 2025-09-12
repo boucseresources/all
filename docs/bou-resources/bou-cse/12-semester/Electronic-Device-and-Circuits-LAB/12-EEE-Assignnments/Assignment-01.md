@@ -11,48 +11,42 @@ d) Both diodes **D₁** and **D₂** are OFF.
 
 ---
 ### Solution:
-
-Given,
-* The forward voltage drop for diode **D₁** is **0.7V**.
-* The forward voltage drop for diode **D₂** is **0.3V**.
-* The input voltage is **10V**.
-* The resistances in the circuit are **1kΩ** and **20Ω**.
-* We are asked to determine which statement is true about the state of the diodes based on this information.
+To determine the states of the diodes (D1 and D2), we need to analyze the voltages across them and compare with their forward voltage drops.
 
 ### Circuit Analysis:
 
-We have two diodes, D₁ and D₂, connected in parallel. The voltage across both diodes will be the same, and each diode will either be ON or OFF depending on the voltage across it.
+* **Source voltage (V) = 10 V**
+* **R1 = 1 kΩ**, **R2 = 20 Ω**
+* **D1 forward voltage = 700 mV**
+* **D2 forward voltage = 300 mV**
 
-**Forward Voltage for Diodes:**
+1. **D1 (700 mV forward voltage):**
 
-1. **Diode D₁** has a forward voltage of 0.7V, meaning it will turn ON if the voltage across it exceeds 0.7V.
-2. **Diode D₂** has a forward voltage of 0.3V, meaning it will turn ON if the voltage across it exceeds 0.3V.
+* The voltage across D1 will depend on the voltage divider formed by R1 and R2.
 
-### Approach:
+* The voltage at the point where D1 is connected (let's call it **V1**) is determined by the voltage divider formula:
 
-We can calculate the voltage across each diode using the following:
+$$
+V1 = V \times \frac{R2}{R1 + R2}
+$$
 
-* **For Diode D₁:**
-  Since the voltage drop is 0.7V, we compare the input voltage (10V) with the voltage drop across D₁.
+Substituting the values:
 
-  * If the voltage across D₁ is greater than 0.7V, **D₁ will be ON**.
-* **For Diode D₂:**
-  Similarly, D₂ has a lower voltage drop (0.3V).
+$$
+V1 = 10 \times \frac{20}{1000 + 20} = 10 \times \frac{20}{1020} \approx 0.196 \, \text{V} = 196 \, \text{mV}
+$$
 
-  * If the voltage across D₂ is greater than 0.3V, **D₂ will be ON**.
+* Since **V1 = 196 mV** is much less than the forward voltage of D1 (700 mV), **D1 will be OFF**.
 
-### Analyzing the Voltage Division:
+2. **D2 (300 mV forward voltage):**
 
-* The total voltage (10V) will be divided between the resistors and the diodes.
-* Given that the resistors are in series with the diodes, we use Kirchhoff’s Voltage Law (KVL) to analyze the voltage drop across each component.
+* The voltage across D2 is the difference between the source voltage and the voltage at point V1, which is **10 V - 196 mV = 9.804 V**.
+* Since **9.804 V** is much higher than the forward voltage of D2 (300 mV), **D2 will be ON**.
 
-#### 1. Diode D₁ will be ON because its threshold (0.7V) is much lower than the input voltage of 10V.
+### Final Decision:
 
-#### 2. Diode D₂ will also be ON because its threshold (0.3V) is also much lower than 10V.
+* **D1** is **OFF**.
+* **D2** is **ON**.
 
-### Conclusion:
 
-* Both diodes **D₁** and **D₂** will be ON because both of their forward voltage thresholds are met (0.7V for D₁ and 0.3V for D₂) under the applied voltage of 10V.
 
-Therefore, the correct answer is:
-**a) Both diodes D₁ and D₂ are ON.**
