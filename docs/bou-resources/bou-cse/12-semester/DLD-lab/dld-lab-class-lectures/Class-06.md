@@ -1,5 +1,5 @@
 ---
-title: DLD Lab 4.1 and 4.2 (Circuit Design with K-Map solution )
+title: DLD Lab 4.1, 4.2, 4.3 and 4.4 (Circuit Design with K-Map solution )
 ---
 
 
@@ -62,3 +62,32 @@ TinkerCad এর জন্যঃ
 ![[image-50.png|F = A'C + AB'D' + ABD]]
 
 ![[F = A'C + AB'D' + ABD.png]]
+
+
+---
+⭐️ DLD Specific assignment for each individual: 
+Details: 
+
+⭐️DLD LAB:
+নিচের এই গেইটগুলো বানাতে হবে TinkerCad এ। কীভাবে করতে হবে তা নিচে দেয়া হল:
+
+
+⭐️ EEE-LAB :
+
+Diode Circuit Assignment
+Assignment-1
+For the given circuit, if the forward voltage drop for diode D1 and D2 are 0.7 and 0.3 respectively, then which statement is true?
+[A circuit diagram is shown with a 10V source, a 1kΩ resistor, and two parallel branches. The first branch has diode D1. The second branch has a 20kΩ resistor in series with diode D2.]
+(a) Both diode "D1" and "D2" are ON.
+(b) Diode "D1" is ON and "D2" is OFF.
+(c) "D1" is OFF and "D2" is ON.
+(d) Both diode "D1" and "D2" are OFF.
+
+* Last date of Submission is 12-09-25 #
+
+
+⭐️  Math assignment:
+
+https://drive.google.com/file/d/165-gK9S5pb0y9w3MA5VZKgN-viaiiC8p/view?usp=drivesdk
+
+Deadline: জানা নেই।
