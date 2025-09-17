@@ -13,6 +13,7 @@
 <!-- prettier-ignore-start -->
 ??? folder "Folder অনুযায়ী দেখতে Click করুন!"
     <div class="grid cards" markdown>
+     
 
     - [![KMap Generator](image.png)](/all/VARIOUS-TOOLS/abc-kmap-generator/index.html) 
     - [![Image 2](docs/assets/folder-images/01.png)](/all/bou-resources/bou-cse/12-semester/)
@@ -26,3 +27,5 @@
     </div>
 
 <!-- prettier-ignore-end -->
+
+
