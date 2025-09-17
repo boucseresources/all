@@ -6,7 +6,7 @@
 
 !!! info "KMap Generator"
     
-   
+    [![KMap Generator](image.png)](/all/VARIOUS-TOOLS/abc-kmap-generator/index.html)
 
 
 
@@ -14,7 +14,7 @@
 ??? folder "Folder অনুযায়ী দেখতে Click করুন!"
     <div class="grid cards" markdown>
 
-    -  [![KMap Generator](image.png)](/all/bou-resources/VARIOUS-TOOLS/abc-kmap-generator/index.html) 
+    - [![KMap Generator](image.png)](/all/VARIOUS-TOOLS/abc-kmap-generator/index.html) 
     - [![Image 2](docs/assets/folder-images/01.png)](/all/bou-resources/bou-cse/12-semester/)
     - [![Image 3](docs/assets/folder-images/1.png)](/all/bou-resources/bou-cse/21-semester/)
     - [![Image 5](docs/assets/folder-images/2.png)](/all/bou-resources/bou-cse/22-semester/)
