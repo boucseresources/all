@@ -196,7 +196,11 @@ $$
 b = A′B
 $$
 
----
+
+![Half Subtractor TinkerCad Truth table check | TinkerCad | Halal Coder](image-32.png)
+![Half Subtractor TinkerCad Truth table check](<Half Subtractor TinkerCad Truth table check.gif>)
+<iframe width="1258" height="619" src="https://www.youtube.com/embed/uZz0RJ-BHnM" title="Half Subtractor TinkerCad Truth table check" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 ## Applications of Half Subtractor
 
