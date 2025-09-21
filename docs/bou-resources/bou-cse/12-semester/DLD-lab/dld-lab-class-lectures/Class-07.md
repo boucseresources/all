@@ -84,6 +84,12 @@ $$
 C = A \cdot B
 $$
 
+#### Simulation on TinkerCad: 
+![Half Adder TinkerCad Truth table check | TinkerCad | Halal Coder](image-31.png)
+![Half Adder TinkerCad Truth table check | TinkerCad | Halal Coder](<Half Adder TinkerCad Truth table check simulation.gif>)
+
+<iframe width="1258" height="619" src="https://www.youtube.com/embed/V-__-oLekYM" title="Half Adder TinkerCad Truth table check | TinkerCad | Halal Coder" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Applications of Half Adder
 
 - Used in **Arithmetic Logic Units (ALUs)** of processors.
@@ -164,7 +170,7 @@ From the logic diagram:
 | 1         | 0         | 1              | 0          |
 | 1         | 1         | 0              | 0          |
 
----
+
 
 ## K-Map for Half Subtractor
 
