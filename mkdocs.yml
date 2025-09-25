@@ -1,7 +1,6 @@
 site_name: Bou CSE Resources
 site_url: https://boucseresources.github.io/all/
-docs_dir: docs   # if missing, default is 'docs'
-
+docs_dir: docs # if missing, default is 'docs'
 
 # nav:
 #   - Home: index.md
@@ -20,8 +19,8 @@ theme:
     annotation: material/star-four-points-circle
   features:
     # - announce.dismiss
-    - search.share  
-    - content.code.annotate  
+    - search.share
+    - content.code.annotate
     - content.tooltips
     - navigation.instant
     - search.suggest
@@ -64,7 +63,6 @@ plugins:
   - mcq
   - toggle-sidebar
 
-  
 extra:
   generator: false
   announcement:
@@ -133,12 +131,10 @@ markdown_extensions:
 
 extra_javascript:
   - meta-inject.js
-  - javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-  - https://unpkg.com/katex@0/dist/katex.min.js
-  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+  # - javascripts/mathjax/tex-chtml-full.js
+  - javascripts/mathjax/mathjax.js
+  - javascripts/mathjax/tex-chtml-full.js
 extra_css:
   - stylesheets/extra.css
-  - https://unpkg.com/katex@0/dist/katex.min.css
 
 copyright: Copyright &copy; 2025 Rakibul Hashan
