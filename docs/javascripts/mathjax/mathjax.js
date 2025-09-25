@@ -6,14 +6,11 @@ window.MathJax = {
     processEnvironments: true
   },
   options: {
-    ignoreHtmlClass: ".*|",
-    processHtmlClass: "arithmatex"
+    ignoreHtmlClass: ".*",          // ignore everything…
+    processHtmlClass: "arithmatex"  // …except inside .arithmatex
   }
 };
 
 document$.subscribe(() => {
-  MathJax.startup.output.clearCache();
-  MathJax.typesetClear();
-  MathJax.texReset();
   MathJax.typesetPromise();
 });
