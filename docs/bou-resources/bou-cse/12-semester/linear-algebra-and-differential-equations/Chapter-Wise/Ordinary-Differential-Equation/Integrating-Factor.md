@@ -127,9 +127,9 @@ $$
 
 2. **Exactness পরীক্ষা করুন:**
 
-\[
-\frac{\partial M}{\partial y} \stackrel{?}{=} \frac{\partial N}{\partial x}
-\]
+$$
+\frac{\partial M}{\partial y} \stackrel{!}{=} \frac{\partial N}{\partial x}
+$$
 
 3. **Non-Exact হলে I.F. বের করুন:**
 
@@ -321,3 +321,299 @@ x^2y^2(y^2 - x^2) = C_1
 $$
 
 এটিই হলো নির্ণেয় সমাধান।
+
+---
+!!! example "$(12y + 4y^3 + 6x^2)dx + 3(x + xy^2)dy = 0$"
+
+    ### **ধাপ ১: স্ট্যান্ডার্ড ফর্ম**
+
+    প্রদত্ত সমীকরণ:
+
+    $$
+    (12y + 4y^3 + 6x^2)dx + 3(x + xy^2)dy = 0
+    $$
+
+    যেখানে
+
+    $$
+    M(x,y) = 12y + 4y^3 + 6x^2, \quad N(x,y) = 3x + 3xy^2
+    $$
+
+    ---
+
+    ### **ধাপ ২: Exactness পরীক্ষা**
+
+    $$
+    \frac{\partial M}{\partial y} = 12 + 12y^2, \quad
+    \frac{\partial N}{\partial x} = 3 + 3y^2
+    $$
+
+    যেহেতু $\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$, সমীকরণটি **exact নয়**।
+
+    ---
+
+    ### **ধাপ ৩: Integrating Factor (I.F.) নির্ণয়**
+
+    ফর্মুলা:
+
+    $$
+    f(x) = \frac{1}{N} \Big(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\Big)
+    $$
+
+    প্রদত্ত সমীকরণের জন্য:
+
+    $$
+    f(x) = \frac{(12 + 12y^2) - (3 + 3y^2)}{3x + 3xy^2} = \frac{9 + 9y^2}{3x(1 + y^2)} = \frac{3}{x}
+    $$
+
+    যেহেতু $f(x)$ কেবল $x$-এর উপর নির্ভর করে, I.F. হবে:
+
+    $$
+    I.F. = e^{\int f(x) dx} = e^{\int \frac{3}{x} dx} = e^{3 \ln x} = x^3
+    $$
+
+    * **I.F. = $x^3$**
+
+    ---
+
+    ### **ধাপ ৪: সমীকরণকে Exact বানানো**
+
+    মূল সমীকরণে I.F. দ্বারা গুণ করলে:
+
+    $$
+    x^3(12y + 4y^3 + 6x^2)dx + x^3(3x + 3xy^2)dy = 0
+    $$
+
+    $$
+    (12x^3y + 4x^3y^3 + 6x^5)dx + (3x^4 + 3x^4y^2)dy = 0
+    $$
+
+    ---
+
+    ### **ধাপ ৫: Exact সমীকরণের সমাধান**
+
+    নতুন exact সমীকরণে:
+
+    $$
+    M_{new} = 12x^3y + 4x^3y^3 + 6x^5, \quad N_{new} = 3x^4 + 3x^4y^2
+    $$
+
+    সমাধান সূত্র:
+
+    $$
+    \int M_{new}\,dx + \int (\text{N-এর x মুক্ত পদ})\,dy = C
+    $$
+
+    $N_{new}$-এর প্রতিটি পদে $x$ থাকায় দ্বিতীয় অংশটি ০ হবে।
+
+    $$
+    \int (12x^3y + 4x^3y^3 + 6x^5)dx = C
+    $$
+
+    $$
+    12y\frac{x^4}{4} + 4y^3\frac{x^4}{4} + 6\frac{x^6}{6} = C
+    $$
+
+    $$
+    3x^4y + x^4y^3 + x^6 = C
+    $$
+
+    সাজিয়ে লিখলে:
+
+    $$
+    x^6 + x^4y^3 + 3x^4y = C
+    $$
+
+    এটিই হলো নির্ণেয় সমাধান।
+
+
+
+---
+!!! example "Example: Solve the differential equation"
+
+    ### Step 1: Standard Form
+
+    Write the equation in standard form $M(x,y)dx + N(x,y)dy = 0$:
+
+    $$
+    (12y + 4y^3 + 6x^2)dx + 3(x + xy^2)dy = 0
+    $$
+
+    Here,
+
+    $$
+    M(x,y) = 12y + 4y^3 + 6x^2, \quad N(x,y) = 3x + 3xy^2
+    $$
+
+    ---
+
+    ### Step 2: Test for Exactness
+
+    Compute the partial derivatives:
+
+    $$
+    \frac{\partial M}{\partial y} = 12 + 12y^2, \quad
+    \frac{\partial N}{\partial x} = 3 + 3y^2
+    $$
+
+    Since $\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$, the equation is **not exact**.
+
+    ---
+
+    ### Step 3: Find the Integrating Factor (I.F.)
+
+    Use the formula:
+
+    $$
+    f(x) = \frac{1}{N}\left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\right)
+    $$
+
+    Substitute the values:
+
+    $$
+    f(x) = \frac{(12 + 12y^2) - (3 + 3y^2)}{3x + 3xy^2} = \frac{3}{x}
+    $$
+
+    Since $f(x)$ depends only on $x$, the Integrating Factor is:
+
+    $$
+    I.F. = e^{\int f(x) dx} = e^{3 \ln x} = x^3
+    $$
+
+    ---
+
+    ### Step 4: Make the Equation Exact
+
+    Multiply the original equation by $x^3$:
+
+    $$
+    x^3(12y + 4y^3 + 6x^2)dx + x^3(3x + 3xy^2)dy = 0
+    $$
+
+    Simplify:
+
+    $$
+    (12x^3y + 4x^3y^3 + 6x^5)dx + (3x^4 + 3x^4y^2)dy = 0
+    $$
+
+    ---
+
+    ### Step 5: Solve the Exact Equation
+
+    Here,
+
+    $$
+    M_{new} = 12x^3y + 4x^3y^3 + 6x^5, \quad N_{new} = 3x^4 + 3x^4y^2
+    $$
+
+    Since all terms in $N_{new}$ contain $x$, the second integral is $0$. Integrate $M_{new}$ with respect to $x$, treating $y$ as constant:
+
+    $$
+    \int (12x^3y + 4x^3y^3 + 6x^5) dx = 3x^4y + x^4y^3 + x^6 = C
+    $$
+
+    Final solution:
+
+    $$
+    x^6 + x^4y^3 + 3x^4y = C
+    $$
+
+---
+!!! info " $y \log y \,dx + (x - \log y) \,dy = 0$ "
+
+
+    ### **Step 1: Standard Form**
+
+    The equation is already in the standard form $M(x,y)dx + N(x,y)dy = 0$.
+
+    $$y \log y \,dx + (x - \log y) \,dy = 0$$
+
+    Here, we can identify:
+    * $M(x,y) = y \log y$
+    * $N(x,y) = x - \log y$
+
+    ---
+
+    ### **Step 2: Test for Exactness**
+
+    Next, we check if the equation is **exact** by calculating the partial derivatives.
+
+    * To find $\frac{\partial M}{\partial y}$, we use the product rule:
+
+        $$\frac{\partial M}{\partial y} = \frac{\partial}{\partial y}(y \log y) = (1)(\log y) + y\left(\frac{1}{y}\right) = \log y + 1$$
+
+    * Now we find $\frac{\partial N}{\partial x}$:
+
+        $$\frac{\partial N}{\partial x} = \frac{\partial}{\partial x}(x - \log y) = 1$$
+
+    Since $\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$, the equation is **not exact**.
+
+    ---
+
+    ### **Step 3: Find the Integrating Factor (I.F.)**
+
+    Since the equation is not exact, we need an **Integrating Factor (I.F.)**.
+
+    First, we test the rule for a function of $x$:
+
+    $$\frac{1}{N}\left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\right) = \frac{(\log y + 1) - 1}{x - \log y} = \frac{\log y}{x - \log y}$$
+
+    This expression contains both $x$ and $y$, so it won't work.
+
+    Next, we test the rule for a function of $y$:
+
+    $$g(y) = \frac{1}{M}\left(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\right)$$
+
+    $$g(y) = \frac{1 - (\log y + 1)}{y \log y} = \frac{1 - \log y - 1}{y \log y} = \frac{-\log y}{y \log y} = -\frac{1}{y}$$
+
+    This result is a function of $y$ only, so we can use it to find the I.F.
+
+    $$I.F. = e^{\int g(y)dy} = e^{\int -\frac{1}{y}dy} = e^{-\ln y} = e^{\ln(y^{-1})} = y^{-1} = \frac{1}{y}$$
+
+    The Integrating Factor is **$\frac{1}{y}$**.
+
+    ---
+
+    ### **Step 4: Make the Equation Exact**
+
+    Now, we multiply the original equation by the I.F. ($\frac{1}{y}$) to make it exact.
+
+    $$\frac{1}{y} \big(y \log y \,dx\big) + \frac{1}{y} \big((x - \log y) \,dy\big) = 0$$
+
+    $$\log y \,dx + \left(\frac{x}{y} - \frac{\log y}{y}\right)dy = 0$$
+
+    ---
+
+    ### **Step 5: Solve the Exact Equation**
+
+    This new equation is exact. The solution is found using the formula:
+
+    $$
+    \int\limits_{\substack{y=\text{const.}}} M_{new}\,dx 
+    \;+\; \int (\text{terms in } N_{new} \text{ free from } x)\,dy = C
+    $$
+
+    Here,
+
+    * $M_{new} = \log y$
+    * $N_{new} = \frac{x}{y} - \frac{\log y}{y}$
+
+    The term in $N_{new}$ that is free from $x$ is $-\frac{\log y}{y}$.
+
+    Now we integrate:
+
+    $$\int \log y \,dx + \int \left(-\frac{\log y}{y}\right)dy = C$$
+
+    * **First integral** (treating $y$ as a constant):
+
+        $$\int \log y \,dx = x \log y$$
+
+    * **Second integral** (using substitution, let $u = \log y$):
+
+        $$
+        \int \left(-\frac{\log y}{y}\right)dy = -\int u \,du = -\frac{u^2}{2} = -\frac{(\log y)^2}{2}
+        $$
+
+    Combining the parts gives the final solution:
+
+    $$x \log y - \frac{(\log y)^2}{2} = C$$
