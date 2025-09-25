@@ -54,7 +54,6 @@ theme:
       accent: deep orange
 plugins:
   - search
-  - offline
   - privacy
   - meta
   - glightbox
@@ -133,7 +132,9 @@ extra_javascript:
   - meta-inject.js
   # - javascripts/mathjax/tex-chtml-full.js
   - javascripts/mathjax/mathjax.js
-  - javascripts/mathjax/tex-chtml-full.js
+  # - javascripts/mathjax/tex-chtml-full.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 extra_css:
   - stylesheets/extra.css
 
