@@ -522,3 +522,147 @@ The necessity of history lies in its role as society’s memory, guide, and iden
     * **establishment = প্রতিষ্ঠা**
     * **architectural = স্থাপত্যশৈলী সম্পর্কিত**
     * **significance = ঐতিহাসিক তাৎপর্য/গুরুত্ব**
+
+
+!!! info "**Q. Write a note on the Independent Sultanate of Bengal.**"
+    
+    ## Answer
+
+    ### Introduction
+
+    The **Independent Sultanate of Bengal (বাংলার স্বাধীন সুলতানী শাসনকাল)** emerged in the 14th century after the weakening of the Delhi Sultanate. From 1338 A.D. to 1576 A.D., Bengal witnessed rule by a series of independent Muslim rulers who established a distinct political and cultural identity.
+
+    ---
+
+    ### Historical Background
+
+    * Bengal was under the Delhi Sultanate from early 13th century.
+    * Due to Bengal’s distance from Delhi and frequent **rebellions (বিদ্রোহ)**, governors often declared independence.
+    * In 1338, Fakhruddin Mubarak Shah of Sonargaon and Alauddin Ali Shah of Lakhnauti broke away from Delhi, marking the beginning of independent rule.
+
+    ---
+
+    ### Major Ruling Dynasties
+
+    1. **Ilyas Shahi Dynasty (1342–1414; পুনরায় 1433–1487)**
+
+    * Founded by Shamsuddin Ilyas Shah.
+    * First ruler to unite the whole Bengal under one authority (ক্ষমতা/শাসন অধিকার).
+    * Promoted Islamic culture and administration (প্রশাসন ব্যবস্থা).
+
+    2. **House of Ganesha (1414–1433)**
+
+    * A brief Hindu revival under Raja Ganesha.
+    * Later, his son converted (ধর্মান্তরিত) to Islam and ruled as Jalaluddin Muhammad Shah.
+
+    3. **Hussain Shahi Dynasty (1494–1538)**
+
+    * Alauddin Hussain Shah is regarded as the greatest ruler.
+    * Bengal flourished economically (অর্থনৈতিক সমৃদ্ধি) and culturally.
+    * Patronized Bengali literature, including works of poets like Kabindra Parameshvara.
+
+    4. **Afghan Rulers (1538–1576)**
+
+    * Sher Shah Suri captured Bengal and introduced important administrative reforms.
+    * His successors ruled until the Mughal conquest.
+
+    ---
+
+    ### Characteristics of the Independent Sultanate
+
+    * **Political Independence (রাজনৈতিক স্বাধীনতা):** Though Muslim rulers, they did not remain under Delhi’s control.
+    * **Economic Prosperity (অর্থনৈতিক সমৃদ্ধি):** Bengal became famous for agriculture, textiles, and trade.
+    * **Cultural Synthesis (সাংস্কৃতিক মিলন):** A blend of Islamic and local Bengali traditions.
+    * **Architecture (স্থাপত্যশৈলী):** Development of distinct Bengal style mosques with curved cornices.
+
+    ---
+
+    ### Decline and End
+
+    * Internal **conflicts (অভ্যন্তরীণ সংঘর্ষ)** and external pressure weakened Bengal.
+    * In 1576, Akbar’s general Munim Khan defeated Daud Khan Karrani in the Battle of Rajmahal.
+    * Bengal was annexed (অধিভুক্ত/সংযুক্ত) into the Mughal Empire.
+
+    ---
+
+    ### Conclusion
+
+    The Independent Sultanate of Bengal lasted for more than two centuries. It was marked by political independence, economic growth, and rich cultural development. Though eventually annexed by the Mughals, this period created a strong foundation for Bengal’s distinct identity in medieval Indian history.
+
+    ---
+
+    ### Hard Words – Quick Meanings
+
+    * **Rebellion = বিদ্রোহ**
+    * **Authority = ক্ষমতা/শাসন অধিকার**
+    * **Conversion = ধর্মান্তর**
+    * **Prosperity = সমৃদ্ধি**
+    * **Synthesis = সমন্বয়/মিলন**
+    * **Architecture = স্থাপত্যশৈলী**
+    * **Conflict = সংঘর্ষ**
+    * **Annexed = সংযুক্ত/অধিভুক্ত**
+
+
+!!! info "**Q. Write a note on the Expedition of Bengal by Bakhtiar Khilji.**"
+
+    ## Answer
+
+    ### Introduction
+
+    Ikhtiyaruddin Muhammad Bakhtiar Khilji was one of the early Turkish military commanders under the Delhi Sultanate. His conquest of Bengal in the late 12th century is considered a turning point in medieval Indian history. The expedition not only expanded Muslim power to the east but also laid the foundation of Turkish rule in Bengal.
+
+    ---
+
+    ### Background of the Expedition
+
+    * Bakhtiar Khilji was a military officer under Qutbuddin Aibak, the general of Muhammad Ghori.
+    * Initially given a small jagir (land grant), he rose to prominence through his bravery and military skill.
+    * His ambition led him to turn towards Bengal, which was then ruled by the Sena dynasty.
+
+    ---
+
+    ### The Expedition
+
+    1. **Invasion of Bihar (c. 1193–1198)**
+
+    * Bakhtiar first attacked Bihar and captured several Buddhist monasteries, including Nalanda and Vikramashila.
+    * This weakened the Sena control in the region and opened the way towards Bengal.
+
+    2. **Conquest of Nadia (c. 1204 A.D.)**
+
+    * With only a few thousand horsemen, Bakhtiar suddenly attacked Nadia (Nabadwip), the capital of Lakshman Sen.
+    * Lakshman Sen, the old Sena ruler, fled to East Bengal.
+    * This marked the beginning of Turkish rule in Bengal.
+
+    3. **Extension of Power**
+
+    * After conquering Nadia, Bakhtiar made Lakhnauti (Gaur) his capital.
+    * He expanded his control over northern and western Bengal.
+
+    ---
+
+    ### Additional Information from Notes (আপনার নোট থেকে যোগ করা তথ্য)
+
+    * **Delhi connection:** Bakhtiar was a commander under Qutbuddin Aibak (slave of Muhammad Ghori).
+    * **Entry through Bihar:** Captured Odantapuri, Nalanda, Vikramshila → destruction of Buddhist monasteries and libraries.
+    * **Weakness of Sena dynasty:** Old age of Lakshman Sen, dependence on Brahmin officials, and military weakness helped Bakhtiar.
+    * **Tactics:** Entered Nadia disguised with a small army, struck suddenly.
+    * **Result:** Sena king fled to East Bengal (Vikrampur).
+    * **Expansion attempts:** Later tried to invade Tibet (to control trade routes) but failed; his army suffered losses in the Himalayan region.
+    * **Death:** Bakhtiar was wounded and later killed by his own nobles (1206 A.D.).
+    * **Legacy:** His expedition established the foundation of **Turkish rule in Bengal**, which later developed into an **Independent Sultanate**.
+
+    ---
+
+    ### Impact of the Expedition
+
+    * End of Sena dynasty’s dominance in Bengal.
+    * Beginning of Muslim rule in eastern India.
+    * Destruction of important Buddhist centers like Nalanda, leading to decline of Buddhism in the region.
+    * Opened Bengal to new cultural, political, and religious influences.
+
+    ---
+
+    ### Conclusion
+
+    Bakhtiar Khilji’s expedition of Bengal was not just a military adventure but a historical event that reshaped eastern India. Within a short span, he overthrew an old dynasty and brought Bengal under Turkish rule. Though his Tibet campaign failed and his death came early, the political transformation he initiated had long-lasting consequences in the history of Bengal.
