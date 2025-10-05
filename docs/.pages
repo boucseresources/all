@@ -1,7 +1,7 @@
 nav:
   - Home: index.md
-  - All Semester Resources: bou-resources
-  - Admission Information: /all/bou-resources/admission-information/bou-cse-admission-guide.html
+  - All Semester Resources: https://boucseresources.github.io/all/bou-resources/bou-cse/
+  - Admission Information: https://boucseresources.github.io/all/bou-resources/admission-information/bou-cse-admission-guide/
   - FAQs: faq.md
   - Cover Page: cover-page/cover-page.html
   - Study Tools: https://boucseresources.github.io/all/VARIOUS-TOOLS/Various-Tools.html
