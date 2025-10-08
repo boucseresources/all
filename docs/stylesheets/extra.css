@@ -46,6 +46,28 @@
   border-radius: 8px;
 }
 
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* Tablet screens (≤900px): show 4 columns */
+@media (max-width: 900px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Mobile screens (≤600px): show 2 columns */
+@media (max-width: 600px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
 
 /* Horizontal line style override */
 hr {

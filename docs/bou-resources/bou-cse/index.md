@@ -1,14 +1,7 @@
 # All Semesters – BOU CSE
-
-Welcome to the **Semester Overview** for the **Bangladesh Open University (BOU)** CSE program.
-
-The program is structured into **4 academic years**, each consisting of **2 semesters**, making a total of **8 semesters**. Below is a semester-wise breakdown with links to each section.
-
-[[Class-02]]
-
 ---
+এখানে মোটামুটি বিগত কয়েক ব্যাচের Google Drive লিংক দেয়া হয়েছে।
 
-## 📅 Semester Breakdown
 
 === "All"
 

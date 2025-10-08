@@ -8,27 +8,33 @@ title: Home
 
 এই সাইটে আপনি পাবেন ক্লাস নোট, বই, লেকচার স্লাইড, প্রশ্ন, এবং হ্যান্ডরাইটেন সামারি — সব সাজানো ৮টা সেমিস্টার অনুযায়ী।
 
+## আপনি কী খুঁজছেন?
 
-
-
-<!-- prettier-ignore-start -->
-??? folder "Folder অনুযায়ী দেখতে Click করুন!"
-    <div class="grid cards" markdown>
-
-    - [![Image 1](docs/assets/folder-images/0.png)](/all/bou-resources/bou-cse/11-semester/)
-    - [![Image 2](docs/assets/folder-images/01.png)](/all/bou-resources/bou-cse/12-semester/)
-    - [![Image 3](docs/assets/folder-images/1.png)](/all/bou-resources/bou-cse/21-semester/)
-    - [![Image 5](docs/assets/folder-images/2.png)](/all/bou-resources/bou-cse/22-semester/)
-    - [![Image 6](docs/assets/folder-images/3.png)](/all/bou-resources/bou-cse/31-semester/)
-    - [![Image 7](docs/assets/folder-images/4.png)](/all/bou-resources/bou-cse/32-semester/)
-    - [![Image 8](docs/assets/folder-images/5.png)](/all/bou-resources/bou-cse/41-semester/)
-    - [![Image 4](docs/assets/folder-images/6.png)](/all/bou-resources/bou-cse/42-semester/)
-
-    </div>
-
-<!-- prettier-ignore-end -->
+## সব সেমিস্টারের ফোল্ডার
+<div class="grid-4" style="gap: 20px;">
+    <a href="/all/bou-resources/bou-cse/11-semester/" class="md-button md-button--primary">11 Semester</a>
+    <a href="/all/bou-resources/bou-cse/12-semester/" class="md-button md-button--secondary">12 Semester</a>
+    <a href="/all/bou-resources/bou-cse/21-semester/" class="md-button md-button--primary">21 Semester</a>
+    <a href="/all/bou-resources/bou-cse/22-semester/" class="md-button md-button--secondary">22 Semester</a>
+    <a href="/all/bou-resources/bou-cse/31-semester/" class="md-button md-button--primary">31 Semester</a>
+    <a href="/all/bou-resources/bou-cse/32-semester/" class="md-button md-button--secondary">32 Semester</a>
+    <a href="/all/bou-resources/bou-cse/41-semester/" class="md-button md-button--primary">41 Semester</a>
+    <a href="/all/bou-resources/bou-cse/42-semester/" class="md-button md-button--secondary">42 Semester</a>
+</div>
 
 ---
+
+## Admission & Semester Fee
+
+<div style="display: flex; gap:20px" >
+    <a href="/all/bou-resources/admission-information/bou-cse-admission-guide/" class="md-button">সম্পূর্ণ Admission Process দেখুন</a>
+
+    <a href="/all/bou-resources/admission-information/Semser-Fee-Payment/" class="md-button">Full Semester Fee Payment Process</a>
+</div>
+
+---
+
+
 
 ## 📚 কি কি পাবেন?
 
