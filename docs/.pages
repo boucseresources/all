@@ -1,6 +1,7 @@
 nav:
   - Home: index.md
-  - All Semester Resources: https://boucseresources.github.io/all/bou-resources/bou-cse/
+  - All Semester Resources: bou-resources
+  - Google Drives: https://boucseresources.github.io/all/bou-resources/bou-cse/
   - Admission Information: https://boucseresources.github.io/all/bou-resources/admission-information/bou-cse-admission-guide/
   - FAQs: faq.md
   - Cover Page: cover-page/cover-page.html
