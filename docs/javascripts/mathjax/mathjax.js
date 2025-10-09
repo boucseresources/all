@@ -1,14 +1,17 @@
 window.MathJax = {
   tex: {
-    inlineMath: [["\\(", "\\)"], ["$", "$"]],
-    displayMath: [["\\[", "\\]"], ["$$", "$$"]],
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
     processEscapes: true,
-    processEnvironments: true
+    processEnvironments: true,
+    tags: 'ams'        // optional: auto-numbering support
   },
   options: {
-    ignoreHtmlClass: ".*",          // ignore everything…
-    processHtmlClass: "arithmatex"  // …except inside .arithmatex
-  }
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    ignoreHtmlClass: '',             // process everything
+    processHtmlClass: 'arithmatex'   // (kept for compatibility)
+  },
+  svg: { fontCache: 'global' }
 };
 
 document$.subscribe(() => {
