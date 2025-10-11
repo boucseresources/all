@@ -54,3 +54,20 @@
             📌 **Note:**
             * পরীক্ষায় শুধুমাত্র **অল্প নম্বরের Short Questions** থাকবে।
             * উপরোক্ত বিষয়গুলো থেকে প্রশ্ন করা হবে।
+
+!!! info "OCT 10-11 2025"
+
+    🟢 এ সপ্তাহে এক্সাম হয়েছে। আগামী সপ্তাহে (18 OCT 2025) আবারও এক্সাম নেয়া হবে SPL Lab এর। সিলেবাস আগের গুলোই। 
+
+    🟢 যারা DLD Theory Assignment জমা দেননি দিয়ে দেবেন।
+
+    🟢 এ সপ্তাহে Math assignment - 02 দেয় হয়েছে। শেষ তারিখ পরে জানিয়ে দেয়া হবে। 
+    [12 Math Assignment 02 232 term](https://drive.google.com/file/d/1_vHzRg_GTQTioui50UYLFbtX_5n14VMk/view?usp=drive_link)
+
+    🟢 Bangladesh Studies স্যার এই week এ আসেননি। যারা assignment দেননি, নেক্সট সপ্তাহ পর্যন্ত জমা দিতে পারবেন।
+
+    🟢 DLD Lab:
+    ✅ 6.1: Full Adder দিয়ে circuit করে TinkerCad এ submit করতে হবে।
+    ✅ 6.2: Full Subtractor দিয়ে circuit করে TinkerCad এ submit করতে হবে।
+
+    [সকল ফাইল পেতে এই ফোল্ডার চেক করুনঃ ](https://drive.google.com/drive/folders/1-ABloqvQU3iL-2pNmk-6sPc235sZbqiB?usp=drive_link)
