@@ -87,3 +87,58 @@ int main() {
 ![[image-54.png]]
 
 ---
+```c
+// Fibonacci Number Series
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, and 34
+#include <stdio.h>
+
+int main() {
+   int a, b, next;
+   a = 0;
+   b = 1;
+  printf("%d\n%d\n", a, b);
+for (int i = 3; i <= 10; i++)
+{
+next = b + a;
+printf("%d  \n",next);
+ a = b;
+ b = next;
+}
+
+    return 0;
+}
+```
+
+![[Fibonacci Number Series.png]]
+
+---
+
+**Question: Write a C program using a for loop to print this pattern.**
+```c
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+```
+
+Answer: 
+```c
+#include <stdio.h>
+
+int main() {
+   
+   for (int row = 1; row <=5; row++){
+       for (int col = 1; col <=row; col++ ){
+          printf("%d", col);
+   }
+          printf("\n");
+   }
+
+    return 0;
+}
+```
+
+![[Triangle with numbers.png]]
+
+---

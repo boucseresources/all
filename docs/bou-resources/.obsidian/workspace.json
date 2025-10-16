@@ -89,7 +89,7 @@
             }
           },
           {
-            "id": "41365430f6429e9f",
+            "id": "ff6a62705fabe348",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -99,7 +99,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -210,9 +210,13 @@
   },
   "active": "d38b6be6ce8aeb16",
   "lastOpenFiles": [
-    "Media Library/image-54.png",
+    "Media Library/Triangle with numbers.png",
+    "Media Library/image-56.png",
+    "Media Library/Fibonacci Number Series.png",
+    "Media Library/image-55.png",
     "bou-cse/12-semester/structured-programming-language/learning-c/100-problem-practical-list.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/Solution-100-problem-list.md",
+    "Media Library/image-54.png",
     "Media Library/image-53.png",
     "Media Library/image-52.png",
     "bou-cse/12-semester/structured-programming-language/stp-previous-year-question.md",
@@ -235,13 +239,9 @@
     "Media Library/image-51.png",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/linear-algebra-and-differential-equations.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-Assignnments/Assignment-01.md",
-    "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments/image.png",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/Electronic-Device-and-Circuits-LAB.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits",
-    "Media Library/image-50.png",
-    "Media Library/F = A'C + AB'D' + ABD.png",
-    "Media Library/TinkerCad of F = B'C + A'BC' + AB' + AC.png",
     "bou-cse/12-semester/Digital-Logic-Design/DLD-Tools.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/dld-lab-class-lectures.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-04.md",
