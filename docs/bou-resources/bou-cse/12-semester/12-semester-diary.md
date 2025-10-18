@@ -1,6 +1,6 @@
 # 12 Semester Diary:
 
-??? question "17-18 OCT  2025":
+??? question "17-18 OCT  2025"
 
     🟢 EEE Theory:
     ⭐ আগামী ক্লাসে পরীক্ষা। ২ টা প্রশ্ন থাকবেঃ
@@ -113,7 +113,7 @@
             * উপরোক্ত বিষয়গুলো থেকে প্রশ্ন করা হবে।
 
 
-??? question "27 SEPT 2025"
+??? question "26-27 SEPT 2025"
 
     🔴আগামী ১১তারিখ SPL Exam হবে।
     Exam Topic:শুরু থেকে Loop পর্যন্ত স্যার যা পড়িয়েছেন।
@@ -129,3 +129,29 @@
     🔴১১ তারিখ SPL Lab এক্সাম হবে।
     Lab Exam Topic:শুরু থেকে Loop পর্যন্ত যত টপিকের উপর ল্যাব ক্লাস হয়েছে।
 
+
+
+---
+
+??? "All DLD Lab Lists:"
+
+    সবগুলো circuit solve করে TinkerCad এ submit করতে হবে।
+    1.1: OR Gate
+    1.2: AND Gate
+    1.3: NOT Gate
+    3.1: NAND -> NOT, OR, AND দিয়ে
+    3.2: NOR -> NOT, OR, AND দিয়ে
+    3.3: NAND -> XNOR, XOR দিয়ে
+    3.3: NOR -> XNOR, XOR দিয়ে
+    4 (Circuit Design with K-Map solution )
+    4.1: Minterms: ∑M(1, 2, 4, 5, 7)
+    4.2: Minterms: ∑M(2,3,6,7,8,10,13,15)
+    4.3: Maxterms: ΠM(1, 2, 4, 5, 7)
+    4.4: Maxterms: ΠM(2,3,6,7,8,10,13,15)
+    5.1: Half Adder দিয়ে circuit করে TinkerCad এ submit করতে হবে।
+    5.2: Half Subtractor দিয়ে circuit করে TinkerCad এ submit করতে হবে।
+    6.1: Full Adder দিয়ে circuit করে TinkerCad এ submit করতে হবে।
+    6.2: Full Subtractor দিয়ে circuit করে TinkerCad এ submit করতে হবে।
+    7.1: 2-4 Decoder
+    7.2: 3-8 Decoder (Using two 2-4 decoder)
+    7.3: Encoder
