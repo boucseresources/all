@@ -84,6 +84,45 @@ The following are the important advantages of full adder over half adder −
 * Full adder performs operation at higher speed.
 
 
+Given Equation:
+
+\[
+S=\overline{A}.\overline{B}.C_{in}+\overline{A}.B.\overline{C_{in}}+A.\overline{B}.\overline{C_{in}}+A.B.C_{in}
+\]
+
+**১) (A) অনুযায়ী গ্রুপ করি**
+
+
+\[S=\overline{A}.(\overline{B}.C_{in}+B.\overline{C_{in}});+;A.(\overline{B}.\overline{C_{in}}+B,C_{in})\]
+
+
+**২) ভেতরের টার্ম দুটো চিনো**
+
+* $(\overline{B}.C_{in}+B.\overline{C_{in}}=B\oplus C_{in})$
+  (কারণ $(X\oplus Y=\overline{X}Y+X\overline{Y}))$
+* $(\overline{B}.\overline{C_{in}}+B.C_{in}=B\odot C_{in}=(B\oplus C_{in})^{\overline{\phantom{a}}})$
+
+তাই,
+
+$$
+[
+S=\overline{A}.(B\oplus C_{in});+;A.(B\oplus C_{in})^{\overline{\phantom{a}}}
+]
+$$
+
+**৩) পরিচয় ব্যবহার করি:** $(\overline{A},Y+A,\overline{Y}=A\oplus Y) যেখানে (Y=B\oplus C_{in})$
+
+\[
+S=A \oplus (B\oplus C_{in})
+\]
+
+**৪) XOR অ্যাসোসিয়েটিভ ⇒**
+
+$$
+\boxed{S=A\oplus B\oplus C_{in}}
+$$
+
+
 ### Applications of Full Adder
 
 The following are the important applications of full adder −
@@ -101,6 +140,8 @@ The following are the important applications of full adder −
 
 In this tutorial, we discussed all the key concepts related to full adders in digital electronics.
 Full adders play an important role in many digital electronic circuits because a full adder can be used to realize several other critical digital circuits.
+
+
 
 
 
