@@ -1,6 +1,6 @@
 # 12 Semester Diary:
 
-??? question "17-18 OCT  2025"
+??? info "17-18 OCT  2025"
 
     🟢 EEE Theory:
     ⭐ আগামী ক্লাসে পরীক্ষা। ২ টা প্রশ্ন থাকবেঃ
@@ -37,6 +37,7 @@
     Number righ-angle-triangle,
     Number  reversed righ-angle-triangle,
     Reversed righ-angle-triangle showing asterisk (*),
+    ![SPL Lab patterns](image-4.png){ width=300px }
 
 ??? info "OCT 10-11 2025"
 
