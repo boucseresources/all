@@ -5,7 +5,7 @@
     🟢 EEE Theory:
     ⭐ আগামী ক্লাসে পরীক্ষা। ২ টা প্রশ্ন থাকবেঃ
     ১ম প্রশ্নের topics: (Norton's Theorem, Thevenin's Theorem, Maximum Power Transfer Theorem)
-    ২য় প্রশ্নের topics: Diode থেকে - (Half adder, Full Adder, Bridge Rectifier, Ripple Factor )
+    ২য় প্রশ্নের topics: Diode থেকে - (Half Wave Rectifier, Full Wave Rectifier, Bridge Rectifier, Ripple Factor )
     প্রতিটারই Equation + Math related প্রশ্ন থাকবে।
 
     🟢 Math
