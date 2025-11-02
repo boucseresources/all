@@ -4,35 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3d587172d643ab9a",
+        "id": "5c6af3a3010aafed",
         "type": "tabs",
         "children": [
           {
-            "id": "d38b6be6ce8aeb16",
+            "id": "39c65a33d2618374",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bou-cse/12-semester/structured-programming-language/learning-c/Solution-100-problem-list.md",
+                "file": "FAZIL/2nd-Arabic-3rd/Usulul-Fiqh.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Solution-100-problem-list"
-            }
-          },
-          {
-            "id": "007132f8f93c8ee5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "bou-cse/12-semester/structured-programming-language/learning-c/100-problem-practical-list.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "100-problem-practical-list"
+              "title": "Usulul-Fiqh"
             }
           }
         ]
@@ -89,7 +75,7 @@
             }
           },
           {
-            "id": "ff6a62705fabe348",
+            "id": "16d6bb51e65e0a65",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -99,7 +85,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -205,56 +191,57 @@
       "obsidian-excalidraw-plugin:Create new drawing": false,
       "math-indicator-changer:Change math indicator": false,
       "edge-tts:Read note aloud": false,
-      "mermaid-tools:Open Mermaid Toolbar": false
+      "mermaid-tools:Open Mermaid Toolbar": false,
+      "omnisearch:Omnisearch": false
     }
   },
-  "active": "d38b6be6ce8aeb16",
+  "active": "39c65a33d2618374",
   "lastOpenFiles": [
+    "bou-cse/12-semester/structured-programming-language/learning-c/learning-c.md",
+    "bou-cse/12-semester/structured-programming-language/learning-c/100-problem-practical-list.md",
+    "bou-cse/12-semester/linear-algebra-and-differential-equations/12-Math-Assignments/assignment-02.md",
+    "FAZIL/2nd-Arabic-3rd/Usulul-Fiqh.md",
+    "FAZIL/2nd-arabic-first-paper/image.png",
+    "FAZIL/2nd-arabic-first-paper/Usulul-Fiqh.md",
+    "FAZIL/2nd-Arabic-3rd",
+    "FAZIL/2nd-arabic-first-paper/Sentence-Making.md",
+    "FAZIL/2nd-arabic-first-paper/Nosse-Madrus.md",
+    "FAZIL/2nd-arabic-first-paper/Nosse-Gyre-Madrus.md",
+    "FAZIL/2nd-arabic-first-paper/gaps.md",
+    "FAZIL/2nd-arabic-first-paper/fazil-question-answer.md",
+    "FAZIL/2nd-arabic-first-paper/essay.md",
+    "FAZIL/2nd-arabic-first-paper/dialogue.md",
+    "FAZIL/2nd-arabic-first-paper/Broad-Questions.md",
+    "FAZIL/2nd-arabic-first-paper/Bangla-Translation.md",
+    "FAZIL/2nd-arabic-first-paper/application.md",
+    "FAZIL/2nd-arabic-first-paper",
+    "bou-cse/12-semester/structured-programming-language/learning-c/Solution-100-problem-list.md",
+    "Media Library/image-58.png",
+    "Media Library/image-57.png",
     "Media Library/Triangle with numbers.png",
     "Media Library/image-56.png",
     "Media Library/Fibonacci Number Series.png",
     "Media Library/image-55.png",
-    "bou-cse/12-semester/structured-programming-language/learning-c/100-problem-practical-list.md",
-    "bou-cse/12-semester/structured-programming-language/learning-c/Solution-100-problem-list.md",
     "Media Library/image-54.png",
     "Media Library/image-53.png",
     "Media Library/image-52.png",
     "bou-cse/12-semester/structured-programming-language/stp-previous-year-question.md",
     "bou-cse/12-semester/structured-programming-language/[Study Plan] for Structured Programming Language.md",
     "bou-cse/12-semester/structured-programming-language/spl-resources.md",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/image-35.png",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/image-34.png",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/image-33.png",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-08.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/c-and-javascript-comparison.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/c-data-types.md",
-    "bou-cse/12-semester/structured-programming-language/learning-c/learning-c.md",
     "bou-cse/12-semester/structured-programming-language/structured-programming-language.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-Lectures.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments/Assignment-01.md",
     "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-06.md",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/12-Math-Assignments/assignment-01.md",
-    "bou-cse/12-semester/Digital-Logic-Design/DLD-Theory-Assignments/Untitled.md",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/Chapter-Wise/Ordinary-Differential-Equation/Integrating-Factor.md",
-    "Media Library/image-51.png",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/linear-algebra-and-differential-equations.md",
-    "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-Assignnments/Assignment-01.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments",
-    "bou-cse/12-semester/Electronic-Device-and-Circuits/Electronic-Device-and-Circuits-LAB.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits",
-    "bou-cse/12-semester/Digital-Logic-Design/DLD-Tools.md",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/dld-lab-class-lectures.md",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-04.md",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-05.md",
-    "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-02.md",
-    "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-01.md",
     "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra",
     "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures",
     "bou-cse/12-semester/Digital-Logic-Design/Untitled",
     "bou-cse/12-semester/Digital-Logic-Design",
     "bou-cse/12-semester/structured-programming-language/learning-c/c-constants.c'",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures",
-    "bou-cse/12-semester/DLD-lab",
-    "bou-cse/12-semester/structured-programming-language/Lab-Class-Lectures"
+    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures"
   ]
 }
