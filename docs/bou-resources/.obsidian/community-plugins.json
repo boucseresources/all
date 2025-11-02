@@ -14,5 +14,7 @@
   "edge-tts",
   "automatic-table-of-contents",
   "mermaid-tools",
-  "obsidian-bulk-rename-plugin"
+  "obsidian-bulk-rename-plugin",
+  "omnisearch",
+  "obsidian-rtl"
 ]

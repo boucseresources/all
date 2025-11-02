@@ -142,3 +142,50 @@ int main() {
 ![[Triangle with numbers.png]]
 
 ---
+```c
+// Write a C program to print numbers from 0 to 10 and 10 to 0 using two while loops.
+
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+while(i<=10){
+    printf("%d\n", i);
+    i++;
+}
+printf("\n-------\n");
+int j = 10;
+while(j>=0){
+    printf("%d\n", j);
+    j--;
+}
+    
+
+    return 0;
+}
+```
+![[image-57.png]]
+
+---
+```c
+//Write a C program that calculates the product of numbers from 1 to 5 using a while loop.
+
+#include <stdio.h>
+
+int main() {
+    int i = 1, prod = 1;
+    
+    while(i<=5){
+        prod = prod * i;
+        i++;
+    }
+    // Write C code here
+    printf("%d", prod);
+
+    return 0;
+}
+```
+![[image-58.png]]
+
+---
+
