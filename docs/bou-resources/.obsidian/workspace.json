@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "FAZIL/2nd-Arabic-3rd/Usulul-Fiqh.md",
+                "file": "FAZIL/2nd-Arabic-3rd/PDF-usul-fiqh.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Usulul-Fiqh"
+              "title": "PDF-usul-fiqh"
             }
           }
         ]
@@ -75,7 +75,7 @@
             }
           },
           {
-            "id": "16d6bb51e65e0a65",
+            "id": "729546b4dba4214f",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -84,13 +84,11 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 318.5004348754883,
-    "collapsed": true
+    "width": 318.5004348754883
   },
   "right": {
     "id": "ac3b98c8496a3b76",
@@ -195,12 +193,16 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "39c65a33d2618374",
+  "active": "712ba9877518ca28",
   "lastOpenFiles": [
+    "FAZIL/2nd-Arabic-3rd/image-1.png",
+    "FAZIL/2nd-Arabic-3rd/image.png",
+    "FAZIL/2nd-Arabic-3rd/PDF-usul-fiqh.md",
+    "Media Library/image-59.png",
+    "FAZIL/2nd-Arabic-3rd/Usulul-Fiqh.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/learning-c.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/100-problem-practical-list.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/12-Math-Assignments/assignment-02.md",
-    "FAZIL/2nd-Arabic-3rd/Usulul-Fiqh.md",
     "FAZIL/2nd-arabic-first-paper/image.png",
     "FAZIL/2nd-arabic-first-paper/Usulul-Fiqh.md",
     "FAZIL/2nd-Arabic-3rd",
@@ -223,8 +225,6 @@
     "Media Library/Fibonacci Number Series.png",
     "Media Library/image-55.png",
     "Media Library/image-54.png",
-    "Media Library/image-53.png",
-    "Media Library/image-52.png",
     "bou-cse/12-semester/structured-programming-language/stp-previous-year-question.md",
     "bou-cse/12-semester/structured-programming-language/[Study Plan] for Structured Programming Language.md",
     "bou-cse/12-semester/structured-programming-language/spl-resources.md",
@@ -233,8 +233,6 @@
     "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/c-data-types.md",
     "bou-cse/12-semester/structured-programming-language/structured-programming-language.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-Lectures.md",
-    "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments/Assignment-01.md",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-06.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments",
     "bou-cse/12-semester/Electronic-Device-and-Circuits",
     "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra",
