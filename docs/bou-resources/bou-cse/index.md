@@ -27,15 +27,17 @@
    
 
 ---
-
-## 📘 What's Included in Each Semester
-
-- ✅ **Course-wise breakdown**
-- 📄 Class notes, slides, and handwritten summaries
-- 📚 Recommended books
-- 📝 Past exam questions
-
-> All materials are organized for quick access to help you revise, study, or prepare for exams effectively.
+## সব সেমিস্টারের ফোল্ডার
+<div class="grid-4" style="gap: 20px;">
+    <a href="/all/bou-resources/bou-cse/11-semester/" class="md-button md-button--primary">11 Semester</a>
+    <a href="/all/bou-resources/bou-cse/12-semester/" class="md-button md-button--secondary">12 Semester</a>
+    <a href="/all/bou-resources/bou-cse/21-semester/" class="md-button md-button--primary">21 Semester</a>
+    <a href="/all/bou-resources/bou-cse/22-semester/" class="md-button md-button--secondary">22 Semester</a>
+    <a href="/all/bou-resources/bou-cse/31-semester/" class="md-button md-button--primary">31 Semester</a>
+    <a href="/all/bou-resources/bou-cse/32-semester/" class="md-button md-button--secondary">32 Semester</a>
+    <a href="/all/bou-resources/bou-cse/41-semester/" class="md-button md-button--primary">41 Semester</a>
+    <a href="/all/bou-resources/bou-cse/42-semester/" class="md-button md-button--secondary">42 Semester</a>
+</div>
 
 ---
 
