@@ -1,117 +1,117 @@
-# 12 Semester Diary:
+# 12 Semester Diary
 
-??? info "10-11 NOV  2025"
+??? info "10–11 NOV 2025"
 
-    ## **Digital Logic Design Laboratory (DLD Lab)**
+    📘 **Digital Logic Design Laboratory (DLD Lab)**
 
-    ### **Lab Examination**
+    🧪 **Lab Examination**
+    **Date:** 14 November 2025 (Friday)
+    **Syllabus:** All laboratory experiments except the Seven-Segment Display
+    **Experiments to be covered:**
 
-    * **Date:** 14 November 2025 (Friday)
-    * **Syllabus:** All laboratory experiments **except the Seven-Segment Display**
-    * **Experiments to be covered:**
-
-    1. Realization of logic gates
-
-        * NAND → NOT, OR, AND
-        * NOR → NOT, OR, AND
-        * NAND → XNOR, XOR
-        * NOR → XNOR, XOR
-    2. Circuit design using **K-Map simplification** (Minterms and Maxterms)
-    3. **Arithmetic circuits:** Half Adder, Half Subtractor, Full Adder, Full Subtractor
-    4. **Combinational circuits:** 2-to-4 Decoder, 3-to-8 Decoder, Encoder
+    All DLD Lab Lists:
+    সবগুলো circuit solve করে TinkerCad এ submit করতে হবে।
+    1.1: OR Gate
+    1.2: AND Gate
+    1.3: NOT Gate
+    3.1: NAND -> NOT, OR, AND দিয়ে
+    3.2: NOR -> NOT, OR, AND দিয়ে
+    3.3: NAND -> XNOR, XOR দিয়ে
+    3.3: NOR -> XNOR, XOR দিয়ে
+    4 (Circuit Design with K-Map solution )
+    4.1: Minterms: ∑M(1, 2, 4, 5, 7)
+    4.2: Minterms: ∑M(2,3,6,7,8,10,13,15)
+    4.3: Maxterms: ΠM(1, 2, 4, 5, 7)
+    4.4: Maxterms: ΠM(2,3,6,7,8,10,13,15)
+    5.1: Half Adder দিয়ে circuit করে TinkerCad এ submit করতে হবে।
+    5.2: Half Subtractor দিয়ে circuit করে TinkerCad এ submit করতে হবে।
+    6.1: Full Adder দিয়ে circuit করে TinkerCad এ submit করতে হবে।
+    6.2: Full Subtractor দিয়ে circuit করে TinkerCad এ submit করতে হবে।
+    7.1: 2-4 Decoder
+    7.2: 3-8 Decoder (Using two 2-4 decoder)
+    7.3: Encoder
 
     ---
 
-    ## **Electronic Device and Circuits Laboratory (EEE 12P4)**
+    ⚙️ **Electronic Device and Circuits Laboratory (EEE 12P4)**
 
-    ### **Assignment 02**
-
-    * **Submission deadline:** Mid-November 2025
-    * **Topic:** *NPN-type transistor and common-base configuration*
-    * **Instructions:**
+    📄 **Assignment 02**
+    **Submission deadline:** Mid-November 2025
+    **Topic:** NPN-type transistor and common-base configuration
+    **Instructions:**
 
     1. Draw and explain the circuit diagram of an npn-type BJT in common-base configuration.
     2. Define and discuss the input and output characteristics of a BJT.
     3. Plot the corresponding input and output characteristic curves.
 
-    ### **Assignment 03**
+    📄 **Assignment 03**
+    **Submission deadline:** 29 November 2025
+    **Topic:** Analysis of BJT operation and active region
+    **Instructions:**
 
-    * **Submission deadline:** 29 November 2025
-    * **Topic:** *Analysis of BJT operation and active region*
-    * **Instructions:**
-
-    1. Comment on why a BJT does not conduct if the emitter–base junction is not forward-biased.
+    1. Explain why a BJT does not conduct if the emitter–base junction is not forward-biased.
     2. Identify the active region from the output characteristics and explain with an example showing signal amplification.
-    3. Illustrate the **two-diode analogy** of a BJT.
+    3. Illustrate the two-diode analogy of a BJT.
 
-    ### **Laboratory Reports**
-
-    All students must complete and prepare **all EEE Laboratory Reports** for submission within the department’s specified timeline.
+    🧾 **Laboratory Reports**
+    All students must complete and prepare all EEE Laboratory Reports for submission within the department’s specified timeline.
 
     ---
 
-    ## **Electronic Device and Circuits Theory (EEE Theory)**
+    💡 **Electronic Device and Circuits Theory (EEE Theory)**
 
-    ### **Assignment 02**
-
-    * **Submission deadline:** Mid-November 2025
-    * **Topic:** *Transistor configurations and performance comparison*
-    * **Instructions:**
+    📘 **Assignment 02**
+    **Submission deadline:** Mid-November 2025
+    **Topic:** Transistor configurations and performance comparison
+    **Instructions:**
 
     1. Discuss common-emitter and common-base configurations of an npn transistor.
-    2. Explain transistor operation, current gain, and voltage gain.
-        Include discussion on input resistance, output resistance, and the role of the load resistor in a common-emitter amplifier.
-    3. Compare the characteristics of **CB**, **CE**, and **CC** configurations.
+    2. Explain transistor operation, current gain, and voltage gain. Include input resistance, output resistance, and the role of the load resistor in a common-emitter amplifier.
+    3. Compare the characteristics of CB, CE, and CC configurations.
 
     ---
 
-    ## **Mathematics**
+    📏 **Mathematics**
 
-    ### **Assignment 02**
+    📝 **Assignment 02**
+    **Submission date:** 14 November 2025
 
-    * **Submission date:** 14 November 2025
-
-    ### **Class Test 02**
-
-    * **Date:** 14 November 2025
+    🧮 **Class Test 02**
+    **Date:** 14 November 2025
 
     ---
 
-    ## **Bangladesh Studies**
+    **Bangladesh Studies**
 
-    ### **Assignment 02**
-    **Topic:** *Bangladesh*
-    Students must write concise analytical answers covering the following aspects:
-    a. Historical Background
-    b. Geographical Importance
-    c. Society and Its Characteristics
-    d. Culture
-    e. Development Aspirations
+    📖 **Assignment 02**
+    **Topic:** Bangladesh
+    Students must write concise analytical answers covering:
+    a.  Historical Background
+    b.  Geographical Importance
+    c.  Society and Its Characteristics
+    d.  Culture
+    e.  Development Aspirations
 
-    **Submission Deadline:** Before the class test on **22 November 2025**
+    **Submission Deadline:** Before the class test on 22 November 2025
 
-    ---
-
-    ### **Assignment 03**
-
-    **Topic:** *Economy of Bangladesh*
+    📖 **Assignment 03**
+    **Topic:** Economy of Bangladesh
     Focus on:
+
     * Major and Key Economic Sectors
     * Government Economic Strategies and Policies
 
-    **Submission Deadline:** Before the class test on **22 November 2025**
+    **Submission Deadline:** Before the class test on 22 November 2025
 
-    ---
+    🧾 **Class Test**
+    **Date:** 22 November 2025 (Saturday)
 
-    ### **Class Test**
-    **Date:** **22 November 2025 (Saturday)**
-
-    **Syllabus:**
-    The class test will include both **Assignment topics** and selected **historical and political events**.
+    **Syllabus:** The class test will include both assignment topics and selected historical and political events.
 
     **Included Chapters:**
 
     1. Bangladesh (Assignments 02 and 03)
+
     * Historical Background
     * Geographical Importance
     * Society and Culture
@@ -119,11 +119,8 @@
     * Economy: Key Sectors and Government Strategy
     2. The First Independence Movement of India (1857)
     3. The Political Partition of India
-    4. *Bongobhongo* (Partition of Bengal, 1905)
+    4. Bongobhongo (Partition of Bengal, 1905)
     5. The Partition of 1947
-
-
-
 
 
 ??? info "17-18 OCT  2025"
