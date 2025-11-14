@@ -5,7 +5,7 @@
 
 === "All"
 
-    [10 Batch DRC Google Drive](https://drive.google.com/drive/folders/19kpt_tGQx-n6eeMbTlfHixPcpop21odu?usp=sharing)
+    [10 Batch DRC Google Drive](https://drive.google.com/drive/folders/1gZmf-LOVVFjeXMunLUQmqTgaZRsF6en8?usp=drive_link)
 
     [10 Batch DUET Google Drive](https://drive.google.com/drive/folders/13YhlgtlmYUjok_UJLqkjJi7WsB_bp88e?usp=drive_link)
 

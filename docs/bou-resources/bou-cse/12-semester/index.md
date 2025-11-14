@@ -26,8 +26,10 @@
 ### 📐 Linear Algebra and Differential Equations
 
 * 🔢 **Code**: MAT1231
+* ✉ Email: sumon117ammh@gmail.com
 * 👨‍🏫 **Teacher**: Mr. Md. Ershad Ali (EA)
-* 🔗 **Resources**: [View](/all/bou-resources/bou-cse/12-semester/linear-algebra/)
+* 🔗 **Resources**: [View](/all/bou-resources/bou-cse/12-semester/linear-algebra-and-differential-equations/linear-algebra-and-differential-equations/)
+
 * 📝 **MCQ Practice**: [Start](/quizzes/12-mat1231)
 * 📱 **WhatsApp Group**: [12 MATH (MAT1231)](https://chat.whatsapp.com/LBBvB7gBHGA138MPs2uv6T)
 
