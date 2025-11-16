@@ -64,7 +64,7 @@ BOU CSE Admission Notice Board: [https://bousst.edu.bd/notice/admission-notice/]
 > "দোয়া করি, যেন টিকে যাই!" 🙏
 
 পরীক্ষার ফলাফল আসে নির্দিষ্ট তারিখে—যেটা বিজ্ঞপ্তিতে দেয়া থাকে। আমি ওয়েবসাইটে গিয়ে রেজাল্ট দেখে বুঝলাম, হ্যাঁ! আমি ভাইভাতে ডাক পেয়েছি!
-
+![BOU cse Viva result noitce](<Notice Page Admission test.png>)
 ---
 
 ## 💬 ভাইভা দিবো? ভয় নাই!
@@ -142,7 +142,10 @@ BOU CSE-তে ভর্তি হওয়াটা একটা পূর্ণ�
 কোন প্রশ্ন থাকলে, কমেন্ট করে জানাও।
 
 ---
+কিছু গুরুত্বপূর্ণ লিংকঃ
+এখানে সকল নোটিশ আপডেট করা হবে: [Notice Board](https://www.bou.ac.bd/NoticeBoard/Admission)
 
+---
 <!-- prettier-ignore-start -->
 
 ### কিছু সাধারণ প্রশ্নোত্তরঃ
