@@ -1,6 +1,44 @@
 # 12 Semester Diary
 
-??? info "10–11 NOV 2025"
+??? info "13–14 NOV 2025"
+
+    ⚠️ জরুরী নোটিশ⚠️
+    দেশের বর্তমান পরিস্থিতির কারণে *আগামীকাল 13.11.2025 তারিখে ক্লাস বন্ধ থাকবে*। পরবর্তী দিনে যথারীতি ক্লাস চলবে। 
+    সবাই নিরাপদে থাকবেন।
+    ---
+    🟢 SPL Theory Assignment
+    Submission Date: 29-11-2025
+    Topic: Any topic from C program
+    Slides: 7-10 slides (PowerPoint)
+    Presentation Time: 5 minutes
+
+    Example of Assignment: Suppose you chose the topic "Array" from C. Now you have to write different types of codes and explanation or similar content  related to Array at least 7 slides.
+
+
+    🟢 SPL Lab Assignment:
+    Please submit your Assignment (10 code slides given previously) to the Classroom. 
+    https://classroom.google.com/u/1/c/ODIyMTg4MTk3MDcx
+    Google Classroom `Code:dksbd6pb`
+    ---
+    [12 Math Assignment 03.pdf](https://drive.google.com/file/d/1dxV9Jr-j1TOvBRmU6oQuF8WByiz-k_N6/view?usp=drive_link)
+
+    [12 EEE Theory operational Amplifier.pdf](https://drive.google.com/file/d/10NuI6UOMgkXX304krtzxKHB-t59R3W4H/view?usp=drive_link)
+
+    DLD Theory assignment 02:
+    Encoder,
+    1 Decoder - (3 to 8 decoder নিজের function দিয়ে)
+    Multiplexer
+    PLA
+    ROM
+    DLD Theory Assignment
+    যারা এখনও assignment 1 দেননি তারা অবশ্যই সামনের  সপ্তাহ (২২ নভে.) এর মধ্যে দিবেন, এর পর স্যার আর assignment 01 জমা নিবেন না।
+    Assignment 02 Last Submission Date: 29-11-2025
+    ---
+    [Bangladesh Studies 08 Nov](https://drive.google.com/file/d/1v0B6TQOCIZtWFBj3xehBTJhDt53_vgyj/view?usp=drive_link)
+    
+
+
+??? info "07–08 NOV 2025"
 
     📘 **Digital Logic Design Laboratory (DLD Lab)**
 
