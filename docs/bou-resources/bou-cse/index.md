@@ -29,7 +29,7 @@
 ---
 ## সব সেমিস্টারের ফোল্ডার
 <div class="grid-4" style="gap: 20px;">
-    <a href="/all/bou-resources/bou-cse/11-semester/" class="md-button md-button--primary">11 Semester</a>
+    <a href="https://drive.google.com/drive/folders/1t3mFD-Hls6l96omTE4lTju3Gv_oHihpJ?usp=drive_link" class="md-button md-button--primary">11 Semester</a>
     <a href="/all/bou-resources/bou-cse/12-semester/" class="md-button md-button--secondary">12 Semester</a>
     <a href="/all/bou-resources/bou-cse/21-semester/" class="md-button md-button--primary">21 Semester</a>
     <a href="/all/bou-resources/bou-cse/22-semester/" class="md-button md-button--secondary">22 Semester</a>
