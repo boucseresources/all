@@ -93,3 +93,9 @@
     ![alt text](image-14.png)
     ![alt text](image-15.png)
     ![alt text](image-16.png)
+
+??? "Fiqh"
+    
+    ![alt text](image-17.png)
+    ![alt text](image-18.png)
+    ![alt text](image-19.png)
