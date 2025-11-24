@@ -88,3 +88,8 @@
     ![alt text](image-12.png)
     ![alt text](image-13.png)
 
+??? "বিভিন্ন প্রকার বাই"
+    
+    ![alt text](image-14.png)
+    ![alt text](image-15.png)
+    ![alt text](image-16.png)
