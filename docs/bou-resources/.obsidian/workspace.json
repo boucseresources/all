@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "5c6af3a3010aafed",
+        "id": "54dcfc647d01d09c",
         "type": "tabs",
         "children": [
           {
-            "id": "39c65a33d2618374",
+            "id": "c13b044109041472",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "FAZIL/2nd-Arabic-3rd/PDF-usul-fiqh.md",
+                "file": "bou-cse/12-semester/structured-programming-language/[Study Plan] for Structured Programming Language.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PDF-usul-fiqh"
+              "title": "[Study Plan] for Structured Programming Language"
             }
           }
         ]
@@ -75,7 +75,7 @@
             }
           },
           {
-            "id": "729546b4dba4214f",
+            "id": "d02d9d99eb87bf64",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -88,7 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 318.5004348754883
+    "width": 305.5004348754883
   },
   "right": {
     "id": "ac3b98c8496a3b76",
@@ -193,11 +193,20 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "712ba9877518ca28",
+  "active": "c13b044109041472",
   "lastOpenFiles": [
+    "bou-cse/12-semester/structured-programming-language/[Analysis]-STP-Prev.-Question-analysis.md",
+    "bou-cse/12-semester/12 All Suggestions.md",
+    "Media Library/image-61.png",
+    "Media Library/image-60.png",
+    "bou-cse/12-semester/index.md",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Operational-Amplifier/Operational-Amplifier.md",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Semiconductor-Devices/Semiconductor-Devices.md",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Electrical-Circuit/Delta-to-wye-conversion.md",
+    "bou-cse/12-semester/Digital-Logic-Design/DLD-Theory-Assignments/Assignments-01.md",
+    "FAZIL/2nd-Arabic-3rd/PDF-usul-fiqh.md",
     "FAZIL/2nd-Arabic-3rd/image-1.png",
     "FAZIL/2nd-Arabic-3rd/image.png",
-    "FAZIL/2nd-Arabic-3rd/PDF-usul-fiqh.md",
     "Media Library/image-59.png",
     "FAZIL/2nd-Arabic-3rd/Usulul-Fiqh.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/learning-c.md",
@@ -222,17 +231,8 @@
     "Media Library/image-57.png",
     "Media Library/Triangle with numbers.png",
     "Media Library/image-56.png",
-    "Media Library/Fibonacci Number Series.png",
-    "Media Library/image-55.png",
-    "Media Library/image-54.png",
     "bou-cse/12-semester/structured-programming-language/stp-previous-year-question.md",
     "bou-cse/12-semester/structured-programming-language/[Study Plan] for Structured Programming Language.md",
-    "bou-cse/12-semester/structured-programming-language/spl-resources.md",
-    "bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-08.md",
-    "bou-cse/12-semester/structured-programming-language/learning-c/c-and-javascript-comparison.md",
-    "bou-cse/12-semester/structured-programming-language/learning-c/c-data-types/c-data-types.md",
-    "bou-cse/12-semester/structured-programming-language/structured-programming-language.md",
-    "bou-cse/12-semester/linear-algebra-and-differential-equations/Class-Lectures/Class-Lectures.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments",
     "bou-cse/12-semester/Electronic-Device-and-Circuits",
     "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra",
