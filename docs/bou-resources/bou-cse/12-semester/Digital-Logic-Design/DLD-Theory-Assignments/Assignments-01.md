@@ -1,7 +1,7 @@
 ---
 title: DLD Theroy Assingment 01
 ---
-# DLD Theroy Assingment 01:
+# DLD Theory Assignment 01:
 
 এটা স্যারের থেকে নিয়ে নিতে হবে। প্রত্যেকের জন্য আলাদাভাবে ১ টি করে Problem দিয়েছেন, স্যার। অর্থাৎ এক্ষেত্রে কোন specific topic বলা হয়নি।
 
@@ -58,3 +58,147 @@ F=Σm(0,5,9,13,15,27,30,31) — 037
     - **খ) Boolean Algebra থেকে প্রাপ্ত Simplified Function-এর জন্য (কার্য ৩):**
       - i. Basic Logic Gates (AND, OR, NOT) ব্যবহার করে সার্কিটটি অঙ্কন করুন।
       - ii. Universal Gates (শুধুমাত্র NAND অথবা শুধুমাত্র NOR) ব্যবহার করে সার্কিটটি অঙ্কন করুন।
+---
+
+Soution: 
+Boolean Implementation of given Function and Truth table
+
+The given equation is:
+
+[
+f(A,B,C,D,E)=\Sigma m(0,1,5,7,16,19,30,31)
+]
+
+1. From the given equation, the complete truth table is obtained as follows.
+
+| Dec | A | B | C | D | E | F |
+| --- | - | - | - | - | - | - |
+| 0   | 0 | 0 | 0 | 0 | 0 | 1 |
+| 1   | 0 | 0 | 0 | 0 | 1 | 1 |
+| 2   | 0 | 0 | 0 | 1 | 0 | 0 |
+| 3   | 0 | 0 | 0 | 1 | 1 | 0 |
+| 4   | 0 | 0 | 1 | 0 | 0 | 0 |
+| 5   | 0 | 0 | 1 | 0 | 1 | 1 |
+| 6   | 0 | 0 | 1 | 1 | 0 | 0 |
+| 7   | 0 | 0 | 1 | 1 | 1 | 1 |
+| 8   | 0 | 1 | 0 | 0 | 0 | 0 |
+| 9   | 0 | 1 | 0 | 0 | 1 | 0 |
+| 10  | 0 | 1 | 0 | 1 | 0 | 0 |
+| 11  | 0 | 1 | 0 | 1 | 1 | 0 |
+| 12  | 0 | 1 | 1 | 0 | 0 | 0 |
+| 13  | 0 | 1 | 1 | 0 | 1 | 0 |
+| 14  | 0 | 1 | 1 | 1 | 0 | 0 |
+| 15  | 0 | 1 | 1 | 1 | 1 | 0 |
+| 16  | 1 | 0 | 0 | 0 | 0 | 1 |
+| 17  | 1 | 0 | 0 | 0 | 1 | 0 |
+| 18  | 1 | 0 | 0 | 1 | 0 | 0 |
+| 19  | 1 | 0 | 0 | 1 | 1 | 1 |
+| 20  | 1 | 0 | 1 | 0 | 0 | 0 |
+| 21  | 1 | 0 | 1 | 0 | 1 | 0 |
+| 22  | 1 | 0 | 1 | 1 | 0 | 0 |
+| 23  | 1 | 0 | 1 | 1 | 1 | 0 |
+| 24  | 1 | 1 | 0 | 0 | 0 | 0 |
+| 25  | 1 | 1 | 0 | 0 | 1 | 0 |
+| 26  | 1 | 1 | 0 | 1 | 0 | 0 |
+| 27  | 1 | 1 | 0 | 1 | 1 | 0 |
+| 28  | 1 | 1 | 1 | 0 | 0 | 0 |
+| 29  | 1 | 1 | 1 | 0 | 1 | 0 |
+| 30  | 1 | 1 | 1 | 1 | 0 | 1 |
+| 31  | 1 | 1 | 1 | 1 | 1 | 1 |
+
+Here (F=1) only for the minterm indices (0,1,5,7,16,19,30,31), as required.
+
+
+## Standard Representation
+
+Here,
+
+$$
+F=\Sigma m(0,1,5,7,16,19,30,31)
+$$
+
+### Table for Canonical / Standard Form
+
+| Decimal |  A  |  B  |  C  |  D  |  E  | Standard Form                                                        |     |
+| :-----: | :-: | :-: | :-: | :-: | :-: | :------------------------------------------------------------------- | --- |
+|    0    |  0  |  0  |  0  |  0  |  0  | $$\overline{A} \overline{B} \overline{C} \overline{D} \overline{E}$$ |     |
+|    1    |  0  |  0  |  0  |  0  |  1  | $$\overline{A} \overline{B} \overline{C} \overline{D}E$$             |     |
+|    5    |  0  |  0  |  1  |  0  |  1  | $$\overline{A} \overline{B}C \overline{D}E$$                         |     |
+|    7    |  0  |  0  |  1  |  1  |  1  | $$\overline{A} \overline{B}CDE$$                                     |     |
+|   16    |  1  |  0  |  0  |  0  |  0  | $$A \overline{B} \overline{C} \overline{D} \overline{E}$$            |     |
+|   19    |  1  |  0  |  0  |  1  |  1  | $$A \overline{B} \overline{C}DE$$                                    |     |
+|   30    |  1  |  1  |  1  |  1  |  0  | $$ABCD \overline{E}$$                                                |     |
+|   31    |  1  |  1  |  1  |  1  |  1  | $$ABCDE$$                                                            |     |
+
+### Final Standard (Canonical Sum-of-Products) Expression
+
+$$
+F=
+\overline{A}\overline{B}\overline{C}\overline{D}\overline{E}
+
++ \overline{A}\overline{B}\overline{C}\overline{D}E
++ \overline{A}\overline{B}C\overline{D}E
++ \overline{A}\overline{B}CDE
++ A\overline{B}\overline{C}\overline{D}\overline{E}
++ A\overline{B}\overline{C}DE
++ ABCD\overline{E}
++ ABCDE
+  $$
+
+
+Minimized function (what this table is based on):
+
+$$
+F=\overline{A}.\overline{B}.\overline{C}.\overline{D}
++\overline{B}.\overline{C}.\overline{D}.\overline{E}
++\overline{A}.\overline{B}.C.E
++A.\overline{B}.\overline{C}.D.E
++A.B.C.D
+$$
+
+So the product-term columns are:
+
+* $\overline{A}.\overline{B}.\overline{C}.\overline{D}$
+* $\overline{B}.\overline{C}.\overline{D}.\overline{E}$
+* $\overline{A}.\overline{B}.C.E$
+* $A.\overline{B}.\overline{C}.D.E$
+* $A.B.C.D$
+
+The final column is their sum (OR):
+$$F=\text{(col 1)}+\text{(col 2)}+\text{(col 3)}+\text{(col 4)}+\text{(col 5)}$$
+### Truth Table from Minimized Function
+
+| Dec |  A  |  B  |  C  |  D  |  E  | $$\overline{A},\overline{B},\overline{C},\overline{D}$$ | $$\overline{B},\overline{C},\overline{D},\overline{E}$$ | $$\overline{A},\overline{B},C,E$$ | $$A,\overline{B},\overline{C},D,E$$ | $$A,B,C,D$$ | $$F$$ |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-----------------------------------------------------: | :-----------------------------------------------------: | :-------------------------------: | :---------------------------------: | :---------: | :---: |
+|  0  |  0  |  0  |  0  |  0  |  0  |                            1                            |                            1                            |                 0                 |                  0                  |      0      |   1   |
+|  1  |  0  |  0  |  0  |  0  |  1  |                            1                            |                            0                            |                 0                 |                  0                  |      0      |   1   |
+|  2  |  0  |  0  |  0  |  1  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  3  |  0  |  0  |  0  |  1  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  4  |  0  |  0  |  1  |  0  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  5  |  0  |  0  |  1  |  0  |  1  |                            0                            |                            0                            |                 1                 |                  0                  |      0      |   1   |
+|  6  |  0  |  0  |  1  |  1  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  7  |  0  |  0  |  1  |  1  |  1  |                            0                            |                            0                            |                 1                 |                  0                  |      0      |   1   |
+|  8  |  0  |  1  |  0  |  0  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  9  |  0  |  1  |  0  |  0  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  10 |  0  |  1  |  0  |  1  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  11 |  0  |  1  |  0  |  1  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  12 |  0  |  1  |  1  |  0  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  13 |  0  |  1  |  1  |  0  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  14 |  0  |  1  |  1  |  1  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  15 |  0  |  1  |  1  |  1  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  16 |  1  |  0  |  0  |  0  |  0  |                            0                            |                            1                            |                 0                 |                  0                  |      0      |   1   |
+|  17 |  1  |  0  |  0  |  0  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  18 |  1  |  0  |  0  |  1  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  19 |  1  |  0  |  0  |  1  |  1  |                            0                            |                            0                            |                 0                 |                  1                  |      0      |   1   |
+|  20 |  1  |  0  |  1  |  0  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  21 |  1  |  0  |  1  |  0  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  22 |  1  |  0  |  1  |  1  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  23 |  1  |  0  |  1  |  1  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  24 |  1  |  1  |  0  |  0  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  25 |  1  |  1  |  0  |  0  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  26 |  1  |  1  |  0  |  1  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  27 |  1  |  1  |  0  |  1  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  28 |  1  |  1  |  1  |  0  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  29 |  1  |  1  |  1  |  0  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      0      |   0   |
+|  30 |  1  |  1  |  1  |  1  |  0  |                            0                            |                            0                            |                 0                 |                  0                  |      1      |   1   |
+|  31 |  1  |  1  |  1  |  1  |  1  |                            0                            |                            0                            |                 0                 |                  0                  |      1      |   1   |
