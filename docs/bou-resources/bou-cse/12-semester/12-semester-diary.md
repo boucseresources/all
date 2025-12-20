@@ -1,5 +1,11 @@
 # 12 Semester Diary
 
+
+!!! info "232 Final Exam Routine"
+    
+    ![alt text](<232 Final Exam Routine  1 of 1-1.png>)
+    
+
 ??? info "13–14 NOV 2025"
 
     ⚠️ জরুরী নোটিশ⚠️
