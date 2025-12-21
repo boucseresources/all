@@ -11,14 +11,12 @@
             "id": "a30950d84c9cd4bd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "mk-space",
               "state": {
-                "file": "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Thevenins-Theorem/Untitled.md",
-                "mode": "source",
-                "source": false
+                "path": "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Thevenins-Theorem"
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Thevenins-Theorem"
             }
           },
           {
@@ -117,7 +115,7 @@
             }
           },
           {
-            "id": "8835dd52b4559755",
+            "id": "b2eadac4c31b6fc8",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -126,11 +124,12 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 296.5004348754883
+    "width": 425.5004348754883
   },
   "right": {
     "id": "ac3b98c8496a3b76",
@@ -235,14 +234,26 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "a30950d84c9cd4bd",
+  "active": "b2eadac4c31b6fc8",
   "lastOpenFiles": [
-    "bou-cse/12-semester/232 Final Exam Routine  1 of 1-1.png",
-    "bou-cse/12-semester/232 Final Exam Routine  1 of 1.png",
-    "Media Library/image-61.png",
-    "Media Library/12 Bangladesh Studies All (notes, questions, assignments) - Term 232.pdf",
-    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Thevenins-Theorem/Untitled.md",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/image-18.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/image-17.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/image-16.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/image-15.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/image-14.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/image-13.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/image-12.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/image-11.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/image-10.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/image-9.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/image-8.png",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem/Nortons-Theorem.md",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Nortons-Theorem",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Thevenins-Theorem/Thevenins-Theorem.md",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Thevenins-Theorem/Untitled.md",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-Assignnments/Assignment-01.md",
+    "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments/Assignment-01.md",
+    "Media Library/12 Bangladesh Studies All (notes, questions, assignments) - Term 232.pdf",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Thevenins-Theorem",
     "bou-cse/12-semester/structured-programming-language/[Analysis]-STP-Prev.-Question-analysis.md",
     "bou-cse/12-semester/structured-programming-language/stp-previous-year-question.md",
@@ -251,37 +262,25 @@
     "bou-cse/12-semester/structured-programming-language/Computer-Fundamentals-Review.md",
     "bou-cse/12-semester/structured-programming-language/[Study Plan] for Structured Programming Language.md",
     "bou-cse/12-semester/12 All Suggestions.md",
-    "Media Library/image-60.png",
     "bou-cse/12-semester/index.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Operational-Amplifier/Operational-Amplifier.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Semiconductor-Devices/Semiconductor-Devices.md",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Electrical-Circuit/Delta-to-wye-conversion.md",
     "bou-cse/12-semester/Digital-Logic-Design/DLD-Theory-Assignments/Assignments-01.md",
     "FAZIL/2nd-Arabic-3rd/PDF-usul-fiqh.md",
-    "FAZIL/2nd-Arabic-3rd/image-1.png",
-    "FAZIL/2nd-Arabic-3rd/image.png",
-    "Media Library/image-59.png",
     "FAZIL/2nd-Arabic-3rd/Usulul-Fiqh.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/learning-c.md",
     "bou-cse/12-semester/structured-programming-language/learning-c/100-problem-practical-list.md",
     "bou-cse/12-semester/linear-algebra-and-differential-equations/12-Math-Assignments/assignment-02.md",
-    "FAZIL/2nd-arabic-first-paper/image.png",
     "FAZIL/2nd-arabic-first-paper/Usulul-Fiqh.md",
     "FAZIL/2nd-Arabic-3rd",
     "FAZIL/2nd-arabic-first-paper/Sentence-Making.md",
     "FAZIL/2nd-arabic-first-paper/Nosse-Madrus.md",
     "FAZIL/2nd-arabic-first-paper/Nosse-Gyre-Madrus.md",
-    "FAZIL/2nd-arabic-first-paper/gaps.md",
-    "FAZIL/2nd-arabic-first-paper/fazil-question-answer.md",
-    "FAZIL/2nd-arabic-first-paper/essay.md",
     "FAZIL/2nd-arabic-first-paper",
-    "Media Library/image-58.png",
-    "Media Library/image-57.png",
-    "Media Library/Triangle with numbers.png",
     "bou-cse/12-semester/Electronic-Device-and-Circuits/12-eee-assignments",
     "bou-cse/12-semester/Electronic-Device-and-Circuits",
     "bou-cse/12-semester/Digital-Logic-Design/boolean-algebra",
-    "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures",
-    "bou-cse/12-semester/Digital-Logic-Design/Untitled"
+    "bou-cse/12-semester/Digital-Logic-Design/Class-Lectures"
   ]
 }
