@@ -1,6 +1,6 @@
 # Chapter 1: Introduction to Wye-Delta Transformations
 
-![Introduction to Wye-Delta Transformations](image.png)
+![Introduction to Wye-Delta Transformations](image.png){width=70%}
  /// caption
  Introduction to Wye-Delta Transformations
  ///

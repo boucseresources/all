@@ -205,7 +205,7 @@
     ### Step 5: Find Load Current \( I_L \)
 
     Apply Ohm’s law:
-    
+
     \[
     I_L = \frac{V_{th}}{R_{th} + R_L}
     \]
@@ -228,6 +228,118 @@
 
     By using Thevenin’s theorem, a complex circuit is converted into a simple equivalent circuit. This makes calculation easy and saves time.  
     The final current flowing through the load resistor is **1.25 amperes**.
+
+    ---
+    
+    ![alt text](image.png){width=50%}
+
+    ## Solution Using Thevenin’s Theorem
+
+    Let us solve the given circuit using **Thevenin’s theorem** across the 2 kΩ load resistor $R_L = R_3$.
+
+    ---
+
+    ### Given
+
+    * Source voltage: $V = 12 \text{ V}$
+    * $R_1 = 1 \text{ k}\Omega$
+    * $R_2 = 1 \text{ k}\Omega$
+    * Load resistance: $R_L = 2 \text{ k}\Omega$
+
+    ---
+
+    ## Step 1: Remove the Load Resistor $R_L$
+
+    First, remove the 2 kΩ load resistor from the circuit.
+    After removing the load, only resistors $R_1$ and $R_2$ remain connected to the source.
+
+    ---
+
+    ## Step 2: Find Thevenin Voltage $V_{th}$
+
+    With the load removed, resistors $R_1$ and $R_2$ are in series across the 12 V source.
+
+    Total current in the circuit:
+
+    $$
+    I = \frac{V}{R_1 + R_2}
+    = \frac{12}{1000 + 1000}
+    = \frac{12}{2000}
+    = 0.006 \text{ A}
+    $$
+
+    The open-circuit voltage across the load terminals is the voltage across resistor $R_2$:
+
+    $$
+    V_{th} = I \times R_2
+    = 0.006 \times 1000
+    = 6 \text{ V}
+    $$
+
+    So,
+
+    $$
+    V_{th} = 6 \text{ V}
+    $$
+
+    ---
+
+    ## Step 3: Find Thevenin Resistance $R_{th}$
+
+    Deactivate the independent voltage source.
+    The 12 V source is replaced by a short circuit.
+
+    Now, looking from the load terminals, resistors $R_1$ and $R_2$ are in parallel.
+
+    $$
+    R_{th} = R_1 \parallel R_2
+    = \frac{R_1 R_2}{R_1 + R_2}
+    = \frac{1000 \times 1000}{1000 + 1000}
+    = 500 \ \Omega
+    $$
+
+    So,
+
+    $$
+    R_{th} = 500 \ \Omega
+    $$
+
+    ---
+
+    ## Step 4: Reconnect Load and Find $V_L$ and $I_L$
+
+    The Thevenin equivalent circuit consists of:
+
+    * Voltage source $V_{th} = 6 \text{ V}$
+    * Series resistance $R_{th} = 500 \ \Omega$
+    * Load resistance $R_L = 2000 \ \Omega$
+
+    ### Load Current
+
+    $$
+    I_L = \frac{V_{th}}{R_{th} + R_L}
+    = \frac{6}{500 + 2000}
+    = \frac{6}{2500}
+    = 0.0024 \text{ A}
+    = 2.4 \text{ mA}
+    $$
+
+    ### Load Voltage
+
+    $$
+    V_L = I_L \times R_L
+    = 0.0024 \times 2000
+    = 4.8 \text{ V}
+    $$
+
+    ---
+
+    ## Final Answer (Using Thevenin’s Theorem)
+
+    * $V_{th} = 6 \text{ V}$
+    * $R_{th} = 500 \ \Omega$
+    * **Voltage across 2 kΩ load:** $V_L = 4.8 \text{ V}$
+    * **Current through 2 kΩ load:** $I_L = 2.4 \text{ mA}$
 
 
 
