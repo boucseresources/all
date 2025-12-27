@@ -373,5 +373,63 @@ figure-6() given the input voltage in figure-6(). Take  at t = 0.
 (c) If  and , find in the op-amp summing integrator circuit. Assume that the         4
 voltage across the capacitor is initially zero.
 ![alt text](image-8.png)
-* Summing Integrator with inputs  (via 3 MΩ) and  (via 100 kΩ).
-* Feedback Capacitor: 2 .
+
+
+
+
+**Bangladesh Open University**
+**School of Science and Technology**
+**B. Sc. in Computer Science and Engineering Program**
+**192 Term 1st year 2nd Semester Final Examination**
+**Course Code & Title: CSE1233 Electronic Device and Circuit**
+
+**Time: 3 Hours**                                                             **Total Marks: 70**
+
+---
+
+*[Answer any five of the following questions. Figures in the right margin indicate the full marks of each question. Fractions of a question should be answered together and sequentially.]*
+
+---
+
+**1.**
+(a) Explain the formation of a pn-junction.                                                             5
+
+(b) What is the barrier potential? What is the barrier potential of a silicon diode at room temperature?                                                             2+1
+
+(c) What is mean by doping? Define conductor, semiconductor and insulator.                                                             2+4
+
+(d) Draw and explain the I-V characteristics of a general purpose diode.                                                             4
+
+(e) For the series diode configuration of the circuit, determine (V_D), (V_R), and (I_D).                                                             4
+
+*(figure shows an 8 V source, a silicon diode, and a resistor R = 2.2 kΩ connected in series)*
+
+---
+
+(c) Sketch the output (v_o) and determine the dc level of the output for the following network.                                                             3
+
+*(figure shows an input sinusoidal waveform (v_i) of 20 V peak, a diode, a resistor R = 2 kΩ to ground, and output (v_o))*
+
+---
+
+(d) Explain the operation of a full wave rectifier.                                                             3
+
+---
+
+**3.**
+(a) Explain with diagram, the operation of BJT.                                                             5
+
+(b) Define load line and Q-point.                                                             2
+
+(c) A full wave rectifier uses two diodes, the internal resistance of each diode may be assumed constant at 25Ω. The transformer r.m.s. secondary voltage from center tap to each end of secondary is 50 V and load resistance is 990Ω. Find: (i) the mean load current; (ii) the r.m.s. value of load current.                                                             5
+
+(d) Differentiate between silicon diode and Zener diode.                                                             2
+
+---
+
+**4.**
+(a) Draw a CE amplifier circuit. Also, briefly explain the operation of CE amplifier.                                                             6
+
+(b) Draw the load line curve for a CE amplifier.                                                             3
+
+(c) Graphically show the phase reversal for CE amplifier for input sinusoidal wave.                                                             5
