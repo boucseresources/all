@@ -95,7 +95,7 @@
     Only a very small current flows due to minority charge carriers.
 
 
-??? info "3. Transistors"
+??? info "V–I Characteristics of a Diode"
 
 
     ## V–I Characteristics of a Diode
@@ -103,7 +103,7 @@
     The V–I characteristics of a diode show the relationship between the voltage applied across the diode and the current flowing through it. This characteristic curve helps to understand the behavior of the diode in different operating regions.
 
     ![alt text](image-4.png)
-    ![alt text](image-5.png)
+ 
 
     ### Forward Region Behavior
 
@@ -148,13 +148,146 @@
 
     In normal PN junction diodes, breakdown is undesirable. However, in special diodes like Zener diodes, breakdown is used for voltage regulation.
 
+    ## Diagram Description: PN Junction Diode and Its V–I Characteristics
+
+    This diagram shows the **structure of a PN junction diode**, its **symbol**, and the **V–I characteristics curve** under forward and reverse bias.
+
+    ![alt text](image-5.png)
+
+    ## 1. PN Junction Structure (Top Part)
+
+    The left side of the diagram shows a **PN junction**.
+
+    * The **N-region** contains electrons as majority charge carriers.
+    * The **P-region** contains holes as majority charge carriers.
+
+    These two regions are joined together to form a **PN junction diode**.
+
     ---
 
-    ### Summary
+    ## 2. Diode Terminals and Symbol
 
-    In forward region, the diode allows current to flow after cut-in voltage.
-    In reverse region, only a small leakage current flows.
-    At very high reverse voltage, breakdown occurs and current increases suddenly.
+    The diode has two terminals.
+
+    * **Anode (A)** is connected to the P-type region.
+    * **Cathode (K)** is connected to the N-type region.
+
+    The diode symbol is shown using a triangle pointing towards a vertical line.
+
+    * The **triangle side represents the anode**.
+    * The **vertical line represents the cathode**.
+
+    The arrow direction indicates the **direction of conventional current flow** when the diode is forward biased.
+
+    ---
+
+    ## 3. Conventional Current Flow
+
+    Conventional current flows from **positive to negative terminal**.
+
+    * In forward bias, current flows from **anode to cathode**.
+    * This direction is shown clearly in the diagram.
+
+    Electron flow is opposite to conventional current, but in exams we usually show conventional current.
+
+    ---
+
+    ## 4. Axes of V–I Characteristics Graph
+
+    The right side of the diagram shows the **V–I characteristics of the diode**.
+
+    * The **horizontal axis (X-axis)** represents voltage applied across the diode.
+
+    * Right side shows **positive voltage (forward voltage)**.
+    * Left side shows **negative voltage (reverse voltage)**.
+
+    * The **vertical axis (Y-axis)** represents current through the diode in milliampere (mA).
+
+    * Upward direction shows **forward current**.
+    * Downward direction shows **reverse current**.
+
+    ---
+
+    ## 5. Forward Bias Region
+
+    In the **forward bias region**, the anode is positive and the cathode is negative.
+
+    * Initially, current is very small.
+    * After reaching a certain voltage, current increases sharply.
+
+    This sharp rise shows that the diode conducts heavily in forward bias.
+
+    ---
+
+    ## 6. Cut-in Voltage (Knee Voltage)
+
+    The point where current starts increasing rapidly is called **cut-in voltage**.
+
+    * For **silicon diode**, cut-in voltage is about **0.7 V**.
+    * For **germanium diode**, cut-in voltage is about **0.3 V**.
+
+    Below this voltage, the diode current is very small and almost negligible.
+
+    ---
+
+    ## 7. Reverse Bias Region
+
+    In reverse bias, the anode is negative and the cathode is positive.
+
+    * The diode does not conduct current.
+    * Only a very small current flows, called **leakage current** or **reverse saturation current**.
+
+    This current is shown as a small downward current on the graph.
+
+    ---
+
+    ## 8. Leakage Current
+
+    Leakage current flows due to **minority charge carriers**.
+
+    * It is very small in silicon diodes.
+    * It is slightly higher in germanium diodes.
+
+    The diagram shows approximate values for leakage current.
+
+    ---
+
+    ## 9. Breakdown Region
+
+    When reverse voltage increases beyond a limit, the diode enters **breakdown region**.
+
+    * Reverse current suddenly increases sharply.
+    * This region is marked clearly in the graph.
+
+    In normal diodes, breakdown can damage the diode if current is not limited.
+
+    ---
+
+    ## 10. Zener Breakdown Mention
+
+    The diagram also mentions **Zener or avalanche breakdown**.
+
+    * This type of breakdown is controlled and used in **Zener diodes**.
+    * It is useful for voltage regulation.
+
+    ---
+
+    ## 11. Summary of the Diagram
+
+    * Left side explains **structure and symbol of diode**.
+    * Right side explains **electrical behavior using V–I curve**.
+    * Forward bias shows conduction after cut-in voltage.
+    * Reverse bias shows small leakage current.
+    * Breakdown region shows sudden rise in reverse current.
+
+    ---
+
+    ## Final Exam Conclusion
+
+    This diagram clearly explains the **construction**, **current flow**, and **V–I characteristics** of a PN junction diode under different biasing conditions. It helps to understand why a diode allows current in one direction and blocks it in the opposite direction.
+
+
+
 
 ??? info "Transistors vs Diodes and their relationship"
 
@@ -245,3 +378,4 @@
     Diode controls direction of current only.
     Transistor controls and amplifies current.
     Transistor operation is based on diode principles.
+
