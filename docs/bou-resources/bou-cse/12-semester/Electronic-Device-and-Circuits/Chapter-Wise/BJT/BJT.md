@@ -137,6 +137,7 @@
 
     ### **1.1 Introduction to Rectifiers**
 
+    A rectifier is an electrical device that converts Alternating Current (AC), which periodically reverses direction, into Direct Current (DC), which flows in only one direction, enabling most electronics (phones, computers) to run on grid power.
     The **rectifier (রেক্টিফায়ার)** is an essential electronic device used in power supply systems. The main purpose of rectification is to convert alternating current into direct current so that electronic circuits can operate properly.
 
     **Purpose of rectification (রেক্টিফিকেশনের উদ্দেশ্য):**
