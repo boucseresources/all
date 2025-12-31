@@ -1,10 +1,4 @@
-![Image](https://cdn1.byjus.com/wp-content/uploads/2023/04/Bipolar-Junction-Transistor.png)
 
-![Image](https://www.electronics-tutorials.ws/wp-content/uploads/2013/09/tran6.gif)
-
-![Image](https://cdn.sparkfun.com/assets/learn_tutorials/1/9/3/mode-quadrants.png)
-
-![Image](https://i.sstatic.net/avBhN.jpg)
 
 ??? info "Bipolar Junction Transistor (BJT)"
 
