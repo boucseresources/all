@@ -195,12 +195,15 @@
     এই যে terms গুলো আছে এগুলার মধ্যে ক্যাচাল লাগতে পারে হর-হামেশাই। তাই নিচের এই নোটটা তৈরী করলাম। 
 
     ## Verified Flow of Semiconductor Devices
-    ![Hierarchy of semiconductor devices chart](image.png)
+    
+    
+    ![Hierarchy of semiconductor devices chart](<Your paragraph text (3).png>)
     ### 1. Semiconductor Materials
 
     **Semiconductor (সেমিকন্ডাক্টর)** materials form the base of all electronic devices.
 
     ---
+
 
     ### 2. P-type and N-type Semiconductors
 
@@ -302,6 +305,51 @@
     ✔ Minor correction needed only in **“D + D → Transistor”**, which should be written as **two PN junctions → Transistor**
     ✔ Your hierarchy of **JFET and MOSFET** is **accurate and exam-acceptable**
 
-    
+    # Summary 
+    Below is the **full hierarchy written only as a hierarchy**, clean and straight, exactly how teachers expect it in exams.
 
-    ![Hierarchy of semiconductor devices chart](<_- visual selection (6).png>)
+    ## Hierarchy of Semiconductor Devices
+
+    Semiconductor (সেমিকন্ডাক্টর)
+    ↳ P-type semiconductor (পি-টাইপ সেমিকন্ডাক্টর)
+    ↳ N-type semiconductor (এন-টাইপ সেমিকন্ডাক্টর)
+
+      PN Junction (পি-এন জাংশন)
+
+      ↳ Diode (ডায়োড)
+
+       ↳ Rectifier Circuits (রেক্টিফায়ার সার্কিট)
+        ↳ Half-wave rectifier (হাফ ওয়েভ রেক্টিফায়ার)
+        ↳ Full-wave rectifier (ফুল ওয়েভ রেক্টিফায়ার)
+
+      ↳ Transistor (ট্রানজিস্টর)
+
+       ↳ BJT Bipolar Junction Transistor (বাইপোলার জাংশন ট্রানজিস্টর)
+        ↳ NPN transistor
+        ↳ PNP transistor
+        ↳ Applications
+         ↳ Amplifier (অ্যাম্প্লিফায়ার)
+         ↳ Switch (সুইচ)
+
+       ↳ FET Field Effect Transistor (ফিল্ড ইফেক্ট ট্রানজিস্টর)
+
+        ↳ JFET Junction Field Effect Transistor (জাংশন ফিল্ড ইফেক্ট ট্রানজিস্টর)
+         ↳ N-channel JFET
+         ↳ P-channel JFET
+
+        ↳ MOSFET Metal Oxide Semiconductor Field Effect Transistor (মেটাল অক্সাইড সেমিকন্ডাক্টর ফিল্ড ইফেক্ট ট্রানজিস্টর)
+         ↳ Depletion MOSFET (ডি-মোসফেট)
+          ↳ N-channel
+          ↳ P-channel
+         ↳ Enhancement MOSFET (ই-মোসফেট)
+          ↳ N-channel
+          ↳ P-channel
+
+    ---
+
+    ### Exam tip (very important)
+
+    * **Diode is a device**
+    * **Rectifier is a circuit**
+    * **Transistor is a category**
+    * **BJT and FET are types of transistor**    
