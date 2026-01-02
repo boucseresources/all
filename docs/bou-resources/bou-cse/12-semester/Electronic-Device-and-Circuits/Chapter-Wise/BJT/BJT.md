@@ -332,4 +332,27 @@
     Rectifiers create DC power, transistors control that power, BJTs and FETs are transistor families, and amplifiers are circuits built using these transistors to increase signal strength.
 
 
-    
+
+
+
+??? info "Comparison"
+
+    ## Comparison of Transistor Configurations
+
+    ### Common Base (CB), Common Emitter (CE), and Common Collector (CC)
+
+    | Characteristics                          | Common Base (CB)                                                 | Common Emitter (CE)                                   | Common Collector (CC)                                 |
+    | ---------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+    | Terminals                                | Emitter as input, Collector as output, Base as common            | Base as input, Collector as output, Emitter as common | Base as input, Emitter as output, Collector as common |
+    | Input current                            | ( $I_E$ )                                                        | ( $I_B$ )                                             | ( $I_B$ )                                             |
+    | Input voltage applied between            | Emitter and Base                                                 | Base and Emitter                                      | Base and Collector                                    |
+    | Output current                           | ( $I_C$ )                                                        | ( $I_C$ )                                             | ( $I_E$ )                                             |
+    | Output voltage taken between             | Collector and Base                                               | Collector and Emitter                                 | Emitter and Collector                                 |
+    | Current amplification factor             | ( $\alpha = \dfrac{I_C}{I_E}$ )                                  | ( $\beta = \dfrac{I_C}{I_B}$ )                        | ( $\gamma = \dfrac{I_E}{I_B}$ )                       |
+    | Input resistance (ইনপুট রেজিস্ট্যান্স)   | Very low                                                         | Low                                                   | High                                                  |
+    | Output resistance (আউটপুট রেজিস্ট্যান্স) | Very high                                                        | High                                                  | Low                                                   |
+    | Current gain (কারেন্ট গেইন)              | Less than unity                                                  | High                                                  | High                                                  |
+    | Voltage gain (ভোল্টেজ গেইন)              | Moderate                                                         | Moderate                                              | Low                                                   |
+    | Phase shift (ফেজ শিফট)                   | ( $0^\circ$ or $360^\circ$ )                                     | ( $180^\circ$ )                                       | ( $0^\circ$ or $360^\circ$ )                          |
+    | Applications (প্রয়োগ)                   | High frequency applications, Input stage of multistage amplifier | Audio signal amplification                            | Impedance matching circuit                            |
+
