@@ -30,7 +30,11 @@ title: Home
     <a href="/all/bou-resources/admission-information/bou-cse-admission-guide/" class="md-button">সম্পূর্ণ Admission Process দেখুন</a>
 
     <a href="/all/bou-resources/admission-information/Semser-Fee-Payment/" class="md-button">Full Semester Fee Payment Process</a>
+
+
+    <a href="/all/bou-resources/admission-information/Retake-Improve" class="md-button">Retake & Improvement Process দেখুন</a>
 </div>
+
 
 ---
 
