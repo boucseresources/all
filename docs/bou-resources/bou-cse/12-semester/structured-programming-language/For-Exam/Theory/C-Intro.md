@@ -181,7 +181,7 @@
 
 ??? "Tokens, Keywords, Identifiers, and Variables in C"
 
-   Q: **Elaborate in detail on Tokens, Keywords, Identifiers, and Variables in C. Differentiate between them with a comprehensive comparison table.**
+    Q: **Elaborate in detail on Tokens, Keywords, Identifiers, and Variables in C. Differentiate between them with a comprehensive comparison table.**
 
     ---
 
@@ -409,3 +409,364 @@
 
     In conclusion, the `#include` directive is the bridge between our program and the vast resources available in C libraries.
 
+## Precedence of Operators
+
+??? "Precedence of Operators"
+
+
+    ### **Introduction to Precedence of Operators**
+
+    In C programming, an expression (রাশিমালা) often contains multiple operators. The **Precedence of Operators** (অপারেটর অগ্রাধিকার) determines which operator determines the grouping of terms in an expression. It decides which operation is performed first when there are mixed operators.
+
+    Just like in Mathematics we follow the BODMAS rule, in C language we follow the Operator Precedence table. Operators with higher precedence are evaluated (মূল্যায়ন করা) before operators with lower precedence.
+
+    ### **Hierarchy of Precedence (Higher to Lower)**
+
+    Below is the segmented classification of operators based on their priority levels. The flow goes from Highest Precedence (top) to Lowest Precedence (bottom).
+
+    #### **1. Unary Operators (Highest Priority)**
+
+    These operators have the highest precedence among arithmetic and logical operators. They are evaluated first.
+
+    * **Associativity:** Right to Left (ডান থেকে বামে)
+    * **Operators:**
+    * `++` (Increment)
+    * `--` (Decrement)
+    * `!` (Logical NOT)
+    * `~` (Bitwise NOT)
+    * `-` (Unary Minus)
+    * `sizeof`
+
+
+
+    #### **2. Arithmetic Operators**
+
+    After handling unary operators, the compiler looks for arithmetic operators. Inside this category, there is also a split in priority.
+
+    * **Level 2A: Multiplicative** (Higher within Arithmetic)
+    * **Associativity:** Left to Right
+    * **Operators:** `*`, `/`, `%`
+
+
+    * **Level 2B: Additive** (Lower within Arithmetic)
+    * **Associativity:** Left to Right
+    * **Operators:** `+`, `-`
+
+
+    * *Note:* Multiplication and Division happen before Addition and Subtraction.
+    ![alt text](image-2.png)
+
+    #### **3. Shift Operators**
+
+    These are used to shift bits.
+
+    * **Associativity:** Left to Right
+    * **Operators:** `<<`, `>>`
+
+    #### **4. Relational Operators**
+
+    These operators are used for comparison (তুলনা). They have lower precedence than arithmetic operators.
+
+    * **Level 4A: Inequality**
+    * **Associativity:** Left to Right
+    * **Operators:** `<`, `<=`, `>`, `>=`
+
+
+    * **Level 4B: Equality**
+    * **Associativity:** Left to Right
+    * **Operators:** `==`, `!=`
+
+
+
+    #### **5. Bitwise Operators**
+
+    These work on individual bits. They are evaluated after relational operators.
+
+    * **Associativity:** Left to Right
+    * **Operators:**
+    * `&` (Bitwise AND) - Higher
+    * `^` (Bitwise XOR) - Medium
+    * `|` (Bitwise OR) - Lower
+
+
+
+    #### **6. Logical Operators**
+
+    These are used to combine conditions. They have lower precedence than bitwise operators.
+
+    * **Level 6A: Logical AND**
+    * **Associativity:** Left to Right
+    * **Operator:** `&&`
+
+
+    * **Level 6B: Logical OR**
+    * **Associativity:** Left to Right
+    * **Operator:** `||`
+
+
+    * *Important:* `&&` is always evaluated before `||`.
+
+    #### **7. Ternary Operator**
+
+    This is the conditional operator.
+
+    * **Associativity:** Right to Left
+    * **Operator:** `? :`
+
+    #### **8. Assignment Operators (Lowest Priority)**
+
+    These are evaluated last, meaning the result is assigned (বরাদ্দ করা) only after all calculations are done.
+
+    * **Associativity:** Right to Left
+    * **Operators:** `=`, `+=`, `-=`, `*=`, `/=`, etc.
+
+    ---
+
+    ### **Summary Table of Precedence**
+
+    | Rank | Operator Category | Operators | Associativity |
+    | --- | --- | --- | --- |
+    | 1 | **Unary** | `++`, `--`, `!`, `sizeof` | Right to Left |
+    | 2 | **Arithmetic (Multiplicative)** | `*`, `/`, `%` | Left to Right |
+    | 3 | **Arithmetic (Additive)** | `+`, `-` | Left to Right |
+    | 4 | **Relational** | `<`, `>`, `<=`, `>=` | Left to Right |
+    | 5 | **Equality** | `==`, `!=` | Left to Right |
+    | 6 | **Logical AND** | `&&` | Left to Right |
+    | 7 | **Logical OR** | ` |  |
+    | 8 | **Conditional** | `? :` | Right to Left |
+    | 9 | **Assignment** | `=`, `+=`, `-=` | Right to Left |
+    | 10 | **Comma** | `,` | Left to Right |
+
+    ---
+
+    ### **Example of Evaluation**
+
+    Let us consider an expression to understand how precedence works.
+
+    **Expression:**
+    `x = 10 + 20 * 5;`
+
+    **Step-by-Step Execution:**
+
+    1. Here we have `+` (Addition), `*` (Multiplication), and `=` (Assignment).
+    2. According to precedence, `*` is higher than `+`.
+    3. So, `20 * 5` is calculated first. Result is `100`.
+    4. Now the expression becomes `x = 10 + 100`.
+    5. Next, `+` is evaluated. `10 + 100` becomes `110`.
+    6. Finally, `=` has the lowest precedence, so `110` is assigned to `x`.
+
+    **Result:** `x = 110`
+
+## Data Types
+
+??? "Data Types"
+
+    **Ans to the Question**
+
+    ### **Definition of Data Type**
+
+    A **Data Type** in C programming specifies the type of data that a variable (চলক) can store. It tells the Compiler (কম্পাইলার) two main things:
+
+    1. How much **Memory** (মেমরি) or storage space is to be allocated for the variable.
+    2. How the stored bit pattern should be interpreted or processed.
+
+    Every variable in C must have a data type associated with it. For example, if we want to store a student's roll number, we use an integer type, but if we want to store their percentage, we use a float type.
+
+    ### **Classification of Data Types**
+
+    C language provides a rich set of data types. They are broadly classified into three main categories as shown in the chart below.
+
+    **1. Primary (Built-in) Data Types:** These are the fundamental data types provided by C.
+    **2. Derived Data Types:** These are derived from the primary data types (like Arrays, Pointers).
+    **3. User-Defined Data Types:** These are defined by the programmer (like Structure, Union, Enum).
+
+    ---
+
+    ### **Detailed Explanation of Primary Data Types**
+
+    The Primary or Basic data types are the most commonly used types. Here is the explanation of each with examples.
+
+    #### **1. Integer (`int`)**
+
+    The `int` keyword is used to declare integer variables. It stores whole numbers (পূর্ণসংখ্যা) without any decimal or fractional parts.
+
+    * **Memory Size:** Usually 2 bytes or 4 bytes (depends on the processor/compiler).
+    * **Range:** -32,768 to 32,767 (for 2 bytes).
+    * **Format Specifier:** `%d`
+    * **Qualifiers:** We can modify the size and range using qualifiers like `short`, `long`, `signed`, and `unsigned`.
+
+    **Example Code:**
+
+    ```c
+    int age = 21;
+    printf("My age is %d", age);
+
+    ```
+
+    #### **2. Floating Point (`float`)**
+
+    The `float` keyword is used to store decimal numbers or real numbers. It is used when we need precision (নির্ভুলতা) or fractional values. It typically provides 6 digits of precision.
+
+    * **Memory Size:** 4 bytes.
+    * **Format Specifier:** `%f`
+
+    **Example Code:**
+
+    ```c
+    float marks = 85.50;
+    printf("My marks: %f", marks);
+
+    ```
+
+    #### **3. Double (`double`)**
+
+    The `double` data type is similar to `float` but it provides **Double Precision**. It is used when we need to store very large decimal numbers with higher accuracy (up to 15 digits).
+
+    * **Memory Size:** 8 bytes.
+    * **Format Specifier:** `%lf`
+
+    **Example Code:**
+
+    ```c
+    double pi = 3.1415926535;
+    printf("Value of PI: %lf", pi);
+
+    ```
+
+    #### **4. Character (`char`)**
+
+    The `char` keyword is used to store a single character (অক্ষর). In C, characters are enclosed in single quotes like `'A'`. Internally, the computer stores the ASCII value (an integer) of that character.
+
+    * **Memory Size:** 1 byte.
+    * **Format Specifier:** `%c`
+
+    **Example Code:**
+
+    ```c
+    char grade = 'A';
+    printf("Your grade is %c", grade);
+
+    ```
+
+    #### **5. Void (`void`)**
+
+    The `void` data type means "nothing" or "no value". It is generally used with functions (ফাংশন) to specify that the function does not return (ফেরত দেওয়া) any value. We cannot create a variable of type `void`.
+
+    **Example Code:**
+
+    ```c
+    void display() {
+        printf("This function returns nothing.");
+    }
+
+    ```
+
+    ---
+
+    ### **Brief on Derived and User-Defined Types**
+
+    Since this is a comprehensive question, we must also mention these types.
+
+    **Derived Data Types:**
+    These are built by combining basic data types.
+
+    * **Arrays:** A collection of variables of the same type. Example `int numbers[5];`
+    * **Pointers:** Variables that store the address (ঠিকানা) of another variable.
+
+    **User-Defined Data Types:**
+    These allow programmers to define their own custom types.
+
+    * **Structure (`struct`):** Can store variables of different data types under one name.
+    * **Union:** Similar to structure but shares the same memory location.
+    * **Enumeration (`enum`):** Used to assign names to integral constants.
+
+    ### **Summary Table**
+
+    | Data Type | Keyword | Size (Typical) | Format Specifier | Use |
+    | --- | --- | --- | --- | --- |
+    | Integer | `int` | 4 bytes | `%d` | Counting, whole numbers |
+    | Floating Point | `float` | 4 bytes | `%f` | Average, Percentage |
+    | Double | `double` | 8 bytes | `%lf` | High precision calculation |
+    | Character | `char` | 1 byte | `%c` | Grades, Symbols |
+
+    In conclusion, choosing the correct data type is essential for Memory Management (মেমরি ব্যবস্থাপনা) and the correct execution of the program.
+
+## **Briefly describe the types of instruction in C.**
+
+??? "Instruction in C."
+
+    **Question:**
+    **Briefly describe the types of instruction in C.**
+
+    ---
+
+    ### **Introduction**
+
+    In C programming, an Instruction (নির্দেশনা) is a command or statement given to the computer to perform a specific task. When we write a C program, it is basically a collection of instructions. The Compiler (কম্পাইলার) reads these instructions and translates them into machine language so the computer can execute (সম্পাদন) them.
+
+    C instructions can be broadly classified into three main categories based on the type of work they perform.
+
+    ### **1. Type Declaration Instruction**
+
+    This is the first type of instruction used in C programs. To store any data in the memory (মেমরি), we must first declare the type of the variable. The Type Declaration Instruction is used to declare the type of variables (চলক) used in the program.
+
+    * **Purpose:** It tells the compiler the name of the variable and the type of data it will hold.
+    * **Rule:** All type declaration instructions must be written at the beginning of the `main()` function or before using the variable.
+    * **Syntax:** `data_type variable_name;`
+    * **Example:**
+    ```c
+    int roll_number;
+    float marks;
+    char grade;
+
+    ```
+
+
+    Here, `roll_number` is declared as an integer, `marks` as a float, and `grade` as a character.
+
+    ### **2. Arithmetic Instruction**
+
+    After declaring variables, we often need to process data. The Arithmetic Instruction (গাণিতিক নির্দেশনা) is used to perform arithmetic operations on constants and variables. These instructions are performed using arithmetic operators like `+`, `-`, `*`, `/`.
+
+    * **Execution:** These instructions are executed by the ALU (Arithmetic Logic Unit) of the CPU.
+    * **Structure:** It consists of a variable name on the left hand side and an expression (রাশিমালা) on the right hand side.
+    * **Syntax:** `variable = expression;`
+    * **Example:**
+    ```c
+    int a = 10, b = 20, sum;
+    sum = a + b;
+
+    ```
+
+
+    Here, `a + b` is an arithmetic instruction that calculates the sum and stores it in the variable `sum`.
+
+    ### **3. Control Instruction**
+
+    By default, a C program executes instructions sequentially, meaning one line after another. However, sometimes we need to change this order or repeat some lines. The Control Instruction (নিয়ন্ত্রণ নির্দেশনা) is used to control the flow of execution of the program.
+
+    Control instructions determine the order in which other statements are executed. They are further divided into four types:
+
+    **A. Sequence Control Instruction:**
+    This ensures that the instructions are executed in the same order (ক্রম) in which they appear in the program. This is the default behavior.
+
+    **B. Selection or Decision Control Instruction:**
+    These instructions allow the computer to take a decision (সিদ্ধান্ত) based on a condition. If the condition is true, one block of code runs; if false, another block runs.
+
+    * **Examples:** `if`, `if-else`, `conditional operators`.
+
+    **C. Repetition or Loop Control Instruction:**
+    These instructions help us to execute a part of the program multiple times repeatedly (পুনরাবৃত্তিমূলকভাবে). Instead of writing the same code again and again, we use loops.
+
+    * **Examples:** `for` loop, `while` loop, `do-while` loop.
+
+    **D. Case Control Instruction:**
+    This is used when we have multiple choices and we need to select one specific choice. It is generally used to create menus.
+
+    * **Examples:** `switch` statement, `case`.
+
+    ### **Conclusion**
+
+    To write any meaningful C program, we need to use a combination of these three instructions. We start with Type Declaration to set up memory, use Arithmetic Instructions to calculate values, and use Control Instructions to manage the logic flow.
+    ![alt text](image-3.png)
+    
