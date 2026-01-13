@@ -325,5 +325,234 @@ You automatically know that its **dual** is also true without needing to prove i
 
 
     $$C_{i+1} = \overline{(\bar{C}_i \bar{G}_i + \bar{P}_i)}$$
-    
+
     (Proved)
+
+
+
+??? "3 input Combinational circuit  to square output"
+
+    ### Problem:
+
+    Design a combinational logic circuit that takes a 3-bit input number \( ( A, B, C ) \) (where \( A \) is the most significant bit and \( C \) is the least significant bit) and generates an output binary number equal to the square of the input number. Provide the following:
+
+    * Truth table for the inputs and outputs
+    * Karnaugh Maps (K-maps) for the simplification of Boolean expressions for each output bit
+    * The Boolean expressions for the output bits
+    * The circuit diagram using logic gates
+
+    ### Step 1: Truth Table
+
+    First, we construct the truth table for the input and the corresponding square in binary format. The inputs \( ( A, B, C ) \) represent a 3-bit number, which can take values from \( 000 \) to \( 111 \) (in decimal 0 to 7). The output is the square of the input.
+
+    | **Input (A, B, C)** | **Decimal Value** | **Square (Decimal)** | **Output (O₅ O₄ O₃ O₂ O₁ O₀)** |
+    | ------------------- | ----------------- | -------------------- | ---------------------------- |
+    | 000                 | 0                 | 0                    | 000000                       |
+    | 001                 | 1                 | 1                    | 000001                       |
+    | 010                 | 2                 | 4                    | 000100                       |
+    | 011                 | 3                 | 9                    | 001001                       |
+    | 100                 | 4                 | 16                   | 010000                       |
+    | 101                 | 5                 | 25                   | 011001                       |
+    | 110                 | 6                 | 36                   | 100100                       |
+    | 111                 | 7                 | 49                   | 110001                       |
+
+    **Outputs:**
+
+    * **O₅**: Most significant bit (MSB)
+    * **O₀**: Least significant bit (LSB)
+
+    ---
+
+    ### Step 2: K-map Simplification for Each Output
+
+    Let’s derive the Boolean expressions for each output bit using **Karnaugh Maps (K-maps)**. We will do this for each of the 6 output bits (O₀ to O₅).
+
+    #### K-map for \( O_0 \) (LSB)
+
+    Let’s first focus on the least significant bit, \( O_0 \). This bit is determined by whether the square of the input number is odd or even.
+
+    **From the truth table**, \( O_0 \) (the LSB) will be:
+
+    * 1 for 1, 9, 25, and 49 (since these are odd).
+    * 0 for 0, 4, 16, and 36 (since these are even).
+
+    So the K-map for \( O_0 \) looks like this:
+
+    | AB \ C | 0 | 1 |
+    | ------ | - | - |
+    | 00     | 0 | 1 |
+    | 01     | 1 | 0 |
+    | 11     | 1 | 0 |
+    | 10     | 0 | 1 |
+
+    Now, let's group the ones:
+
+    * **Group 1**: (00, 1) and (10, 1) → \( C \) (i.e., when \( C = 1 \)).
+    * **Group 2**: (01, 0) and (11, 0) → \( A'B \) (i.e., when \( A = 0 \) and \( B = 1 \)).
+
+    Thus, the simplified Boolean expression for \( O_0 \) is:
+    \[
+    O_0 = A'B + C
+    \]
+
+    #### K-map for \( O_1 \)
+
+    Next, let’s move on to \( O_1 \).
+
+    **From the truth table**, \( O_1 \) is:
+
+    * 1 for 1, 9, 25, 49
+    * 0 for 0, 4, 16, 36
+
+    K-map for \( O_1 \):
+
+    | AB \ C | 0 | 1 |
+    | ------ | - | - |
+    | 00     | 0 | 0 |
+    | 01     | 0 | 0 |
+    | 11     | 0 | 0 |
+    | 10     | 0 | 0 |
+
+    There are **no 1's** in \( O_1 \), so the simplified Boolean expression for \( O_1 \) is:
+    
+    \[
+    O_1 = 0
+    \]
+
+    #### K-map for \( O_2 \)
+
+    **From the truth table**, \( O_2 \) is:
+
+    * 1 for 4, 9, 25, 49
+    * 0 for 0, 1, 16, 36
+
+    K-map for \( O_2 \):
+
+    | AB \ C | 0 | 1 |
+    | ------ | - | - |
+    | 00     | 0 | 1 |
+    | 01     | 1 | 0 |
+    | 11     | 0 | 0 |
+    | 10     | 1 | 0 |
+
+    Simplified expression for \( O_2 \):
+
+    * **Group 1**: (00, 1) and (10, 1) → \( A'C \) (i.e., when \( A = 0 \) and \( C = 1 \)).
+
+    Thus, the simplified Boolean expression for \( O_2 \) is:
+    
+    \[
+    O_2 = A'C
+    \]
+
+    #### K-map for \( O_3 \)
+
+    **From the truth table**, \( O_3 \) is:
+
+    * 1 for 9, 25, 49
+    * 0 for 0, 4, 16, 36
+
+    K-map for \( O_3 \):
+
+    | AB \ C | 0 | 1 |
+    | ------ | - | - |
+    | 00     | 0 | 1 |
+    | 01     | 1 | 1 |
+    | 11     | 1 | 1 |
+    | 10     | 1 | 0 |
+
+    Simplified expression for \( O_3 \):
+
+    * **Group 1**: (01, 1) and (11, 1) → \( B \).
+    * **Group 2**: (00, 1) and (10, 1) → \( C' \).
+
+    Thus, the simplified Boolean expression for \( O_3 \) is:
+
+    \[
+    O_3 = B + C'
+    \]
+
+    #### K-map for \( O_4 \)
+
+    **From the truth table**, \( O_4 \) is:
+
+    * 1 for 16, 25, 36
+    * 0 for 0, 1, 9, 49
+
+    K-map for \( O_4 \):
+
+    | AB \ C | 0 | 1 |
+    | ------ | - | - |
+    | 00     | 0 | 0 |
+    | 01     | 0 | 0 |
+    | 11     | 1 | 0 |
+    | 10     | 1 | 0 |
+
+    Simplified expression for \( O_4 \):
+
+    * **Group 1**: (11, 0) and (10, 0) → \( A \).
+
+    Thus, the simplified Boolean expression for \( O_4 \) is:
+    \[
+    O_4 = A
+    \]
+
+    #### K-map for \( O_5 \)
+
+    **From the truth table**, \( O_5 \) is:
+
+    * 1 for 49
+    * 0 for 0, 1, 4, 9, 16, 25, 36
+
+    K-map for \( O_5 \):
+
+    | AB \ C | 0 | 1 |
+    | ------ | - | - |
+    | 00     | 0 | 0 |
+    | 01     | 0 | 0 |
+    | 11     | 1 | 0 |
+    | 10     | 0 | 0 |
+
+    Simplified expression for \( O_5 \):
+
+    * **Group 1**: (11, 0) → \( A \).
+
+    Thus, the simplified Boolean expression for \( O_5 \) is:
+
+    \[
+    O_5 = A
+    \]
+
+    ---
+
+    ### Step 3: Logic Circuit Design
+
+    Now, we can design the combinational logic circuit based on the simplified Boolean expressions:
+
+    * **\( O_0 = A'B + C \)**
+    * Use NOT gates for \( A' \).
+    * Use AND gates for \( A'B \) and \( C \).
+    * Use OR gate to combine the terms.
+
+    * **\( O_1 = 0 \)**
+    * No gates needed as \( O_1 \) is always 0.
+
+    * **\( O_2 = A'C \)**
+    * Use NOT gate for \( A' \).
+    * Use AND gate for \( A'C \).
+
+    * **\( O_3 = B + C' \)**
+    * Use NOT gate for \( C' \).
+    * Use OR gate to combine \( B \) and \( C' \).
+
+    * **\( O_4 = A \)**
+    * Directly use \( A \) as the output.
+
+    * **\( O_5 = A \)**
+    * Directly use \( A \) as the output.
+
+    ---
+
+    ### Conclusion:
+
+    We derived the Boolean expressions for each output bit from the K-map, and then we used those expressions to design the circuit using logic gates. The circuit is now fully simplified and can be implemented using AND, OR, and NOT gates.
