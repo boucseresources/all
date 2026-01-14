@@ -1267,3 +1267,96 @@ You automatically know that its **dual** is also true without needing to prove i
 
     This design is efficient, using only one NOT gate, one XOR gate, and one NOR gate.
 
+??? "Number of gates in SOP vs POS"
+    
+    ![alt text](image-17.png)
+??? "AvC=1 , AC=1 Combinational Circuit"
+
+    Based on the image provided, here is the step-by-step solution to design the combinational circuit.
+
+    ### 1. Analysis of the Problem
+
+    The problem asks for a circuit with three inputs () and one output ().
+    The conditions for the output to be  are:
+
+    1. ****: This represents the logical **OR** operation ().
+    2. ****: This represents the logical **AND** operation ().
+
+    The problem states the output is  when condition 1 is true **OR** condition 2 is true.
+    Mathematically, the boolean expression is:
+
+
+    ### 2. Simplification (Boolean Algebra)
+
+    Before drawing the circuit, we should simplify the expression to make the design efficient.
+
+    * Expression: 
+    * Logic Check: If  (meaning both are ), then  is also automatically . Therefore, the second term () is redundant because it is fully covered by the first term ().
+    * Proof using Absorption Law:
+
+
+
+    *(Since )*
+
+
+
+
+    *Note: The input  is not mentioned in the logic conditions, which means  is a "don't care" condition. Changes in  do not affect the output.*
+
+    ### 3. Truth Table
+
+    Here is the truth table for the 3 inputs showing that the output depends only on  and .
+
+    | Row | Input A | Input B | Input C | **Output F ()** |
+    | --- | --- | --- | --- | --- |
+    | 0 | 0 | 0 | 0 | **0** |
+    | 1 | 0 | 0 | 1 | **1** |
+    | 2 | 0 | 1 | 0 | **0** |
+    | 3 | 0 | 1 | 1 | **1** |
+    | 4 | 1 | 0 | 0 | **1** |
+    | 5 | 1 | 0 | 1 | **1** |
+    | 6 | 1 | 1 | 0 | **1** |
+    | 7 | 1 | 1 | 1 | **1** |
+
+    ### 4. Logic Diagram
+
+    Since the simplified expression is ****, you only need a single **OR gate**.
+
+    **Design specifications:**
+
+    * **Inputs:**  (Input lines are drawn, but  is not connected to the gate).
+    * **Gate:** One 2-input OR gate.
+    * **Output:** .
+
+    **Schematic Representation:**
+
+    ```mermaid
+    graph LR
+    A((A)) -->|Input| OR_GATE(OR Gate)
+    C((C)) -->|Input| OR_GATE
+    B((B)) -->|Unused| NC[Not Connected]
+    OR_GATE --> F((F))
+
+    style OR_GATE fill:#f9f,stroke:#333,stroke-width:2px,shape:or
+
+    ```
+
+    **How to draw this on paper:**
+
+    1. Draw three horizontal lines representing inputs , and .
+    2. Draw a standard **OR gate** symbol.
+    3. Connect the line from **** to the first input of the OR gate.
+    4. Connect the line from **** to the second input of the OR gate.
+    5. Leave the line for **** unconnected (or terminate it), as it does not affect the logic.
+    6. Draw a line from the output of the OR gate and label it ****.
+
+    This is the most efficient design using primary gates.
+
+??? "combinational circuit XYZ --> ABC"
+    
+    ![alt text](image-18.png)
+
+??? "Minimization of funtion and NAND gate"
+
+    ![alt text](image-19.png)
+    
