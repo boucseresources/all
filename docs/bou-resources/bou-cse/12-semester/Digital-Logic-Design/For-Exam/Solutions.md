@@ -445,223 +445,131 @@ You automatically know that its **dual** is also true without needing to prove i
     * The Boolean expressions for the output bits
     * The circuit diagram using logic gates
 
-    ### Step 1: Truth Table
 
-    First, we construct the truth table for the input and the corresponding square in binary format. The inputs \( ( A, B, C ) \) represent a 3-bit number, which can take values from \( 000 \) to \( 111 \) (in decimal 0 to 7). The output is the square of the input.
 
-    | **Input (A, B, C)** | **Decimal Value** | **Square (Decimal)** | **Output (O₅ O₄ O₃ O₂ O₁ O₀)** |
-    | ------------------- | ----------------- | -------------------- | ---------------------------- |
-    | 000                 | 0                 | 0                    | 000000                       |
-    | 001                 | 1                 | 1                    | 000001                       |
-    | 010                 | 2                 | 4                    | 000100                       |
-    | 011                 | 3                 | 9                    | 001001                       |
-    | 100                 | 4                 | 16                   | 010000                       |
-    | 101                 | 5                 | 25                   | 011001                       |
-    | 110                 | 6                 | 36                   | 100100                       |
-    | 111                 | 7                 | 49                   | 110001                       |
+    ### **Problem Analysis**
 
-    **Outputs:**
+    - **Goal:** Design a circuit that squares a 3-bit number.
+    - **Input:** A 3-bit binary number. Let's call the inputs **A, B, C** (where A is the Most Significant Bit and C is the Least Significant Bit).
 
-    * **O₅**: Most significant bit (MSB)
-    * **O₀**: Least significant bit (LSB)
+    - Maximum Input Value: $111\_2$ (Decimal 7).
+    - **Output:** The square of the input.
 
-    ---
+    - Maximum Output Value: $7^2 = 49$.
+    - To represent the decimal number 49 in binary, we need **6 bits** (since $2^5=32$ is too small, but $2^6=64$ covers it).
+    - Let's call the outputs **$F\_5, F\_4, F\_3, F\_2, F\_1, F\_0$**.
 
-    ### Step 2: K-map Simplification for Each Output
+    * * *
 
-    Let’s derive the Boolean expressions for each output bit using **Karnaugh Maps (K-maps)**. We will do this for each of the 6 output bits (O₀ to O₅).
+    ### **Step 1: Truth Table**
 
-    #### K-map for \( O_0 \) (LSB)
+    We calculate the square for every possible input ($0$ to $7$) and convert the result into a 6-bit binary number.
 
-    Let’s first focus on the least significant bit, \( O_0 \). This bit is determined by whether the square of the input number is odd or even.
+    | **Decimal Input** | **Input (A B C)** | **Square (Decimal)** | **Output (F5​ F4​ F3​ F2​ F1​ F0​)** |
+    | --- | --- | --- | --- |
+    | 0 | 0 0 0 | 0 | 0 0 0 0 0 0 |
+    | 1 | 0 0 1 | 1 | 0 0 0 0 0 1 |
+    | 2 | 0 1 0 | 4 | 0 0 0 1 0 0 |
+    | 3 | 0 1 1 | 9 | 0 0 1 0 0 1 |
+    | 4 | 1 0 0 | 16 | 0 1 0 0 0 0 |
+    | 5 | 1 0 1 | 25 | 0 1 1 0 0 1 |
+    | 6 | 1 1 0 | 36 | 1 0 0 1 0 0 |
+    | 7 | 1 1 1 | 49 | 1 1 0 0 0 1 |
 
-    **From the truth table**, \( O_0 \) (the LSB) will be:
+    * * *
 
-    * 1 for 1, 9, 25, and 49 (since these are odd).
-    * 0 for 0, 4, 16, and 36 (since these are even).
+    ### **Step 2: Boolean Expression Simplification**
 
-    So the K-map for \( O_0 \) looks like this:
+    We can determine the logic equation for each output bit. We can use Karnaugh Maps (K-Maps) or simple observation.
 
-    | AB \ C | 0 | 1 |
-    | ------ | - | - |
-    | 00     | 0 | 1 |
-    | 01     | 1 | 0 |
-    | 11     | 1 | 0 |
-    | 10     | 0 | 1 |
+    **1. Output $F\_0$ (LSB)**
 
-    Now, let's group the ones:
+    - **Observation:** The column $F\_0$ is identical to the input column $C$ (0, 1, 0, 1...).
+    - **Equation:** 
 
-    * **Group 1**: (00, 1) and (10, 1) → \( C \) (i.e., when \( C = 1 \)).
-    * **Group 2**: (01, 0) and (11, 0) → \( A'B \) (i.e., when \( A = 0 \) and \( B = 1 \)).
+    $$F\_0 = C$$
 
-    Thus, the simplified Boolean expression for \( O_0 \) is:
-    \[
-    O_0 = A'B + C
-    \]
+    **2. Output $F\_1$**
 
-    #### K-map for \( O_1 \)
+    - **Observation:** The column $F\_1$ is all zeros. (This is mathematically true because the square of any integer $n$, modulo 4, is either 0 or 1. Thus, the second binary bit is always 0 for inputs up to 7).
+    - **Equation:** 
 
-    Next, let’s move on to \( O_1 \).
+    $$F\_1 = 0$$
 
-    **From the truth table**, \( O_1 \) is:
+    (Ground)
 
-    * 1 for 1, 9, 25, 49
-    * 0 for 0, 4, 16, 36
+    **3. Output $F\_2$**
 
-    K-map for \( O_1 \):
+    - **High (1) at inputs:** 2 (010) and 6 (110).
+    - **Boolean Algebra:** $\bar{A}B\bar{C} + AB\bar{C}$
+    - **Factor out common terms:** $B\bar{C}(\bar{A} + A)$
+    - **Equation:** 
 
-    | AB \ C | 0 | 1 |
-    | ------ | - | - |
-    | 00     | 0 | 0 |
-    | 01     | 0 | 0 |
-    | 11     | 0 | 0 |
-    | 10     | 0 | 0 |
+    $$F\_2 = B\bar{C}$$
 
-    There are **no 1's** in \( O_1 \), so the simplified Boolean expression for \( O_1 \) is:
+    **4. Output $F\_3$**
 
-    \[
-    O_1 = 0
-    \]
+    - **High (1) at inputs:** 3 (011) and 5 (101).
+    - **Boolean Algebra:** $\bar{A}BC + A\bar{B}C$
+    - **Factor out C:** $C(\bar{A}B + A\bar{B})$
+    - **Identify XOR:** The term inside the bracket is an XOR operation.
+    - **Equation:** 
 
-    #### K-map for \( O_2 \)
+    $$F\_3 = C(A \oplus B)$$
 
-    **From the truth table**, \( O_2 \) is:
+    **5. Output $F\_4$**
 
-    * 1 for 4, 9, 25, 49
-    * 0 for 0, 1, 16, 36
+    - **High (1) at inputs:** 4 (100), 5 (101), 7 (111).
+    - **K-Map Grouping:**
 
-    K-map for \( O_2 \):
+    - Group 1 (inputs 4, 5): $A\bar{B}$
+    - Group 2 (inputs 5, 7): $AC$
+    - **Equation:** 
 
-    | AB \ C | 0 | 1 |
-    | ------ | - | - |
-    | 00     | 0 | 1 |
-    | 01     | 1 | 0 |
-    | 11     | 0 | 0 |
-    | 10     | 1 | 0 |
+    $$F\_4 = A\bar{B} + AC$$
 
-    Simplified expression for \( O_2 \):
+    (or factored: $A(\bar{B} + C)$)
 
-    * **Group 1**: (00, 1) and (10, 1) → \( A'C \) (i.e., when \( A = 0 \) and \( C = 1 \)).
+    **6. Output $F\_5$ (MSB)**
 
-    Thus, the simplified Boolean expression for \( O_2 \) is:
-    
-    \[
-    O_2 = A'C
-    \]
+    - **High (1) at inputs:** 6 (110) and 7 (111).
+    - **Boolean Algebra:** $AB\bar{C} + ABC$
+    - **Factor out AB:** $AB(\bar{C} + C)$
+    - **Equation:** 
 
-    #### K-map for \( O_3 \)
+    $$F\_5 = AB$$
 
-    **From the truth table**, \( O_3 \) is:
+    * * *
 
-    * 1 for 9, 25, 49
-    * 0 for 0, 4, 16, 36
+    ### **Step 3: Final Design Summary**
 
-    K-map for \( O_3 \):
+    To build this circuit, you need the following logic gates based on the derived equations:
 
-    | AB \ C | 0 | 1 |
-    | ------ | - | - |
-    | 00     | 0 | 1 |
-    | 01     | 1 | 1 |
-    | 11     | 1 | 1 |
-    | 10     | 1 | 0 |
-
-    Simplified expression for \( O_3 \):
-
-    * **Group 1**: (01, 1) and (11, 1) → \( B \).
-    * **Group 2**: (00, 1) and (10, 1) → \( C' \).
-
-    Thus, the simplified Boolean expression for \( O_3 \) is:
-
-    \[
-    O_3 = B + C'
-    \]
-
-    #### K-map for \( O_4 \)
-
-    **From the truth table**, \( O_4 \) is:
-
-    * 1 for 16, 25, 36
-    * 0 for 0, 1, 9, 49
-
-    K-map for \( O_4 \):
-
-    | AB \ C | 0 | 1 |
-    | ------ | - | - |
-    | 00     | 0 | 0 |
-    | 01     | 0 | 0 |
-    | 11     | 1 | 0 |
-    | 10     | 1 | 0 |
-
-    Simplified expression for \( O_4 \):
-
-    * **Group 1**: (11, 0) and (10, 0) → \( A \).
-
-    Thus, the simplified Boolean expression for \( O_4 \) is:
-    \[
-    O_4 = A
-    \]
-
-    #### K-map for \( O_5 \)
-
-    **From the truth table**, \( O_5 \) is:
-
-    * 1 for 49
-    * 0 for 0, 1, 4, 9, 16, 25, 36
-
-    K-map for \( O_5 \):
-
-    | AB \ C | 0 | 1 |
-    | ------ | - | - |
-    | 00     | 0 | 0 |
-    | 01     | 0 | 0 |
-    | 11     | 1 | 0 |
-    | 10     | 0 | 0 |
-
-    Simplified expression for \( O_5 \):
-
-    * **Group 1**: (11, 0) → \( A \).
-
-    Thus, the simplified Boolean expression for \( O_5 \) is:
-
-    \[
-    O_5 = A
-    \]
-
-    ---
-
-    ### Step 3: Logic Circuit Design
-
-    Now, we can design the combinational logic circuit based on the simplified Boolean expressions:
-
-    * **\( O_0 = A'B + C \)**
-    * Use NOT gates for \( A' \).
-    * Use AND gates for \( A'B \) and \( C \).
-    * Use OR gate to combine the terms.
-
-    * **\( O_1 = 0 \)**
-    * No gates needed as \( O_1 \) is always 0.
-
-    * **\( O_2 = A'C \)**
-    * Use NOT gate for \( A' \).
-    * Use AND gate for \( A'C \).
-
-    * **\( O_3 = B + C' \)**
-    * Use NOT gate for \( C' \).
-    * Use OR gate to combine \( B \) and \( C' \).
-
-    * **\( O_4 = A \)**
-    * Directly use \( A \) as the output.
-
-    * **\( O_5 = A \)**
-    * Directly use \( A \) as the output.
-
-    ---
-
-    ### Conclusion:
-
-    We derived the Boolean expressions for each output bit from the K-map, and then we used those expressions to design the circuit using logic gates. The circuit is now fully simplified and can be implemented using AND, OR, and NOT gates.
-
-
+    - **$F\_0 = C$** (Direct connection)
+    - **$F\_1 = 0$** (Connect to Logic Low/Ground)
+    - **$F\_2 = B \text{ AND } (\text{NOT } C)$**
+    - **$F\_3 = C \text{ AND } (A \text{ XOR } B)$**
+    - **$F\_4 = A \text{ AND } ((\text{NOT } B) \text{ OR } C)$**
+    - **$F\_5 = A \text{ AND } B$**
+
+    ### **Logic Diagram Implementation**
+
+    1. **Inputs:** Draw three lines representing A, B, and C.
+    2. **NOT Gates:** Place NOT gates on lines B and C to create $\bar{B}$ and $\bar{C}$.
+    3. **AND Gates:**
+
+    - Connect A and B to an AND gate for output **$F\_5$**.
+    - Connect B and $\bar{C}$ to an AND gate for output **$F\_2$**.
+    4. **XOR/AND Combination:**
+
+    - Connect A and B to an XOR gate. Connect the output of that XOR gate and input C into an AND gate for output **$F\_3$**.
+    5. **OR/AND Combination:**
+
+    - Connect $\bar{B}$ and C to an OR gate. Connect the output of that OR gate and input A into an AND gate for output **$F\_4$**.
+    6. **Direct:** Connect input C directly to **$F\_0$**.
+    7. **Ground:** Connect **$F\_1$** to ground.
+
+    ![alt text](image-12.png)
 
 ??? "Sequential Circuit"
 
