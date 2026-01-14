@@ -1062,7 +1062,7 @@ You automatically know that its **dual** is also true without needing to prove i
 ??? "State Table and State Digram"
 
     ![alt text](image-15.png)
-    
+
     ### **Solution for Question (b): Sequential Circuit Analysis**
 
     **Goal:** Derive the state table, state diagram, and function of the circuit in Figure 2.
@@ -1156,4 +1156,114 @@ You automatically know that its **dual** is also true without needing to prove i
 
     This is a Mode-Controlled Sequence Generator. In one mode ($X=0$), it generates a specific binary sequence, and in the other mode ($X=1$), it stops counting.
 
+
+???  "PLA Problem"
+
+    ![alt text](image-16.png)
+
+??? "4 bit binary 9's complement"
+
+    Based on the image provided, here is the step-by-step design for the combinational circuit.
+
+    ### **Problem Analysis**
+
+    **Question 4.10:** Design a combinational circuit that converts a 4-bit BCD input to its nines complement output.
+
+    - **Input:** A 4-bit BCD digit ($A, B, C, D$) representing decimal values 0–9.
+
+    - *Note:* Inputs 10–15 (1010 to 1111) are invalid in BCD and are treated as "Don't Cares" ($X$).
+    - **Output:** A 4-bit number ($w, x, y, z$) representing the 9's complement.
+
+    - The 9's complement of a digit $N$ is calculated as $9 - N$.
+
+    * * *
+
+    ### **Step 1: Truth Table**
+
+    We calculate the output by subtracting the input decimal value from 9.
+
+    (Example: If Input is 2, Output is $9 - 2 = 7$).
+
+    | **Decimal** | **Input (BCD) A B C D** | **9's Comp Calculation** | **Output w x y z** |
+    | --- | --- | --- | --- |
+    | 0 | 0 0 0 0 | $9 - 0 = 9$ | **1 0 0 1** |
+    | 1 | 0 0 0 1 | $9 - 1 = 8$ | **1 0 0 0** |
+    | 2 | 0 0 1 0 | $9 - 2 = 7$ | **0 1 1 1** |
+    | 3 | 0 0 1 1 | $9 - 3 = 6$ | **0 1 1 0** |
+    | 4 | 0 1 0 0 | $9 - 4 = 5$ | **0 1 0 1** |
+    | 5 | 0 1 0 1 | $9 - 5 = 4$ | **0 1 0 0** |
+    | 6 | 0 1 1 0 | $9 - 6 = 3$ | **0 0 1 1** |
+    | 7 | 0 1 1 1 | $9 - 7 = 2$ | **0 0 1 0** |
+    | 8 | 1 0 0 0 | $9 - 8 = 1$ | **0 0 0 1** |
+    | 9 | 1 0 0 1 | $9 - 9 = 0$ | **0 0 0 0** |
+    | 10–15 | 1 X X X | Invalid | X X X X |
+
+    * * *
+
+    ### **Step 2: K-Map Simplification**
+
+    We will determine the Boolean expression for each output bit ($w, x, y, z$) using the inputs ($A, B, C, D$).
+
+    **1. Output $z$ (LSB)**
+
+    - Looking at the column for $z$: It is `1` when the input $D$ is `0`, and `0` when input $D$ is `1`.
+    - It simply toggles every alternate number.
+    - **Expression:** 
+
+    $$z = \bar{D}$$
+
+    **2. Output $y$**
+
+    - Looking at the column for $y$: `0, 0, 1, 1, 0, 0, 1, 1...`
+    - Compare this to input column $C$: `0, 0, 1, 1, 0, 0, 1, 1...`
+    - They are identical for all valid BCD inputs.
+    - **Expression:** 
+
+    $$y = C$$
+
+    **3. Output $x$**
+
+    - $x$ is High (1) for inputs 2, 3, 4, 5.
+    - Using a K-Map or Boolean logic:
+
+    - Rows where $x=1$: 0010, 0011, 0100, 0101.
+    - This pattern corresponds to an **XOR** relationship between inputs $B$ and $C$.
+    - Check: $2 (0010) \rightarrow B=0, C=1 \rightarrow B \oplus C = 1$. (Correct)
+    - Check: $4 (0100) \rightarrow B=1, C=0 \rightarrow B \oplus C = 1$. (Correct)
+    - **Expression:** 
+
+    $$x = B \oplus C$$
+
+    **4. Output $w$ (MSB)**
+
+    - $w$ is High (1) only for inputs 0 (0000) and 1 (0001).
+    - For all other valid inputs (2–9), $w$ is 0.
+    - This occurs when $A=0$, $B=0$, and $C=0$. The input $D$ can be 0 or 1.
+    - This logic corresponds to a NOR operation of A, B, and C (Output is 1 only if all inputs are 0).
+    - **Expression:** 
+
+    $$w = \bar{A}\bar{B}\bar{C} = \overline{A + B + C}$$
+
+    * * *
+
+    ### **Step 3: Final Logic Equations**
+
+    - **$z = \bar{D}$**
+    - **$y = C$**
+    - **$x = B \oplus C$**
+    - **$w = \overline{A + B + C}$**
+
+    * * *
+
+    ### **Step 4: Logic Diagram**
+
+    To draw the diagram, follow these connections:
+
+    1. **Input Lines:** Draw four vertical lines labeled $A, B, C, D$.
+    2. **Circuit for $z$:** Connect input $D$ to a **NOT gate**. The output is $z$.
+    3. **Circuit for $y$:** Connect input $C$ directly to the output $y$ (a straight wire or a buffer).
+    4. **Circuit for $x$:** Connect inputs $B$ and $C$ to an **XOR gate**. The output is $x$.
+    5. **Circuit for $w$:** Connect inputs $A, B,$ and $C$ to a **3-input NOR gate**. The output is $w$.
+
+    This design is efficient, using only one NOT gate, one XOR gate, and one NOR gate.
 
