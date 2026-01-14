@@ -876,4 +876,284 @@ You automatically know that its **dual** is also true without needing to prove i
 ???  "Fewer NAND gate"
 
     ![alt text](image-10.png)
-    ![alt text](image-11.png)
+    ![alt text](image-11.png) 
+
+??? "3 input Combinational circuit  to square output - ROM"
+
+
+    <head></head>
+    Below is a **complete, exam-ready answer** for **Question (b)**, written in **clear handwriting-style English**, structured exactly the way examiners expect. You can copy this directly in your answer script.
+
+    * * *
+
+    ## (b) Define Adder and Subtractor. Design a combinational circuit using a ROM that accepts a 3-bit number and generates an output binary number equal to the square of the input number.
+
+    * * *
+
+    ## Definition of Adder
+
+    An **Adder** is a combinational logic circuit that performs the **addition of binary numbers**.  
+    It produces two outputs called **Sum** and **Carry**.
+
+    ### Types of Adders:
+
+    1. **Half Adder**  
+    Adds two single binary bits and produces Sum and Carry.
+    2. **Full Adder**  
+    Adds three binary bits (two inputs and one carry input).
+    3. **Ripple Carry Adder**  
+    Uses multiple full adders to add multi-bit binary numbers.
+
+    * * *
+
+    ## Definition of Subtractor
+
+    A **Subtractor** is a combinational logic circuit that performs **binary subtraction**.  
+    It produces two outputs called **Difference** and **Borrow**.
+
+    ### Types of Subtractors:
+
+    1. **Half Subtractor**  
+    Subtracts two binary bits.
+    2. **Full Subtractor**  
+    Subtracts three binary bits (including borrow input).
+
+    * * *
+
+    ## ROM-Based Combinational Circuit Design
+
+    ### (Square of a 3-bit Binary Number)
+
+    * * *
+
+    ### Step 1: Input and Output Specification
+
+    - Input: 3-bit binary number **A B C**  
+    where **A** is MSB and **C** is LSB.
+    - Input range: (000\_2 (0)) to (111\_2 (7))
+    - Maximum square:  
+    (7^2 = 49 = 110001\_2)
+
+    Therefore, **6 output bits** are required:  
+    
+    \[  
+    F\_5 F\_4 F\_3 F\_2 F\_1 F\_0  
+    \]
+
+    * * *
+
+    ### Step 2: Truth Table
+
+    | A | B | C | Decimal | Square | Output (F\_5 F\_4 F\_3 F\_2 F\_1 F\_0) |
+    | --- | --- | --- | --- | --- | --- |
+    | 0 | 0 | 0 | 0 | 0 | 000000 |
+    | 0 | 0 | 1 | 1 | 1 | 000001 |
+    | 0 | 1 | 0 | 2 | 4 | 000100 |
+    | 0 | 1 | 1 | 3 | 9 | 001001 |
+    | 1 | 0 | 0 | 4 | 16 | 010000 |
+    | 1 | 0 | 1 | 5 | 25 | 011001 |
+    | 1 | 1 | 0 | 6 | 36 | 100100 |
+    | 1 | 1 | 1 | 7 | 49 | 110001 |
+
+    * * *
+
+    ### Step 3: ROM Size Determination
+
+    - Number of input lines = 3
+    - Number of memory locations = (2^3 = 8)
+    - Number of output bits = 6
+
+    \[  
+    \boxed{\text{Required ROM size } = 8 \times 6}  
+    \]
+
+    * * *
+
+    ### Step 4: ROM Programming Table
+
+    | Address (ABC) | ROM Output (Square) |
+    | --- | --- |
+    | 000 | 000000 |
+    | 001 | 000001 |
+    | 010 | 000100 |
+    | 011 | 001001 |
+    | 100 | 010000 |
+    | 101 | 011001 |
+    | 110 | 100100 |
+    | 111 | 110001 |
+
+    * * *
+
+    ### Step 5: ROM Block Diagram (to draw in exam)
+    ![ROM Block Diagram](image-13.png)
+    
+
+    * * *
+
+    ### Step 6: Working Principle
+
+    - The 3-bit input **ABC** is applied to the address lines of the ROM.
+    - Each address stores the **pre-calculated square** of the input.
+    - The ROM outputs the corresponding 6-bit binary square.
+    - No additional logic gates are required.
+
+    * * *
+
+    ## Conclusion
+
+    A combinational circuit using an **8 × 6 ROM** can efficiently generate the square of a 3-bit binary number.  
+    The design is simple, fast, and suitable for digital system implementation.
+
+
+??? "Dual equals Complement"
+    
+    Q: (c) Show that the dual of the equivalence function is equal to its complement
+    ![alt text](image-14.png)
+
+??? "Canonical vs Standard"
+
+    ### **Difference between Canonical Form and Standard Form**
+
+    In Digital Logic Design (ডিজিটাল লজিক ডিজাইন), representing Boolean functions correctly is very important. There are two main ways to represent any Boolean function (বুলিয়ান ফাংশন): the **Canonical Form** and the **Standard Form**. Below is the detailed comparison between them.
+
+    #### **Comparison Table**
+
+    | **S.No** | **Feature** | **Canonical Form (ক্যানোনিক্যাল ফর্ম)** | **Standard Form (স্ট্যান্ডার্ড ফর্ম)** |
+    | --- | --- | --- | --- |
+    | 1 | **Definition** | A Boolean function where each term contains **all** the variables (চলক) of the domain. | A Boolean function where terms may contain one, some, or all the variables of the domain. |
+    | 2 | **Also Known As** | It is also called the **Expanded Form** (এক্সপ্যান্ডেড ফর্ম). | It is also called the **Simplified Form** (সরলীকৃত ফর্ম). |
+    | 3 | **Basic Components** | It uses **Minterms** (মিনটার্ম) and **Maxterms** (ম্যাক্সটার্ম). | It uses general Product terms and Sum terms. |
+    | 4 | **Relation to Truth Table** | It is directly obtained from the Truth Table (ট্রুথ টেবিল). | It is obtained after simplifying the canonical form using rules. |
+    | 5 | **Uniqueness** | The canonical representation is **Unique** (অদ্বিতীয়) for a function. | The standard form is **Non-unique** (there can be many standard forms for one function). |
+    | 6 | **Literals per Term** | Number of literals (লিটারাল) in each term is equal to the total number of variables. | Number of literals in a term is usually less than the total number of variables. |
+    | 7 | **Complexity** | The expression is usually long and complex. | The expression is usually short and simple. |
+    | 8 | **Circuit Cost** | Implementation (বাস্তবায়ন) is costly because it needs more gates. | Implementation is cheaper and efficient. |
+    | 9 | **Logic Gates** | Requires logic gates with more inputs (fan-in). | Requires logic gates with fewer inputs. |
+    | 10 | **Conversion** | Easy to convert to Standard form by simplification. | Hard to convert to Canonical form without algebraic manipulation. |
+
+    * * *
+
+    #### **20 Key Points of Difference**
+
+    Here are the detailed points explaining the differences for full marks:
+
+    1. **Fundamental Definition:** In Canonical form, every AND/OR term must have all input variables either in normal or complemented (পরিপূরক) form. In Standard form, variables can be missing from terms.
+    2. **Alternative Names:** Canonical form is basically the raw data from the truth table, while Standard form is the minimized (মিনিমাইজড) version.
+    3. **Types (SOP):** In Canonical, we use **Sum of Minterms** (Som). In Standard, we use **Sum of Products** (SOP).
+    4. **Types (POS):** In Canonical, we use **Product of Maxterms** (PoM). In Standard, we use **Product of Sums** (POS).
+    5. **Example (Canonical):** If variables are A, B, C, a term like $A\bar{B}C$ is canonical because all 3 are present.
+    6. **Example (Standard):** For the same function, a term like $AC$ is standard because 'B' is missing.
+    7. **Mapping:** We can plot Canonical forms directly into a Karnaugh Map (K-Map) easily. Standard forms first need to be expanded or analyzed to plot in K-Map.
+    8. **Flexibility:** Standard form is more flexible for designers. Canonical form is rigid and fixed.
+    9. **Simplification (সরলীকরণ):** We use Boolean Algebra or K-Map to convert Canonical to Standard. We generally don't convert Standard back to Canonical unless necessary for analysis.
+    10. **Hardware Requirement:** Canonical form circuits (সার্কিট) are bulky. Standard form circuits are compact.
+    11. **Gate Inputs:** If we have 4 variables, every gate in Canonical form needs 4 inputs. In Standard form, some gates might need only 2 inputs.
+    12. **Analysis:** Canonical form is best for theoretical analysis and defining the function uniquely.
+    13. **Practical Use:** Standard form is best for practical hardware design because it saves power and space.
+    14. **Notation:** Canonical is often written using $\Sigma m$ (for minterms) or $\Pi M$ (for maxterms). Standard form is just written as an algebraic equation.
+    15. **Scope:** Every Canonical form is technically a Standard form (with no missing variables), but not every Standard form is Canonical.
+    16. **Delay:** Circuits made from Canonical forms usually have more propagation delay (ডিলে) due to complex wiring. Standard form is faster.
+    17. **Conversion Effort:** Converting Standard to Canonical involves multiplying terms by $(X + \bar{X})$, which is a tedious process.
+    18. **Number of Terms:** Canonical form generally has more terms (product terms or sum terms) than the Standard form.
+    19. **Redundancy:** Canonical form contains redundant (অপ্রয়োজনীয়) information that can be removed. Standard form removes this redundancy.
+    20. **Final Verdict:** For exam problems involving "Design a circuit," we always prefer **Standard Form**. For problems like "Write the function from the table," we use **Canonical Form**.
+
+
+??? "State Table and State Digram"
+
+    ![alt text](image-15.png)
+    
+    ### **Solution for Question (b): Sequential Circuit Analysis**
+
+    **Goal:** Derive the state table, state diagram, and function of the circuit in Figure 2.
+
+    #### **Step 1: Analyze the Circuit Equations**
+
+    First, determine the Boolean expressions for the J and K inputs of both Flip-Flops. Let the external input be $X$.
+
+    - **For Flip-Flop A (Top):**
+
+    - $J\_A = B$ (Direct connection)
+    - $K\_A = B \cdot \bar{X}$ (AND gate with B and inverted X)
+    - **For Flip-Flop B (Bottom):**
+
+    - $J\_B = \bar{X}$ (Inverter output)
+    - $K\_B = A \oplus X$ (XOR gate with A and X)
+
+    * * *
+
+    #### **Step 2: State Table (স্টেট টেবিল)**
+
+    To fill this table quickly without doing complex calculations ($Q\_{next} = J\bar{Q} + \bar{K}Q$), use this **Exam Shortcut**:
+
+    > 
+    > **💡 JK Flip-Flop Shortcut Rule:**
+    > 
+    > - **If $J \neq K$:** The Next State **follows J**. (If $J=1$, Next=1. If $J=0$, Next=0).
+    > - **If $J = K = 0$:** **No Change** (Next State = Present State).
+    > - **If $J = K = 1$:** **Toggle** (Next State = Opposite of Present State).
+    > 
+
+    **Complete State Table:**
+
+    | **Present State (বর্তমান অবস্থা)** | **Input** | **Flip-Flop A Inputs** | **Flip-Flop B Inputs** | **Next State (পরবর্তী অবস্থা)** |
+    | --- | --- | --- | --- | --- |
+    | **A B** | **X** | **$J\_A$** | **$K\_A$** | **$J\_B$** |
+    | 0 0 | 0 | 0 | 0 | 1 |
+    | 0 0 | 1 | 0 | 0 | 0 |
+    | 0 1 | 0 | 1 | 1 | 1 |
+    | 0 1 | 1 | 1 | 0 | 0 |
+    | 1 0 | 0 | 0 | 0 | 1 |
+    | 1 0 | 1 | 0 | 0 | 0 |
+    | 1 1 | 0 | 1 | 1 | 1 |
+    | 1 1 | 1 | 1 | 0 | 0 |
+
+    * * *
+
+    #### **Step 3: State Diagram (স্টেট ডায়াগ্রাম)**
+
+    Based on the "Next State" columns above, the transitions are:
+
+    - **State 00:**
+
+    - If $X=0 \rightarrow$ Goes to **01**
+    - If $X=1 \rightarrow$ Stays at **00**
+    - **State 01:**
+
+    - If $X=0 \rightarrow$ Goes to **11**
+    - If $X=1 \rightarrow$ Goes to **10**
+    - **State 10:**
+
+    - If $X=0 \rightarrow$ Goes to **11**
+    - If $X=1 \rightarrow$ Stays at **10**
+    - **State 11:**
+
+    - If $X=0 \rightarrow$ Goes to **00**
+    - If $X=1 \rightarrow$ Stays at **11**
+
+    *(Draw 4 circles labeled 00, 01, 10, 11 and connect them with arrows based on these transitions)*
+
+    * * *
+
+    #### **Step 4: Function of the Circuit (সার্কিটের কাজ)**
+
+    The circuit's behavior is controlled by the input $X$:
+
+    1. When Input X = 0 (Counting Mode):
+
+    The circuit cycles through the sequence: $00 \rightarrow 01 \rightarrow 11 \rightarrow 00$.
+
+    - It acts as a **Modulo-3 Counter** (counts 0, 1, 3, then repeats).
+    - Note: It skips state $10$ (Decimal 2).
+    2. When Input X = 1 (Hold Mode):
+
+    The circuit mostly Holds (keeps) its current state.
+
+    - If in 00, 10, or 11, it stays there.
+    - If in 01, it switches to 10 and then stops.
+
+    Conclusion:
+
+    This is a Mode-Controlled Sequence Generator. In one mode ($X=0$), it generates a specific binary sequence, and in the other mode ($X=1$), it stops counting.
+
+
