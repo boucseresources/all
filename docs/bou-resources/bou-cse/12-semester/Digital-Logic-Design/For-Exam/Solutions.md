@@ -917,6 +917,8 @@ You automatically know that its **dual** is also true without needing to prove i
 
     Using Karnaugh maps (K-maps) for each J and K input, we can derive the simplified boolean expressions.
 
+    ![kmap](image-8.png)
+
     For $J_A$ and $K_A$:
     Grouping the 1s and Xs in the K-maps gives:
 
@@ -954,7 +956,7 @@ You automatically know that its **dual** is also true without needing to prove i
     - $$ K_C = Q_B $$
 
     #### Step 4: Draw the Logic Diagram
-
+    ![alt text](image-9.png)
     Based on the derived equations, we can now draw the circuit diagram for the counter. All flip-flops are connected to a common clock signal (CLK) for synchronous operation.
 
     - **Flip-Flop A ($Q_A$):** Connect both $J_A$ and $K_A$ inputs to the $Q_B$ output of the second flip-flop.
@@ -962,3 +964,8 @@ You automatically know that its **dual** is also true without needing to prove i
     - **Flip-Flop C ($Q_C$):** Connect $J_C$ to the $\bar{Q}_A$ output of the first flip-flop. Connect $K_C$ to the $Q_B$ output of the second flip-flop.
 
     Here is the resulting logic diagram:
+
+???  "Fewer NAND gate"
+
+    ![alt text](image-10.png)
+    ![alt text](image-11.png)
