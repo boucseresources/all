@@ -1,60 +1,8 @@
-In the context of **Boolean Algebra** (digital logic), the "Dual" is a specific way to transform a logic expression into a new one.
-
-The **Principle of Duality** states that if a boolean equation is true, then its **dual** is also true. This is a fundamental tool used to derive new logic identities from existing ones.
-
-### **How to Find the Dual**
-
-To get the dual of any boolean expression, you follow three simple rules:
-
-1. **Change AND () to OR ()**
-2. **Change OR () to AND ()**
-3. **Change 1s to 0s and 0s to 1s**
-
-**Crucial Rule:** Do **NOT** change the variables themselves. If a variable is complemented (like ), it stays complemented. If it is normal (like ), it stays normal.
-
----
-
-### **Examples**
-
-Here are a few comparisons to help you visualize the change:
-
-| Original Expression | **Dual** Expression | Logic Applied |
-| --- | --- | --- |
-|  |  | Changed OR to AND |
-|  |  | Swapped all operators |
-|  |  | Swapped operators & identity elements (1  0) |
-|  |  | Swapped operators, **kept literals unchanged** |
-
----
-
-### **Dual vs. Complement (The Common Trap)**
-
-It is very easy to confuse the **Dual** with the **Complement** (Inverse). The key difference is what you do with the variables (A, B, etc.).
-
-* **Dual:** You swap operators (AND/OR) but **leave variables alone**.
-* **Complement:** You swap operators (AND/OR) **AND invert every variable** (apply NOT).
-
-**Example:** Take the expression 
-
-* **Dual:**  (Variables stay )
-* **Complement:**  (Variables become )
-
-### **Why is this useful?**
-
-The Principle of Duality helps us halve the amount of work we need to do when memorizing rules.
-
-For example, if you prove the distributive law:
-
-
-You automatically know that its **dual** is also true without needing to prove it separately:
-
-
-
 ??? "NAND and NOR gate implementation"
 
     [Boolean function implementation using NAND and NOR gate in Bangla | NAND and NOR gate implementation](https://youtu.be/F2ATq6HYHpY)
 
-    Here is the detailed step-by-step solution for the given Boolean function $F(x, y, z) = \sum(1, 2, 3, 4, 5, 7)$ using K-map simplification and universal gate implementations (NAND and NOR gates) as requested. We will follow a clear structure, using the standard approach for the Sum of Products (SOP) and Product of Sums (POS) forms.
+    ![alt text](image-21.png)
 
     ---
 
@@ -1359,4 +1307,127 @@ You automatically know that its **dual** is also true without needing to prove i
 ??? "Minimization of funtion and NAND gate"
 
     ![alt text](image-19.png)
+
+??? "Binary, Decimal and other Conversion"
+
+    ![alt text](image-20.png)
+
+    ### **(i) Express the decimal number $158.58$ as a sum of values of each digit.**
+
+    This involves expanding the number based on the powers of 10 (base 10).
+
+    $$1 \times 10^2 + 5 \times 10^1 + 8 \times 10^0 + 5 \times 10^{-1} + 8 \times 10^{-2}$$
+
+    * * *
+
+    ### **(ii) Express the binary number $10101.101$ as a sum of values of each digit.**
+
+    This involves expanding the number based on the powers of 2 (base 2).
+
+    $$1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 + 1 \times 2^{-1} + 0 \times 2^{-2} + 1 \times 2^{-3}$$
+
+    * * *
+
+    ### **(iii) Express the octal number $237.5$ as a sum of values of each digit.**
+
+    This involves expanding the number based on the powers of 8 (base 8).
+
+    $$2 \times 8^2 + 3 \times 8^1 + 7 \times 8^0 + 5 \times 8^{-1}$$
+
+    * * *
+
+    ### **(iv) Express hexadecimal number $9A5.8$ as a sum of values of each digit.**
+
+    This involves expanding the number based on the powers of 16 (base 16). Note that in hexadecimal, $A = 10$.
+
+    $$9 \times 16^2 + 10 \times 16^1 + 5 \times 16^0 + 8 \times 16^{-1}$$
+
+    * * *
+
+    ### **(v) Convert the binary number $10011011011$ into octal and hexadecimal form.**
+
+    1. Octal Conversion (Base 8):
+
+    Group the bits in sets of 3, starting from the right (Least Significant Bit).
+
+    - **Grouping:** $010 \quad 011 \quad 011 \quad 011$
+    - **Convert:** $2 \quad 3 \quad 3 \quad 3$
+    - **Result:** $2333\_8$
+
+    2. Hexadecimal Conversion (Base 16):
+
+    Group the bits in sets of 4, starting from the right.
+
+    - **Grouping:** $0100 \quad 1101 \quad 1011$
+    - **Values:** $4 \quad 13 \quad 11$
+    - **Hex Digits:** $4 \quad D \quad B$
+    - **Result:** $4DB\_{16}$
+
+    * * *
+
+    ### **(vi) Convert the binary number $110011$ into BCD form.**
+
+    First, convert the binary number to decimal, then convert each decimal digit to its 4-bit binary equivalent.
+
+    1. Binary to Decimal:
+
+    $110011\_2 = 32 + 16 + 0 + 0 + 2 + 1 = 51\_{10}$
+    2. **Decimal to BCD:**
+
+    - Digit $5 = 0101$
+    - Digit $1 = 0001$
+    3. **Result:** $0101 \ 0001\_{\text{BCD}}$
+
+    * * *
+
+    ### **(vii) Convert the gray code $10101110$ into binary number.**
+
+    To convert Gray code to Binary:
+
+    - The Most Significant Bit (MSB) stays the same.
+    - Subsequent binary bits are found by XORing the previous binary bit with the current Gray bit ($B\_i = B\_{i+1} \oplus G\_i$).
+
+    1. **Gray:** $1 \quad 0 \quad 1 \quad 0 \quad 1 \quad 1 \quad 1 \quad 0$
+    2. **Conversion:**
+
+    - $B\_7 = 1$
+    - $B\_6 = 1 \oplus 0 = 1$
+    - $B\_5 = 1 \oplus 1 = 0$
+    - $B\_4 = 0 \oplus 0 = 0$
+    - $B\_3 = 0 \oplus 1 = 1$
+    - $B\_2 = 1 \oplus 1 = 0$
+    - $B\_1 = 0 \oplus 1 = 1$
+    - $B\_0 = 1 \oplus 0 = 1$
+    3. **Result:** $11001011\_2$
+
+??? "PLD and classification"
     
+    ![alt text](image-22.png)
+
+    ### PLD (Programmable Logic Device)
+
+    A PLD or Programmable Logic Device (প্রোগ্রামযোগ্য লজিক ডিভাইস) is an electronic component used to build reconfigurable digital circuits (ডিজিটাল সার্কিট). Unlike traditional logic gates which have a fixed function, a PLD has no defined function at the time of manufacturing (উৎপাদন). The user must program the device to perform the desired logic operation. PLDs are very important because they allow hardware designs to be flexible (নমনীয়) and easily changeable.
+
+    ### PROM (Programmable Read-Only Memory)
+
+    PROM stands for Programmable Read-Only Memory. It is the simplest form of PLD. Architecturally, a PROM contains a fixed (স্থির) AND array and a programmable OR array. The inputs go into the fixed AND array, which acts as a decoder. Although PROM is mainly used as a memory storage device (মেমরি স্টোরেজ ডিভাইস), it can also implement simple logic functions. However, since the AND plane is fixed, it is not very efficient for complex logic implementations.
+
+    ### PLA (Programmable Logic Array)
+
+    The PLA or Programmable Logic Array (প্রোগ্রামযোগ্য লজিক অ্যারে) is developed to offer more flexibility than the PROM. In a PLA structure, both the AND array and the OR array are programmable. This feature allows the user to implement very complex combinational logic (সমবায় যুক্তি) functions. We can select only the required product terms in the AND array and sum them in the OR array. The main disadvantage is that PLA is more expensive and difficult to manufacture compared to other types.
+
+    ### PAL (Programmable Array Logic)
+
+    PAL stands for Programmable Array Logic. It was designed to solve the cost and complexity issues of the PLA. In a PAL device, the AND array is programmable, but the OR array is fixed. This structure makes the PAL easier to program and cheaper to produce. It is widely used in digital systems because it is faster than PLA. Since the OR array is fixed, the flexibility is slightly less, but it is sufficient (যথেষ্ট) for most practical applications.
+
+??? "POS to SOP"
+
+    ![alt text](image-23.png)
+
+??? "MUX implementation from expression"
+
+    ![alt text](image-24.png)
+
+??? "Logic diagram from expression"
+
+    ![alt text](image-25.png)
