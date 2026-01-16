@@ -1,3 +1,18 @@
+# DLD before exam:
+
+### **AT a glance**
+
+??? "Number Conversion"
+
+    ![alt text](<number system conversion shortcut.jpg>)
+
+??? "Boolean Identities"
+    
+    ![alt text](image-26.png)
+
+???  ""
+---
+
 ??? "NAND and NOR gate implementation"
 
     [Boolean function implementation using NAND and NOR gate in Bangla | NAND and NOR gate implementation](https://youtu.be/F2ATq6HYHpY)
@@ -1431,3 +1446,4 @@
 ??? "Logic diagram from expression"
 
     ![alt text](image-25.png)
+
