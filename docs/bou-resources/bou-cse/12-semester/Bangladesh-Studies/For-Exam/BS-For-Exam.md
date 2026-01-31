@@ -1,5 +1,7 @@
 ![alt text](image-2.png)
 
+
+
 ??? "The ancient Trade of Rome with India"
 
     ![alt text](image-1.png)
@@ -317,3 +319,105 @@
     **Conclusion**
     To conclude, the birth of the Muslim League was a logical outcome of the political circumstances (পরিস্থিতি) of that time. The fear of Hindu domination and the need for a separate identity drove the Muslims to unite. Starting from the Aligarh movement to the Partition of Bengal, every event contributed to this. The establishment of the League in Dhaka in 1906 ultimately changed the course of Indian history.
     ![alt text](image-3.png)
+
+??? "Bangla Sultanat"
+
+    **History of the Bengal Sultanate: Rise, Golden Age and Fall (1204 - 1538 AD)**
+
+    **Introduction:**
+    The Bengal Sultanate was an independent dynasty (স্বাধীন রাজবংশ) that lasted for about 234 years (1342-1576), which is a glorious chapter (গৌরবোজ্জ্বল অধ্যায়) in the history of Bengal. During the reign (শাসনকাল) of about 7 dynasties and 33 Sultans, 'Bangala' emerged as a unified independent state (ঐক্যবদ্ধ স্বাধীন রাষ্ট্র) for the first time. The historical progression (ঐতিহাসিক পরিক্রমা) is discussed below.
+
+    ### **1. Initiation of Muslim Rule and Lakhnauti Phase (1204 - 1338 AD)**
+
+    Before the establishment of the independent Sultanate, this region was ruled by Delhi or by rebel rulers (বিদ্রোহী শাসক) of Delhi.
+
+    * **1204 AD:** Ikhtiyar Uddin Muhammad Bakhtiar Khilji defeated Raja Lakshman Sen and conquered 'Lakhnauti' (North Bengal).
+    * **1227 AD:** After the death of Bakhtiar, the rule of the Khiljis ended and Delhi Sultan Iltutmish included Bengal into Delhi.
+    * **Bulgakpur:** Although under Delhi, there was always rebellion (বিদ্রোহ) in this region, so it was named 'Bulgakpur' or 'City of Rebellion' from Delhi.
+    * **Administrative Division:** For the convenience of administration (শাসনকার্য), the Tughlaq rulers divided Bengal into 3 parts:
+    1. Lakhnauti (North Bengal)
+    2. Satgaon (South Bengal)
+    3. Sonargaon (East Bengal)
+
+
+
+    ### **2. Beginning of Independence: Fakhruddin Mubarak Shah (1338 - 1349 AD)**
+
+    Taking advantage of Delhi's weakness, the first sun of independence rose in East Bengal.
+
+    * **1338 AD:** After the death of Bahram Khan, the administrator (প্রশাসক) of Sonargaon, his bodyguard Fakhruddin declared himself independent and took the name **'Fakhruddin Mubarak Shah'**.
+    * **Success of Navy:** When the ruler of Lakhnauti, Qadar Khan, attacked him on the orders of Delhi, Fakhruddin defeated and killed Qadar Khan by utilizing his powerful navy (নৌবাহিনী) and the geographical advantage (ভৌগোলিক সুবিধা) of the rainy season.
+    * **1340 AD:** He conquered Chittagong. Ibn Battuta came to Bengal during his time. He also expanded his kingdom to Sylhet and Noakhali regions.
+
+    ### **3. Establishment of Unified Bengal Sultanate: Iliyas Shahi Dynasty (1342 - 1414 AD)**
+
+    This chapter is the most important in the history of Bengal because 'Bangala' was unified (একীভূত) at this time.
+
+    * **1342 AD:** Haji Iliyas captured the throne of Lakhnauti and established an independent Sultanate taking the name **'Shamsuddin Iliyas Shah'**.
+    * **1352 AD:** He conquered Sonargaon and unified the whole of Bengal for the first time in history. He adopted the title (উপাধি) **'Shah-i-Bangala'**.
+    * **Ekdala Fort and Treaty (1353 AD):** When Delhi Sultan Firoz Shah Tughlaq attacked Bengal, Iliyas Shah took shelter in Ekdala Fort (দুর্গ). Firoz Shah was forced to sign a treaty (সন্ধি) and return due to the rainy season and Iliyas Shah's strategy. Through this, the independence of Bengal became solid.
+    * **Kingdom Expansion:** He conducted expeditions (অভিযান) up to Kathmandu in Nepal (1350), Chilka Lake in Odisha, and Bihar.
+
+    ### **4. Raja Ganesha and Intermediate Anarchy (1414 - 1435 AD)**
+
+    Taking advantage of the weakness of the Iliyas Shahi dynasty, the rise of Hindu landlords (জমিদার) happened.
+
+    * **1410-14 AD:** After the death of Ghiyasuddin Azam Shah, his son and subsequent rulers were killed in palace conspiracy (প্রাসাদ ষড়যন্ত্র).
+    * **1414 AD:** Raja Ganesha, a landlord of Dinajpur, seized power.
+    * **Jalaluddin Muhammad Shah:** With the intervention of Sufi saint Noor Qutb-e-Alam, Ganesha converted his son Jadu to Islam. Jadu took the name **'Jalaluddin Muhammad Shah'** (1415-1416 and 1418-1433) and ruled Bengal very successfully. During his reign, Bengal regained stability (স্থিতিশীলতা).
+
+    ### **5. Golden Age of Bengal: Hussain Shahi Dynasty (1493 - 1538 AD)**
+
+    After a long anarchy (অরাজকতা), this dynasty started by ending the Habshi rule. This is the golden age of Bengali literature and empire expansion.
+
+    * **1493 AD:** Alauddin Hussain Shah sat on the throne. He was of Arab descent.
+    * **Empire Expansion:**
+    * **Kamrup and Kamta (1498-1502):** He achieved massive success in the Kamrup (Assam) expedition.
+    * **Tripura and Chittagong:** He defeated the kings of Tripura and took control of Chittagong and huge parts of Tripura.
+
+
+    * **Cultural Excellence:** During his time, the Vaishnava movement of Sri Chaitanya Dev and Sufism spread widely. He was a secular (অসাম্প্রদায়িক) ruler. He has been called **'Sultan of Sultans'** in inscriptions.
+
+    ### **6. Fall and Afghan-Mughal Conflict (1519 - 1538 AD)**
+
+    After the death of Hussain Shah, the Sultanate started becoming weak and the arrival of external forces (বহিরাগত শক্তি) happened.
+
+    * **1519 AD:** Hussain Shah's son **Nasrat Shah** came to power.
+    * **1526-29 AD:** After the Battle of Panipat, Afghans took shelter in Bengal in fear of Babur. In 1529, a war and treaty took place between Nasrat Shah and the Mughals on the banks of the Ghaghara or Gogra river.
+    * **1533-38 AD:** After the death of Nasrat Shah, his brother **Ghiyasuddin Mahmud Shah** came to power. He was an incompetent ruler.
+    * **1538 AD (Fall):** Afghan leader of Bihar, **Sher Khan (Sher Shah Suri)**, attacked Gaur. Ghiyasuddin Mahmud Shah asked for help from Mughal Emperor Humayun but could not be saved. With the fall of Gaur in 1538, the independent Bengal Sultanate ended and Bengal went under the control of Afghans.
+
+    **Conclusion:**
+    The seed of Muslim rule that was planted by Bakhtiar Khilji in 1204 AD took the shape of a massive tree or independent Sultanate in 1342 AD by the hand of Iliyas Shah. Although this glorious chapter ended with the fall of Ghiyasuddin Mahmud Shah in 1538 AD, the contribution (অবদান) of this Sultanate in Bengali language, literature, and architecture is immense (অপরিসীম).
+
+??? "Bangladesh Development and Govt. Strategy"
+
+    **(iii) Economy of Bangladesh**
+
+    The economy (অর্থনীতি) of Bangladesh is a developing economy mainly based on agriculture (কৃষি), industry (শিল্প), and services (সেবা). Over the years, Bangladesh has shown steady economic growth (অর্থনৈতিক প্রবৃদ্ধি) through effective use of labor force (শ্রমশক্তি), natural resources (প্রাকৃতিক সম্পদ), and export-oriented activities (রপ্তানিমুখী কার্যক্রম).
+
+    ### Key Sectors
+
+    **Agriculture Sector**
+    Agriculture (কৃষি) is one of the traditional key sectors of the economy of Bangladesh. It provides employment (কর্মসংস্থান) to a large portion of the population and ensures food security (খাদ্য নিরাপত্তা). Major agricultural products include rice, jute, wheat, vegetables, and fisheries. Although its contribution to GDP (Gross Domestic Product জিডিপি) has declined over time, agriculture still plays a vital role in rural development (গ্রামীণ উন্নয়ন).
+
+    **Industrial Sector**
+    The industrial sector (শিল্প খাত) is the main driving force of economic growth in Bangladesh. The readymade garments industry (তৈরি পোশাক শিল্প) is the largest industrial sector and the main source of export earnings (রপ্তানি আয়). Other important industries include textiles, pharmaceuticals, leather goods, shipbuilding, and cement. Industrialization (শিল্পায়ন) has increased employment and foreign exchange earnings (বৈদেশিক মুদ্রা আয়).
+
+    **Service Sector**
+    The service sector (সেবা খাত) is the largest contributor to GDP. It includes trade, transport, banking, insurance, education, health, and information technology (তথ্য প্রযুক্তি). The growth of this sector reflects urbanization (নগরায়ন) and improvement in human capital (মানব সম্পদ). It supports both agriculture and industry by providing necessary services.
+
+    **Overseas Employment and Remittance**
+    Overseas employment (প্রবাসী কর্মসংস্থান) is another important sector of the economy. Bangladeshi workers abroad send remittance (প্রবাসী আয়), which contributes significantly to national income and foreign exchange reserves (বৈদেশিক মুদ্রা রিজার্ভ). It helps reduce poverty (দারিদ্র্য) and improves living standards.
+
+    ### Government Strategy
+
+    The government of Bangladesh follows various development strategies (উন্নয়ন কৌশল) to strengthen the economy. It emphasizes sustainable development (টেকসই উন্নয়ন) through long-term planning. Policies are taken to modernize agriculture, expand industrial base, and improve service delivery.
+
+    The government encourages export diversification (রপ্তানি বৈচিত্র্য) and foreign direct investment (বিদেশি প্রত্যক্ষ বিনিয়োগ). Special Economic Zones (বিশেষ অর্থনৈতিক অঞ্চল) are being established to promote industrial growth. Investment in infrastructure development (অবকাঠামো উন্নয়ন) such as roads, ports, and power generation is also given priority.
+
+    Human resource development (মানব সম্পদ উন্নয়ন) is another major strategy. The government invests in education, technical training, and digitalization (ডিজিটালাইজেশন) to build a skilled workforce. Social safety net programs (সামাজিক নিরাপত্তা কর্মসূচি) are implemented to support poor and vulnerable groups.
+
+    In conclusion, the economy of Bangladesh is progressing through balanced development of key sectors and effective government strategies. With proper planning and implementation, Bangladesh has the potential to achieve higher economic stability (অর্থনৈতিক স্থিতিশীলতা) and growth in the future.
+
+    ![Economy of Bangladesh](<bangladesh development.png>)
