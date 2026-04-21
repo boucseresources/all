@@ -1,12 +1,104 @@
-# 21 Semester
+# 21 Semester - 241 Term (2022-23 Session)
 
 ??? "Class routine and academic calendar"
     
     ![21 Class routine](image-1.png)
     ![2026 academic calendar](image-2.png)
 
-## Subjects
-![alt text](image.png)
+??? "Teachers"
+
+    ### 📐 Coordinate Geometry and Vector Analysis
+
+    * 🔢 **Code**: MAT2131
+    * 👨‍🏫 **Teacher**: Mr. Md. Ershad Ali (EA)
+
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/coordinate-geometry-and-vector-analysis/)
+    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-mat2131)
+    * 📱 **WhatsApp Group**: [21 MATH (MAT2131)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
+
+    -----
+
+    ### 🧪 Chemistry
+
+    * 🔢 **Code**: CHE2122
+    * 👨‍🏫 **Teacher**: Prof. Dr. Md. Amirul Islam (PAI)
+    ![Dr. Md. Amirul Islam](image-7.png){width=200px height=200px}
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/chemistry/)
+    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-che2122)
+    * 📱 **WhatsApp Group**: [Chemistry (CHE2122)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
+
+    -----
+
+    ### 🧩 Discrete Mathematics
+
+    * 🔢 **Code**: CSE2133
+    * 👨‍🏫 **Teacher**: Prof. Dr. Md. Zulfiker Mahmud (ZM)
+    ![Md. Zulfiker Mahmud (ZM)](image-6.png){width=200px height=200px}
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/discrete-mathematics/)
+    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-cse2133)
+    * 📱 **WhatsApp Group**: [Discrete Math (CSE2133)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
+
+    -----
+
+    ### 🏗️ Computer Architecture and Organizations
+
+    * 🔢 **Code**: CSE2134
+    ![Mohammed Nasir Uddin](image-5.png){width=200px height=200px}
+    * 👨‍🏫 **Teacher**: Prof. Dr. Mohammed Nasir Uddin (MNU)
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/computer-architecture/)
+    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-cse2134)
+    * 📱 **WhatsApp Group**: [Computer Architecture (CSE2134)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
+
+    -----
+
+    ### 📊 Data Structure
+
+    * 🔢 **Code**: CSE2135
+    * 👨‍🏫 **Teacher**: Mir Md Kawsur (MK)
+    ![Mir Md Kawsur ](image-4.png){width=200px height=200px}
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/data-structure/)
+    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-cse2135)
+    * 📱 **WhatsApp Group**: [Data Structure (CSE2135)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
+
+    -----
+
+    ### 🧪 Data Structure Lab
+
+    * 🔢 **Code**: CSE21P6
+    * 👨‍🏫 **Teacher**: Mir Md Kawsur (MK)
+    ![Mir Md Kawsur ](image-4.png){width=200px height=200px}
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/data-structure-lab/)
+    * 📱 **WhatsApp Group**: [DS Lab (CSE21P6)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
+
+    -----
+
+    ### 💻 Object Oriented Programming
+
+    * 🔢 **Code**: CSE2137
+    * 👨‍🏫 **Teacher**: Mr. Md. Mahmudul Hasan (MH)
+    ![Mahmudul Hasan](image-3.png){width=200px height=200px}
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/oop/)
+    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-cse2137)
+    * 📱 **WhatsApp Group**: [OOP Theory (CSE2137)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
+
+    -----
+
+    ### ⌨️ Object Oriented Programming- I Lab
+
+    * 🔢 **Code**: CSE21P8
+    * 👨‍🏫 **Teacher**: Mr. Md. Mahmudul Hasan (MH)
+    ![Mahmudul Hasan](image-3.png){width=200px height=200px}
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/oop-lab/)
+    * 📱 **WhatsApp Group**: [OOP Lab (CSE21P8)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
+
+
+
+
+
+
+??? "Subjects"
+    
+    ![alt text](image.png)
 
 ## Assignments and CTs
 ??? "First CT and Assignments"
