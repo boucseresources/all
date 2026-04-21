@@ -5,6 +5,9 @@
 
 === "All"
 
+    [11 Batch DRC Google Drive](https://drive.google.com/drive/folders/1sV6KrQix6TehGoA-ksWsDgLYZ9Enq8GD)
+    
+
     [10 Batch DRC Google Drive](https://drive.google.com/drive/folders/1gZmf-LOVVFjeXMunLUQmqTgaZRsF6en8?usp=drive_link)
 
     [10 Batch DUET Google Drive](https://drive.google.com/drive/folders/13YhlgtlmYUjok_UJLqkjJi7WsB_bp88e?usp=drive_link)
@@ -17,6 +20,7 @@
 
 === "1️⃣ First Year"
 
+    [11 Batch DRC Google Drive](https://drive.google.com/drive/folders/1sV6KrQix6TehGoA-ksWsDgLYZ9Enq8GD)
     [10 Batch DRC Google Drive](https://drive.google.com/drive/folders/19kpt_tGQx-n6eeMbTlfHixPcpop21odu?usp=sharing)
     [8th Batch DUET Google Drive](https://drive.google.com/drive/folders/1mL-0g9laSPyZ607l5WjaePDf0vWPAsIB?usp=drive_link)
 

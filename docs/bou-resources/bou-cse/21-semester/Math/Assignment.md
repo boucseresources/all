@@ -1,4 +1,4 @@
-This response provides the content of your assignment formatted and structured for a Microsoft Word (DOCX) document. To get this into a Word file, simply copy the text below and paste it into a new Word document. 
+This response provides the content of your assignment formatted and structured for a Microsoft Word (DOCX) document. To get this into a Word file, simply copy the text below and paste it into a new Word document.
 
 All mathematical expressions are presented in a clear, standard format that you can easily convert to **Insert > Equation** objects within Word if you need to perform complex symbolic manipulation.
 
@@ -9,24 +9,27 @@ All mathematical expressions are presented in a clear, standard format that you 
 ## CHAPTER 1: Vectors and Scalars
 
 ### Key Definitions
+
 1.  **Difference Between Scalar and Vector**
-2.  **Definitions with Examples:** * Unit vector
-    * Position vector
-    * Scalar field
-    * Vector field
+2.  **Definitions with Examples:** \* Unit vector
+    - Position vector
+    - Scalar field
+    - Vector field
 
 ### Problems
-**Q.4** Find the sum or resultant of the following displacements: 
-* **A**: 10 ft northwest
-* **B**: 20 ft 30° north of east
-* **C**: 35 ft due south
+
+**Q.4** Find the sum or resultant of the following displacements:
+
+- **A**: 10 ft northwest
+- **B**: 20 ft 30° north of east
+- **C**: 35 ft due south
 
 **Q.21** Prove that the magnitude $A$ of the vector $A = A_1 i + A_2 j + A_3 k$ is:
 $$A = \sqrt{A_1^2 + A_2^2 + A_3^2}$$
 
-**Q.22** Given $r_1 = 3i - 2j + k$, $r_2 = 2i - 4j - 3k$, and $r_3 = -i + 2j + 2k$, find the magnitudes of: 
-(a) $r_3$ 
-(b) $r_1 + r_2 + r_3$ 
+**Q.22** Given $r_1 = 3i - 2j + k$, $r_2 = 2i - 4j - 3k$, and $r_3 = -i + 2j + 2k$, find the magnitudes of:
+(a) $r_3$
+(b) $r_1 + r_2 + r_3$
 (c) $2r_1 - 3r_2 - 5r_3$
 
 **Q.23** If $r_1 = 2i - j + k$, $r_2 = i + 3j - 2k$, $r_3 = -2i + j - 3k$, and $r_4 = 3i + 2j + 5k$, find scalars $a, b, c$ such that $r_4 = ar_1 + br_2 + cr_3$.
@@ -35,9 +38,9 @@ $$A = \sqrt{A_1^2 + A_2^2 + A_3^2}$$
 
 **Q.25** Determine the vector having initial point $P(x_1, y_1, z_1)$ and terminal point $Q(x_2, y_2, z_2)$ and find its magnitude.
 
-**Q.29** Given the scalar field $\phi(x, y, z) = 3x^2z - xy^3 + 5$, find $\phi$ at: 
-(a) $(0, 0, 0)$ 
-(b) $(1, 2, 2)$ 
+**Q.29** Given the scalar field $\phi(x, y, z) = 3x^2z - xy^3 + 5$, find $\phi$ at:
+(a) $(0, 0, 0)$
+(b) $(1, 2, 2)$
 (c) $(-1, -2, -3)$
 
 **Q.46** If $a, b, c$ are non-coplanar vectors, determine whether $r_1 = 2a - 3b + c$, $r_2 = 3a - 5b + 2c$, and $r_3 = 4a - 5b + c$ are linearly independent or dependent.
@@ -49,13 +52,15 @@ $$A = \sqrt{A_1^2 + A_2^2 + A_3^2}$$
 ## CHAPTER 2: The Dot and Cross Product
 
 ### Key Definitions
+
 1.  **Define The Dot (Scalar) Product and The Cross (Vector) Product**
 
 ### Dot Product Problems
-**Q.6** If $A = A_1 i + A_2 j + A_3 k$ and $B = B_1 i + B_2 j + B_3 k$, prove that: 
+
+**Q.6** If $A = A_1 i + A_2 j + A_3 k$ and $B = B_1 i + B_2 j + B_3 k$, prove that:
 $$A \cdot B = A_1 B_1 + A_2 B_2 + A_3 B_3$$
 
-**Q.7** If $A = A_1 i + A_2 j + A_3 k$, show that: 
+**Q.7** If $A = A_1 i + A_2 j + A_3 k$, show that:
 $$A = \sqrt{A \cdot A} = \sqrt{A_1^2 + A_2^2 + A_3^2}$$
 
 **Q.8** Find the angle between $A = 2i + 2j - k$ and $B = 6i - 3j + 2k$.
@@ -73,6 +78,7 @@ $$A = \sqrt{A \cdot A} = \sqrt{A_1^2 + A_2^2 + A_3^2}$$
 **Q.17** Find the work done in moving an object along a vector $r = 3i + 2j - 5k$ if the applied force is $F = 2i - j - k$.
 
 ### Cross Product Problems
+
 **Q.27** Prove the determinant form of the cross product:
 $$A \times B = \begin{vmatrix} i & j & k \\ A_1 & A_2 & A_3 \\ B_1 & B_2 & B_3 \end{vmatrix}$$
 
@@ -139,9 +145,9 @@ $$A \cdot (B \times C) = \begin{vmatrix} A_1 & A_2 & A_3 \\ B_1 & B_2 & B_3 \\ C
 $$\frac{dR}{du} = \frac{dx}{du}i + \frac{dy}{du}j + \frac{dz}{du}k$$
 
 **Q.2** Given $R = \sin t \, i + \cos t \, j + tk$, find:
-(a) $\frac{dR}{dt}$ 
-(b) $\frac{d^2R}{dt^2}$ 
-(c) $|\frac{dR}{dt}|$ 
+(a) $\frac{dR}{dt}$
+(b) $\frac{d^2R}{dt^2}$
+(c) $|\frac{dR}{dt}|$
 (d) $|\frac{d^2R}{dt^2}|$
 
 **Q.3** A particle moves along a curve with parametric equations $x = e^{-t}$, $y = 2 \cos 3t$, $z = 2 \sin 3t$, where $t$ is time.
@@ -151,8 +157,8 @@ $$\frac{dR}{du} = \frac{dx}{du}i + \frac{dy}{du}j + \frac{dz}{du}k$$
 **Q.4** A particle moves along the curve $x = 2t^2$, $y = t^2 - 4t$, $z = 3t - 5$, where $t$ is time. Find the components of its velocity and acceleration at time $t = 1$ in the direction $i - 3j + 2k$.
 
 **Q.8** If $A = 5t^2i + tj - t^3k$ and $B = \sin t \, i - \cos t \, j$, find:
-(a) $\frac{d}{dt}(A \cdot B)$ 
-(b) $\frac{d}{dt}(A \times B)$ 
+(a) $\frac{d}{dt}(A \cdot B)$
+(b) $\frac{d}{dt}(A \times B)$
 (c) $\frac{d}{dt}(A \cdot A)$
 
 **Q.12** A particle moves so that its position vector is $r = \cos \omega t \, i + \sin \omega t \, j$, where $\omega$ is a constant. Show that:
