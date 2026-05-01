@@ -1,7 +1,7 @@
 # 21 Semester - 241 Term (2022-23 Session)
 
 ??? "Class routine and academic calendar"
-    
+
     ![21 Class routine](image-1.png)
     ![2026 academic calendar](image-2.png)
 
@@ -13,7 +13,6 @@
     * 👨‍🏫 **Teacher**: Mr. Md. Ershad Ali (EA)
 
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/coordinate-geometry-and-vector-analysis/)
-    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-mat2131)
     * 📱 **WhatsApp Group**: [21 MATH (MAT2131)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
     -----
@@ -24,7 +23,6 @@
     * 👨‍🏫 **Teacher**: Prof. Dr. Md. Amirul Islam (PAI)
     ![Dr. Md. Amirul Islam](image-7.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/chemistry/)
-    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-che2122)
     * 📱 **WhatsApp Group**: [Chemistry (CHE2122)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
     -----
@@ -35,7 +33,6 @@
     * 👨‍🏫 **Teacher**: Prof. Dr. Md. Zulfiker Mahmud (ZM)
     ![Md. Zulfiker Mahmud (ZM)](image-6.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/discrete-mathematics/)
-    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-cse2133)
     * 📱 **WhatsApp Group**: [Discrete Math (CSE2133)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
     -----
@@ -46,7 +43,6 @@
     ![Mohammed Nasir Uddin](image-5.png){width=200px height=200px}
     * 👨‍🏫 **Teacher**: Prof. Dr. Mohammed Nasir Uddin (MNU)
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/computer-architecture/)
-    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-cse2134)
     * 📱 **WhatsApp Group**: [Computer Architecture (CSE2134)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
     -----
@@ -57,8 +53,7 @@
     * 👨‍🏫 **Teacher**: Mir Md Kawsur (MK)
     ![Mir Md Kawsur ](image-4.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/data-structure/)
-    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-cse2135)
-    * 📱 **WhatsApp Group**: [Data Structure (CSE2135)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
+    * 📱 **WhatsApp Group**: [BOU-DS](https://chat.whatsapp.com/FrulEnMBw6G3PWtVcQmfgA)
 
     -----
 
@@ -68,7 +63,7 @@
     * 👨‍🏫 **Teacher**: Mir Md Kawsur (MK)
     ![Mir Md Kawsur ](image-4.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/data-structure-lab/)
-    * 📱 **WhatsApp Group**: [DS Lab (CSE21P6)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
+    * 📱 **WhatsApp Group**: [BOU-DS](https://chat.whatsapp.com/FrulEnMBw6G3PWtVcQmfgA)
 
     -----
 
@@ -78,7 +73,6 @@
     * 👨‍🏫 **Teacher**: Mr. Md. Mahmudul Hasan (MH)
     ![Mahmudul Hasan](image-3.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/oop/)
-    * 📝 **MCQ Practice**: [Start](https://www.google.com/search?q=/quizzes/21-cse2137)
     * 📱 **WhatsApp Group**: [OOP Theory (CSE2137)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
     -----
@@ -91,16 +85,12 @@
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/oop-lab/)
     * 📱 **WhatsApp Group**: [OOP Lab (CSE21P8)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
-
-
-
-
-
 ??? "Subjects"
-    
+
     ![alt text](image.png)
 
 ## Assignments and CTs
+
 ??? "First CT and Assignments"
 
     📢 Upcoming CT & Assignments Schedule
@@ -120,7 +110,7 @@
     Topics: Atomic Structure, Periodic Table
 
     #Chemistry Assignment-01 & 02 (Type করতে হবে 💻)
-    Assignment 01 -> Molecular Orbital Theory 
+    Assignment 01 -> Molecular Orbital Theory
     Assignment 02 -> Valance bond theory
     (Next class: 10/04/26)
 
@@ -129,10 +119,10 @@
     🗓 11/04/26
     #DS Theory CT-01
     #DS Lab CT-01
-    (DS BOU) CT-1 Syllabus: 
+    (DS BOU) CT-1 Syllabus:
     1. Definition of Data, Record, Entity, Data Structures
     2. Classification of Data Structures
-    3. Abstract Data Types (ADT) 
+    3. Abstract Data Types (ADT)
     4. Time & Space Complexity
     5. 1-D Array
     6. Stack & Queue
@@ -144,15 +134,15 @@
 
     🗓 18/04/26
     #Math CT-01
-    Top.: 04/04/2026 পর্যন্ত যা যা পড়ানো হয়েছে Vector থেকে। 
+    Top.: 04/04/2026 পর্যন্ত যা যা পড়ানো হয়েছে Vector থেকে।
 
     #Math Assignment-01 (হাতে লিখতে হবে ✍️)
-    ক্লাসে দাগিয়ে দেয়া হয়েছে এবং পরবর্তীতে জানানো হবে। 
+    ক্লাসে দাগিয়ে দেয়া হয়েছে এবং পরবর্তীতে জানানো হবে।
 
     ━━━━━━━━━━━━━━━━━━━━
 
     🗓 24/04/26
-    #OOP Theory CT-01 
+    #OOP Theory CT-01
     Syllabus: চিত্রের inheritance পর্যন্ত যা পড়ানো হয়েছে।
     বইঃ https://drive.google.com/file/d/16wS4nI_pxdigSlP3MkLCHwfwZJxGDKUk/view?usp=drive_link
     ━━━━━━━━━━━━━━━━━━━━
