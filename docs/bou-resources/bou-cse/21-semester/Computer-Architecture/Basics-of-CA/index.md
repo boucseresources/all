@@ -133,7 +133,7 @@
     > ⚠️ **মনে রাখবেন:** **Flag Register (F)** খুব গুরুত্বপূর্ণ। এটি বলে দেয় কোনো যোগফল কি শূন্য হয়েছে (Z-flag) নাকি হাতে কিছু রয়ে গেছে (Carry flag)।
 
     ![alt text](<General Register Processor (2).png>)
-    
+
     আপনার দেওয়া ছবিটি একটি **সাধারণ রেজিস্টার প্রসেসরের (General Register Processor)** গঠন বা আর্কিটেকচার তুলে ধরছে। নিচে ডায়াগ্রামের প্রতিটি অংশের বিস্তারিত ব্যাখ্যা বাংলায় দেওয়া হলো:
 
     ### **চিত্র ১.৪: একটি সাধারণ রেজিস্টার প্রসেসরের গঠন (Organization of a Typical General Register Processor)**
@@ -180,6 +180,10 @@
     *   **Three-address instructions:** যেমন `ADD x, y, z` (এখানে x এবং y যোগ করে ফলাফল z-এ রাখা হয়)।
     *   **Two-address instructions:** যেমন `MOV x, y` (এখানে x-এর মান y-তে কপি করা হয়)।
 
+
+    ---
+    ![Accumulator Based Processor (English)](<Accumulator Based Processor (English)-tinified.png>)
+    ![Accumulator Based Processor (Bangla)](<Accumulator Based Processor (Bangla)-tinified.png>)
 === "English"
     ###  English Version (Easy/Indian Style)
 
