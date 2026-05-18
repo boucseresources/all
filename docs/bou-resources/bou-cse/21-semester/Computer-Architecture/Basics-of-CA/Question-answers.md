@@ -120,12 +120,7 @@
 ??? "**1.2.** In the processors such as Texas Instrument’s TMS 320XX (Digital signal processor series), there is a separate memory for code (program) and a separate memory to hold data. This type of architecture is known as the “Harvard architecture.” Compare this with the Von Neumann architecture or stored-program architecture discussed in this chapter."
 
 
-    To earn 20 marks at a university level, you shouldn't just list definitions; you need to demonstrate an understanding of **computer organization, architectural bottlenecks, and optimization.**
-
-    The question you're focusing on is **1.2: Comparing Harvard vs. Von Neumann Architectures.** Here is an enhanced version of that question and a comprehensive, high-scoring answer.
-
-    ---
-
+    
     ## Enhanced Question
     > **"Critically analyze the fundamental differences between Von Neumann and Harvard architectures. Discuss how these differences impact instruction throughput, with specific reference to the 'Von Neumann Bottleneck.' Furthermore, explain why Harvard architecture is the preferred choice for high-performance systems like the Texas Instruments TMS 320XX DSP series."**
 
@@ -139,7 +134,7 @@
     *   **Von Neumann Architecture:** Utilizes a **unified memory space** and a single physical bus for both instructions and data. This means the CPU cannot fetch an instruction and perform a data read/write simultaneously.
     *   **Harvard Architecture:** Utilizes **physically separate memory pathways** (address and data buses) for instructions and data. This allows for concurrent access to both.
 
-
+    ![alt text](image-3.png)
 
     ### 2. Comparative Analysis
 
@@ -169,8 +164,119 @@
     *   **Deterministic Performance:** Real-time systems require predictable timing. Because Harvard avoids bus contention, execution times are more consistent.
     *   **Simultaneous Access:** Many DSP operations require two operands at once. Modified Harvard architectures often have even more buses to fetch multiple data pieces while fetching the instruction, maximizing the multiplier-accumulator (MAC) units.
 
-    ### 5. Conclusion
+       ### **2. Harvard Architecture**
+
+    The **Harvard architecture** uses **separate memory units and buses** for:
+
+    * **Program (instruction) memory**
+    * **Data memory**
+
+    #### **Key Features:**
+
+    * Separate address spaces for instructions and data
+    * Simultaneous access to instructions and data
+    * Independent buses for each memory
+
+    #### **Example:**
+
+    * Texas Instruments TMS320 DSP series (widely used in real-time signal processing)
+
+    #### **Advantages:**
+
+    * **Higher performance** due to parallel access
+    * **No bus contention** between instruction fetch and data transfer
+    * Ideal for **real-time systems** (e.g., DSP, audio/video processing)
+
+    #### **Disadvantages:**
+
+    * More **complex hardware design**
+    * Higher **cost**
+    * Less flexible memory usage (separate spaces)
+
+    ---
+
+    ### **3. Von Neumann Architecture**
+
+    The **Von Neumann architecture** uses a **single memory** for both:
+
+    * Instructions
+    * Data
+
+    #### **Key Features:**
+
+    * Shared memory and bus
+    * Single address space
+    * Sequential instruction execution
+
+    #### **Advantages:**
+
+    * **Simpler design**
+    * Lower cost
+    * Flexible memory usage
+
+    #### **Disadvantages:**
+
+    * **Von Neumann bottleneck** (limited by single bus)
+    * Cannot fetch instructions and data simultaneously
+    * Slower compared to Harvard architecture
+
+    ---
+
+    ### **4. Key Differences (Comparison Table)**
+
+    | Feature      | Harvard Architecture             | Von Neumann Architecture   |
+    | ------------ | -------------------------------- | -------------------------- |
+    | Memory       | Separate for data & instructions | Single shared memory       |
+    | Buses        | Separate buses                   | Single bus                 |
+    | Access       | Parallel (simultaneous)          | Sequential                 |
+    | Speed        | Faster                           | Slower (due to bottleneck) |
+    | Complexity   | Higher                           | Lower                      |
+    | Cost         | More expensive                   | More economical            |
+    | Flexibility  | Less flexible                    | More flexible              |
+    | Applications | DSP, embedded systems            | General-purpose computing  |
+
+    ---
+
+    ### **5. Performance Perspective**
+
+    * Harvard architecture eliminates the **instruction/data access conflict**, significantly improving throughput.
+    * Von Neumann systems suffer from the **Von Neumann bottleneck**, where instruction fetch and data access compete for the same bus.
+
+    ---
+
+    ### **6. Modern Systems Insight**
+
+    * Many modern processors use a **Modified Harvard Architecture**:
+
+    * Separate caches (instruction & data)
+    * Unified main memory
+    * This combines:
+
+    * Speed of Harvard
+    * Flexibility of Von Neumann
+
+    ---
+
+    ### **7. Applications**
+
+    * **Harvard Architecture:**
+
+    * Digital Signal Processing (DSP)
+    * Embedded systems
+    * Real-time control systems
+
+    * **Von Neumann Architecture:**
+
+    * Personal computers
+    * General-purpose systems
+
+
+    ###  Conclusion
     While Von Neumann architecture offers the flexibility and simplicity required for general-purpose computing, the physical separation of memory in Harvard architecture is essential for high-throughput, real-time applications where the "bottleneck" of a shared bus would be unacceptable.
+
+
+
+
 
 **1.3.** Explain the functions of the following dedicated CPU registers: a) PC, b) IR, c) SP, d) Flag register.
 
@@ -182,11 +288,12 @@
 
 **\*1.5.** Assume there are four different machines with the characteristics shown in the table.
 
-![alt text](image-3.png)
 
 
 
 
+---
+*[Throughput]:Throughput শব্দের আক্ষরিক অর্থ হলো কোনো নির্দিষ্ট সময়ে কী পরিমাণ কাজ বা উৎপাদন সম্পন্ন হলো। বাংলায় একে সহজভাবে "উৎপাদন হার" বা "কার্যসম্পাদন ক্ষমতা" বলা যেতে পারে। কম্পিউটার বা নেটওয়ার্কিং: একটি নেটওয়ার্ক লিঙ্কের মাধ্যমে প্রতি সেকেন্ডে প্রকৃতপক্ষে কতটুকু ডেটা (data) সফলভাবে এক স্থান থেকে অন্য স্থানে পৌঁছালো, তাকে থ্রুপুট বলা হয়।
 
 
 
