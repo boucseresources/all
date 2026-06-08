@@ -67,7 +67,7 @@
     ![Mir Md Kawsur ](image-4.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/data-structure-lab/)
 
-    * ??? info "Data Structure Routine"
+    * ??? info "Data Structure Lab Routine"
         ![alt text](image-9.png)
 
     * 📱 **WhatsApp Group**: [BOU-DS](https://chat.whatsapp.com/FrulEnMBw6G3PWtVcQmfgA)
