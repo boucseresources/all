@@ -5,7 +5,7 @@
     ![21 Class routine](image-1.png)
     ![2026 academic calendar](image-2.png)
 
-??? "Teachers"
+??? "Faculty Members and Subject-wise Resources"
 
     ### 📐 Coordinate Geometry and Vector Analysis
 
@@ -52,7 +52,10 @@
     * 🔢 **Code**: CSE2135
     * 👨‍🏫 **Teacher**: Mir Md Kawsur (MK)
     ![Mir Md Kawsur ](image-4.png){width=200px height=200px}
-    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/data-structure/)
+    * 🔗 **Resources**:
+    * ??? info "Data Structure Routine"
+        ![alt text](image-8.png)
+
     * 📱 **WhatsApp Group**: [BOU-DS](https://chat.whatsapp.com/FrulEnMBw6G3PWtVcQmfgA)
 
     -----
@@ -63,6 +66,10 @@
     * 👨‍🏫 **Teacher**: Mir Md Kawsur (MK)
     ![Mir Md Kawsur ](image-4.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/data-structure-lab/)
+
+    * ??? info "Data Structure Routine"
+        ![alt text](image-9.png)
+
     * 📱 **WhatsApp Group**: [BOU-DS](https://chat.whatsapp.com/FrulEnMBw6G3PWtVcQmfgA)
 
     -----

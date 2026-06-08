@@ -1,5 +1,6 @@
 site_name: Bou CSE Resources
-site_url: https://boucseresources.github.io/all/
+# site_url: https://boucseresources.github.io/all/
+site_url: https://notes.bro.bd/
 docs_dir: docs # if missing, default is 'docs'
 
 # nav:
