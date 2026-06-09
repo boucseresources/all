@@ -7,12 +7,13 @@
 
 ??? "Faculty Members and Subject-wise Resources"
 
+    ![Our faculty member group photo](image-11.png){width=400px height=400px}
     ### 📐 Coordinate Geometry and Vector Analysis
 
     * 🔢 **Code**: MAT2131
     * 👨‍🏫 **Teacher**: Mr. Md. Ershad Ali (EA)
-
-    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/coordinate-geometry-and-vector-analysis/)
+    ![Mr. Md. Ershad Ali ](<Ershad Ali Sir.png>){width=200px height=200px}
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/coordinate-geometry-and-vector-analysis/)
     * 📱 **WhatsApp Group**: [21 MATH (MAT2131)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
     -----
@@ -22,7 +23,7 @@
     * 🔢 **Code**: CHE2122
     * 👨‍🏫 **Teacher**: Prof. Dr. Md. Amirul Islam (PAI)
     ![Dr. Md. Amirul Islam](image-7.png){width=200px height=200px}
-    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/chemistry/)
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/chemistry/)
     * 📱 **WhatsApp Group**: [Chemistry (CHE2122)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
     -----
@@ -32,7 +33,7 @@
     * 🔢 **Code**: CSE2133
     * 👨‍🏫 **Teacher**: Prof. Dr. Md. Zulfiker Mahmud (ZM)
     ![Md. Zulfiker Mahmud (ZM)](image-6.png){width=200px height=200px}
-    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/discrete-mathematics/)
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/discrete-mathematics/)
     * 📱 **WhatsApp Group**: [Discrete Math (CSE2133)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
     -----
@@ -42,7 +43,7 @@
     * 🔢 **Code**: CSE2134
     ![Mohammed Nasir Uddin](image-5.png){width=200px height=200px}
     * 👨‍🏫 **Teacher**: Prof. Dr. Mohammed Nasir Uddin (MNU)
-    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/computer-architecture/)
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/computer-architecture/)
     * 📱 **WhatsApp Group**: [Computer Architecture (CSE2134)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
     -----
@@ -65,7 +66,7 @@
     * 🔢 **Code**: CSE21P6
     * 👨‍🏫 **Teacher**: Mir Md Kawsur (MK)
     ![Mir Md Kawsur ](image-4.png){width=200px height=200px}
-    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/data-structure-lab/)
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/data-structure-lab/)
 
     * ??? info "Data Structure Lab Routine"
         ![alt text](image-9.png)
@@ -78,8 +79,8 @@
 
     * 🔢 **Code**: CSE2137
     * 👨‍🏫 **Teacher**: Mr. Md. Mahmudul Hasan (MH)
-    ![Mahmudul Hasan](image-3.png){width=200px height=200px}
-    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/oop/)
+    ![Md. Mahmudul Hasan (MH)](image-10.png){width=200px height=200px}
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/oop/)
     * 📱 **WhatsApp Group**: [OOP Theory (CSE2137)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
     -----
@@ -89,7 +90,7 @@
     * 🔢 **Code**: CSE21P8
     * 👨‍🏫 **Teacher**: Mr. Md. Mahmudul Hasan (MH)
     ![Mahmudul Hasan](image-3.png){width=200px height=200px}
-    * 🔗 **Resources**: [View](https://www.google.com/search?q=/all/bou-resources/bou-cse/21-semester/oop-lab/)
+    * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/oop-lab/)
     * 📱 **WhatsApp Group**: [OOP Lab (CSE21P8)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
 ??? "Subjects"
