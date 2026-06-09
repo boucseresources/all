@@ -1,5 +1,5 @@
 # Index of bou-resources\.trash\templates
 
-- [.space](/all/bou-resources/.trash/templates/.space/)
-- [Digital Garden Template](/all/bou-resources/.trash/templates/Digital Garden Template/)
-- [templates](/all/bou-resources/.trash/templates/templates/)
+- [.space](/bou-resources/.trash/templates/.space/)
+- [Digital Garden Template](/bou-resources/.trash/templates/Digital Garden Template/)
+- [templates](/bou-resources/.trash/templates/templates/)
