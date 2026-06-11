@@ -334,6 +334,7 @@ $$|A \cup B| = |A| + |B| - |A \cap B|$$
 ## 3. Set Identities (সেটের অভেদসমূহ / সূত্রাবলী)
 
 You must memorize these laws and names perfectly for the exam:
+
 ![alt text](image-2.png)
 ![alt text](image-3.png)
 
