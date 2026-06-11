@@ -12,7 +12,7 @@
 
     * 🔢 **Code**: MAT2131
     * 👨‍🏫 **Teacher**: Mr. Md. Ershad Ali (EA)
-    ![Mr. Md. Ershad Ali ](<Ershad Ali Sir.png>){width=200px height=200px}
+    ![Mr. Md. Ershad Ali](<Ershad Ali Sir.png>){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/coordinate-geometry-and-vector-analysis/)
     * 📱 **WhatsApp Group**: [21 MATH (MAT2131)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
