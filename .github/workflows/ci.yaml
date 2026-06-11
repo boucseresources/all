@@ -29,4 +29,4 @@ jobs:
         run: |
           pip install mkdocs-material mkdocs-glightbox mkdocs-obsidian-bridge mkdocs-get-deps mkdocs-awesome-pages-plugin mkdocs-mcq mkdocs-toggle-sidebar-plugin 
 
-      - run: mkdocs gh-deploy --force
+      - run: mkdocs gh-deploy --force --no-get-deps
