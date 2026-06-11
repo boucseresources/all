@@ -349,9 +349,6 @@ You must memorize these laws and names perfectly for the exam:
 
 * Use **0** to indicate that an element is **not in a set**.
 
-
-
-
 * **Example from Slides:** Verifying De Morgan's Law $\overline{A \cup B} = \overline{A} \cap \overline{B}$:
 
 
