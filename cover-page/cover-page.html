@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>BOU CSE – Cover (A4)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="cover-page-style.css" />
+
+    <!-- Optional: tiny inline styles for toolbar/status (you can move to CSS file) -->
+    <style>
+      .no-print { display: block; }
+      .toolbar { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:12px 0; }
+      .toolbar label { font-size:14px; opacity:.8; }
+      .btn { padding:8px 12px; border:1px solid #ccc; background:#f8f8f8; cursor:pointer; border-radius:6px; font-family:inherit; }
+      .btn:hover { background:#eee; }
+      .btn-ghost { background:transparent; }
+      .status { font-size:12px; color:#2e7d32; margin-left:8px; min-width:60px; }
+      .hint { margin:8px 0; font-size:13px; opacity:.9; }
+      @media print {
+        .no-print { display:none !important; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Top Toolbar -->
+    <div class="toolbar no-print">
+      <label for="docType">Type:</label>
+      <select id="docType" class="btn" aria-label="Document Type">
+        <option value="lab" selected>Lab</option>
+        <option value="assignment">Assignment</option>
+      </select>
+
+      <button class="btn" type="button" onclick="window.print()">Print A4</button>
+      <button class="btn" type="button" id="saveBtn">Save / Update</button>
+      <button class="btn btn-ghost" type="button" id="clearBtn" title="Clear saved data">Clear</button>
+      <span id="status" class="status" aria-live="polite"></span>
+    </div>
+
+    <!-- Tip -->
+    <div class="hint no-print">
+      টিপস: দাগ টানা জায়গাগুলোতে নিজের মতো লিখে ফেলুন। লিখে হলে এক টানে “Print A4” চাপ দিন।
+      পুরোটা পূরণ করলে Browser-এর ডিফল্ট মার্জিনেই ১ পেজে প্রিন্ট হবে।
+    </div>
+
+    <!-- A4 Sheet -->
+    <div class="sheet">
+      <div class="content">
+        <!-- Brand -->
+        <div class="brand">
+          <img src="bou-logo.png" alt="Bangladesh Open University logo" />
+          <div class="txt">
+            <div class="bou">Bangladesh Open University</div>
+            <div class="school">School of Science &amp; Technology</div>
+          </div>
+        </div>
+
+        <div class="title">
+          Bachelor of Science in Computer Science &amp; Engineering Program
+        </div>
+
+        <!-- Number -->
+        <div class="pill-wrap">
+          <div class="pill" data-i18n="noLabel">Lab Report No.</div>
+          <div class="pill-num" contenteditable="true" spellcheck="false" data-key="docNo"></div>
+        </div>
+
+        <!-- Course info -->
+        <div class="rows">
+          <div class="fieldline">
+            <div class="label">Course Title</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="courseTitle"></div>
+          </div>
+
+          <div class="fieldline">
+            <div class="label">Course Code</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="courseCode"></div>
+          </div>
+
+          <div class="fieldline">
+            <div class="label" data-i18n="topicLabel">Lab Report On</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="topic"></div>
+          </div>
+        </div>
+
+        <!-- Submitted By -->
+        <div class="cardhead">Submitted By:</div>
+        <div class="rows">
+          <div class="fieldline">
+            <div class="label">Student’s Name</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="studentName"></div>
+          </div>
+
+          <div class="fieldline">
+            <div class="label">Student’s ID</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="studentId"></div>
+          </div>
+
+          <div class="fieldline">
+            <div class="label">Year &amp; Semester</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="yearSemester"></div>
+          </div>
+
+          <div class="fieldline">
+            <div class="label">Batch</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="batch"></div>
+          </div>
+
+          <div class="fieldline">
+            <div class="label">Session</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="session"></div>
+          </div>
+
+          <div class="fieldline">
+            <div class="label">Exam Term</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="examTerm"></div>
+          </div>
+
+          <div class="fieldline">
+            <div class="label">Date of Submission</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="submissionDate"></div>
+          </div>
+        </div>
+
+        <!-- Submitted To -->
+        <div class="cardhead">Submitted To:</div>
+        <div class="rows">
+          <div class="fieldline">
+            <div class="label">Teacher’s Name</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="teacherName"></div>
+          </div>
+
+          <div class="fieldline">
+            <div class="label">Designation</div>
+            <div class="value" contenteditable="true" spellcheck="false" data-key="designation"></div>
+          </div>
+        </div>
+
+        <!-- Study Center -->
+        <div class="study">
+          <b>Study Center:</b>
+          <span>
+            Dhaka Regional Centre (DRC), Bangladesh Open University ||
+            4/Ka, Govt. Laboratory School Road, Dhanmondi, Dhaka–1205
+          </span>
+        </div>
+
+        <!-- Bottom Tip -->
+        <div class="hint no-print">
+          টিপস: দাগ টানা জায়গাগুলোতে নিজের মতো লিখে ফেলুন। লিখে হলে এক টানে “Print A4” চাপ দিন।
+          পুরোটা পূরণ করলে Browser-এর ডিফল্ট মার্জিনেই ১ পেজে প্রিন্ট হবে।
+        </div>
+      </div>
+    </div>
+
+    <!-- External JS -->
+    <script src="cover-page.js" defer></script>
+  </body>
+</html>
+  

@@ -1,0 +1,39 @@
+publish_mode: editorial_workflow
+
+# Media
+media_folder: "docs/assets/uploads"
+public_folder: "/assets/uploads"
+
+# Local dev
+local_backend: true
+backend: { name: git-gateway }
+
+# Global editor/slug settings (apply to all collections by default)
+editor:
+  preview: true
+slug:
+  encoding: unicode
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: pages
+    label: All Pages
+    folder: "docs"
+    create: true
+    extension: "md"
+    path: "{{dirname}}/{{slug}}.md"
+
+    # Show nested tree (beta)
+    nested:
+      depth: 100
+      summary: "{{title}}"
+
+    summary: "{{title}} — {{filename}}"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Body"
+        name: "body"
+        # widget: "monaco-md"  # use your custom widget here
+        widget: "markdown"  # use your custom widget here

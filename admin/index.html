@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Content Manager</title>
+  </head>
+  <body>
+    <!-- Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <!-- Monaco AMD loader -->
+    <script src="https://unpkg.com/monaco-editor@0.45.0/min/vs/loader.js"></script>
+    <script>
+      window.require.config({
+        paths: { vs: "https://unpkg.com/monaco-editor@0.45.0/min/vs" },
+      });
+      // optional worker fix:
+      window.MonacoEnvironment = {
+        getWorkerUrl: function () {
+          const code = `
+            self.MonacoEnvironment = { baseUrl: 'https://unpkg.com/monaco-editor@0.45.0/min/' };
+            importScripts('https://unpkg.com/monaco-editor@0.45.0/min/vs/base/worker/workerMain.js');`;
+          return URL.createObjectURL(new Blob([code], { type: "text/javascript" }));
+        },
+      };
+    </script>
+
+    <!-- Register Monaco widget -->
+    <script src="./monaco-widget.js"></script>
+  </body>
+</html>

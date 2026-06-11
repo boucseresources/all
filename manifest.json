@@ -1,0 +1,20 @@
+{
+  "name": "BOU CSE Resources",
+  "short_name": "Docs",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "docs/assets/logo-bou.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "docs/assets/logo-bou.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
