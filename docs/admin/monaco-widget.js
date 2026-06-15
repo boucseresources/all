@@ -1,68 +1,89 @@
 (function () {
   var CMS = window.CMS;
-  var createClass = window.createClass; // Decap's Preact createClass
-  var h = window.h;
 
-  if (!CMS || !createClass || !h) {
-    console.error("Decap CMS globals missing; check script order.");
+  if (!CMS) {
+    console.error("Decap CMS global missing; checking script order.");
     return;
   }
 
-  var MonacoMDControl = createClass({
-    componentDidMount: function () {
-      var container = this.refs.container;
+  // Modern Decap CMS exposes its React engine here
+  var React = window.React || CMS.React;
+  if (!React) {
+    console.error("React engine could not be extracted from CMS.");
+    return;
+  }
+
+  // Define the editor control block using clean modern class syntax
+  class MonacoMDControl extends React.Component {
+    constructor(props) {
+      super(props);
+      this.containerRef = React.createRef();
+      this.editor = null;
+    }
+
+    componentDidMount() {
+      var container = this.containerRef.current;
       var value = this.props.value || "";
 
-      // Load Monaco via AMD loader
-      window.require(["vs/editor/editor.main"], () => {
-        this.editor = monaco.editor.create(container, {
-          value: value,
-          language: "markdown",
-          automaticLayout: true,
-          wordWrap: "on",
-          minimap: { enabled: false },
-          tabSize: 2,
-          insertSpaces: true,
-        });
-        this.editor.onDidChangeModelContent(() => {
-          this.props.onChange(this.editor.getValue());
-        });
-      });
-    },
+      // Load Monaco via AMD loader safely
+      if (window.require) {
+        window.require(["vs/editor/editor.main"], () => {
+          this.editor = monaco.editor.create(container, {
+            value: value,
+            language: "markdown",
+            automaticLayout: true,
+            wordWrap: "on",
+            minimap: { enabled: false },
+            tabSize: 2,
+            insertSpaces: true,
+          });
 
-    componentWillUnmount: function () {
+          this.editor.onDidChangeModelContent(() => {
+            this.props.onChange(this.editor.getValue());
+          });
+        });
+      }
+    }
+
+    componentWillUnmount() {
       if (this.editor) {
         this.editor.dispose();
       }
-    },
+    }
 
-    componentWillReceiveProps: function (nextProps) {
-      if (this.editor && nextProps.value !== this.props.value) {
-        const nextVal = nextProps.value || "";
+    componentDidUpdate(prevProps) {
+      if (this.editor && this.props.value !== prevProps.value) {
+        var nextVal = this.props.value || "";
         if (this.editor.getValue() !== nextVal) {
           this.editor.setValue(nextVal);
         }
       }
-    },
+    }
 
-    render: function () {
-      return h("div", {
-        ref: "container",
-        style:
-          "height:70vh;border:1px solid #e5e7eb;border-radius:8px;background:#fff;",
+    render() {
+      return React.createElement("div", {
+        ref: this.containerRef,
+        style: {
+          height: "70vh",
+          border: "1px solid #e5e7eb",
+          borderRadius: "8px",
+          background: "#fff"
+        }
       });
-    },
-  });
+    }
+  }
 
-  var MonacoMDPreview = createClass({
-    render: function () {
-      return h(
+  // Define the side-by-side preview block
+  class MonacoMDPreview extends React.Component {
+    render() {
+      return React.createElement(
         "pre",
-        { style: "white-space: pre-wrap;" },
+        { style: { whiteSpace: "pre-wrap" } },
         this.props.value || ""
       );
-    },
-  });
+    }
+  }
 
+  // Register the finished components with Decap
   CMS.registerWidget("monaco-md", MonacoMDControl, MonacoMDPreview);
 })();

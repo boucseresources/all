@@ -1,32 +1,84 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>Content Manager</title>
-  </head>
-  <body>
-    <!-- Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-    <!-- Monaco AMD loader -->
-    <script src="https://unpkg.com/monaco-editor@0.45.0/min/vs/loader.js"></script>
     <script>
-      window.require.config({
-        paths: { vs: "https://unpkg.com/monaco-editor@0.45.0/min/vs" },
-      });
-      // optional worker fix:
-      window.MonacoEnvironment = {
-        getWorkerUrl: function () {
-          const code = `
-            self.MonacoEnvironment = { baseUrl: 'https://unpkg.com/monaco-editor@0.45.0/min/' };
-            importScripts('https://unpkg.com/monaco-editor@0.45.0/min/vs/base/worker/workerMain.js');`;
-          return URL.createObjectURL(new Blob([code], { type: "text/javascript" }));
-        },
-      };
+      (function() {
+        // If loaded via MkDocs pushState / Instant navigation, force a hard reload
+        if (window.location.hash === '' && !window.__decap_hard_loaded) {
+          window.__decap_hard_loaded = true;
+          // Check if parent container layout looks like MkDocs Material
+          if (document.querySelector('.md-container') || window.jQuery || document.querySelector('header.md-header')) {
+            console.log("MkDocs Material Instant Nav detected. Forcing clean sandbox reload...");
+            window.location.reload();
+          }
+        }
+      })();
     </script>
 
-    <!-- Register Monaco widget -->
-    <script src="./monaco-widget.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.css" />
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  </head>
+  <body>
+
+    <div id="nc-root"></div>
+
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <script>
+      function mountDecapCMS() {
+        if (window.CMS) {
+          console.log("Initializing Decap CMS manually into #nc-root container...");
+          window.CMS.init({
+            config: {
+              publish_mode: "editorial_workflow",
+              backend: {
+                name: "github",
+                repo: "boucseresources/all",
+                branch: "main"
+              },
+              local_backend: true,
+              media_folder: "docs/assets/images",
+              public_folder: "/assets/images",
+              collections: [
+                {
+                  name: "pages",
+                  label: "All Pages",
+                  folder: "docs",
+                  create: true,
+                  extension: "md",
+                  filter: { field: "title", value: ".*" },
+                  path: "{{dirname}}/{{slug}}",
+                  nested: { depth: 100 },
+                  fields: [
+                    { label: "Title", name: "title", widget: "string" },
+                    { label: "Body", name: "body", widget: "markdown" }
+                  ]
+                }
+              ]
+            }
+          });
+        } else {
+          console.error("Critical Failure: Decap script payload object was missing.");
+        }
+      }
+
+      // Safe initialization queue triggers
+      if (document.readyState === "complete" || document.readyState === "interactive") {
+        mountDecapCMS();
+      } else {
+        document.addEventListener("DOMContentLoaded", mountDecapCMS);
+      }
+    </script>
   </body>
 </html>
