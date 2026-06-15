@@ -1,14 +1,21 @@
 publish_mode: editorial_workflow
 
-# Media
-media_folder: "docs/assets/uploads"
-public_folder: "/assets/uploads"
+# Backend Configuration
+# local_backend will override this when running locally. 
+# When online, it will use your GitHub Pages repo.
+backend:
+  name: github
+  repo: boucseresources/all # <-- Replace with your GitHub username/repo
+  branch: main                       # <-- Replace with your production branch (e.g., main or master)
 
-# Local dev
+# Local dev proxy switch
 local_backend: true
-backend: { name: git-gateway }
 
-# Global editor/slug settings (apply to all collections by default)
+# Media paths (aligned to your static assets folder)
+media_folder: "docs/assets/images"
+public_folder: "/assets/images"
+
+# Global editor/slug settings
 editor:
   preview: true
 slug:
@@ -22,18 +29,20 @@ collections:
     folder: "docs"
     create: true
     extension: "md"
-    path: "{{dirname}}/{{slug}}.md"
-
-    # Show nested tree (beta)
+    # Filter prevents Decap from treating non-content files (like CNAME or admin configs) as editable markdown pages
+    filter: { field: "title", value: ".*" } 
+    
+    # This pattern dynamically matches deep folder structures like docs/bou-resources/FAZIL/file.md
+    path: "{{dirname}}/{{slug}}"
+    
+    # Show nested tree
     nested:
       depth: 100
-      summary: "{{title}}"
-
-    summary: "{{title}} — {{filename}}"
+    
+    summary: "{{fields.title}} — {{filename}}"
 
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - label: "Body"
         name: "body"
-        # widget: "monaco-md"  # use your custom widget here
-        widget: "markdown"  # use your custom widget here
+        widget: "monaco-md"

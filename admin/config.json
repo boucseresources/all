@@ -1,0 +1,38 @@
+{
+  "publish_mode": "editorial_workflow",
+  "backend": {
+    "name": "github",
+    "repo": "boucseresources/all",
+    "branch": "main"
+  },
+  "local_backend": true,
+  "media_folder": "docs/assets/images",
+  "public_folder": "/assets/images",
+  "editor": {
+    "preview": true
+  },
+  "slug": {
+    "encoding": "unicode",
+    "clean_accents": true,
+    "sanitize_replacement": "-"
+  },
+  "collections": [
+    {
+      "name": "pages",
+      "label": "All Pages",
+      "folder": "docs",
+      "create": true,
+      "extension": "md",
+      "filter": { "field": "title", "value": ".*" },
+      "path": "{{dirname}}/{{slug}}",
+      "nested": {
+        "depth": 100
+      },
+      "summary": "{{fields.title}} — {{filename}}",
+      "fields": [
+        { "label": "Title", "name": "title", "widget": "string" },
+        { "label": "Body", "name": "body", "widget": "monaco-md" }
+      ]
+    }
+  ]
+}
