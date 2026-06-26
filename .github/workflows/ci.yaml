@@ -11,22 +11,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # <-- CRITICAL: Fetches all history for all branches
+
       - name: Configure Git Credentials
         run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
       - uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
+
       - name: Install dependencies
         run: |
           pip install mkdocs-material mkdocs-glightbox mkdocs-obsidian-bridge mkdocs-get-deps mkdocs-awesome-pages-plugin mkdocs-mcq mkdocs-toggle-sidebar-plugin 
 
-      - run: mkdocs gh-deploy --force --no-get-deps
+      - name: Deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # <-- CRITICAL: Passes token to the environment
+        run: mkdocs gh-deploy --force --no-get-deps
