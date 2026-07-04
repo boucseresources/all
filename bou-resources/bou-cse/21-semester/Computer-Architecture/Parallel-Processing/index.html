@@ -11,7 +11,7 @@
         <link rel="prev" href="../Basics-of-CA/Question-answers/">
       
       
-        <link rel="next" href="Array-Processing/">
+        <link rel="next" href="02-Uni-Processor/">
       
       
       <link rel="icon" href="../../../../../assets/logo-bou.png">
@@ -19,7 +19,7 @@
     
     
       
-        <title>Parallel Processing - Bou CSE Resources</title>
+        <title>Index - Bou CSE Resources</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#parallel-processing" class="md-skip">
+        <a href="#introduction-to-parallel-processing-and-computing" class="md-skip">
           Skip to content
         </a>
       
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Parallel Processing
+              Index
             
           </span>
         </div>
@@ -8602,6 +8602,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -8654,6 +8658,29 @@
   
   
     <li class="md-nav__item">
+      <a href="02-Uni-Processor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uni-Processor Architecture and Parallel Processing Mechanisms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="Array-Processing/" class="md-nav__link">
         
   
@@ -8683,6 +8710,29 @@
   
   <span class="md-ellipsis">
     Pipeline problem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Pipeline-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Parallel Processing
     
   </span>
   
@@ -10557,8 +10607,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -10567,37 +10615,47 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#understanding-pipelining-why-do-modern-processors-need-it" class="md-nav__link">
+  <a href="#introduction-to-parallel-processing-and-computing" class="md-nav__link">
     <span class="md-ellipsis">
-      Understanding Pipelining: Why Do Modern Processors Need It?
+      Introduction to Parallel Processing and Computing
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-need-for-high-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Need for High Performance
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Need for High Performance">
+    <nav class="md-nav" aria-label="Introduction to Parallel Processing and Computing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-implementing-faster-circuits" class="md-nav__link">
+  <a href="#basic-definition-of-parallel-computing" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Implementing Faster Circuits
+      Basic Definition of Parallel Computing
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-overlapping-hardware-execution-pipelining" class="md-nav__link">
+  <a href="#serial-computing-vs-parallel-computing" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Overlapping Hardware Execution (Pipelining)
+      Serial Computing vs. Parallel Computing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serial Computing vs. Parallel Computing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-serial-computing-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Serial Computing Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-parallel-computing-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Parallel Computing Model
     </span>
   </a>
   
@@ -10607,30 +10665,30 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#real-world-analogy-the-drive-through-concept" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#computing-resources-and-problem-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Real-World Analogy: The Drive-Through Concept
+      Computing Resources and Problem Types
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Real-World Analogy: The Drive-Through Concept">
+    <nav class="md-nav" aria-label="Computing Resources and Problem Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-a-without-pipelining-serial-processing" class="md-nav__link">
+  <a href="#what-are-parallel-computing-resources" class="md-nav__link">
     <span class="md-ellipsis">
-      Scenario A: Without Pipelining (Serial Processing)
+      What are Parallel Computing Resources?
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-b-with-pipelining-parallel-overlapping" class="md-nav__link">
+  <a href="#characteristics-of-a-parallel-problem" class="md-nav__link">
     <span class="md-ellipsis">
-      Scenario B: With Pipelining (Parallel Overlapping)
+      Characteristics of a Parallel Problem
     </span>
   </a>
   
@@ -10640,30 +10698,30 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-evaluation-and-comparison" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#real-world-examples-and-analogy" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance Evaluation and Comparison
+      Real-World Examples and Analogy
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Performance Evaluation and Comparison">
+    <nav class="md-nav" aria-label="Real-World Examples and Analogy">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#non-pipelined-performance" class="md-nav__link">
+  <a href="#the-ticket-counter-analogy" class="md-nav__link">
     <span class="md-ellipsis">
-      Non-Pipelined Performance:
+      The Ticket Counter Analogy
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pipelined-performance" class="md-nav__link">
+  <a href="#the-real-world-is-parallel" class="md-nav__link">
     <span class="md-ellipsis">
-      Pipelined Performance:
+      The Real World is Parallel
     </span>
   </a>
   
@@ -10673,180 +10731,20 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the-formal-definition-of-pipelining" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Formal Definition of Pipelining
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#non-pipelined-vs-pipelined-execution" class="md-nav__link">
-    <span class="md-ellipsis">
-      Non-Pipelined vs. Pipelined Execution
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Non-Pipelined vs. Pipelined Execution">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-non-pipelined-execution" class="md-nav__link">
+  <a href="#why-do-we-need-parallel-computing" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Non-Pipelined Execution
+      Why Do We Need Parallel Computing?
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-pipelined-execution" class="md-nav__link">
+  <a href="#common-practical-applications" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Pipelined Execution
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware-architecture-the-role-of-interface-registers-latches" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hardware Architecture: The Role of Interface Registers (Latches)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Hardware Architecture: The Role of Interface Registers (Latches)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-do-we-need-these-intermediate-registers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why do we need these intermediate registers?
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#visualizing-execution-the-space-time-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      Visualizing Execution: The Space-Time Diagram
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quantitative-analysis-and-performance-metrics-of-pipelining" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quantitative Analysis and Performance Metrics of Pipelining
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-derivation-for-non-pipelined-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Derivation for Non-Pipelined Architecture
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Performance Derivation for Non-Pipelined Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mathematical-formulation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mathematical Formulation
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-derivation-for-pipelined-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Derivation for Pipelined Architecture
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Performance Derivation for Pipelined Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#space-time-matrix-mapping" class="md-nav__link">
-    <span class="md-ellipsis">
-      Space-Time Matrix Mapping
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mathematical-formulation-of-pipelined-time" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mathematical Formulation of Pipelined Time
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architectural-evaluation-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architectural Evaluation Parameters
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Architectural Evaluation Parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-optimization-target-cpi-approx-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Optimization Target: CPI \(\approx\) 1
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-speedup-factor-s" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Speedup Factor (\(S\))
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-hardware-efficiency-and-resource-utilization-eta" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Hardware Efficiency and Resource Utilization (\(\eta\))
+      Common Practical Applications
     </span>
   </a>
   
@@ -10873,285 +10771,73 @@
 
 
 
-<h1 id="parallel-processing">Parallel Processing<a class="headerlink" href="#parallel-processing" title="Anchor link to this section for reference">¶</a></h1>
-<h2 id="understanding-pipelining-why-do-modern-processors-need-it">Understanding Pipelining: Why Do Modern Processors Need It?<a class="headerlink" href="#understanding-pipelining-why-do-modern-processors-need-it" title="Anchor link to this section for reference">¶</a></h2>
-<p>Today we are going to look into a very fundamental and important concept in Computer Organization and Architecture (COA) called <strong>Pipelining</strong>.</p>
-<p>If you look at any modern processor nowadays, whether it is an Intel Core series or any advanced AMD processor, pipelining is running behind the scenes. But before jumping into the complex mathematical formulas or structural diagrams, we first need to address a very practical question: <strong>What is the actual need for pipelining?</strong></p>
-<h2 id="the-need-for-high-performance">The Need for High Performance<a class="headerlink" href="#the-need-for-high-performance" title="Anchor link to this section for reference">¶</a></h2>
-<p>In today's computing world, everyone wants their CPU to work faster. High performance and low latency (কম বিলম্বতা বা ধীরগতি হ্রাস করা) are the primary requirements. Now, if we want to increase the CPU performance drastically (ব্যাপকভাবে), how can we achieve it?</p>
-<p>Technically, we have two main approaches:</p>
-<h3 id="1-implementing-faster-circuits">1. Implementing Faster Circuits<a class="headerlink" href="#1-implementing-faster-circuits" title="Anchor link to this section for reference">¶</a></h3>
-<p>The first approach is to upgrade the hardware level fabrication (তৈরি বা উৎপাদন প্রক্রিয়া). We can replace the existing slower circuits with much faster circuits. For example, moving from an i3 processor to an i5 or an i7 processor. But as an experienced student or engineer, you know that changing the hardware architecture completely or using high frequency materials is extremely costly. If we keep the budget and manufacturing cost in mind, this approach is not always feasible (সম্ভব বা বাস্তবসম্মত).</p>
-<h3 id="2-overlapping-hardware-execution-pipelining">2. Overlapping Hardware Execution (Pipelining)<a class="headerlink" href="#2-overlapping-hardware-execution-pipelining" title="Anchor link to this section for reference">¶</a></h3>
-<p>The second approach is much smarter. Without changing the actual internal circuitry or buying expensive new components, we can arrange our existing hardware resources in such a sophisticated (উন্নত ও জটিল) architectural design that <strong>multiple instructions can be executed at the same time</strong>. This optimization (দক্ষতা বৃদ্ধি) approach is exactly what we call Pipelining.</p>
-<p>Pipelining allows us to increase the overall system throughput (কাজ সম্পাদন করার মোট হার) without increasing the hardware budget. We arrange the execution units like a continuous pipe. The pipe has an input side and an output side, divided into multiple independent stages where each stage depends on the previous one.</p>
-<h2 id="real-world-analogy-the-drive-through-concept">Real-World Analogy: The Drive-Through Concept<a class="headerlink" href="#real-world-analogy-the-drive-through-concept" title="Anchor link to this section for reference">¶</a></h2>
-<p>To understand this concept clearly, let us look at a very simple real-life analogy (উপমা বা তুলনা) of a fast-food drive-through at McDonald's, KFC, or Burger King.</p>
-<p>Imagine a drive-through restaurant building that has 3 dedicated windows representing 3 distinct (পৃথক) stages:</p>
+  <h1>Index</h1>
+
+<h3 id="introduction-to-parallel-processing-and-computing">Introduction to Parallel Processing and Computing<a class="headerlink" href="#introduction-to-parallel-processing-and-computing" title="Anchor link to this section for reference">¶</a></h3>
+<h4 id="basic-definition-of-parallel-computing">Basic Definition of Parallel Computing<a class="headerlink" href="#basic-definition-of-parallel-computing" title="Anchor link to this section for reference">¶</a></h4>
+<p>Parallel computing simply means doing multiple computing things at the exact same time (একযোগে). Instead of executing one task after another, we run many calculations simultaneously.</p>
+<p>We use this model to solve very large problems. If a problem is too big for a single computer to handle in a short time, we use parallel computing to finish it quickly.</p>
+<h4 id="serial-computing-vs-parallel-computing">Serial Computing vs. Parallel Computing<a class="headerlink" href="#serial-computing-vs-parallel-computing" title="Anchor link to this section for reference">¶</a></h4>
+<h5 id="1-serial-computing-model">1. Serial Computing Model<a class="headerlink" href="#1-serial-computing-model" title="Anchor link to this section for reference">¶</a></h5>
+<p>Traditionally, standard computer software is written for serial computation. It works on the following principles:</p>
 <ul>
-<li><strong>Window 1:</strong> Order Placement</li>
-<li><strong>Window 2:</strong> Payment Processing</li>
-<li><strong>Window 3:</strong> Food Order Collection</li>
+<li><strong>Single Central Processing Unit (CPU):</strong> The software runs on a single computer that has only one processor core.</li>
+<li><strong>Sequential Steps:</strong> A big problem is broken down into a series of different instructions.</li>
+<li><strong>One by One Execution:</strong> Instructions are executed sequentially (ধাপ অনুসারে), meaning one instruction runs after another finishes.</li>
+<li><strong>Time Limitation:</strong> At any single moment in time, only one instruction can be executed by the processor.</li>
 </ul>
-<p>Let us analyze how the processing happens in two different scenarios: Non-Pipelined versus Pipelined.</p>
-<h3 id="scenario-a-without-pipelining-serial-processing">Scenario A: Without Pipelining (Serial Processing)<a class="headerlink" href="#scenario-a-without-pipelining-serial-processing" title="Anchor link to this section for reference">¶</a></h3>
-<p>If the drive-through does not use the pipeline concept, it will process sequentially (পর্যায়ক্রমিক বা একে একে):</p>
-<ol>
-<li><code>Car 1</code> enters, goes to Window 1 and places the order.</li>
-<li><code>Car 1</code> moves to Window 2 to make the payment.</li>
-<li><code>Car 1</code> moves to Window 3, receives the food packet, and exits the lane.</li>
-</ol>
-<p>Only after <code>Car 1</code> completely exits the system, the next car, <code>Car 2</code>, is allowed to enter Window 1. If every single stage takes exactly 1 minute, then one car takes 3 minutes to complete the full process.</p>
-<p>For 3 cars (<code>Car 1</code>, <code>Car 2</code>, and <code>Car 3</code>), the total execution time will be:</p>
-<div class="arithmatex">\[\text{Total Time} = 3 \text{ cars} \times 3 \text{ minutes} = 9 \text{ minutes}\]</div>
-<p>The average time per car remains:</p>
-<div class="arithmatex">\[\frac{9 \text{ minutes}}{3 \text{ cars}} = 3 \text{ minutes/car}\]</div>
-<p>This is highly inefficient because while <code>Car 1</code> is paying or collecting food, Window 1 sits completely idle (অলস বা বসিয়ে রাখা).</p>
-<h3 id="scenario-b-with-pipelining-parallel-overlapping">Scenario B: With Pipelining (Parallel Overlapping)<a class="headerlink" href="#scenario-b-with-pipelining-parallel-overlapping" title="Anchor link to this section for reference">¶</a></h3>
-<p>In real life, the drive-through works simultaneously (একই সাথে). As soon as <code>Car 1</code> finishes ordering and moves to the payment window (Window 2), <code>Car 2</code> immediately enters the empty space at Window 1 to give its order.</p>
-<p>Let us track the time-space distribution minute by minute:</p>
-<table>
-<thead>
-<tr>
-<th>Time</th>
-<th>Window 1 (Order)</th>
-<th>Window 2 (Payment)</th>
-<th>Window 3 (Collection)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Minute 1</strong></td>
-<td>Car 1</td>
-<td>Idle</td>
-<td>Idle</td>
-</tr>
-<tr>
-<td><strong>Minute 2</strong></td>
-<td>Car 2</td>
-<td>Car 1</td>
-<td>Idle</td>
-</tr>
-<tr>
-<td><strong>Minute 3</strong></td>
-<td>Car 3</td>
-<td>Car 2</td>
-<td>Car 1 <em>(Car 1 Exits)</em></td>
-</tr>
-<tr>
-<td><strong>Minute 4</strong></td>
-<td>Idle</td>
-<td>Car 3</td>
-<td>Car 2 <em>(Car 2 Exits)</em></td>
-</tr>
-<tr>
-<td><strong>Minute 5</strong></td>
-<td>Idle</td>
-<td>Idle</td>
-<td>Car 3 <em>(Car 3 Exits)</em></td>
-</tr>
-</tbody>
-</table>
-<p>Using this overlapped pipeline method, all 3 cars finish their entire process in just <strong>5 minutes</strong> total.</p>
-<h2 id="performance-evaluation-and-comparison">Performance Evaluation and Comparison<a class="headerlink" href="#performance-evaluation-and-comparison" title="Anchor link to this section for reference">¶</a></h2>
-<p>Let us look at the mathematical difference in performance to see how our throughput increases.</p>
-<h3 id="non-pipelined-performance">Non-Pipelined Performance:<a class="headerlink" href="#non-pipelined-performance" title="Anchor link to this section for reference">¶</a></h3>
+<h5 id="2-parallel-computing-model">2. Parallel Computing Model<a class="headerlink" href="#2-parallel-computing-model" title="Anchor link to this section for reference">¶</a></h5>
+<p>Parallel computing is the simultaneous use of multiple computational resources to solve a problem. It works like this:</p>
 <ul>
-<li>Total time taken for 3 cars = <span class="arithmatex">\(9 \text{ minutes}\)</span></li>
-<li>Average latency (বিলম্বকাল) per car = <span class="arithmatex">\(\frac{9}{3} = 3 \text{ minutes}\)</span></li>
+<li><strong>Multiple CPUs:</strong> It requires a computer system that has more than one processor or CPU.</li>
+<li><strong>Problem Division:</strong> A large problem is divided into discrete (পৃথক) smaller parts.</li>
+<li><strong>Simultaneous Processing:</strong> Each smaller part is broken into instructions, and these instructions execute concurrently (সমান্তরালভাবে) on different processors.</li>
 </ul>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pipeline vs Non-Pipelined Analogy" src="image-2.png"></a></p>
-<h3 id="pipelined-performance">Pipelined Performance:<a class="headerlink" href="#pipelined-performance" title="Anchor link to this section for reference">¶</a></h3>
+<h4 id="computing-resources-and-problem-types">Computing Resources and Problem Types<a class="headerlink" href="#computing-resources-and-problem-types" title="Anchor link to this section for reference">¶</a></h4>
+<h5 id="what-are-parallel-computing-resources">What are Parallel Computing Resources?<a class="headerlink" href="#what-are-parallel-computing-resources" title="Anchor link to this section for reference">¶</a></h5>
+<p>To run parallel computing, we need specific hardware resources:</p>
 <ul>
-<li><code>Car 1</code> finishes at Minute 3 (takes normal serial time to fill the pipe).</li>
-<li><code>Car 2</code> finishes at Minute 4.</li>
-<li><code>Car 3</code> finishes at Minute 5.</li>
-<li>Total time taken for 3 cars = <span class="arithmatex">\(5 \text{ minutes}\)</span></li>
-<li>Average throughput latency (প্রসেসিং সময়কাল) = <span class="arithmatex">\(\frac{5 \text{ minutes}}{3 \text{ cars}} \approx 1.6 \text{ minutes}\)</span></li>
+<li>A single computer that contains multiple processors or cores inside it.</li>
+<li>A collection of multiple computers connected together using a computer network.</li>
+<li>A hybrid combination of both multiple processors inside one machine and a network of computers.</li>
 </ul>
-<p>By comparing <span class="arithmatex">\(3 \text{ minutes}\)</span> against <span class="arithmatex">\(1.6 \text{ minutes}\)</span>, you can clearly see that by introducing pipelining, our system performance becomes nearly <strong>two times faster</strong> than the non-pipelined system.</p>
-<p>This is the exact same architectural concept that our CPU utilizes to execute microinstructions (ক্ষুদ্র নির্দেশাবলী). Instead of processing cars, the processor handles instructions by dividing them into sequential stages like Instruction Fetch (IF - নির্দেশ সংগ্রহ), Instruction Decode (ID - নির্দেশ বিশ্লেষণ), Operand Fetch (OF - ডেটা সংগ্রহ), and Instruction Execute (EX - নির্দেশ সম্পাদন).</p>
-<p>Instead of waiting for one instruction to complete its entire lifecycle, the CPU fetches the next instruction as soon as the first one moves to the decoding stage. How this instruction pipelining operates with clock cycles and hardware registers in real computer systems is what we will explore in our next video.</p>
-<h2 id="the-formal-definition-of-pipelining">The Formal Definition of Pipelining<a class="headerlink" href="#the-formal-definition-of-pipelining" title="Anchor link to this section for reference">¶</a></h2>
-<p>The formal definition of pipelining is that it is a process of arrangement of hardware elements of the CPU such that its overall performance should be increased.</p>
-<p>You need to understand very clearly that pipelining is not a process where we are purchasing new hardware modules (হার্ডওয়্যার মডিউল বা অংশ) or implementing extra physical circuits. No, we are simply taking our already existing hardware resources inside the CPU and arranging them in a clever way so that the system performance increases.</p>
-<p>But how does this performance increase actually happen? It happens because of the simultaneous execution (একই সাথে সম্পাদন) of more than one instruction inside the pipeline. At any given instance, instead of a single instruction executing alone, multiple instructions occupy the processor in an overlapping (একে অপরের ওপর আপতিত হওয়া বা সমান্তরালভাবে ঘটা) fashion.</p>
-<h2 id="non-pipelined-vs-pipelined-execution">Non-Pipelined vs. Pipelined Execution<a class="headerlink" href="#non-pipelined-vs-pipelined-execution" title="Anchor link to this section for reference">¶</a></h2>
-<h3 id="1-non-pipelined-execution">1. Non-Pipelined Execution<a class="headerlink" href="#1-non-pipelined-execution" title="Anchor link to this section for reference">¶</a></h3>
-<p>In a non-pipelined system, a process or an instruction starts its execution, and until it completely finishes all its phases, the second process cannot even start. This sequential flow (পর্যায়ক্রমিক প্রবাহ) creates a massive performance bottleneck (পদ্ধতিগত বাধা বা ধীরগতির কারণ) because most of the hardware elements sit completely idle (অলস বা অব্যবহৃত) waiting for the current instruction to clear out.</p>
-<h3 id="2-pipelined-execution">2. Pipelined Execution<a class="headerlink" href="#2-pipelined-execution" title="Anchor link to this section for reference">¶</a></h3>
-<p>In pipelining, we divide the execution path into multiple independent stages, which are also called segments (খণ্ড বা অংশ). Because of these independent stages, when Instruction 1 moves to Stage 2, Instruction 2 can immediately enter Stage 1.</p>
-<p>Similarly, at a single clock cycle, Instruction 1 might be in Stage 3, Instruction 2 in Stage 2, and Instruction 3 in Stage 1. This overlapping execution of multiple instructions across different stages is what increases the architectural throughput (কাজের মোট হার).</p>
-<p>A classic example of this is the RISC (Reduced Instruction Set Computer) architecture, which generally uses a 5-stage instruction pipeline.</p>
-<h2 id="hardware-architecture-the-role-of-interface-registers-latches">Hardware Architecture: The Role of Interface Registers (Latches)<a class="headerlink" href="#hardware-architecture-the-role-of-interface-registers-latches" title="Anchor link to this section for reference">¶</a></h2>
-<p>To realize (বাস্তবায়ন করা) pipelining at the hardware level, we need a specific structural design. The execution units are split into distinct combinational circuits (যৌথ সার্কিট) representing individual stages, such as Stage 1, Stage 2, and Stage 3.</p>
-<p>The most important hardware element here is the Interface Register, also commonly referred to as Latches (এক ধরণের মেমোরি উপাদান বা ফ্লিপ-ফ্লপ).</p>
-<h3 id="why-do-we-need-these-intermediate-registers">Why do we need these intermediate registers?<a class="headerlink" href="#why-do-we-need-these-intermediate-registers" title="Anchor link to this section for reference">¶</a></h3>
-<p>Every stage takes an input, processes it, and generates an output. The output of Stage 1 acts as the direct input for Stage 2. However, Stage 2 cannot instantly process that data because it might still be finishing its previous task. Therefore, we must store the intermediate results (মধ্যবর্তী ফলাফল) temporarily. These interface registers hold the data securely between the stages.</p>
-<p>All these hardware stages and interface registers are connected to a common system clock. As soon as a clock pulse or clock cycle triggers, the data moves from one stage through the register into the next stage in a completely synchronized (সুসংগত বা একই সময়ে ঘটা) manner.</p>
-<h2 id="visualizing-execution-the-space-time-diagram">Visualizing Execution: The Space-Time Diagram<a class="headerlink" href="#visualizing-execution-the-space-time-diagram" title="Anchor link to this section for reference">¶</a></h2>
-<p>To understand how multiple instructions execute over real-time clock cycles, computer architects use a visualization tool (দৃশ্যমান করার মাধ্যম) called the Space-Time Diagram.<br>
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="image-5.png"></a><br>
-* <strong>X-axis:</strong> Represents the Time in terms of Clock Cycles (যেমন: Cycle 1, Cycle 2, Cycle 3).<br>
-* <strong>Y-axis:</strong> Represents the physical Pipeline Stages or Segments.</p>
-<p>By plotting instructions inside this matrix, we can clearly see the exact realization model of how overlapping occurs cycle by cycle, and how the overall execution time drops significantly compared to non-pipelined hardware.</p>
-<h2 id="quantitative-analysis-and-performance-metrics-of-pipelining">Quantitative Analysis and Performance Metrics of Pipelining<a class="headerlink" href="#quantitative-analysis-and-performance-metrics-of-pipelining" title="Anchor link to this section for reference">¶</a></h2>
-<p>In computer architecture, the execution of a program containing a specific set of instructions depends heavily on the structural layout of the processor. The total volume of instructions to be processed in a given program run is technically defined as the <strong>Load</strong> (কাজের পরিমাণ বা ইনস্ট্রাকশন সংখ্যা).</p>
-<p>To carry out a rigorous performance analysis, we analyze the standard instruction cycle (নির্দেশ চক্র) using a 5 stage RISC processor configuration. The execution path is partitioned into five sequential steps:</p>
-<ol>
-<li><strong>Instruction Fetch (IF, নির্দেশ সংগ্রহ):</strong> Retrieving the instruction binary from the memory unit.</li>
-<li><strong>Instruction Decode (ID, নির্দেশ বিশ্লেষণ):</strong> Interpreting the opcode and reading from the register file.</li>
-<li><strong>Execute (EX, নির্দেশ সম্পাদন):</strong> Performing the designated arithmetic or logical operation via the ALU.</li>
-<li><strong>Memory Access (MEM, মেমোরি অ্যাক্সেস):</strong> Reading from or writing data into the data memory.</li>
-<li><strong>Write Back (WB, রেজিস্টারে সংরক্ষণ):</strong> Writing the final computed result back into the target register.</li>
-</ol>
-<p>For mathematical uniformity (সমরূপতা), we establish a uniform clock cycle model where every individual stage requires exactly 1 clock cycle (cc) of time to complete its respective operation.</p>
-<h2 id="performance-derivation-for-non-pipelined-architecture">Performance Derivation for Non-Pipelined Architecture<a class="headerlink" href="#performance-derivation-for-non-pipelined-architecture" title="Anchor link to this section for reference">¶</a></h2>
-<p>A traditional non-pipelined system relies strictly on sequential processing (পর্যায়ক্রমিক প্রক্রিয়া). An instruction is permitted to initiate its execution cycle only after the entirely preceding instruction has successfully completed all its 5 stages and exited the processor pipeline.</p>
-<h3 id="mathematical-formulation">Mathematical Formulation<a class="headerlink" href="#mathematical-formulation" title="Anchor link to this section for reference">¶</a></h3>
-<p>Let:</p>
+<h5 id="characteristics-of-a-parallel-problem">Characteristics of a Parallel Problem<a class="headerlink" href="#characteristics-of-a-parallel-problem" title="Anchor link to this section for reference">¶</a></h5>
+<p>We cannot solve every computer problem using parallel processing. A problem must have these specific characteristics:</p>
 <ul>
-<li><span class="arithmatex">\(n\)</span> = Total number of instructions in the program load = 8</li>
-<li><span class="arithmatex">\(k\)</span> = Total number of execution stages in the processor architecture = 5</li>
+<li>The problem must be breakable into discrete pieces of work that can be solved at the same time.</li>
+<li>Multiple program instructions must execute at any moment without causing errors or data mixing.</li>
+<li>Solving the problem with multiple computing resources must take less time compared to using a single resource.</li>
 </ul>
-<div class="arithmatex">\[\text{Execution Time for a Single Instruction} = k = 5 \text{ clock cycles}\]</div>
-<div class="arithmatex">\[\text{Total Clock Cycles for } n \text{ Instructions } (T_{np}) = n \times k\]</div>
-<div class="arithmatex">\[T_{np} = 8 \times 5 = 40 \text{ clock cycles}\]</div>
-<p>Consequently, the non-pipelined hardware requires 40 clock cycles to execute the entire program load. This architecture suffers from a massive operational bottleneck (পদ্ধতিগত বাধা) because when a single instruction occupies one stage, the remaining four stages are left completely idle (অলস বা অব্যবহৃত), wasting valuable hardware execution area.</p>
-<h2 id="performance-derivation-for-pipelined-architecture">Performance Derivation for Pipelined Architecture<a class="headerlink" href="#performance-derivation-for-pipelined-architecture" title="Anchor link to this section for reference">¶</a></h2>
-<p>Pipelined architecture optimizes throughput by introducing overlapping execution (আপতিত বা সমান্তরাল সম্পাদন), allowing distinct hardware segments to process different instructions at the same time.</p>
-<h3 id="space-time-matrix-mapping">Space-Time Matrix Mapping<a class="headerlink" href="#space-time-matrix-mapping" title="Anchor link to this section for reference">¶</a></h3>
-<p>The overlapping execution sequence is tracked using a Space-Time Diagram (স্থান ও কাল নির্দেশক চিত্র). The horizontal X axis tracks the elapsed time slots in terms of Clock Cycles, while the vertical Y axis maps the physical Pipeline Stages (<span class="arithmatex">\(S_1\)</span> to <span class="arithmatex">\(S_5\)</span>).</p>
-<table>
-<thead>
-<tr>
-<th>Stages / Cycles</th>
-<th>C1</th>
-<th>C2</th>
-<th>C3</th>
-<th>C4</th>
-<th>C5</th>
-<th>C6</th>
-<th>C7</th>
-<th>C8</th>
-<th>C9</th>
-<th>C10</th>
-<th>C11</th>
-<th>C12</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><span class="arithmatex">\(S_1\)</span> (IF)</strong></td>
-<td><span class="arithmatex">\(I_1\)</span></td>
-<td><span class="arithmatex">\(I_2\)</span></td>
-<td><span class="arithmatex">\(I_3\)</span></td>
-<td><span class="arithmatex">\(I_4\)</span></td>
-<td><span class="arithmatex">\(I_5\)</span></td>
-<td><span class="arithmatex">\(I_6\)</span></td>
-<td><span class="arithmatex">\(I_7\)</span></td>
-<td><span class="arithmatex">\(I_8\)</span></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong><span class="arithmatex">\(S_2\)</span> (ID)</strong></td>
-<td></td>
-<td><span class="arithmatex">\(I_1\)</span></td>
-<td><span class="arithmatex">\(I_2\)</span></td>
-<td><span class="arithmatex">\(I_3\)</span></td>
-<td><span class="arithmatex">\(I_4\)</span></td>
-<td><span class="arithmatex">\(I_5\)</span></td>
-<td><span class="arithmatex">\(I_6\)</span></td>
-<td><span class="arithmatex">\(I_7\)</span></td>
-<td><span class="arithmatex">\(I_8\)</span></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong><span class="arithmatex">\(S_3\)</span> (EX)</strong></td>
-<td></td>
-<td></td>
-<td><span class="arithmatex">\(I_1\)</span></td>
-<td><span class="arithmatex">\(I_2\)</span></td>
-<td><span class="arithmatex">\(I_3\)</span></td>
-<td><span class="arithmatex">\(I_4\)</span></td>
-<td><span class="arithmatex">\(I_5\)</span></td>
-<td><span class="arithmatex">\(I_6\)</span></td>
-<td><span class="arithmatex">\(I_7\)</span></td>
-<td><span class="arithmatex">\(I_8\)</span></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong><span class="arithmatex">\(S_4\)</span> (MEM)</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td><span class="arithmatex">\(I_1\)</span></td>
-<td><span class="arithmatex">\(I_2\)</span></td>
-<td><span class="arithmatex">\(I_3\)</span></td>
-<td><span class="arithmatex">\(I_4\)</span></td>
-<td><span class="arithmatex">\(I_5\)</span></td>
-<td><span class="arithmatex">\(I_6\)</span></td>
-<td><span class="arithmatex">\(I_7\)</span></td>
-<td><span class="arithmatex">\(I_8\)</span></td>
-<td></td>
-</tr>
-<tr>
-<td><strong><span class="arithmatex">\(S_5\)</span> (WB)</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><span class="arithmatex">\(I_1\)</span></td>
-<td><span class="arithmatex">\(I_2\)</span></td>
-<td><span class="arithmatex">\(I_3\)</span></td>
-<td><span class="arithmatex">\(I_4\)</span></td>
-<td><span class="arithmatex">\(I_5\)</span></td>
-<td><span class="arithmatex">\(I_6\)</span></td>
-<td><span class="arithmatex">\(I_7\)</span></td>
-<td><span class="arithmatex">\(I_8\)</span></td>
-</tr>
-</tbody>
-</table>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Space Time matrix mapping" src="image-4.png"></a></p>
-<h3 id="mathematical-formulation-of-pipelined-time">Mathematical Formulation of Pipelined Time<a class="headerlink" href="#mathematical-formulation-of-pipelined-time" title="Anchor link to this section for reference">¶</a></h3>
-<p>By inspecting the space-time grid, we can deduce the total clock cycles:</p>
+<h4 id="real-world-examples-and-analogy">Real-World Examples and Analogy<a class="headerlink" href="#real-world-examples-and-analogy" title="Anchor link to this section for reference">¶</a></h4>
+<h5 id="the-ticket-counter-analogy">The Ticket Counter Analogy<a class="headerlink" href="#the-ticket-counter-analogy" title="Anchor link to this section for reference">¶</a></h5>
+<p>Think about a regular life example. If you go to a bank or a theater to get a ticket, and there is only one cashier window, everyone stands in a single line (লাইন). The cashier serves people one by one. This is serial processing. If the line becomes very long, the cashier faces a lot of difficulty, and it takes too much time.</p>
+<p>But if we open two or three counters with separate cashiers, multiple people can get tickets at the same time. This is parallel processing. It decreases the waiting time.</p>
+<h5 id="the-real-world-is-parallel">The Real World is Parallel<a class="headerlink" href="#the-real-world-is-parallel" title="Anchor link to this section for reference">¶</a></h5>
+<p>Our physical universe works in a parallel way. In nature, many complex things happen simultaneously. For example:</p>
 <ul>
-<li>The very first instruction (<span class="arithmatex">\(I_1\)</span>) requires full <span class="arithmatex">\(k\)</span> clock cycles (5 cycles) to pass through all stages and exit. This time is mandatory to initially fill up (পাইপলাইন পূর্ণ করা) the empty pipeline.</li>
-<li>Once the pipeline reaches a fully loaded state, one completed instruction drops out of the pipeline at the end of every subsequent clock cycle. Thus, the remaining <span class="arithmatex">\((n - 1)\)</span> instructions require exactly <span class="arithmatex">\((n - 1)\)</span> clock cycles to finish.</li>
+<li>Planetary movements and galaxies are moving at the exact same time.</li>
+<li>The human brain functions by processing multiple signals together.</li>
+<li>Weather changing, atmospheric modeling, and city traffic flows happen concurrently.</li>
 </ul>
-<div class="arithmatex">\[\text{Total Clock Cycles in Pipelining } (T_p) = k + (n - 1)\]</div>
-<p>Substituting the specific experimental values where <span class="arithmatex">\(k = 5\)</span> and <span class="arithmatex">\(n = 8\)</span>:</p>
-<div class="arithmatex">\[T_p = 5 + (8 - 1) = 5 + 7 = 12 \text{ clock cycles}\]</div>
-<p>If each clock cycle possesses a specific time duration denoted as <span class="arithmatex">\(t_p\)</span>, the absolute execution time (<span class="arithmatex">\(T\)</span>) is defined as:</p>
-<div class="arithmatex">\[\text{Total Execution Time } (T) = [k + (n - 1)] \times t_p\]</div>
-<h2 id="architectural-evaluation-parameters">Architectural Evaluation Parameters<a class="headerlink" href="#architectural-evaluation-parameters" title="Anchor link to this section for reference">¶</a></h2>
-<h3 id="1-optimization-target-cpi-approx-1">1. Optimization Target: CPI <span class="arithmatex">\(\approx\)</span> 1<a class="headerlink" href="#1-optimization-target-cpi-approx-1" title="Anchor link to this section for reference">¶</a></h3>
-<p>The core objective of pipelining is to minimize the CPI, which denotes Cycles Per Instruction (প্রতি ইনস্ট্রাকশনের জন্য প্রয়োজনীয় ক্লক সাইকেল), pulling it down toward a theoretical ideal baseline value of 1.</p>
-<p>Consider a massive program load where <span class="arithmatex">\(n = 1000\)</span> instructions are executed on a <span class="arithmatex">\(k = 5\)</span> stage pipeline:</p>
-<div class="arithmatex">\[T_p = 5 + (1000 - 1) = 1004 \text{ clock cycles}\]</div>
-<div class="arithmatex">\[\text{Effective CPI} = \frac{\text{Total Clock Cycles}}{\text{Total Instructions}} = \frac{1004}{1000} = 1.004 \approx 1\]</div>
-<p>This mathematical trend proves that as the total load increases, the effective execution rate approaches the ideal throughput (কার্যক্ষমতার হার) of one instruction per clock cycle.</p>
-<h3 id="2-speedup-factor-s">2. Speedup Factor (<span class="arithmatex">\(S\)</span>)<a class="headerlink" href="#2-speedup-factor-s" title="Anchor link to this section for reference">¶</a></h3>
-<p>Speedup is a relative metric that quantifies how much faster the pipelined processor operates when measured against the conventional non-pipelined hardware design.</p>
-<div class="arithmatex">\[S = \frac{\text{Execution Time in Non-Pipelined Hardware } (T_{np})}{\text{Execution Time in Pipelined Hardware } (T_p)}\]</div>
-<div class="arithmatex">\[S = \frac{n \times k}{k + (n - 1)}\]</div>
-<p>Substituting our derived execution values (<span class="arithmatex">\(T_{np} = 40\)</span> and <span class="arithmatex">\(T_p = 12\)</span>):</p>
-<div class="arithmatex">\[S = \frac{40}{12} = 3.33\]</div>
-<p>This specifies that the pipelined implementation provides a performance acceleration of 3.33 times.</p>
-<h3 id="3-hardware-efficiency-and-resource-utilization-eta">3. Hardware Efficiency and Resource Utilization (<span class="arithmatex">\(\eta\)</span>)<a class="headerlink" href="#3-hardware-efficiency-and-resource-utilization-eta" title="Anchor link to this section for reference">¶</a></h3>
-<p>Efficiency computes the percentage of space-time resource blocks that were productively occupied by instructions out of the entire available execution grid matrix.</p>
-<div class="arithmatex">\[\text{Total Allocated Resource Blocks} = \text{Total Cycles } (T_p) \times \text{Total Stages } (k)\]</div>
-<div class="arithmatex">\[\text{Total Allocated Blocks} = 12 \times 5 = 60 \text{ blocks}\]</div>
-<div class="arithmatex">\[\text{Total Productive Blocks Used} = n \times k = 8 \times 5 = 40 \text{ blocks}\]</div>
-<div class="arithmatex">\[\text{Hardware Efficiency } (\eta) = \frac{\text{Productive Blocks Used}}{\text{Total Allocated Blocks}} = \frac{n \times k}{[k + (n - 1)] \times k} = \frac{n}{k + (n - 1)}\]</div>
-<div class="arithmatex">\[\eta = \frac{40}{60} = \frac{2}{3} \approx 66.67\%\]</div>
-<p>This mathematical result indicates that due to the initial filling phase and the final draining phase of the pipeline layout, <span class="arithmatex">\(66.67\%\)</span> of the available hardware computational space was efficiently utilized (হার্ডওয়্যারের ব্যবহার).</p>
+<p>Because our real world is parallel and very complex, serial computers cannot simulate or model these processes correctly. We need parallel computing for accurate simulations (গণনামূলক সিমুলেশন).</p>
+<h4 id="why-do-we-need-parallel-computing">Why Do We Need Parallel Computing?<a class="headerlink" href="#why-do-we-need-parallel-computing" title="Anchor link to this section for reference">¶</a></h4>
+<p>There are several major reasons why parallel computing is necessary today:</p>
+<ul>
+<li><strong>Saving Time and Money:</strong> Using multiple resources at the same time saves a lot of processing time. Saving time directly decreases the operational cost (খরচ).</li>
+<li><strong>Solving Large Problems:</strong> Think about modern web search engines. They process millions of information requests per second. A single processor cannot handle this massive scale of data.</li>
+<li><strong>Using Non-Local Resources:</strong> We can connect different computers over a network. Parallel computing allows one system to use the data and memory of another remote computer easily.</li>
+<li><strong>Providing Concurrency:</strong> It allows the system to do many different things at the exact same chronological instance (একই সময়ে).</li>
+<li><strong>Limits of Single Processors:</strong> Physical processors have reached a speed limit. We cannot make a single CPU core any faster because of high heat dissipation (তাপ নির্গমন) and power consumption. Therefore, adding more processors in parallel is the only way to increase speed.</li>
+</ul>
+<h4 id="common-practical-applications">Common Practical Applications<a class="headerlink" href="#common-practical-applications" title="Anchor link to this section for reference">¶</a></h4>
+<p>Parallel computing is highly used in the following areas:</p>
+<ul>
+<li><strong>Scientific Computing:</strong> For nuclear simulations, chemical molecular modeling, and complex math calculations.</li>
+<li><strong>Business and Databases:</strong> For running web search engines, online transaction processing (OLTP), data mining, and big management information systems.</li>
+<li><strong>Geographic Information Systems (GIS):</strong> For handling Google Maps data, seismic data analysis, and earth mapping.</li>
+<li><strong>Artificial Intelligence (AI):</strong> For running machine learning, deep learning, and multi-layered neural networks (নিউরাল নেটওয়ার্ক).</li>
+<li><strong>Real-Time Control Systems:</strong> For managing robotic hardware, automatic machinery, and high-speed speech processing.</li>
+</ul>
 
 
 
@@ -11256,13 +10942,13 @@
         
         
           
-          <a href="Array-Processing/" class="md-footer__link md-footer__link--next" aria-label="Next: Array Processing">
+          <a href="02-Uni-Processor/" class="md-footer__link md-footer__link--next" aria-label="Next: Uni-Processor Architecture and Parallel Processing Mechanisms">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Array Processing
+                Uni-Processor Architecture and Parallel Processing Mechanisms
               </div>
             </div>
             <div class="md-footer__button md-icon">
