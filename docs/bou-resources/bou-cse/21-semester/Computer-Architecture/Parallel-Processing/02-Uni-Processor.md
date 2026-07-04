@@ -51,10 +51,9 @@ Instead of having just one general ALU that does all the work, the internal stru
 
 #### II. Parallelism and Pipelining Within the CPU
 ![alt text](image-11.png)
-* **Parallel Hardware Design:** Replacing slow serial adders with high-speed parallel adders like **Carry Look-Ahead Adders (CLA)**, fast multipliers, and convergence dividers to increase processing speed at the circuit level.
-* **Pipelining (पाइपलाइनिंग):** Breaking the standard instruction execution cycle into separate stages (Fetch, Decode, Execute, and Result Storage). Multiple instructions are overlapped (ওভারল্যাপ) inside the execution pipeline. While instruction 1 is executing, instruction 2 is being decoded, and instruction 3 is being fetched from memory.
+* **Parallel Hardware Design:** Replacing slow serial adders with high-speed parallel adders like **Carry Look-Ahead Adders (CLA)**, **fast multipliers**, and **convergence dividers** to increase processing speed at the circuit level.
+* **Pipelining (4/5 stage pipelines):** Breaking the standard instruction execution cycle into separate stages (Fetch, Decode, Execute, and Result Storage). Multiple instructions are overlapped (ওভারল্যাপ) inside the execution pipeline. While instruction 1 is executing, instruction 2 is being decoded, and instruction 3 is being fetched from memory.
 
-### Detailed Exam Notes: Parallelism in Uni-Processor Systems
 
 #### 1. Overlapped CPU and I/O Operations (Hardware Method)
 
