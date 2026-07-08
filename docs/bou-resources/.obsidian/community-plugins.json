@@ -1,5 +1,4 @@
 [
-  "obsidian-excalidraw-plugin",
   "ink",
   "obsidian-linter",
   "math-indicator-changer",
@@ -11,7 +10,6 @@
   "image-converter",
   "editing-toolbar",
   "make-md",
-  "edge-tts",
   "automatic-table-of-contents",
   "mermaid-tools",
   "obsidian-bulk-rename-plugin",
