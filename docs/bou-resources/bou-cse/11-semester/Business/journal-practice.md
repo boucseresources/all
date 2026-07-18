@@ -1,9 +1,10 @@
 ---
 dg-home: false
 dg-publish: true
-aliases: 
+aliases:
 tags:
 ---
+
 Certainly! Here's the content written in the same format as the image:
 
 ---
@@ -44,7 +45,6 @@ Certainly! Here's the content written in the same format as the image:
 |      |     | Cash A/c                | Cr  |           | 2,000      |
 |      | 9   | No transaction          |     |           |            |
 
-
 ===========================================================================
 
 ## 📘 Practice Transactions (1-10):
@@ -64,42 +64,40 @@ Certainly! Here's the content written in the same format as the image:
 
 🔍 **Instructions:**
 
-* প্রতিটা transaction দেখে তুমি নিজে **journal entry** লেখার চেষ্টা করো।
-* প্রতিবার:
-
-  * কোন A/c debit হবে?
-  * কোনটা credit হবে?
-  * কত টাকা হবে?
+- প্রতিটা transaction দেখে আপনি নিজে **journal entry** লেখার চেষ্টা করো।
+- প্রতিবার:
+  - কোন A/c debit হবে?
+  - কোনটা credit হবে?
+  - কত টাকা হবে?
 
 ---
 
 ✅ যখন শেষ করবে, বলো: “done”
-তাহলে আমি তোমার solution চেক করে answer দিবো।
+তাহলে আমি আপনার solution চেক করে answer দিবো।
 
-তুমি চাইলে এক একটা করে করে চেকও করতে পারো। Ready? 😄
-
+আপনি চাইলে এক একটা করে করে চেকও করতে পারো। Ready? 😄
 
 ## 📘 Journal of XYZ Company
 
-| SL | Particulars             | L.N | Debit (৳) | Credit (৳) |
-| -- | ----------------------- | --- | --------- | ---------- |
-| 01 | Cash A/c                | Dr  | 20,000    |            |
-|    | Owner’s Capital A/c     | Cr  |           | 20,000     |
-| 02 | Furniture A/c           | Dr  | 3,000     |            |
-|    | Cash A/c                | Cr  |           | 3,000      |
-| 03 | Purchase A/c            | Dr  | 5,000     |            |
-|    | Accounts Payable A/c    | Cr  |           | 5,000      |
-| 04 | Cash A/c                | Dr  | 6,000     |            |
-|    | Sales A/c               | Cr  |           | 6,000      |
-| 05 | Accounts Receivable A/c | Dr  | 2,000     |            |
-|    | Sales A/c               | Cr  |           | 2,000      |
-| 06 | Rent Expense A/c        | Dr  | 1,200     |            |
-|    | Cash A/c                | Cr  |           | 1,200      |
-| 07 | Cash A/c                | Dr  | 500       |            |
-|    | Commission A/c          | Cr  |           | 500        |
-| 08 | Electricity Expense A/c | Dr  | 300       |            |
-|    | Cash A/c                | Cr  |           | 300        |
-| 09 | Drawings A/c            | Dr  | 1,000     |            |
-|    | Cash A/c                | Cr  |           | 1,000      |
-| 10 | Salary Expense A/c      | Dr  | 700       |            |
-|    | Cash A/c                | Cr  |           | 700        |
+| SL  | Particulars             | L.N | Debit (৳) | Credit (৳) |
+| --- | ----------------------- | --- | --------- | ---------- |
+| 01  | Cash A/c                | Dr  | 20,000    |            |
+|     | Owner’s Capital A/c     | Cr  |           | 20,000     |
+| 02  | Furniture A/c           | Dr  | 3,000     |            |
+|     | Cash A/c                | Cr  |           | 3,000      |
+| 03  | Purchase A/c            | Dr  | 5,000     |            |
+|     | Accounts Payable A/c    | Cr  |           | 5,000      |
+| 04  | Cash A/c                | Dr  | 6,000     |            |
+|     | Sales A/c               | Cr  |           | 6,000      |
+| 05  | Accounts Receivable A/c | Dr  | 2,000     |            |
+|     | Sales A/c               | Cr  |           | 2,000      |
+| 06  | Rent Expense A/c        | Dr  | 1,200     |            |
+|     | Cash A/c                | Cr  |           | 1,200      |
+| 07  | Cash A/c                | Dr  | 500       |            |
+|     | Commission A/c          | Cr  |           | 500        |
+| 08  | Electricity Expense A/c | Dr  | 300       |            |
+|     | Cash A/c                | Cr  |           | 300        |
+| 09  | Drawings A/c            | Dr  | 1,000     |            |
+|     | Cash A/c                | Cr  |           | 1,000      |
+| 10  | Salary Expense A/c      | Dr  | 700       |            |
+|     | Cash A/c                | Cr  |           | 700        |

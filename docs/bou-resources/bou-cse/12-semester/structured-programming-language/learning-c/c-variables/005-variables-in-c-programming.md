@@ -1,17 +1,18 @@
 আমরা এখন শিখবো —
+
 # `005. Variables in C Programming`
 
-> একদম 👶 Noob লেভেল থেকে ধরছি — যেন তুমি zero থেকে hero হয়ে যাও! 🦸
+> একদম 👶 Noob লেভেল থেকে ধরছি — যেন আপনি zero থেকে hero হয়ে যাও! 🦸
 
 ---
 
 ## 🔍 Variable মানে আসলে কী?
 
-Variable মানে হলো **একটা বাক্স** 📦 যেখানে তুমি কোন **value** (মানে data) রাখবা।
+Variable মানে হলো **একটা বাক্স** 📦 যেখানে আপনি কোন **value** (মানে data) রাখবা।
 এই বাক্সটার একটা **নাম** থাকবে, যাতে পরে দরকার হলে ওই value আমরা code-এ ব্যবহার করতে পারি।
 
 📦 `age = 21`
-মানে তুমি একটা `age` নামে box বানাইছো, যেটার ভিতরে 21 রাখা আছে।
+মানে আপনি একটা `age` নামে box বানাইছো, যেটার ভিতরে 21 রাখা আছে।
 
 ---
 
@@ -40,20 +41,21 @@ int age = 21;
 | অক্ষর          | `char`  | `char grade = 'A';` | Single letter          |
 
 🧠 মনে রাখো —
-* `int` = পূর্ণ সংখ্যা
-* `float` = ভাসমান দশমিক সংখ্যা
-* `char` = character/letter
+
+- `int` = পূর্ণ সংখ্যা
+- `float` = ভাসমান দশমিক সংখ্যা
+- `char` = character/letter
 
 ---
 
 ## ⚠️ Variable Naming Rules (With Emoji)
 
 | ✅/❌ | Rule                                    | Example             |
-| --- | --------------------------------------- | ------------------- |
-| ✅   | শুরু করতে হবে letter বা underscore দিয়ে | `int _score = 100;` |
-| ❌   | শুরুতে সংখ্যা দেয়া যাবে না              | `int 1num;` ❌ ভুল   |
-| ❌   | স্পেশাল ক্যারেক্টার (like \$, %, @) নয়  | `int money$;` ❌     |
-| ✅   | ছোট হাতের letter use করো                | `int age = 20;`     |
+| ----- | --------------------------------------- | ------------------- |
+| ✅    | শুরু করতে হবে letter বা underscore দিয়ে | `int _score = 100;` |
+| ❌    | শুরুতে সংখ্যা দেয়া যাবে না              | `int 1num;` ❌ ভুল  |
+| ❌    | স্পেশাল ক্যারেক্টার (like \$, %, @) নয়  | `int money$;` ❌    |
+| ✅    | ছোট হাতের letter use করো                | `int age = 20;`     |
 
 ---
 
@@ -61,9 +63,9 @@ int age = 21;
 
 | Variable Name | Value | বাস্তব উদাহরণ      |
 | ------------- | ----- | ------------------ |
-| `int age`     | 20    | তোমার বয়স          |
-| `float gpa`   | 3.75  | তোমার GPA          |
-| `char grade`  | 'A'   | তোমার result grade |
+| `int age`     | 20    | আপনার বয়স          |
+| `float gpa`   | 3.75  | আপনার GPA          |
+| `char grade`  | 'A'   | আপনার result grade |
 
 ---
 
@@ -95,13 +97,12 @@ Grade: A
 
 ## 🧯 Common Mistakes 🔥
 
-| ❌ Mistake              | ✅ Fix                       | Why?                     |
+| ❌ Mistake             | ✅ Fix                      | Why?                     |
 | ---------------------- | --------------------------- | ------------------------ |
 | `int num = "Hello";`   | Use `char[]` or `string`    | string can't go in `int` |
 | `float price = 10.5.3` | Use only one `.`            | Multiple dots invalid    |
 | `char grade = A;`      | Use `'A'`                   | Char needs single quotes |
 | Used without declare   | Declare first like `int x;` | C needs pre-declaration  |
-
 
 ---
 

@@ -1,5 +1,5 @@
 `C Variable Names` – মানে কিভাবে ভালো ও সঠিক ভাবে variable-এর নাম দিবে 🧠
-তোমার জন্য আমি এখন এই টপিকটা একদম **noob level** থেকে একদম ভালোভাবে ভেঙে ভেঙে, টেবিল সহ, flowchart সহ, emoji দিয়ে easy করে বুঝিয়ে দিচ্ছি! ✅
+আপনার জন্য আমি এখন এই টপিকটা একদম **noob level** থেকে একদম ভালোভাবে ভেঙে ভেঙে, টেবিল সহ, flowchart সহ, emoji দিয়ে easy করে বুঝিয়ে দিচ্ছি! ✅
 
 ---
 
@@ -12,10 +12,12 @@ C Programming-এ **প্রতিটি variable এর একটা নাম
 
 ## 📦 Variable Name মানে কী?
 
-তুমি যখন একটা value store করো, তখন ওই value টা **কার নামের নিচে আছে সেটা বলার জন্য** variable name লাগে।
+আপনি যখন একটা value store করো, তখন ওই value টা **কার নামের নিচে আছে সেটা বলার জন্য** variable name লাগে।
+
 ```c
 int age = 20;
 ```
+
 এখানে 👉 `age` হলো variable name, আর `20` হলো এর ভেতরে রাখা মান (value)।
 
 ---
@@ -23,32 +25,35 @@ int age = 20;
 ## ✅ ভালো আর খারাপ Variable Name-এর উদাহরণ
 
 | ভালো নাম (Recommended 👍) | খারাপ নাম (Avoid ❌) | কেন? 🧠                  |
-| ------------------------- | ------------------- | ------------------------ |
-| `minutesPerHour`          | `m`                 | m মানে কি বোঝা যাচ্ছে না |
-| `totalMarks`              | `tm`                | Short form confusing     |
-| `userAge`                 | `a`                 | Unclear what 'a' means   |
+| ------------------------- | -------------------- | ------------------------ |
+| `minutesPerHour`          | `m`                  | m মানে কি বোঝা যাচ্ছে না |
+| `totalMarks`              | `tm`                 | Short form confusing     |
+| `userAge`                 | `a`                  | Unclear what 'a' means   |
 
-👉 **মানুষ** (future coder বা তোমার ভবিষ্যতের তুমিও) যেন সহজে বুঝতে পারে code-এ কোন variable কী কাজে লাগে — এজন্য ভালো নাম দিতে হয়।
+👉 **মানুষ** (future coder বা আপনার ভবিষ্যতের আপনিও) যেন সহজে বুঝতে পারে code-এ কোন variable কী কাজে লাগে — এজন্য ভালো নাম দিতে হয়।
 
 ---
 
 ## 📜 Variable Naming Rules (with ✅ and ❌)
 
-| 🔢 Rule No | Rule Description                          | Example ✅             | Example ❌                | কারণ                                         |
-| ---------- | ----------------------------------------- | --------------------- | ------------------------ | -------------------------------------------- |
-| 1️⃣        | Letters, digits, underscore (`_`) allowed | `score1`, `user_name` | `score-1`, `user@name` ❌ | Special characters disallowed                |
-| 2️⃣        | Must start with a letter or `_`           | `_temp`, `name`       | `1score` ❌               | Number দিয়ে শুরু করা যাবে না                 |
-| 3️⃣        | Case-sensitive                            | `Age ≠ age`           | N/A                      | `age` আর `Age` আলাদা                         |
-| 4️⃣        | No spaces allowed                         | `userName`            | `user name` ❌            | Space is not allowed                         |
-| 5️⃣        | Cannot use reserved words                 | N/A                   | `int int = 5;` ❌         | `int`, `return`, `float` = reserved keywords |
+| 🔢 Rule No | Rule Description                          | Example ✅            | Example ❌                | কারণ                                         |
+| ---------- | ----------------------------------------- | --------------------- | ------------------------- | -------------------------------------------- |
+| 1️⃣         | Letters, digits, underscore (`_`) allowed | `score1`, `user_name` | `score-1`, `user@name` ❌ | Special characters disallowed                |
+| 2️⃣         | Must start with a letter or `_`           | `_temp`, `name`       | `1score` ❌               | Number দিয়ে শুরু করা যাবে না                 |
+| 3️⃣         | Case-sensitive                            | `Age ≠ age`           | N/A                       | `age` আর `Age` আলাদা                         |
+| 4️⃣         | No spaces allowed                         | `userName`            | `user name` ❌            | Space is not allowed                         |
+| 5️⃣         | Cannot use reserved words                 | N/A                   | `int int = 5;` ❌         | `int`, `return`, `float` = reserved keywords |
+
 ### The general rules for naming variables are:
+
 1. Names can contain letters, digits and underscores
-2. Names must begin with a letter or an underscore (_)
+2. Names must begin with a letter or an underscore (\_)
 3. Names are case-sensitive (myVar and myvar are different variables)
 4. Names cannot contain whitespaces or special characters like !, #, %, etc.
 5. Reserved words (such as int) cannot be used as names
 
 ---
+
 ## 🆔 Case Sensitivity Example
 
 ```c
@@ -60,16 +65,17 @@ int User = 20;
 ⚠️ তাই একে অপরকে ভুল করে overwrite করবে না।
 
 ---
+
 ## 💥 Reserved Words List (Avoid using)
 
 C-এর built-in words — যেগুলো compiler নিজেই use করে — সেগুলো দিয়ে variable নাম দেয়া যাবে না ❌
 
 | ❌ Examples of Reserved Words |
-| ---------------------------- |
-| `int`, `return`, `float`     |
-| `if`, `else`, `for`          |
-| `while`, `break`, `char`     |
-| `double`, `switch`, `void`   |
+| ----------------------------- |
+| `int`, `return`, `float`      |
+| `if`, `else`, `for`           |
+| `while`, `break`, `char`      |
+| `double`, `switch`, `void`    |
 
 ---
 
@@ -98,13 +104,13 @@ char char = 'A';      // ❌ reserved word use
 | Variable Name   | Initial Declaration          | Value We Set Later |
 | --------------- | ---------------------------- | ------------------ |
 | `int age;`      | Just declared (no value yet) | `age = 25;`        |
-| `int age = 25;` | Declared + value set         | Already done ✅     |
+| `int age = 25;` | Declared + value set         | Already done ✅    |
 
 ---
 
 ## 📊 Summary Table
 
-| Feature               | What to Do ✅            | What to Avoid ❌     |
+| Feature               | What to Do ✅           | What to Avoid ❌    |
 | --------------------- | ----------------------- | ------------------- |
 | Use letters/digits/\_ | `score1`, `total_value` | `score-1`, `value$` |
 | Start with letter/\_  | `user`, `_temp`         | `2user`, `@name`    |
@@ -125,7 +131,7 @@ char char = 'A';      // ❌ reserved word use
 
 ## 🎯 Practice Task (Challenge Time!)
 
-👉 তোমার task:
+👉 আপনার task:
 
 **নিচের নামগুলো যাচাই করো এবং বলো কোনটা valid আর কোনটা invalid variable name?**
 
@@ -134,4 +140,3 @@ char char = 'A';      // ❌ reserved word use
 3. `float _gpa;`
 4. `char grade$;`
 5. `int for;`
-

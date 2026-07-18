@@ -1,18 +1,18 @@
-# Java Calculator 
-এখানে একটি সহজ জাভা Calculator বানাচ্ছি। যারা আমরা ইতিমধ্যেই 
+# Java Calculator
+
+এখানে একটি সহজ জাভা Calculator বানাচ্ছি। যারা আমরা ইতিমধ্যেই
 
 <!-- #region Optional Title -->
+
 ??? note "Click to expand this block"
-    Everything indented under this line will be hidden.
-    You can add paragraphs, lists, or code here.
+Everything indented under this line will be hidden.
+You can add paragraphs, lists, or code here.
+
 <!-- #endregion -->
-
-
-
 
 Button গুলোর জন্য Level 1 হিসেবে এগুলো use করবোঃ
 
-???  "Manual Buttons"
+??? "Manual Buttons"
 
     ```java
         // Standard Number Buttons (0-9)
@@ -63,7 +63,6 @@ Button গুলোর জন্য Level 1 হিসেবে এগুলো u
         JButton buttonMod          = new JButton("mod");
         JButton buttonPercent      = new JButton("%");
     ```
-
 
 <!-- the  -->
 
@@ -120,7 +119,7 @@ Button গুলোর জন্য Level 1 হিসেবে এগুলো u
 
 ??? "Components Properties"
 
-    তুমি যেহেতু ওয়েব টেকনোলজি (HTML, CSS, JS) ভালো পারো, তাই জাভার এই উইন্ডো ডিজাইন করার কোডটা বুঝতে তোমার মাত্র দুই মিনিট লাগবে!
+    আপনি যেহেতু ওয়েব টেকনোলজি (HTML, CSS, JS) ভালো পারো, তাই জাভার এই উইন্ডো ডিজাইন করার কোডটা বুঝতে আপনার মাত্র দুই মিনিট লাগবে!
 
     জাভাতে (Swing) আমরা একটা এলিমেন্ট তৈরি, স্টাইল এবং স্ক্রিনে বসানোর কাজ **একটানা জাভা কোড লিখে** করি। কিন্তু ওয়েবে আমরা এই কাজটাকে ৩ ভাগে ভাগ করি:
 
@@ -128,7 +127,7 @@ Button গুলোর জন্য Level 1 হিসেবে এগুলো u
     2. **CSS:** সেটার সাইজ, কালার, পজিশন ঠিক করা (স্টাইলিং)।
     3. **JS:** সেটাকে ডমে বা প্যারেন্ট কন্টেইনারে পুশ করা।
 
-    চলো তোমার জাভা কোডের প্রতিটি লাইনকে HTML, CSS আর JS এর সাথে মুখোমুখি তুলনা করে বুঝি:
+    চলো আপনার জাভা কোডের প্রতিটি লাইনকে HTML, CSS আর JS এর সাথে মুখোমুখি তুলনা করে বুঝি:
 
     ---
 
@@ -150,7 +149,7 @@ Button গুলোর জন্য Level 1 হিসেবে এগুলো u
     <br>`color: white;` | জাভাতে টেক্সটের কালার বদলাতে `setForeground` ব্যবহার করা হয়। |
     | `frame.add(label);`<br>
 
-    <br>*(তোমার কোডে ভুলে label.add(label) ছিল, এটা frame.add হবে)* | **JS:**<br>
+    <br>*(আপনার কোডে ভুলে label.add(label) ছিল, এটা frame.add হবে)* | **JS:**<br>
 
     <br>`frameElement.appendChild(label);` | জাভাতে স্ক্রিনে দেখানোর জন্য মেইন ফ্রেমে `add()` করতে হয়, যা JS-এর `appendChild()` এর মতো। |
 
@@ -187,7 +186,7 @@ Button গুলোর জন্য Level 1 হিসেবে এগুলো u
 
     ### ৩. সম্পূর্ণ কোডটি যদি আমরা ওয়েব ফরম্যাটে লিখতাম:
 
-    তোমার এই `addComponents()` মেথডটা যদি ব্রাউজারের জন্য লিখতে হতো, তবে আমরা এভাবে লিখতাম:
+    আপনার এই `addComponents()` মেথডটা যদি ব্রাউজারের জন্য লিখতে হতো, তবে আমরা এভাবে লিখতাম:
 
     #### HTML (ট্যাগ তৈরি)
 
@@ -245,4 +244,3 @@ Button গুলোর জন্য Level 1 হিসেবে এগুলো u
     ```
 
     সহজ কথায়, জাভা সুইং (Swing) এ HTML এবং CSS এর আলাদা কোনো ফাইল থাকে না। মেথডের ভেতর জাভা কোড লিখেই একসাথে এলিমেন্ট তৈরি, CSS-এর মতো স্টাইল এবং JS-এর মতো অ্যাপেন্ড করার কাজগুলো করে ফেলা হয়।
-

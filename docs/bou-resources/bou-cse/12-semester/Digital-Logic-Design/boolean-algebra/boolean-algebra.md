@@ -67,7 +67,7 @@
     **Drop:** `(Y+Z)` → **`(B+C)`**
     **Result:** `(A+B)(A'+C)` ✅
 
-    ### C) তোমার দেওয়া: `A B' + B C + C A`
+    ### C) আপনার দেওয়া: `A B' + B C + C A`
 
     Mapping: `X=B, Y=A, Z=C`
     Form: `Y X' + X Z + Y Z` → **drop `YZ` = `CA`**
