@@ -1,0 +1,11 @@
+{
+  "fileDirections": {
+    "bou-cse/21-semester/Computer-Architecture/Assignment/Computer Architecture Assignment.md": "auto"
+  },
+  "defaultDirection": "auto",
+  "rememberPerFile": true,
+  "setNoteTitleDirection": true,
+  "setYamlDirection": false,
+  "preventRTLFrontmatter": false,
+  "statusBar": true
+}

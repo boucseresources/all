@@ -8,6 +8,12 @@
     
     [![KMap Generator](image.png)](/VARIOUS-TOOLS/abc-kmap-generator/index.html)
 
+!!! info "AI to Word With complex Formula & Equation"
+    
+    এই website টা একটা ফ্রি tier এ চলছে। তাই কিছুক্ষণ অপেক্ষা করতে হতে পার প্রথমবার visit এর সময়ঃ
+    [AI to Doc, Docx](https://aitodoc.onrender.com/)
+    [![KMap Generator](image.png)](/VARIOUS-TOOLS/abc-kmap-generator/index.html)
+
 
 
 <!-- prettier-ignore-start -->
