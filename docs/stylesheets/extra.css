@@ -85,3 +85,37 @@ mjx-container[jax="CHTML"][display="true"]{
   text-align: left!important;
   margin: 5px 0 !important;
 }
+
+
+
+/*  Seems unnecessary  */
+
+
+/* Global Sidebar Fix: Keeps your Semesters menu pinned across all tabs on desktop */
+@media screen and (min-width: 76.25em) {
+  
+  /* 1. Force the Semesters item container to display on the left sidebar everywhere */
+  .md-sidebar--primary .md-nav--lifted > .md-nav__list > .md-nav__item:last-child {
+    display: block !important;
+  }
+
+  /* 2. Hide the redundant main 'Semesters' title text so the links sit cleanly at the top level */
+  .md-sidebar--primary .md-nav--lifted > .md-nav__list > .md-nav__item:last-child > .md-nav__link {
+    display: none !important;
+  }
+
+  /* 3. THE CRITICAL FIX: Bypass the theme's toggle hack by overwriting height, overflow, and visibility properties */
+  .md-sidebar--primary .md-nav--lifted > .md-nav__list > .md-nav__item:last-child > .md-nav {
+    display: block !important;
+    max-height: none !important;
+    overflow: visible !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* 4. Reset padding and indentation so the semesters list aligns flush with the sidebar layout */
+  .md-sidebar--primary .md-nav--lifted > .md-nav__list > .md-nav__item:last-child > .md-nav > .md-nav__list {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}

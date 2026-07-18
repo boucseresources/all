@@ -37,7 +37,7 @@ theme:
     - navigation.indexes
     - toc.follow
     - content.code.copy
-    # - navigation.expand
+    - navigation.expand
     - navigation.top
   palette:
     # Dark Mode
