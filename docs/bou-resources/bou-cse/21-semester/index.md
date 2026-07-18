@@ -1,5 +1,17 @@
 # 21 Semester - 241 Term (2022-23 Session)
 
+!!! info "Important Notices"
+
+    [CSE Result Published - 17/07/2026](https://result.bou.ac.bd/)
+    
+
+!!! info "21 Semester Google Drive" 
+
+    <a href="https://drive.google.com/drive/folders/1lZr6MQrkXx6qAhAZJQsmJLFFB4BxUT3i" class="md-button md-button--primary">21 Semester Google Drive Link</a>
+    
+    <a href="/bou-resources/bou-cse/" class="md-button md-button--primary">21 Semester Google Drive Link</a>
+
+
 ??? "Class routine and academic calendar"
 
     ![21 Class routine](image-1.png)
