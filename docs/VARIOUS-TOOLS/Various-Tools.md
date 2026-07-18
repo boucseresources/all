@@ -12,7 +12,11 @@
     
     এই website টা একটা ফ্রি tier এ চলছে। তাই কিছুক্ষণ অপেক্ষা করতে হতে পার প্রথমবার visit এর সময়ঃ
     [AI to Doc, Docx](https://aitodoc.onrender.com/)
-    [![KMap Generator](image.png)](/VARIOUS-TOOLS/abc-kmap-generator/index.html)
+    
+    <a href="https://aitodoc.onrender.com/">
+        [![AI to Doc, Docx](image-1.png)](https://aitodoc.onrender.com/)
+    </a>
+    
 
 
 
