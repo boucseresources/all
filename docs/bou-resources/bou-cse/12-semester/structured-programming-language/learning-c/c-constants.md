@@ -348,25 +348,26 @@ Number?
 ---
 
 ঠিক আছে 🙂
-আমি তোমার জন্য **C Constants** টপিকের ওপর ৩০টা MCQ বানিয়ে দিচ্ছি — একদম beginner-friendly থেকে একটু tricky পর্যন্ত, যাতে তুমি ধাপে ধাপে বুঝে শিখতে পারো।
-সবগুলো **MkDocs-MCQ** plugin compatible format এ থাকবে, তাই তুমি সরাসরি `.md` ফাইলে paste করে ব্যবহার করতে পারবে।
+আমি আপনার জন্য **C Constants** টপিকের ওপর ৩০টা MCQ বানিয়ে দিচ্ছি — একদম beginner-friendly থেকে একটু tricky পর্যন্ত, যাতে আপনি ধাপে ধাপে বুঝে শিখতে পারো।
+সবগুলো **MkDocs-MCQ** plugin compatible format এ থাকবে, তাই আপনি সরাসরি `.md` ফাইলে paste করে ব্যবহার করতে পারবে।
 
 ---
-চমৎকার! নিচে তোমার **C Constants** MCQ‑গুলোকে **section‑wise** ভাগ করে **collapsible accordion** (MkDocs Material / Pymdown Admonitions) আকারে দিলাম।
+
+চমৎকার! নিচে আপনার **C Constants** MCQ‑গুলোকে **section‑wise** ভাগ করে **collapsible accordion** (MkDocs Material / Pymdown Admonitions) আকারে দিলাম।
 Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্টেন্ট ৪‑space indent. সব MCQ **official mcq format** এ।
 
 > নোট: `section` টাইপ নেই। Common টাইপ: `note`, `info`, `tip`, `example`, `question` ইত্যাদি। আমি `example` ব্যবহার করেছি যাতে neutral লাগে।
 
 ---
 
-
 ??? example "Easy — C Constants (10 MCQs)"
-    ```mcq
-    ---
-    type: single
-    question: C তে "constant" বলতে কী বোঝায়?
-    ---
-    
+
+````mcq
+---
+type: single
+question: C তে "constant" বলতে কী বোঝায়?
+---
+
     - [x] এমন fixed value যা program চলাকালে change হয় না
       > ✅ Constant মানে স্থির মান — runtime এ পরিবর্তন হয় না।
     - [ ] এমন value যা প্রতিবারই change হয়
@@ -380,7 +381,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: নিচের কোনটা **decimal** integer literal?
     ---
-    
+
     - [x] 123
       > ✅ Normal decimal।
     - [ ] 0123
@@ -394,7 +395,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: Leading `0` থাকা integer literal (যেমন `010`) কোন base বোঝায়?
     ---
-    
+
     - [ ] Decimal (base 10)
       > ❌ Decimal হলে leading 0 দিয়ে শুরু হয় না।
     - [x] Octal (base 8)
@@ -408,7 +409,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: 0xFF কোন base এ লেখা?
     ---
-    
+
     - [ ] Decimal
       > ❌ Decimal নয়।
     - [ ] Octal
@@ -422,7 +423,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: কোন suffix দিলে unsigned int literal বোঝায়?
     ---
-    
+
     - [x] U
       > ✅ `U` → unsigned int।
     - [ ] L
@@ -436,7 +437,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: Floating-point literal এর **default type** কী?
     ---
-    
+
     - [ ] float
       > ❌ Default float নয়।
     - [x] double
@@ -450,7 +451,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: কোন suffix দিলে **float** literal হয়?
     ---
-    
+
     - [x] f
       > ✅ `f` → float।
     - [ ] L
@@ -464,7 +465,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: কোন suffix দিলে **long double** literal হয়?
     ---
-    
+
     - [ ] f
       > ❌ `f` → float।
     - [x] L
@@ -478,7 +479,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: `'A'` এবং `"A"` এর মধ্যে পার্থক্য কী?
     ---
-    
+
     - [x] `'A'` char constant, `"A"` string literal
       > ✅ `'A'` single character; `"A"` char array + `'\0'`।
     - [ ] দুটোই char
@@ -492,7 +493,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: কোন escape sequence **newline** বোঝায়?
     ---
-    
+
     - [x] `\n`
       > ✅ Newline।
     - [ ] `\t`
@@ -500,14 +501,13 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     - [ ] `\0`
       > ❌ এটা null character।
 
-
 ??? example "Medium — Pitfalls & Details (10 MCQs)"
-    ```mcq
-    ---
-    type: multiple
-    question: নিচের কোন suffix কম্বিনেশনগুলো valid integer suffix? (Select all that apply)
-    ---
-    
+```mcq
+---
+type: multiple
+question: নিচের কোন suffix কম্বিনেশনগুলো valid integer suffix? (Select all that apply)
+---
+
     - [x] UL
       > ✅ unsigned long।
     - [x] LLU
@@ -523,7 +523,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: `'\x41'` কোন character?
     ---
-    
+
     - [x] 'A'
       > ✅ Hex 41 = decimal 65 = 'A'।
     - [ ] 'B'
@@ -537,7 +537,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: নিচের কোনটা **invalid** integer literal?
     ---
-    
+
     - [ ] 077
       > ✅ Valid octal (decimal 63)।
     - [x] 08
@@ -551,7 +551,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: `printf("%d", 010);` আউটপুট কী হবে?
     ---
-    
+
     - [ ] 10
       > ❌ 010 decimal নয়।
     - [x] 8
@@ -565,7 +565,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: `1.23e3` এর মান কত?
     ---
-    
+
     - [x] 1230
       > ✅ e3 মানে ×10³।
     - [ ] 0.00123
@@ -579,7 +579,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: C তে **character constant** (যেমন `'A'`) এর **type** কী?
     ---
-    
+
     - [x] int
       > ✅ C ভাষায় character constant-এর type হলো int।
     - [ ] char
@@ -593,7 +593,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: multiple
     question: নিচের কোনগুলো **compile-time** constant হিসেবে array size/switch label-এ নিরাপদে use করা যায়? (Select all that apply)
     ---
-    
+
     - [x] `#define N 100`
       > ✅ Preprocessor replace — compile-time।
     - [x] `enum { N = 100 }`
@@ -607,7 +607,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: `"Hello"` string literal কি **modifiable**?
     ---
-    
+
     - [x] No, modify করলে undefined behavior
       > ✅ String literal পরিবর্তন করা যায় না।
     - [ ] Yes, সবসময় করা যায়
@@ -621,7 +621,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: Local scope এ `const int x;` (uninitialized) থাকলে x এর মান?
     ---
-    
+
     - [x] Garbage/indeterminate
       > ✅ Local uninitialized variable garbage থাকে — always initialize।
     - [ ] 0
@@ -635,7 +635,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: নিচের কোনটি **valid** floating literal?
     ---
-    
+
     - [x] `.5`
       > ✅ `.5` valid → 0.5 (double)।
     - [ ] `5e`
@@ -649,7 +649,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: multiple
     question: কোনগুলো **escape sequence**? (Select all that apply)
     ---
-    
+
     - [x] `\\`
       > ✅ Backslash।
     - [x] `\"`
@@ -660,14 +660,13 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
       > ❌ এমন escape নেই।
     ```
 
-
 ??? example "Hard — Tricky & Output‑based (10 MCQs)"
-    ```mcq
+```mcq
     ---
     type: single
     question: `printf` এ **double** print করতে কোন specifier?
-    ---
-    
+---
+
     - [ ] `%lf`
       > ❌ `printf` এ double → `%f`।
     - [x] `%f`
@@ -681,7 +680,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: `scanf` এ **double** read করতে কোন specifier?
     ---
-    
+
     - [ ] `%f`
       > ❌ `%f` float (`float*`)।
     - [x] `%lf`
@@ -695,7 +694,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: `printf("%u", -1);` (32-bit unsigned) আউটপুট nature কী?
     ---
-    
+
     - [x] বড় positive সংখ্যা (e.g., 4294967295)
       > ✅ Two's complement wrap হয়ে unsigned এ বড় সংখ্যা।
     - [ ] -1
@@ -709,7 +708,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: `052` (octal) এর decimal মান কত?
     ---
-    
+
     - [ ] 52
       > ❌ এটা decimal ভাবলে।
     - [x] 42
@@ -723,7 +722,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: নিচের কোনটি valid string literal concatenation?
     ---
-    
+
     - [x] `"Hi" " There"`
       > ✅ Adjacent string literals auto-concatenate → `"Hi There"`।
     - [ ] `'H' 'i'`
@@ -737,7 +736,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: multiple
     question: Constant define করার ভাল/নিরাপদ উপায়গুলো কোনগুলো? (Select all that apply)
     ---
-    
+
     - [x] `#define MAX 100`
       > ✅ Widely used compile-time constant।
     - [x] `enum { MAX = 100 }`
@@ -751,7 +750,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: নিচের কোন statement টি সঠিক?
     ---
-    
+
     - [x] `"A"` modifiable নয় (modify করলে UB)
       > ✅ string literal পরিবর্তন করলে UB।
     - [ ] `'A'` modifiable নয়
@@ -765,7 +764,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: char vs string বিষয়ে কোনটি ঠিক?
     ---
-    
+
     - [x] `'A'` একটি single character; `"A"` একটি null-terminated string
       > ✅ `"A"` → 'A' + `'\0'`।
     - [ ] `"A"` ও `'A'` একই জিনিস
@@ -779,7 +778,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: single
     question: Integer literal এ base শনাক্ত করার ঠিক pair কোনটি?
     ---
-    
+
     - [x] `077` → octal, `0xFF` → hexadecimal
       > ✅ Leading 0 → octal; 0x → hex।
     - [ ] `077` → decimal, `0xFF` → octal
@@ -793,7 +792,7 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     type: multiple
     question: Format specifier match—সঠিক জোড়া বেছে নাও (Select all that apply)
     ---
-    
+
     - [x] `double` ↔ `%f` (printf)
       > ✅ printf এ double `%f`।
     - [x] `double*` ↔ `%lf` (scanf)
@@ -803,3 +802,4 @@ Syntax: `??? <type> "Title"` — তারপর ভেতরের কন্ট
     - [ ] `float` ↔ `%f` (scanf)
       > ❌ scanf এ `%f` আসলে `float*` ঠিক — কিন্তু many confuse with printf; এখানে tricky point: printf এ float promotion হয়ে double হয় ও `%f` লাগে; scanf এ `%f` মানে `float*`।
     ```
+````

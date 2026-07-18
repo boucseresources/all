@@ -12,7 +12,7 @@
         Breadboard হলো একটা **plastic board** যেটার মধ্যে অনেকগুলো ছোট ছোট **hole (গর্ত)** থাকে।
         এই hole-গুলোর ভিতরে **metal clips/strips** লুকানো থাকে → এগুলোই নির্দিষ্টভাবে একে অপরের সাথে **connected**।
 
-        👉 তুমি একটা তার (wire) যদি একটা hole-এ ঢুকাও আর একই row-এর অন্য hole-এ ঢোকাও, সেটা **একই বৈদ্যুতিক লাইন** (electrical connection) হবে।
+        👉 আপনি একটা তার (wire) যদি একটা hole-এ ঢুকাও আর একই row-এর অন্য hole-এ ঢোকাও, সেটা **একই বৈদ্যুতিক লাইন** (electrical connection) হবে।
 
         !!! example "Analogy"
             Breadboard = স্কুলের বেঞ্চ
@@ -74,8 +74,8 @@
 
     !!! note "Analogy"
         **IC = ছোট একটা শহর** 🏙️  
-        ভিতরে road, building, মানুষ—সব আছে; বাইরে তুমি শুধু boundary (package) আর gate (pins) দেখো।  
-        তুমি pins দিয়ে শহরের ভেতরের অংশে message পাঠাও/নাও—এটাই input/output।
+        ভিতরে road, building, মানুষ—সব আছে; বাইরে আপনি শুধু boundary (package) আর gate (pins) দেখো।  
+        আপনি pins দিয়ে শহরের ভেতরের অংশে message পাঠাও/নাও—এটাই input/output।
 
     ---
 

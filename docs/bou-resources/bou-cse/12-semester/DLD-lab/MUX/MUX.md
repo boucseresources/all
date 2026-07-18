@@ -1,28 +1,25 @@
 # MUX
 
 !!! info "Youtube Videos"
-    
-    ১। এই ভিডীওটা আগে দেখা দরকার তাহলে বুঝা যাবে যে আসলে MUX এর simulation কেমন দেখতে হয়ঃ [Logisim: How to use the multiplexer](https://youtu.be/GD-oRlrnJ1k)    
+
+    ১। এই ভিডীওটা আগে দেখা দরকার তাহলে বুঝা যাবে যে আসলে MUX এর simulation কেমন দেখতে হয়ঃ [Logisim: How to use the multiplexer](https://youtu.be/GD-oRlrnJ1k)
     ২। [4:1 MUX from 4 variable truth table with standard gates](https://youtu.be/PT7_aLUhiC0)
     ৩। [এই ভিডীওতে এক ম্যাডাম সহজে MUX এর আলোচনা করেছেন](https://youtu.be/Sw8GigAyd94)
     ৪। [এই ভিডীও থেকে বুঝেছি যে কী কী ভাবে input গুলো হিসাব হচ্ছে](https://youtu.be/bE2TIFHrFW0)
     ৫। একটা Minterm দিয়ে circuit আকার পর্যায় পর্যন্ত সবটুকু এখানে দেয়া হয়েছেঃ [MUX কীভাবে কাজ করে বা Truth Table গুলো কীভাবে আসে সেটার ভিত্তি এখান থেকে জেনেছি](https://youtu.be/PT7_aLUhiC0)
 
-
-
-
 === "বুঝি আগে"
 
     ### লেভেল ১: একদম সহজ উদাহরণ (Class 5 স্টাইল)
 
-    মনে করো, তোমার বাসায় একটা **TV** আছে, কিন্তু দেখার মতো জিনিস আছে ৪টা:
+    মনে করো, আপনার বাসায় একটা **TV** আছে, কিন্তু দেখার মতো জিনিস আছে ৪টা:
 
     1. Dish Line (Cartoon দেখার জন্য)
     2. PlayStation (Game খেলার জন্য)
     3. Computer (পড়ার জন্য)
     4. CCTV Camera (বাইরে কে এসেছে দেখার জন্য)
 
-    এখন সমস্যা হলো, তোমার **TV-র স্ক্রিন মাত্র ১টা**। তুমি একসঙ্গে ৪টা জিনিস দেখতে পারবে না। যেকোনো একটা বেছে নিতে হবে।
+    এখন সমস্যা হলো, আপনার **TV-র স্ক্রিন মাত্র ১টা**। আপনি একসঙ্গে ৪টা জিনিস দেখতে পারবে না। যেকোনো একটা বেছে নিতে হবে।
 
     এই কাজটাই করে **MUX (Multiplexer)**।
     MUX হলো একটা **স্মার্ট সুইচ বক্স**।
@@ -214,9 +211,7 @@
     \[Y = \bar{S_1}\bar{S_0}I_0
     * \bar{S_1}S_0 I_1
     * S_1\bar{S_0}I_2
-    * S_1 S_0 I_3 
+    * S_1 S_0 I_3
     \]
 
     এটাই সেই সমীকরণ, যেটা থেকে সরাসরি **gate-level logic diagram** আঁকা যায়।
-
-

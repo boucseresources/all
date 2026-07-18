@@ -5,7 +5,7 @@
     ![Gates KMap and function ](image-3.png)
     ### BCD অ্যাডার কী? (ক্লাস ৫-এর মতো সহজ করে)
 
-    ধরো, তুমি গুনতে জানো ০ থেকে ৯ পর্যন্ত।
+    ধরো, আপনি গুনতে জানো ০ থেকে ৯ পর্যন্ত।
     এখন কল্পনা করো, কম্পিউটারও ঠিক এই ০–৯ দিয়েই হিসাব করতে চায়।
     এই কাজটা করতে যে পদ্ধতি লাগে, সেটার নাম **BCD**।
 
@@ -35,7 +35,7 @@
 
     ### একটা ছোট গল্প দিয়ে বুঝি
 
-    ধরো তুমি করছ
+    ধরো আপনি করছ
     **৭ + ৫**
 
     আমরা জানি উত্তর **১২**
@@ -248,11 +248,10 @@
 
     এটাই পুরো BCD Adder-এর প্রাণ।
 
-
 === "BCD Adder TinkerCad"
 
     ![4 Bit BCD adder](image-4.png)
-    
+
     ![4 bit binary BCD Adder TinkerCad](<4 bit binary BCD Adder TinkerCad.gif>)
 
     You can copy (Tinker) this from this link:

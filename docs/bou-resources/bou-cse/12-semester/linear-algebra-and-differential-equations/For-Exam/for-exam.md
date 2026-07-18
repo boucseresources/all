@@ -1,5 +1,5 @@
-??? "Linear Dependence" 
-    
+??? "Linear Dependence"
+
     Linearly Independent Definition:
     A set of vectors is said to be linearly independent if none of the vectors can be expressed as a linear combination of the others.
 
@@ -26,11 +26,11 @@
     ![alt text](image.png)
 
 ??? "System of Linear eqn"
-    ![alt text](<System of Linear eqn  maths.png>)
+![alt text](<System of Linear eqn  maths.png>)
 
 ??? "Equation checking"
 
-    Exam-এর সময় অংকটা দেখে ভয় না পেয়ে এই flowchart-টি মাথায় রাখবে। এটি তোমাকে দ্রুত সঠিক method খুঁজে পেতে সাহায্য করবে:
+    Exam-এর সময় অংকটা দেখে ভয় না পেয়ে এই flowchart-টি মাথায় রাখবে। এটি আপনাকে দ্রুত সঠিক method খুঁজে পেতে সাহায্য করবে:
 
     ### **1. Variable Separation (চলক পৃথকীকরণ)**
 
@@ -43,7 +43,7 @@
     যদি separate করা না যায়, তবে পদগুলোর ঘাত (degree) এবং সহগ (coefficient) লক্ষ্য করো।
 
     - **Homogeneous:** প্রতিটি পদের ঘাত কি সমান? যেমন: $x^2, y^2, xy$—সবগুলোর ঘাত ২। এখানে $y=vx$ ধরবে।
-    - **Proportional Coefficients:** তোমার নোটের অংকের মতো (image\_4181bf.jpg) যদি $\frac{dy}{dx} = \frac{ax+by+c}{a'x+b'y+c'}$ ফর্মে থাকে এবং $\frac{a}{a'} = \frac{b}{b'}$ হয়, তবে $x+y=v$ ধরবে.
+    - **Proportional Coefficients:** আপনার নোটের অংকের মতো (image\_4181bf.jpg) যদি $\frac{dy}{dx} = \frac{ax+by+c}{a'x+b'y+c'}$ ফর্মে থাকে এবং $\frac{a}{a'} = \frac{b}{b'}$ হয়, তবে $x+y=v$ ধরবে.
 
     ### **3. Exactness Test ($\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$)**
 
@@ -54,7 +54,7 @@
 
     ### **4. Finding the Integrating Factor (IF)**
 
-    যদি Exact না হয় ($\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$), তবে তোমাকে **IF** বের করতে হবে. এর জন্য ৩টি প্রধান rule আছে:
+    যদি Exact না হয় ($\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$), তবে আপনাকে **IF** বের করতে হবে. এর জন্য ৩টি প্রধান rule আছে:
 
     | **Rule** | **কখোন ব্যবহার করবে?** | **Formula** |
     | --- | --- | --- |
@@ -68,4 +68,4 @@
 
     এখানে সমীকরণটি $x^a y^b (m y dx + n x dy) + \dots$ ফর্মে আছে। এই ক্ষেত্রে $IF = x^h y^k$ ধরে solve করতে হয়।
 
-    আমি কি তোমার জন্য এই "Method চেনার" ওপর একটা ছোট কুইজ বা প্র্যাকটিস সেট দেব? এটি তোমাকে পরীক্ষার জন্য আরও কনফিডেন্ট করবে।
+    আমি কি আপনার জন্য এই "Method চেনার" ওপর একটা ছোট কুইজ বা প্র্যাকটিস সেট দেব? এটি আপনাকে পরীক্ষার জন্য আরও কনফিডেন্ট করবে।

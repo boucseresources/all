@@ -9,6 +9,7 @@ title: Home
 এই সাইটে আপনি পাবেন ক্লাস নোট, বই, লেকচার স্লাইড, প্রশ্ন, এবং হ্যান্ডরাইটেন সামারি — সব সাজানো ৮টা সেমিস্টার অনুযায়ী।
 
 ## সব সেমিস্টারের ফোল্ডার
+
 <div class="grid-4" style="gap: 20px;">
     <a href="https://drive.google.com/drive/folders/1t3mFD-Hls6l96omTE4lTju3Gv_oHihpJ?usp=drive_link" class="md-button md-button--primary">11 Semester</a>
     <a href="/bou-resources/bou-cse/12-semester/" class="md-button md-button--secondary">12 Semester</a>
@@ -21,22 +22,21 @@ title: Home
 </div>
 
 ---
+
 ## বিগত কয়েক ব্যাচের Google Drive
 
 === "All"
 
     [11 Batch DRC Google Drive](https://drive.google.com/drive/folders/1sV6KrQix6TehGoA-ksWsDgLYZ9Enq8GD)
-    
+
 
     [10 Batch DRC Google Drive](https://drive.google.com/drive/folders/1gZmf-LOVVFjeXMunLUQmqTgaZRsF6en8?usp=drive_link)
 
     [10 Batch DUET Google Drive](https://drive.google.com/drive/folders/13YhlgtlmYUjok_UJLqkjJi7WsB_bp88e?usp=drive_link)
 
     [8th Batch DRC Google Drive](https://drive.google.com/drive/folders/1P3aQWtg6fGxKgVz2MkfJV8tQgHxXgQXy?usp=drive_link)
-    
-    [6th Batch DRC Google Drive](https://drive.google.com/drive/folders/1OkUZ6aF_y4ofv9SDDABiHElcBZ8FHOJv?usp=drive_link)
-    
 
+    [6th Batch DRC Google Drive](https://drive.google.com/drive/folders/1OkUZ6aF_y4ofv9SDDABiHElcBZ8FHOJv?usp=drive_link)
 
 === "1️⃣ First Year"
 
@@ -44,13 +44,10 @@ title: Home
     [10 Batch DRC Google Drive](https://drive.google.com/drive/folders/19kpt_tGQx-n6eeMbTlfHixPcpop21odu?usp=sharing)
     [8th Batch DUET Google Drive](https://drive.google.com/drive/folders/1mL-0g9laSPyZ607l5WjaePDf0vWPAsIB?usp=drive_link)
 
-
 === "2️⃣ Second Year"
-     
+
     [7th Batch DRC Google Drive](https://drive.google.com/drive/folders/10sFr5Jr52mj7pLAQFMFBHDa7jbJgC31u)
     [21 Semester - 10 Batch DRC](https://drive.google.com/drive/folders/1lZr6MQrkXx6qAhAZJQsmJLFFB4BxUT3i?usp=drive_link)
-
-   
 
 ## Admission & Semester Fee
 
@@ -61,12 +58,10 @@ title: Home
 
 
     <a href="/bou-resources/admission-information/Retake-Improve" class="md-button">Retake & Improvement Process দেখুন</a>
+
 </div>
 
-
 ---
-
-
 
 ## 📚 কি কি পাবেন?
 
@@ -100,6 +95,4 @@ BOU-এর অনেক ছাত্রছাত্রী একসাথে স
 
 ---
 
-> 📬 এই প্রজেক্ট community-driven. তোমার কাছে যদি ভালো নোট বা রিসোর্স থাকে, অবশ্যই শেয়ার করো!
-
-
+> 📬 এই প্রজেক্ট community-driven. আপনার কাছে যদি ভালো নোট বা রিসোর্স থাকে, অবশ্যই শেয়ার করো!

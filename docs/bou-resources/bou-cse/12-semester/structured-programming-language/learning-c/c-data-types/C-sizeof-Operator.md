@@ -1,4 +1,3 @@
-
 # `sizeof()` Operator in C
 
 ---
@@ -59,8 +58,8 @@ char: 1 byte
 
 > ⚠️ Size may vary based on:
 >
-> * System architecture (32-bit vs 64-bit)
-> * Compiler
+> - System architecture (32-bit vs 64-bit)
+> - Compiler
 
 ---
 
@@ -83,8 +82,8 @@ printf("%d", sizeof(var));   // ❌ Might crash or give wrong value
 
 📌 `%zu` breakdown:
 
-* `z` = size\_t
-* `u` = unsigned
+- `z` = size_t
+- `u` = unsigned
 
 ---
 
@@ -103,7 +102,7 @@ printf("%d", sizeof(var));   // ❌ Might crash or give wrong value
 
 ## 6️⃣ Real-Life Analogy 🍱
 
-ধরো তোমার হাতে কয়েকটা টিফিন বক্স:
+ধরো আপনার হাতে কয়েকটা টিফিন বক্স:
 
 | Type     | Example Container     |
 | -------- | --------------------- |
@@ -127,8 +126,8 @@ printf("Size: %zu bytes\n", sizeof(name));
 
 🧮 Explanation:
 
-* `char` = 1 byte
-* `char[1000]` = 1000 bytes = 1 KB
+- `char` = 1 byte
+- `char[1000]` = 1000 bytes = 1 KB
 
 ### 🔄 Find total elements in array:
 
@@ -141,8 +140,8 @@ int total = sizeof(arr) / sizeof(arr[0]); // ✅ Gives 10
 
 ## 8️⃣ Why Use `sizeof()`? (Importance)
 
-| Benefit             | Explanation                                                 |
-| ------------------- | ----------------------------------------------------------- |
+| Benefit              | Explanation                                                 |
+| -------------------- | ----------------------------------------------------------- |
 | ✅ Memory Efficiency | কম জায়গা লাগলে better performance, esp. on embedded systems |
 | ✅ Bug Prevention    | overflow/underflow এড়ানো যায়                                |
 | ✅ Portability       | এক system থেকে অন্য system-এ গেলেও ভুল হয় না                |
@@ -169,9 +168,10 @@ int total = sizeof(arr) / sizeof(arr[0]); // ✅ Gives 10
                      |
          +-----------+-----------+
          |                       |
- +-------v-------+      +--------v--------+
- | sizeof(var)   |      | sizeof(type)    |
- +---------------+      +-----------------+
+
++-------v-------+ +--------v--------+
+| sizeof(var) | | sizeof(type) |
++---------------+ +-----------------+
 ```
 
 ## 🔁 Mini Practice Challenge
@@ -199,7 +199,7 @@ int main() {
 
 ## 🔑 Final Takeaways
 
-| 🔍 Topic              | ✅ Key Point                                   |
+| 🔍 Topic              | ✅ Key Point                                  |
 | --------------------- | --------------------------------------------- |
 | What `sizeof` does    | Measures memory used (in bytes)               |
 | Use `%zu`             | Because it prints `size_t` safely             |
@@ -209,13 +209,12 @@ int main() {
 
 ### 🧠 Pro Tips
 
-* Use `sizeof(type)` even without declaring variable
-* Great for finding array size
-* Especially important in:
-
-  * Embedded systems
-  * File handling
-  * Dynamic memory allocation
+- Use `sizeof(type)` even without declaring variable
+- Great for finding array size
+- Especially important in:
+  - Embedded systems
+  - File handling
+  - Dynamic memory allocation
 
 ## 📝 Sticky Note (Final Summary)
 
@@ -227,4 +226,3 @@ int main() {
 > 🚀 Efficient code = Fast + Safe + Portable
 
 ---
-
