@@ -26,7 +26,7 @@
      
 
     - [![KMap Generator](image.png)](/VARIOUS-TOOLS/abc-kmap-generator/index.html) 
-    - [![Image 2](docs/assets/folder-images/01.png)](/bou-resources/bou-cse/12-semester/)
+    - [![AI to Doc, Docx](image-1.png)](https://aitodoc.onrender.com/)
     - [![Image 3](docs/assets/folder-images/1.png)](/bou-resources/bou-cse/21-semester/)
     - [![Image 5](docs/assets/folder-images/2.png)](/bou-resources/bou-cse/22-semester/)
     - [![Image 6](docs/assets/folder-images/3.png)](/bou-resources/bou-cse/31-semester/)
