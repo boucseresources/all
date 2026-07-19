@@ -16,8 +16,8 @@ theme:
   font:
     text: Noto Serif Bengali
     code: Roboto Mono
-  logo: assets/logo-bou.png
-  favicon: assets/logo-bou.png
+  logo: assets/bou-notes-logo.png
+  favicon: assets/bou-notes-logo.png
   icon:
     annotation: material/star-four-points-circle
   features:
@@ -45,16 +45,16 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-      primary: deep purple
-      accent: light green
+      primary: black
+      accent: yellow
 
     # Light Mode
     - scheme: default
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
-      primary: blue
-      accent: deep orange
+      primary: white
+      accent: pink
 plugins:
   - search
   - privacy
