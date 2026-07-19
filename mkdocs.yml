@@ -37,7 +37,7 @@ theme:
     - navigation.indexes
     - toc.follow
     - content.code.copy
-    - navigation.expand
+    # - navigation.expand
     - navigation.top
   palette:
     # Dark Mode
@@ -146,7 +146,8 @@ extra_javascript:
   - javascripts/mathjax/tex-mml-chtml.js
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/custom_buttons.css
 
-copyright: Copyright &copy; 2025 Rakibul Hashan
+copyright: Copyright &copy; 2026 Rakibul Hashan
 
 # exclude_docs: "admin/*"
