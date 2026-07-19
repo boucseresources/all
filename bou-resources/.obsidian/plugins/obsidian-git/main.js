@@ -189,7 +189,7 @@ You can always see the logs of this and every other plugin by opening the consol
                     <pre style="display:inline">var(--text-on-accent)</pre>,
                     because they automatically adapt to theme changes.<br/>
 
-                    See: <a href="../../../../https:/github.com/obsidian-community/obsidian-theme-template/blob/main/obsidian.css">
+                    See: <a href="../../../../https:/raw.githubusercontent.com/obsidian-community/obsidian-theme-template/main/obsidian.css">
                     List of available CSS variables in Obsidian
                     <a/>
                 `,new U.Setting(this.containerEl).setName("Ignore whitespace and newlines in changes").addToggle(a=>{a.setValue(this.settings.lineAuthor.ignoreWhitespace),a.onChange(s=>this.lineAuthorSettingHandler("ignoreWhitespace",s))}).descEl.innerHTML=`
