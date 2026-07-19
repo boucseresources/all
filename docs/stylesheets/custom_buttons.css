@@ -1,0 +1,12 @@
+/* Custom Red Button Override */
+.md-typeset .md-button.md-button--red {
+  color: #ffffff;                  /* Text color */
+  background-color: #d32f2f;       /* Background color */
+  border-color: #d32f2f;           /* Border color */
+}
+
+/* Hover State */
+.md-typeset .md-button.md-button--red:hover {
+  background-color: #b71c1c;
+  border-color: #b71c1c;
+}
