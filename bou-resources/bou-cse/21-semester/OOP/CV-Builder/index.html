@@ -349,6 +349,25 @@
   
   
     <li class="md-tabs__item">
+      <a href="https://boucseresult.vercel.app/ranking.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ⭐ Result
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../../../../../cover-page/cover-page.html" class="md-tabs__link">
         
   
@@ -546,6 +565,8 @@
       
         
           
+        
+      
         
       
         
@@ -12247,6 +12268,84 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_13">
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_13" id="__nav_2_1_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Students
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_13">
+            <span class="md-nav__icon md-icon"></span>
+            Students
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Students/10thbatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10thbatch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -12320,6 +12419,28 @@
   
   <span class="md-ellipsis">
     FAQs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://boucseresult.vercel.app/ranking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⭐ Result
     
   </span>
   
@@ -12613,6 +12734,31 @@
 
 
 <h1 id="cv-builder-all-source-codes">CV builder all source codes<a class="headerlink" href="#cv-builder-all-source-codes" title="Anchor link to this section for reference">¶</a></h1>
+<details>
+<summary>Terminology Explained</summary>
+<p>GridBagConstraints-এর গুরুত্বপূর্ণ প্রোপার্টিগুলোর সংক্ষিপ্ত রূপ নিচে দেওয়া হলো:</p>
+<ul>
+<li>gridx &amp; gridy: উপাদানটি গ্রিডের কত নম্বর কলাম ও রো-তে বসবে।</li>
+<li>gridwidth &amp; gridheight: উপাদানটি পাশাপাশি বা উপর-নিচে কয়টি ঘর জুড়ে থাকবে।</li>
+<li>weightx &amp; weighty: স্ক্রিন বড় করলে উপাদানটি কলাম বা রো বরাবর কতটা জায়গা বাড়িয়ে নেবে।</li>
+<li>fill: উপাদানটি নিজের ঘরের ভেতরের ফাঁকা জায়গা কীভাবে ভরাট (Horizontal/Vertical/Both) করবে।</li>
+<li>anchor: উপাদানটি নিজের ঘরের ভেতর কোন দিকে চেপে থাকবে (যেমন: CENTER, NORTH, WEST)।</li>
+<li>insets: উপাদানটির চারপাশের বাইরের ফাঁকা জায়গা (Padding/Margin)।</li>
+<li>ipadx &amp; ipady: উপাদানটির ভেতরের নিজস্ব Internal Padding বা আকার বাড়ানো।</li>
+</ul>
+</details>
+<details>
+<summary>Professional Summary Pane</summary>
+<p>আপনার প্রশ্নটা কিন্তু খুবই লজিক্যাল! 💡 আপনার মনে হতেই পারে যে ইনপুট ফিল্ড তো <code>txtSummary</code>, তাহলে মাঝখানে আবার স্ক্রল প্যানকে টানার কী দরকার?</p>
+<p>জাভা সুইং (Java Swing)-এ <code>JTextArea</code> ব্যবহারের সময় একটা চমৎকার মেকানিজম কাজ করে। 📜</p>
+<p>আমরা যদি সরাসরি <code>txtSummary</code>-কে প্যানেলে যুক্ত করি, তাহলে ইউজার যখন ৪ লাইনের বেশি বড় কোনো সামারি টাইপ করবে, তখন অতিরিক্ত লেখাগুলো বক্সের নিচে ঢাকা পড়ে যাবে। ইউজার চাইলেও মাউস দিয়ে স্ক্রল করে ওপর-নিচের লেখা দেখতে পারবে না।</p>
+<p>এখানেই কাজে আসে <code>JScrollPane</code> (আমাদের <code>summaryScroll</code>):</p>
+<ul>
+<li>📦 এটি একটি ধারক বা কন্টেইনার হিসেবে কাজ করে যা ফিল্ডটিকে নিজের পেটে ধরে রাখে।</li>
+<li>↕️ যখনই লেখা নির্ধারিত সাইজের চেয়ে বড় হয়ে যায়, এটি অটোমেটিক পাশে একটি স্ক্রলবার নিয়ে আসে, যা পুরো সিভির লেআউটকে নষ্ট হতে দেয় না।</li>
+</ul>
+<p>তাই সুইং-এর নিয়ম হলো, বড় টেক্সট এরিয়া তৈরি করে তাকে স্ক্রল প্যানের ভেতর ঢুকিয়ে দিতে হয়, আর প্যানেলে যুক্ত করতে হয় সেই স্ক্রল প্যানটিকে।</p>
+</details>
 <h2 id="01-intro-and-setup">01 Intro and Setup<a class="headerlink" href="#01-intro-and-setup" title="Anchor link to this section for reference">¶</a></h2>
 <h2 id="02-write-and-fix-pomxml-file">02 Write and Fix pom.xml file<a class="headerlink" href="#02-write-and-fix-pomxml-file" title="Anchor link to this section for reference">¶</a></h2>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
