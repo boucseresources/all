@@ -22,6 +22,9 @@ title: Home
 </div>
 
 ---
+[Full Course Handbook](https://drive.google.com/file/d/1SOqaXsgmfw9oMG8oJZOAyzX4eedfidAt/view?usp=drive_link){ .md-button .md-button--teal }
+
+---
 
 ## বিগত কয়েক ব্যাচের Google Drive
 
