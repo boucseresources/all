@@ -1,12 +1,92 @@
-/* Custom Red Button Override */
-.md-typeset .md-button.md-button--red {
-  color: #ffffff;                  /* Text color */
-  background-color: #d32f2f;       /* Background color */
-  border-color: #d32f2f;           /* Border color */
+/* =========================================
+   CUSTOM COLORED BUTTONS FOR MKDOCS MATERIAL
+   ========================================= */
+
+/* Base Button Override (Optional: keeps primary button default) */
+.md-typeset .md-button {
+  border-radius: 0.2rem; /* Slightly rounded corners */
 }
 
-/* Hover State */
-.md-typeset .md-button.md-button--red:hover {
-  background-color: #b71c1c;
-  border-color: #b71c1c;
+/* --- Blue Button --- */
+.md-typeset .md-button.md-button--blue {
+  color: #ffffff;
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+.md-typeset .md-button.md-button--blue:hover {
+  background-color: #1565c0;
+  border-color: #1565c0;
+  color: #ffffff;
+}
+
+/* --- Green Button --- */
+.md-typeset .md-button.md-button--green {
+  color: #ffffff;
+  background-color: #388e3c;
+  border-color: #388e3c;
+}
+.md-typeset .md-button.md-button--green:hover {
+  background-color: #2e7d32;
+  border-color: #2e7d32;
+  color: #ffffff;
+}
+
+/* --- Orange Button --- */
+.md-typeset .md-button.md-button--orange {
+  color: #ffffff;
+  background-color: #f57c00;
+  border-color: #f57c00;
+}
+.md-typeset .md-button.md-button--orange:hover {
+  background-color: #e65100;
+  border-color: #e65100;
+  color: #ffffff;
+}
+
+/* --- Purple Button --- */
+.md-typeset .md-button.md-button--purple {
+  color: #ffffff;
+  background-color: #7b1fa2;
+  border-color: #7b1fa2;
+}
+.md-typeset .md-button.md-button--purple:hover {
+  background-color: #6a1b9a;
+  border-color: #6a1b9a;
+  color: #ffffff;
+}
+
+/* --- Teal Button --- */
+.md-typeset .md-button.md-button--teal {
+  color: #ffffff;
+  background-color: #00796b;
+  border-color: #00796b;
+}
+.md-typeset .md-button.md-button--teal:hover {
+  background-color: #00695c;
+  border-color: #00695c;
+  color: #ffffff;
+}
+
+/* --- Dark Grey / Black Button --- */
+.md-typeset .md-button.md-button--dark {
+  color: #ffffff;
+  background-color: #424242;
+  border-color: #424242;
+}
+.md-typeset .md-button.md-button--dark:hover {
+  background-color: #212121;
+  border-color: #212121;
+  color: #ffffff;
+}
+
+/* --- Outline / Ghost Button (No background, colored border/text) --- */
+.md-typeset .md-button.md-button--outline-red {
+  color: #d32f2f;
+  background-color: transparent;
+  border-color: #d32f2f;
+}
+.md-typeset .md-button.md-button--outline-red:hover {
+  color: #ffffff;
+  background-color: #d32f2f;
+  border-color: #d32f2f;
 }
