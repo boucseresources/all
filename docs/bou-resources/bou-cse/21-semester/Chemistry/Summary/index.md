@@ -165,6 +165,14 @@ Subshell capacities: `s², p⁶, d¹⁰, f¹⁴`; maximum shell capacity: `2n²`
 
 **Modern periodic law:** Physical and chemical properties of elements are periodic functions of their atomic numbers.
 
+!!! info ""
+
+    * **Ionization Energy:** Extracting/pulling an electron away from a neutral atom to form a **cation** (positive ion).
+    * **Electron Affinity:** Adding/pushing an electron into a neutral atom to form an **anion** (negative ion).
+    * **Electronegativity:** The tug-of-war where an atom pulls shared electrons toward itself **inside a covalent bond**.
+
+    That is the exact mental framework you need for your exams.
+
 ### 2. Major families
 
 - Group 1: alkali metals, `ns¹`, highly reactive, usually `+1`.
