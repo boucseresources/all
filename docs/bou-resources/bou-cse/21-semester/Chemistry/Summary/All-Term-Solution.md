@@ -1,4 +1,4 @@
-# Chemistry: Complete Exam-Ready Questions and Answers
+# All-Term-Solution
 
 > **Coverage:** Terms 161, 171, 181, 201 and 211  
 > **Format:** Every supplied question is kept chapter-wise and term-wise. Answers are short, formal and suitable for examination.  
