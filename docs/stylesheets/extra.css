@@ -86,3 +86,15 @@ mjx-container[jax="CHTML"][display="true"]{
   margin: 5px 0 !important;
 } */
 
+/* FOR YOUTUBE embedded video */
+.video-container {
+  width: 100%;             /* Spans the full width of its parent element */
+  max-width: 750px;        /* Limits expansion to your original intended width */
+  margin: 0 auto;          /* Centers the video wrapper on the page */
+}
+
+.video-container iframe {
+  width: 100%;             /* Scales dynamically based on screen size */
+  height: auto;            /* Relies on aspect-ratio for calculated height */
+  aspect-ratio: 16 / 9;    /* Maintains standard YouTube widescreen proportions */
+}
