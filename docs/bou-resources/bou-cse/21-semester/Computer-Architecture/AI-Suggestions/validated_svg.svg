@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="990" viewBox="0 0 1100 990" role="img" aria-labelledby="chart-title chart-desc">
+  <title id="chart-title">Computer Architecture topic frequency across seven terms</title>
+  <desc id="chart-desc">A horizontal bar chart ranking twenty Computer Architecture topics by the number of distinct terms in which each appeared.</desc>
+  <rect width="1100" height="990" rx="28" fill="#f8fafc"/>
+  <text x="50" y="54" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">CSE2134 Topic Frequency Ranking</text>
+  <text x="50" y="84" font-family="Arial, sans-serif" font-size="15" fill="#475569">Distinct-term appearances across Terms 151–211 • Maximum frequency = 7</text>
+  <line x1="440" y1="112" x2="440" y2="930" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="510" y1="112" x2="510" y2="930" stroke="#e2e8f0"/>
+  <line x1="580" y1="112" x2="580" y2="930" stroke="#e2e8f0"/>
+  <line x1="650" y1="112" x2="650" y2="930" stroke="#e2e8f0"/>
+  <line x1="720" y1="112" x2="720" y2="930" stroke="#e2e8f0"/>
+  <line x1="790" y1="112" x2="790" y2="930" stroke="#e2e8f0"/>
+  <line x1="860" y1="112" x2="860" y2="930" stroke="#e2e8f0"/>
+  <line x1="930" y1="112" x2="930" y2="930" stroke="#cbd5e1" stroke-width="2"/>
+
+  <g font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">
+    <text x="440" y="958">0</text>
+    <text x="510" y="958">1</text>
+    <text x="580" y="958">2</text>
+    <text x="650" y="958">3</text>
+    <text x="720" y="958">4</text>
+    <text x="790" y="958">5</text>
+    <text x="860" y="958">6</text>
+    <text x="930" y="958">7 terms</text>
+  </g>
+
+  <g font-family="Arial, sans-serif" font-size="15" fill="#0f172a" text-anchor="end">
+    <text x="425" y="143">Datapath &amp; processor design</text>
+    <text x="425" y="184">Pipelining, hazards &amp; forwarding</text>
+    <text x="425" y="225">ISA, formats &amp; RISC/CISC</text>
+    <text x="425" y="266">System fundamentals &amp; organization</text>
+    <text x="425" y="307">Multiplication algorithms &amp; hardware</text>
+    <text x="425" y="348">Processor performance, CPI/IPC</text>
+    <text x="425" y="389">MIPS assembly translation</text>
+    <text x="425" y="430">RTL, control &amp; control sequences</text>
+    <text x="425" y="471">Cache memory &amp; mapping</text>
+    <text x="425" y="512">Memory module/chip design</text>
+    <text x="425" y="553">Amdahl's &amp; Moore's laws</text>
+    <text x="425" y="594">Addressing modes</text>
+    <text x="425" y="635">Instruction cycle &amp; execution</text>
+    <text x="425" y="676">Compilation &amp; basic blocks</text>
+    <text x="425" y="717">Overflow/addition/subtraction</text>
+    <text x="425" y="758">Parallel architectures</text>
+    <text x="425" y="799">Virtual memory &amp; TLB</text>
+    <text x="425" y="840">DMA &amp; interrupts</text>
+    <text x="425" y="881">IEEE 754 floating point</text>
+    <text x="425" y="922">Advanced ILP/current trends</text>
+  </g>
+
+  <g>
+    <rect x="440" y="126" width="490" height="24" rx="12" fill="#ef4444"/><text x="946" y="143" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#b91c1c">7</text>
+    <rect x="440" y="167" width="490" height="24" rx="12" fill="#ef4444"/><text x="946" y="184" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#b91c1c">7</text>
+    <rect x="440" y="208" width="490" height="24" rx="12" fill="#ef4444"/><text x="946" y="225" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#b91c1c">7</text>
+    <rect x="440" y="249" width="490" height="24" rx="12" fill="#ef4444"/><text x="946" y="266" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#b91c1c">7</text>
+    <rect x="440" y="290" width="420" height="24" rx="12" fill="#f97316"/><text x="876" y="307" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#c2410c">6</text>
+    <rect x="440" y="331" width="350" height="24" rx="12" fill="#eab308"/><text x="806" y="348" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="440" y="372" width="350" height="24" rx="12" fill="#eab308"/><text x="806" y="389" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="440" y="413" width="350" height="24" rx="12" fill="#eab308"/><text x="806" y="430" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="440" y="454" width="350" height="24" rx="12" fill="#eab308"/><text x="806" y="471" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="440" y="495" width="350" height="24" rx="12" fill="#eab308"/><text x="806" y="512" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="440" y="536" width="350" height="24" rx="12" fill="#eab308"/><text x="806" y="553" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="440" y="577" width="280" height="24" rx="12" fill="#22c55e"/><text x="736" y="594" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#15803d">4</text>
+    <rect x="440" y="618" width="280" height="24" rx="12" fill="#22c55e"/><text x="736" y="635" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#15803d">4</text>
+    <rect x="440" y="659" width="210" height="24" rx="12" fill="#14b8a6"/><text x="666" y="676" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#0f766e">3</text>
+    <rect x="440" y="700" width="210" height="24" rx="12" fill="#14b8a6"/><text x="666" y="717" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#0f766e">3</text>
+    <rect x="440" y="741" width="140" height="24" rx="12" fill="#3b82f6"/><text x="596" y="758" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#1d4ed8">2</text>
+    <rect x="440" y="782" width="140" height="24" rx="12" fill="#3b82f6"/><text x="596" y="799" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#1d4ed8">2</text>
+    <rect x="440" y="823" width="140" height="24" rx="12" fill="#3b82f6"/><text x="596" y="840" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#1d4ed8">2</text>
+    <rect x="440" y="864" width="140" height="24" rx="12" fill="#3b82f6"/><text x="596" y="881" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#1d4ed8">2</text>
+    <rect x="440" y="905" width="140" height="24" rx="12" fill="#3b82f6"/><text x="596" y="922" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#1d4ed8">2</text>
+  </g>
+</svg>

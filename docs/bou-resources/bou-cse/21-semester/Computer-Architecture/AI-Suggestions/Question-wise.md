@@ -1,7 +1,7 @@
 
-# Easy reading, not stress
+# Easy reading, no stress
 
-Hello Rakib, here is your list of questions based on the previous year question analysis: 
+**Hello Rakib, here is your list of questions based on the previous year question analysis:** 
 
 What are the classes of computer? 💻🤔 Explain briefly with their characteristics. 📝✨
 
