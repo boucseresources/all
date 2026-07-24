@@ -3,13 +3,6 @@ site_name: Bou CSE Resources
 site_url: "https://notes.bro.bd/"
 docs_dir: docs # if missing, default is 'docs'
 
-
-
-# nav:
-#   - Home: index.md
-#   - CSE Topics:
-#       - All: bou-resources/bou-cse/
-
 theme:
   name: material
   custom_dir: overrides
@@ -21,7 +14,6 @@ theme:
   icon:
     annotation: material/star-four-points-circle
   features:
-    # - announce.dismiss
     - navigation.instant.prefetch
     - navigation.instant.progress
     - search.share
@@ -37,7 +29,6 @@ theme:
     - navigation.indexes
     - toc.follow
     - content.code.copy
-    # - navigation.expand
     - navigation.top
   palette:
     # Dark Mode
@@ -55,9 +46,14 @@ theme:
         name: Switch to dark mode
       primary: white
       accent: pink
+
 plugins:
   - search
-  - privacy
+  - privacy:
+      # Exclude problematic URLs from being cached locally by the privacy plugin
+      assets_exclude:
+        - "https://pubchem.ncbi.nlm.nih.gov/*"
+        - "https://polyfill.io/*"
   - meta
   - glightbox
   - obsidian-bridge
@@ -68,7 +64,7 @@ plugins:
 extra:
   generator: false
   announcement:
-    type: info # Can be info, warning, error, success
+    type: info
     text: |
       🚀 Welcome to the new version of the docs! Check out the [changelog](index.md).
   social:
@@ -114,11 +110,9 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.highlight
   - pymdownx.keys
   - pymdownx.inlinehilite
   - markdown.extensions.nl2br
-  
   - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
@@ -138,16 +132,11 @@ markdown_extensions:
 
 extra_javascript:
   - meta-inject.js
-  # - javascripts/mathjax/tex-chtml-full.js
-  # - javascripts/mathjax/tex-chtml-full.js
-  
   - javascripts/mathjax/mathjax.js
-  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js
   - javascripts/mathjax/tex-mml-chtml.js
+
 extra_css:
   - stylesheets/extra.css
   - stylesheets/custom_buttons.css
 
 copyright: Copyright &copy; 2026 Rakibul Hashan
-
-# exclude_docs: "admin/*"
