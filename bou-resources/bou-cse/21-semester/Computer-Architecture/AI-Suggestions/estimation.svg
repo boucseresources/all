@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="650" viewBox="0 0 1050 650" role="img" aria-labelledby="suggestion-chart-title suggestion-chart-desc">
+  <title id="suggestion-chart-title">Highest-frequency Computer Architecture topics</title>
+  <desc id="suggestion-chart-desc">A horizontal bar chart of the twelve highest-frequency topic groups across seven supplied terms.</desc>
+  <rect width="1050" height="650" rx="26" fill="#f8fafc"/>
+  <text x="44" y="50" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">Highest-Frequency Topics</text>
+  <text x="44" y="78" font-family="Arial, sans-serif" font-size="15" fill="#475569">Distinct-term appearances across seven supplied papers</text>
+  <line x1="420" y1="106" x2="420" y2="588" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="490" y1="106" x2="490" y2="588" stroke="#e2e8f0"/>
+  <line x1="560" y1="106" x2="560" y2="588" stroke="#e2e8f0"/>
+  <line x1="630" y1="106" x2="630" y2="588" stroke="#e2e8f0"/>
+  <line x1="700" y1="106" x2="700" y2="588" stroke="#e2e8f0"/>
+  <line x1="770" y1="106" x2="770" y2="588" stroke="#e2e8f0"/>
+  <line x1="840" y1="106" x2="840" y2="588" stroke="#e2e8f0"/>
+  <line x1="910" y1="106" x2="910" y2="588" stroke="#cbd5e1" stroke-width="2"/>
+
+  <g font-family="Arial, sans-serif" font-size="15" fill="#0f172a" text-anchor="end">
+    <text x="405" y="135">Datapath &amp; processor design</text>
+    <text x="405" y="175">Pipelining, hazards &amp; forwarding</text>
+    <text x="405" y="215">ISA, formats &amp; RISC/CISC</text>
+    <text x="405" y="255">System fundamentals &amp; organization</text>
+    <text x="405" y="295">Multiplication algorithms &amp; hardware</text>
+    <text x="405" y="335">Processor performance, CPI/IPC</text>
+    <text x="405" y="375">MIPS assembly translation</text>
+    <text x="405" y="415">RTL, control &amp; control sequences</text>
+    <text x="405" y="455">Cache memory &amp; mapping</text>
+    <text x="405" y="495">Memory module/chip design</text>
+    <text x="405" y="535">Amdahl's &amp; Moore's laws</text>
+    <text x="405" y="575">Addressing modes</text>
+  </g>
+
+  <g>
+    <rect x="420" y="118" width="490" height="23" rx="11" fill="#ef4444"/><text x="926" y="135" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#b91c1c">7</text>
+    <rect x="420" y="158" width="490" height="23" rx="11" fill="#ef4444"/><text x="926" y="175" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#b91c1c">7</text>
+    <rect x="420" y="198" width="490" height="23" rx="11" fill="#ef4444"/><text x="926" y="215" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#b91c1c">7</text>
+    <rect x="420" y="238" width="490" height="23" rx="11" fill="#ef4444"/><text x="926" y="255" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#b91c1c">7</text>
+    <rect x="420" y="278" width="420" height="23" rx="11" fill="#f97316"/><text x="856" y="295" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#c2410c">6</text>
+    <rect x="420" y="318" width="350" height="23" rx="11" fill="#eab308"/><text x="786" y="335" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="420" y="358" width="350" height="23" rx="11" fill="#eab308"/><text x="786" y="375" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="420" y="398" width="350" height="23" rx="11" fill="#eab308"/><text x="786" y="415" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="420" y="438" width="350" height="23" rx="11" fill="#eab308"/><text x="786" y="455" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="420" y="478" width="350" height="23" rx="11" fill="#eab308"/><text x="786" y="495" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="420" y="518" width="350" height="23" rx="11" fill="#eab308"/><text x="786" y="535" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#a16207">5</text>
+    <rect x="420" y="558" width="280" height="23" rx="11" fill="#22c55e"/><text x="716" y="575" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#15803d">4</text>
+  </g>
+
+  <g font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">
+    <text x="420" y="618">0</text><text x="490" y="618">1</text><text x="560" y="618">2</text>
+    <text x="630" y="618">3</text><text x="700" y="618">4</text><text x="770" y="618">5</text>
+    <text x="840" y="618">6</text><text x="910" y="618">7 terms</text>
+  </g>
+</svg>
