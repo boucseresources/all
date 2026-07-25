@@ -2,6 +2,9 @@ site_name: Bou CSE Resources
 # site_url: https://boucseresources.github.io/
 site_url: "https://notes.bro.bd/"
 docs_dir: docs # if missing, default is 'docs'
+exclude_docs: |
+  **/.obsidian/
+  **/.trash/
 
 theme:
   name: material
