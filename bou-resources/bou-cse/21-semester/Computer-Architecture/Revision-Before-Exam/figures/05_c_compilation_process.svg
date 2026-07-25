@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="360"
+  viewBox="0 0 1140 360" role="img" aria-labelledby="title desc">
+  <title id="title">C Program to Machine Execution</title>
+  <desc id="desc">C Program to Machine Execution</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+      markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0f172a" flood-opacity=".12"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="570" y="32" text-anchor="middle" font-size="21"
+    font-weight="700" fill="#0f172a">C Program to Machine Execution</text>
+  <g filter="url(#shadow)">
+    <rect x="25" y="125" width="145" height="75" rx="10"
+      fill="#e0f2fe" stroke="#334155" stroke-width="2"/>
+    <text x="97.5" y="167.5"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">source.c</text>
+
+    <rect x="205" y="110" width="160" height="105" rx="10"
+      fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+    <text x="285" y="158"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Preprocessor</text>
+<text x="285" y="177"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Expanded C</text>
+
+    <rect x="400" y="110" width="160" height="105" rx="10"
+      fill="#eef2ff" stroke="#334155" stroke-width="2"/>
+    <text x="480" y="158"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Compiler</text>
+<text x="480" y="177"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Assembly</text>
+
+    <rect x="595" y="110" width="160" height="105" rx="10"
+      fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+    <text x="675" y="158"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Assembler</text>
+<text x="675" y="177"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Object File</text>
+
+    <rect x="790" y="110" width="160" height="105" rx="10"
+      fill="#dbeafe" stroke="#334155" stroke-width="2"/>
+    <text x="870" y="158"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Linker</text>
+<text x="870" y="177"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Executable</text>
+
+    <rect x="985" y="110" width="130" height="105" rx="10"
+      fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+    <text x="1050" y="158"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Loader</text>
+<text x="1050" y="177"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Process</text></g>
+  <g><line x1="170" y1="162" x2="205" y2="162"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="365" y1="162" x2="400" y2="162"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="560" y1="162" x2="595" y2="162"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="755" y1="162" x2="790" y2="162"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="950" y1="162" x2="985" y2="162"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/></g>
+  <text x="570" y="347" text-anchor="middle"
+    font-size="12" fill="#64748b">Libraries and other object files are resolved by the linker.</text>
+</svg>
