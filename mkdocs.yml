@@ -5,9 +5,13 @@ docs_dir: docs # if missing, default is 'docs'
 exclude_docs: |
   **/.obsidian/
   **/.trash/
-  **/Media Library/
-  **/*.pdf
-  **/*.mp4
+  **/.DS_Store
+  **/.git/
+  **/venv/
+  **/node_modules/
+  **/.makemd/
+  **/.stfolder/
+  **/.space/
 
 theme:
   name: material
