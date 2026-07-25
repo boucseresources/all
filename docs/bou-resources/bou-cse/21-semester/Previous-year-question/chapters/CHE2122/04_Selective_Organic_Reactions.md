@@ -25,6 +25,6 @@
 
 - **Q7(a) [4]:** What are the IUPAC names of the following compounds:
 
-  ![Organic compounds](../../assets/CHE2122_211_Q7a_Organic_Compounds.png)
+  ![Organic compounds](/bou-resources/bou-cse/21-semester/Previous-year-question/assets/CHE2122_211_Q7a_Organic_Compounds.png)
 
 - **Q7(b) [6]:** Write down the following organic reactions: Aldol reaction, Cannizzaro reaction and Grignard reaction.

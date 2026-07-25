@@ -1,9 +1,8 @@
-![[image-62.png]]
-
+![image-62.png](/bou-resources/media-library/image-62.png)
 
 === "বাংলায় সহজে"
 
-    ![[image-61.png|464x291]]
+    ![image-61.png](/bou-resources/media-library/image-61.png)
 
 
     এই ছবিটি মূলত **Thevenin's Theorem** অ্যাপ্লাই করার সময় আমরা যে ৩টি ভিন্ন পরিস্থিতির (Case) মুখোমুখি হই, সেগুলোকে ক্লাসিফাই করেছে। সার্কিটে কী ধরণের **Source** (Voltage বা Current) আছে, তার ওপর ভিত্তি করে ** (Thevenin Resistance)** বের করার নিয়ম আলাদা হয়।
@@ -53,10 +52,9 @@
     * **Case 2:**  এবং  বের করে ভাগ দাও ()।
     * **Case 3:** বাইরে থেকে  বা  সোর্স লাগিয়ে টেস্ট করো।
 
-
 === "For exam"
 
-    ## Q: State Thevenin's Theorem with Example  
+    ## Q: State Thevenin's Theorem with Example
     **(20 Marks)**
 
     ---
@@ -71,15 +69,15 @@
 
     ### Statement of Thevenin’s Theorem
 
-    Thevenin’s theorem states that any **linear, bilateral network** having a number of voltage sources and resistances can be replaced by a simple equivalent circuit.  
+    Thevenin’s theorem states that any **linear, bilateral network** having a number of voltage sources and resistances can be replaced by a simple equivalent circuit.
     This equivalent circuit consists of:
 
-    - A single voltage source \( V_{th} \)  
-    - A single resistance \( R_{th} \) connected in series  
+    - A single voltage source \( V_{th} \)
+    - A single resistance \( R_{th} \) connected in series
 
-    Where:  
-    - \( V_{th} \) is the open circuit voltage at the terminals  
-    - \( R_{th} \) is the equivalent resistance measured at the terminals when all sources are replaced by their internal resistances  
+    Where:
+    - \( V_{th} \) is the open circuit voltage at the terminals
+    - \( R_{th} \) is the equivalent resistance measured at the terminals when all sources are replaced by their internal resistances
 
     ---
 
@@ -93,20 +91,20 @@
 
     To find the current through a load resistor \( R_L \), follow these steps:
 
-    1. **Remove the Load Resistor**  
+    1. **Remove the Load Resistor**
     First, remove the load resistance \( R_L \) from the circuit. The terminals are now open.
 
-    2. **Find \( V_{th} \)**  
+    2. **Find \( V_{th} \)**
     Calculate the voltage across the open terminals. This voltage is called Thevenin’s voltage \( V_{th} \).
 
-    3. **Find \( R_{th} \)**  
-    Replace all voltage sources with a short circuit and all current sources with an open circuit.  
+    3. **Find \( R_{th} \)**
+    Replace all voltage sources with a short circuit and all current sources with an open circuit.
     Then calculate the equivalent resistance seen from the open terminals. This is Thevenin’s resistance \( R_{th} \).
 
-    4. **Draw the Equivalent Circuit**  
+    4. **Draw the Equivalent Circuit**
     Connect \( V_{th} \) and \( R_{th} \) in series. Then connect the load resistor \( R_L \) back to the circuit.
 
-    5. **Calculate Load Current**  
+    5. **Calculate Load Current**
     Using Ohm’s law:
 
     \[
@@ -119,15 +117,15 @@
 
     Let us consider a circuit to understand Thevenin’s theorem clearly.
 
-    ### Question  
+    ### Question
     Find the current flowing through the load resistor using Thevenin’s theorem.
 
     ### Given Circuit Data
 
-    - Source voltage \( V = 50 \, V \)  
-    - \( R_1 = 10 \, \Omega \) (series arm)  
-    - \( R_2 = 20 \, \Omega \) (parallel arm)  
-    - \( R_3 = 5 \, \Omega \) (series arm connected to load)  
+    - Source voltage \( V = 50 \, V \)
+    - \( R_1 = 10 \, \Omega \) (series arm)
+    - \( R_2 = 20 \, \Omega \) (parallel arm)
+    - \( R_3 = 5 \, \Omega \) (series arm connected to load)
     - Load resistor \( R_L = 15 \, \Omega \)
 
     ---
@@ -140,7 +138,7 @@
 
     ### Step 2: Calculate Thevenin’s Voltage \( V_{th} \)
 
-    Since terminals A and B are open, no current flows through resistor \( R_3 \).  
+    Since terminals A and B are open, no current flows through resistor \( R_3 \).
     So, the voltage across terminals A and B is equal to the voltage across \( R_2 \).
 
     Total resistance in the circuit:
@@ -174,8 +172,8 @@
     Short circuit the 50 V source.
 
     From terminals A and B:
-    - \( R_1 \) and \( R_2 \) are in parallel  
-    - \( R_3 \) is in series with that combination  
+    - \( R_1 \) and \( R_2 \) are in parallel
+    - \( R_3 \) is in series with that combination
 
     Parallel resistance:
 
@@ -196,8 +194,8 @@
     ### Step 4: Draw Thevenin’s Equivalent Circuit
 
     The equivalent circuit consists of:
-    - Voltage source \( V_{th} = 33.33 \, V \)  
-    - Series resistance \( R_{th} = 11.67 \, \Omega \)  
+    - Voltage source \( V_{th} = 33.33 \, V \)
+    - Series resistance \( R_{th} = 11.67 \, \Omega \)
     - Load resistance \( R_L = 15 \, \Omega \)
 
     ---
@@ -226,11 +224,11 @@
 
     ## Conclusion
 
-    By using Thevenin’s theorem, a complex circuit is converted into a simple equivalent circuit. This makes calculation easy and saves time.  
+    By using Thevenin’s theorem, a complex circuit is converted into a simple equivalent circuit. This makes calculation easy and saves time.
     The final current flowing through the load resistor is **1.25 amperes**.
 
     ---
-    
+
     ![alt text](image.png){width=50%}
 
     ## Solution Using Thevenin’s Theorem
@@ -341,30 +339,28 @@
     * **Voltage across 2 kΩ load:** $V_L = 4.8 \text{ V}$
     * **Current through 2 kΩ load:** $I_L = 2.4 \text{ mA}$
 
-
-
 === "Video Explanation"
 
     ### **Introduction: Mastering Thevenin’s Theorem**
 
     **[[00:00](http://www.youtube.com/watch?v=-X7otqsma4Q&t=0)]** I want to make you an expert at using Thevenin's theorem to solve circuits. Imagine you have a complex circuit and you need to find the voltage or current through just one specific resistor. We call this resistor our "load." Instead of analyzing the entire complex mess every time, what if there was a way to represent the whole circuit—excluding the load—as something much simpler?
-    ![[image-63.png]]
+    ![image-63.png](/bou-resources/media-library/image-63.png)
     That is exactly what Thevenin’s theorem does. It allows us to replace all the current sources, voltage sources, and resistors in a circuit with just two simple elements connected in series with our load:
 
     1. **Thevenin Equivalent Voltage ():** This acts as a single voltage source
-    ![[image-64.png]]
+    ![image-64.png](/bou-resources/media-library/image-64.png)
     2. **Thevenin Equivalent Resistance ():** This acts as a single resistor.
-    ![[image-65.png]]
+    ![image-65.png](/bou-resources/media-library/image-65.png)
 
     **[[03:47](http://www.youtube.com/watch?v=-X7otqsma4Q&t=227)]** You might wonder why we bother with this if methods like Nodal or Mesh analysis exist. The huge benefit here is flexibility. If you wanted to test five different loads on a circuit, you would normally have to re-analyze the whole circuit five times. With Thevenin’s theorem, you solve the complex part once to get your equivalent circuit, and then you can easily swap in any load you want.
 
     ---
 
-    ### Chapter 1: The Three Scenarios for Finding 
+    ### Chapter 1: The Three Scenarios for Finding
 
     **[[01:14](http://www.youtube.com/watch?v=-X7otqsma4Q&t=74)]** To solve these problems, we always need to find two values:  and . Finding  is usually straightforward (we find the Open Circuit Voltage, or ), but finding  depends entirely on what is inside your circuit. I classify these into three specific scenarios:
 
-    ![[image-66.png]]
+    ![image-66.png](/bou-resources/media-library/image-66.png)
 
     1. **Independent Sources Only:** To find , we remove the load and calculate the voltage across the open terminals (). To find , we turn off the sources: voltage sources become short circuits (wires), and current sources become open circuits (broken wires). We then look back into the circuit and calculate the total resistance.
     2. **Mix of Dependent and Independent Sources:** We find  normally (). However, we *cannot* turn off dependent sources. Instead, we remove the load and place a short circuit (a wire) across the terminals. We calculate the current flowing through that wire, which we call the Short Circuit Current (). Then, we use the formula:
@@ -375,15 +371,15 @@
 
     ### **Chapter 2: Example with Independent Sources**
 
-    ![[image-67.png|341x206]]
+    ![image-67.png](/bou-resources/media-library/image-67.png)
 
-    ![[image-68.png|340x194]]
+    ![image-68.png](/bou-resources/media-library/image-68.png)
 
-    ![[image-69.png|339x166]]
+    ![image-69.png](/bou-resources/media-library/image-69.png)
 
-    ![[image-70.png|339x214]]
+    ![image-70.png](/bou-resources/media-library/image-70.png)
 
-    ![[image-71.png|339x185]]
+    ![image-71.png](/bou-resources/media-library/image-71.png)
 
 
 

@@ -62,11 +62,11 @@
 - **Q1(b) [4]:** Define accessors (getters), mutators (setters) and constructors in your own word.
 - **Q1(c) [2+2+2]:** Answer the following questions using the Class diagram for an animal class shown below.
 
-  ![Animal class diagram](../../assets/CSE2137_201_Q1c_Animal_Class.png)
-
+  ![Animal class diagram](/bou-resources/bou-cse/21-semester/Previous-year-question/assets/CSE2137_201_Q1c_Animal_Class.png)
   1. How many member variables are there in the animal class? Mention their names and types.
   2. Identify the mutators and accessors.
   3. Write Java codes to implement the constructor.
+
 - **Q1(d) [2]:** Explain why the constructor is considered as a special type of method in OOP.
 - **Q3(c) [4]:** To compare two strings, will you use `==` or `equals()` methods? Briefly explain the reason. Explain with example about the following String methods used in Java: (i) `indexOf()`, (ii) `charAt()`, (iii) `endsWith()`, (iv) `contains()`.
 - **Q3(d) [4]:** Create a class named Employee that includes three instance variables - a first name (type String), a last name (type String) and a monthly salary (double). Provide a constructor that initializes the three instance variables. Provide a set and get method for each instance variable. If the monthly salary is not positive, do not set its value. Write a test app named EmployeeTest that demonstrates class Employee's capabilities. Create two Employee objects and display each object's yearly salary. Then give each Employee a 10% raise and display each Employee's yearly salary again.

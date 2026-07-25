@@ -1,9 +1,10 @@
 ---
 dg-home: false
 dg-publish: true
-aliases: 
+aliases:
 tags:
 ---
+
 ## Chapter: Electric Field
 
 ### The Electric Field
@@ -16,16 +17,16 @@ $$
 
 Where:
 
-* $E$ = Electric field strength
-* $F$ = Force experienced by the test charge
-* $q$ = Magnitude of the test charge
+- $E$ = Electric field strength
+- $F$ = Force experienced by the test charge
+- $q$ = Magnitude of the test charge
 
 The electric field is a **vector quantity** — it has both **magnitude** and **direction**. It is directed away from positive charges and toward negative charges.
 
 #### Representation:
 
 Electric fields are often represented using field lines around a charge.
-*(Diagram shown: A positive charge with circular field lines labeled "E Field")*
+_(Diagram shown: A positive charge with circular field lines labeled "E Field")_
 
 ---
 
@@ -39,9 +40,9 @@ $$
 
 Where:
 
-* $g$ = Gravitational field (acceleration due to gravity)
-* $m$ = Mass of the object
-* $F$ = Gravitational force
+- $g$ = Gravitational field (acceleration due to gravity)
+- $m$ = Mass of the object
+- $F$ = Gravitational force
 
 Similarly:
 
@@ -74,15 +75,16 @@ The relationship between the imaginary lines of force and the electric field str
 ###### ① Tangent Property:
 
 > The tangent to a line of force at any point gives the direction of $\vec{E}$ at that point.
-![[image-2.png|472x265]]
-*(Illustration shows field lines going from a positive to a negative charge with curved paths — this represents a dipole field.)*
+> ![image-2.png](/bou-resources/media-library/image-2.png)
+> _(Illustration shows field lines going from a positive to a negative charge with curved paths — this represents a dipole field.)_
 
 ###### ② Density and Magnitude:
 
 > The lines of force are drawn such that the number of lines per unit cross-sectional area is **proportional to the magnitude of** $\vec{E}$.
 
-* Where the lines are **close together**, $\vec{E}$ is **large**.
-* Where the lines are **far apart**, $\vec{E}$ is **small**.
+- Where the lines are **close together**, $\vec{E}$ is **large**.
+- Where the lines are **far apart**, $\vec{E}$ is **small**.
+
 ###### **Calculation of $\vec{E}$ (Electric Field Strength)**
 
 Let a **test charge** $q_0$ be placed at a distance $r$ from a **point charge** $q$. From **Coulomb’s Law**, the force between the two charges is given by:
@@ -90,29 +92,35 @@ Let a **test charge** $q_0$ be placed at a distance $r$ from a **point charge** 
 $$
 \vec{F} = \frac{1}{4\pi \varepsilon_0} \cdot \frac{q q_0}{r^2}
 $$
+
 ###### ➤ Electric Field Strength
+
 The electric field strength due to charge $q$ at a distance $r$ is:
+
 $$
 \vec{E} = \frac{\vec{F}}{q_0}
 = \frac{1}{4\pi \varepsilon_0} \cdot \frac{q}{r^2}
 $$
+
 This gives the **magnitude** and **direction** of the electric field produced by a single point charge.
 
 ---
 
 ###### ➤ For a Group of Charges
+
 If multiple point charges $q_1, q_2, q_3, \ldots$ are present, the **net electric field** at a point is the **vector sum** of the individual electric fields:
 
 $$
 \vec{E} = \vec{E}_1 + \vec{E}_2 + \vec{E}_3 + \cdots + \vec{E}_n
 $$
+
 ##### **Electric Dipole – Field on the Perpendicular Bisector**
 
 **Problem:**
 A positive and a negative charge of equal magnitude $q$ are placed at a distance $2a$ apart, forming an electric dipole. Find the electric field $\vec{E}$ at point $P$, located a distance $r$ from the center of the dipole along the perpendicular bisector.
-*Assume $r \gg a$.*
+_Assume $r \gg a$._
 
-![[image-3.png|189x167]]
+![image-3.png](/bou-resources/media-library/image-3.png)
 
 **Solution:**
 The total electric field at point $P$ is the vector sum of the fields due to $+q$ and $-q$:
@@ -173,11 +181,13 @@ Yes, the electric field ($\vec{E}$) is directed from the positive charge to the 
 In contrast, the **electric dipole moment** ($\vec{p}$) is a vector quantity that points from the **negative charge to the positive charge**. It is defined as $\vec{p} = q \cdot \vec{d}$, where $\vec{d}$ is the vector from −q to +q.
 
 Thus,
-![[image-5.png|171x114]]
-* **Electric field direction:** $+ \rightarrow -$
-* **Dipole moment direction:** $- \rightarrow +$
+![image-5.png](/bou-resources/media-library/image-5.png)
+
+- **Electric field direction:** $+ \rightarrow -$
+- **Dipole moment direction:** $- \rightarrow +$
 
 ---
+
 ## **A Dipole in a Uniform Electric Field**
 
 ### 🔷 **Question (Enhanced for University Level):**
@@ -185,14 +195,19 @@ Thus,
 **Explain the behavior of an electric dipole placed in a uniform electric field. Derive the expression for the torque acting on the dipole and discuss the conditions under which equilibrium occurs. Include proper diagrams and assumptions in your explanation.**
 
 ---
+
 ### 🔷 **Answer:**
 
 #### **1. Introduction:**
+
 An electric dipole consists of two equal and opposite point charges $+q$ and $-q$, separated by a fixed distance $2a$. The dipole moment **$\vec{p}$** is a vector quantity defined as:
+
 $$
 \vec{p} = q \cdot 2a \cdot \hat{d}
 $$
+
 where $\hat{d}$ is a unit vector pointing from the negative charge to the positive charge.
+
 #### **2. Dipole in a Uniform Electric Field:**
 
 When an electric dipole is placed in a uniform electric field $\vec{E}$, the positive and negative charges experience forces of equal magnitude but in opposite directions.
@@ -231,14 +246,13 @@ This torque tries to align the dipole with the direction of the electric field.
 
 #### **4. Equilibrium Conditions:**
 
-* **Stable Equilibrium:** When the dipole is aligned with the electric field ($\theta = 0^\circ$), the torque is zero and the dipole remains at rest.
+- **Stable Equilibrium:** When the dipole is aligned with the electric field ($\theta = 0^\circ$), the torque is zero and the dipole remains at rest.
 
-* **Unstable Equilibrium:** When the dipole is anti-aligned ($\theta = 180^\circ$), torque is again zero, but any slight disturbance will cause it to rotate.
+- **Unstable Equilibrium:** When the dipole is anti-aligned ($\theta = 180^\circ$), torque is again zero, but any slight disturbance will cause it to rotate.
 
 ---
 
 #### **5. Energy of a Dipole in an Electric Field:**
-
 
 The potential energy of a dipole in a uniform electric field is:
 
@@ -246,14 +260,14 @@ $$
 U = -\vec{p} \cdot \vec{E} = -pE \cos\theta
 $$
 
-* Minimum Energy at $\theta = 0^\circ$: Stable equilibrium
-* Maximum Energy at $\theta = 180^\circ$: Unstable equilibrium
+- Minimum Energy at $\theta = 0^\circ$: Stable equilibrium
+- Maximum Energy at $\theta = 180^\circ$: Unstable equilibrium
 
 ---
 
 ### 🔷 **Diagram:**
 
-*(You can include the neat diagram from your notes showing the dipole, charges, and angle with the field direction, but redrawn properly with labels for $\vec{p}$, $\vec{E}$, and torque arrows.)*
+_(You can include the neat diagram from your notes showing the dipole, charges, and angle with the field direction, but redrawn properly with labels for $\vec{p}$, $\vec{E}$, and torque arrows.)_
 
 ---
 
@@ -290,6 +304,7 @@ Then, the potential energy of the dipole is given by
 (Minimum when p and E are parallel, maximum when anti-parallel)
 
 ---
+
 ### **Electric Dipole (তড়িৎ দ্বিমেরু)**
 
 When two equal and opposite electric charges are placed very close to each other, an **electric dipole** is formed.
@@ -325,8 +340,6 @@ Since the **electric potential is zero** at any point on the perpendicular bisec
 the **work required to move a positive charge** along this line is also **zero**.
 In other words, **no work is done**.
 
-
-
 ---
 
 **<font color="#f79646">Why is no work done when a positive charge is moved along the perpendicular bisector of an electric dipole?</font>**
@@ -344,7 +357,7 @@ Suppose we have an electric dipole consisting of charges +q and –q, separated 
 Force on charge +q = qE (along the field)
 Force on charge –q = –qE (opposite to the field)
 
-As both forces are equal and opposite but act on different points, they form a ***couple***. This couple creates a torque that tries to rotate the dipole to align with the field.
+As both forces are equal and opposite but act on different points, they form a **_couple_**. This couple creates a torque that tries to rotate the dipole to align with the field.
 
 Hence, they exert a **torque** on the dipole.
 
@@ -356,7 +369,7 @@ $$
 $$
 
 Here, **p** is the dipole moment.
-![[image-15.png|544x242]]
+![image-15.png](/bou-resources/media-library/image-15.png)
 
 In vector form, equation (2.36) is written as:
 
@@ -366,10 +379,10 @@ $$
 
 Equation (2.37) shows the relation between the torque acting on a dipole and the angle between its dipole moment **p** and the external electric field **E**.
 
-* When θ = 90°, torque becomes τ = pE sin 90° = pE → **Maximum torque**,
+- When θ = 90°, torque becomes τ = pE sin 90° = pE → **Maximum torque**,
   i.e., **τₘₐₓ = pE**
 
-* When θ = 0°, torque becomes τ = pE sin 0° = 0 → **Minimum torque**,
+- When θ = 0°, torque becomes τ = pE sin 0° = 0 → **Minimum torque**,
   i.e., **τₘᵢₙ = 0**
 
 ---
@@ -444,9 +457,9 @@ $$
 
 Where:
 
-* $V_A, V_B$ are the electric potentials at A and B.
-* $W_{AB}$ is the work done to move the charge.
-* SI unit of electric potential is **volt (V)** = **joule per coulomb (J/C)**.
+- $V_A, V_B$ are the electric potentials at A and B.
+- $W_{AB}$ is the work done to move the charge.
+- SI unit of electric potential is **volt (V)** = **joule per coulomb (J/C)**.
 
 ---
 
@@ -504,7 +517,8 @@ $$
 
 ---
 
-###  **Electric Potential Due to a Point Charge**
+### **Electric Potential Due to a Point Charge**
+
 Consider two points $A$ and $B$ near an isolated point charge $q$. Let us find the potential difference between points $A$ and $B$.
 
 Assume a test charge $q_0$ is moved from point $A$ to $B$.
@@ -563,8 +577,8 @@ $$
 
 Where:
 
-* $q_n$: value of the nth charge
-* $r_n$: distance from the point to the nth charge
+- $q_n$: value of the nth charge
+- $r_n$: distance from the point to the nth charge
 
 ---
 
@@ -578,8 +592,8 @@ $$
 
 Where:
 
-* $dq$: small element of charge
-* $r$: distance from this element to the point of observation
+- $dq$: small element of charge
+- $r$: distance from this element to the point of observation
 
 ---
 
@@ -597,21 +611,22 @@ In electricity, when you move a **test charge** near another charge (like a +q),
 
 Think of the electric field like **gravity** and the test charge like a ball.
 
-* Moving a ball uphill takes effort → similar to moving a charge against an electric field.
-* If you drop the ball from a height, it gains speed → just like a charge would start moving if there’s a potential difference.
+- Moving a ball uphill takes effort → similar to moving a charge against an electric field.
+- If you drop the ball from a height, it gains speed → just like a charge would start moving if there’s a potential difference.
 
 ---
 
 #### 📌 Summary (Simple Terms):
 
-* **Electric Potential** tells us how much work is needed to move a charge in an electric field.
-* The closer you go to a positive charge, the higher the potential.
-* Formula:
+- **Electric Potential** tells us how much work is needed to move a charge in an electric field.
+- The closer you go to a positive charge, the higher the potential.
+- Formula:
 
   $$
   V = \frac{q}{4 \pi \varepsilon_0 r}
   $$
-* It helps in calculating how charges interact and how much energy is involved.
+
+- It helps in calculating how charges interact and how much energy is involved.
 
 ---
 
@@ -621,9 +636,9 @@ Let me know if you'd like a diagram or if you want me to explain vector directio
 
 ## ✅ Final Summary (Easy Words)
 
-* **Electric potential** tells us how much energy a charge would need (or release) to move in an electric field.
-* **Potential difference** is like the "height gap" that lets charge flow, just like water flows downhill.
-* It is closely related to **electric field**, but while field pushes the charge, potential tells you how much energy is stored or used.
-* Equations help you calculate this potential in different setups: one charge, many charges, or continuous charge spread.
+- **Electric potential** tells us how much energy a charge would need (or release) to move in an electric field.
+- **Potential difference** is like the "height gap" that lets charge flow, just like water flows downhill.
+- It is closely related to **electric field**, but while field pushes the charge, potential tells you how much energy is stored or used.
+- Equations help you calculate this potential in different setups: one charge, many charges, or continuous charge spread.
 
 ---

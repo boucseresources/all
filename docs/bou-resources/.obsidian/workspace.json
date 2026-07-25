@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bou-cse/21-semester/Math/Assignmentt-02/index.md",
+                "file": "admission-information/bou-cse-admission-guide.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "bou-cse-admission-guide"
             }
           }
         ],
@@ -90,7 +90,7 @@
             }
           },
           {
-            "id": "a05ccab188f3b035",
+            "id": "df2466be9bd56d5d",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -209,7 +209,28 @@
   },
   "active": "ce29b305ab64c549",
   "lastOpenFiles": [
+    "media-library/sublime.tools.png",
+    "media-library/XOR0-Gate-Using-NAND-Gate.png",
+    "media-library/obaidul-kader BOU admission conv 1.jpeg",
+    "media-library/XNOR using NAND.gif",
+    "media-library/TinkerCad of F = B'C + A'BC' + AB' + AC.png",
+    "media-library/Triangle with numbers.png",
+    "media-library/index.md",
+    "media-library/shm-spring-amplitude-gif.gif",
+    "media-library/shm-spring-amplitude-gif-1.gif",
+    "media-library/NOR-Gate-Using-NAND-Gate.png",
+    "media-library/Pasted image 20250515180357.png",
+    "media-library/Pasted image 20250508112606.png",
+    "media-library/Media Library.md",
+    "media-library/2025-05-21.md",
+    "media-library/12 Bangladesh Studies All (notes, questions, assignments) - Term 232.pdf",
+    "media-library",
+    "Media-Library/Media Library.md",
+    "Media-Library/index.md",
+    "Media-Library/2025-05-21.md",
+    "Media-Library/12 Bangladesh Studies All (notes, questions, assignments) - Term 232.pdf",
     "bou-cse/21-semester/Data-Structure/Lab-Report/Data Structure Lab Report.md",
+    "admission-information/bou-cse-admission-guide.md",
     "bou-cse/21-semester/Math/Assignmentt-02/index.md",
     "bou-cse/21-semester/Data-Structure/Untitled.md",
     "bou-cse/21-semester/Data-Structure/Lab-Report/Lab-Report.md",
@@ -219,16 +240,6 @@
     "bou-cse/21-semester/Computer-Architecture/Assignment/~$mputer Architecture Assignment.docx",
     "bou-cse/21-semester/Computer-Architecture/Assignment/Computer Architecture Assignment.docx",
     "bou-cse/21-semester/Computer-Architecture/Assignment/Conclusion.md",
-    "Media Library/image-142.png",
-    "Media Library/image-141.png",
-    "Media Library/image-140.png",
-    "Media Library/image-139.png",
-    "Media Library/image-138.png",
-    "Media Library/image-137.png",
-    "Media Library/image-136.png",
-    "Media Library/image-135.png",
-    "Media Library/image-134.png",
-    "Media Library/image-133.png",
     "bou-cse/21-semester/Computer-Architecture/Assignment/=.md",
     "bou-cse/21-semester/Computer-Architecture/Assignment/==j) f = g+h; else f = g-h;.md",
     "bou-cse/21-semester/Computer-Architecture/C-to-MIPS/Cheat-Sheet.md",
@@ -239,21 +250,10 @@
     "bou-cse/21-semester/Computer-Architecture/Instruction-Format",
     "bou-cse/21-semester/Computer-Architecture/Assignment/~WRL0003.tmp",
     "bou-cse/21-semester/Computer-Architecture/Assignment/~WRD0002.tmp",
-    "bou-cse/21-semester/Computer-Architecture/Assignment/~$index.docx",
-    "bou-cse/21-semester/Computer-Architecture/Assignment/index.docx",
     "bou-cse/21-semester/Computer-Architecture/Assignment/Untitled 6.md",
     "bou-cse/21-semester/Computer-Architecture/Assignment/Untitled 5.md",
     "bou-cse/21-semester/Computer-Architecture/Assignment/Untitled 4.md",
     "bou-cse/21-semester/Computer-Architecture/Assignment/Untitled 3.md",
-    "bou-cse/21-semester/Computer-Architecture/Assignment/Untitled 2.md",
-    "bou-cse/21-semester/Computer-Architecture/Assignment/Untitled 1.md",
-    "bou-cse/21-semester/Computer-Architecture/Assignment/Assignment.md",
-    "bou-cse/21-semester/Computer-Architecture/Assignment",
-    "bou-cse/21-semester/Math/Assignment Questions.md",
-    "bou-cse/21-semester/Math/Assignment.md",
-    "bou-cse/12-semester/structured-programming-language/[Study Plan] for Structured Programming Language.md",
-    "bou-cse/12-semester/structured-programming-language/Question-Solution/SPL-Question-Solutions.md",
-    "bou-cse/12-semester/structured-programming-language/stp-previous-year-question.md",
-    "bou-cse/12-semester/Electronic-Device-and-Circuits/Chapter-Wise/Thevenins-Theorem/Thevenins-Theorem.md"
+    "bou-cse/21-semester/Computer-Architecture/Assignment/Untitled 2.md"
   ]
 }

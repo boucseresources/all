@@ -181,7 +181,7 @@
         },
         {
           "id": "editing-toolbar:editor:insert-embed",
-          "name": "Insert embed ![[]]",
+          "name": "Insert embed ![](/bou-resources/media-library/)",
           "icon": "note-glyph"
         },
         {

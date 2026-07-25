@@ -1,6 +1,3 @@
-
-
-
 **Example ii:**
 We are given:
 
@@ -113,7 +110,8 @@ Hence proved. $\quad \text{(Shown)}$ ✅
 ---
 
 ### Short Question: Concentric Circle Whose Centre is the Origin
-![[image-40.png|226x202]]
+
+![image-40.png](/bou-resources/media-library/image-40.png)
 **1.**
 A concentric circle with its centre at the origin has the general equation:
 
@@ -148,8 +146,8 @@ Here, the Centre is $(-g, -f)$.
 আমরা একটা **family of circles** নিয়ে কথা বলছি।
 এই circles গুলো special —
 
-* এগুলো **x-axis-কে** (horizontal axis) **origin (0,0)-এ touch করছে**।
-* Circle-এর center সবসময় **y-axis-এর উপরে** থাকবে।
+- এগুলো **x-axis-কে** (horizontal axis) **origin (0,0)-এ touch করছে**।
+- Circle-এর center সবসময় **y-axis-এর উপরে** থাকবে।
 
 📌 মানে, এগুলো এমন হবে ↓
 (একটা circle উপরে, যেটা x-axis-এর উপর শুধু এক পয়েন্টে স্পর্শ করছে, নিচে যেতে পারছে না)
@@ -206,7 +204,6 @@ $$
 
 এখানে $y' = \frac{dy}{dx}$।
 
-
 ## 5️⃣ a কে eliminate করি
 
 Original equation থেকে:
@@ -225,7 +222,6 @@ y-a = y - \frac{x^2 + y^2}{2y}
 = \frac{y^2 - x^2}{2y}
 = -\frac{x^2 - y^2}{2y}
 $$
-
 
 ## 6️⃣ Back to derivative equation
 
@@ -259,18 +255,18 @@ $$
 \boxed{(x^2 - y^2) dy - 2xy dx = 0}
 $$
 
-
-![[image-42.png|Family of Circles Touching the x‑Axis at the Origin — Differential Equation]]
-
+![image-42.png](/bou-resources/media-library/image-42.png)
 
 ✅ **এটাই চেয়েছিল।**
 **বোঝার লজিক**:
 
-* Geometry থেকে center নির্ধারণ করো
-* Equation লেখো
-* Differentiate করে parameter বাদ দাও
-* Final differential equation পেয়ে যাও
+- Geometry থেকে center নির্ধারণ করো
+- Equation লেখো
+- Differentiate করে parameter বাদ দাও
+- Final differential equation পেয়ে যাও
+
 ---
+
 ## Example:
 
 **Show that the differential equation of a family of circles touching the $x$-axis at the origin is**
@@ -406,29 +402,27 @@ $$
 
 ### **Step 1: Order**
 
-* The highest order derivative present is $\frac{d^3y}{dx^3}$.
-* Therefore, **Order = 3**.
+- The highest order derivative present is $\frac{d^3y}{dx^3}$.
+- Therefore, **Order = 3**.
 
 ---
 
 ### **Step 2: Degree**
 
-* The cube root applies to the **entire left-hand side** expression, and the fifth root applies to the **entire right-hand side**.
-* Remove both roots by raising both sides to the 15th power (LCM of 3 and 5):
+- The cube root applies to the **entire left-hand side** expression, and the fifth root applies to the **entire right-hand side**.
+- Remove both roots by raising both sides to the 15th power (LCM of 3 and 5):
 
 $$
 \left[\left(\frac{d^3y}{dx^3}\right)^4 - 5x\frac{d^2y}{dx^2} + y\right]^5 = \left[\left(\frac{dy}{dx}\right)^2 + y^2 - x\right]^3
 $$
 
-* Now, the highest derivative term becomes:
+- Now, the highest derivative term becomes:
 
 $$
 \left(\frac{d^3y}{dx^3}\right)^{4 \times 5} = \left(\frac{d^3y}{dx^3}\right)^{20}
 $$
 
-* Hence, **Degree = 20**.
-
-
+- Hence, **Degree = 20**.
 
 **Final Answer:**
 
@@ -437,6 +431,7 @@ $$
 $$
 
 ---
+
 **Differential Equation of First Order and First Degree**
 
 The most general form of an ordinary differential equation of the 1st order and 1st degree is:
@@ -463,7 +458,6 @@ where both $M$ and $N$ are functions of $x$ and $y$, or constants, and do not in
 4. **Exact Equation** – Condition: $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$.
 5. **Linear Equation** – Follows the form $\frac{dy}{dx} + P(x)y = Q(x)$.
 6. **Equation Reducible to Linear Form** – Can be rearranged into the linear equation format.
-
 
 **Example 1 — Separation of Variables**
 
@@ -526,7 +520,6 @@ $$
 \frac{dy}{dx} = e^x \cdot e^y + x^2 \cdot e^{-y}
 $$
 
-
 Actually, write directly:
 
 $$
@@ -574,10 +567,10 @@ $$
     x^2+y^2+2gx+2fy+c=0 \quad (g,f,c \text{ constants})
     $$
 
-    **1st derivative →** $x+yy_1+g+fy_1=0$ … (A)  
+    **1st derivative →** $x+yy_1+g+fy_1=0$ … (A)
     _(এখানে দুই পাশে $d/dx$ করলাম; $y^2$ এর derivative = $2y \cdot y_1$, আবার $2fy$ এর derivative = $2f \cdot y_1$, তারপর 2 দিয়ে divide করায় এই ফর্ম পেলাম)_
 
-    **2nd derivative →** $1+y_1^2+yy_2+fy_2=0$  
+    **2nd derivative →** $1+y_1^2+yy_2+fy_2=0$
 
     _(আবার derivative করলাম; $y y_1$ এর derivative = $y_1^2 + y y_2$)_
 
@@ -587,11 +580,11 @@ $$
 
     _(এখানে $y_2$ এর term গুলো একসাথে করে, $y+f$ factor হিসেবে বের করে নিলাম)_
 
-    **3rd derivative of (2nd) →** $3y_1y_2+(y+f)\,y_3=0$ … (C)  
+    **3rd derivative of (2nd) →** $3y_1y_2+(y+f)\,y_3=0$ … (C)
 
     _(এবার দ্বিতীয় derivative সমীকরণটার derivative করলাম; $y_1^2$ এর derivative = $2y_1y_2$, সাথে $(y+f) y_2$ এর derivative দিলে $y_1 y_2 + (y+f) y_3$ — সব মিলে $3y_1 y_2 + (y+f) y_3$)_
 
-    **(B) থেকে $(y+f)=-(1+y_1^2)/y_2$ বসিয়ে (C):**  
+    **(B) থেকে $(y+f)=-(1+y_1^2)/y_2$ বসিয়ে (C):**
     _(আগের ধাপের (B) থেকে $y+f$ এর মান নিলাম এবং (C)-তে বসালাম)_
 
     $$
