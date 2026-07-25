@@ -1,4 +1,4 @@
-![[image-39.png]]
+![image-39.png](/bou-resources/media-library/image-39.png)
 
 ### ✅ Chapter-wise Analysis Summary: BOU MAT1231
 
@@ -14,16 +14,16 @@ From the analysis of all terms' questions, here's the **chapter-wise weightage**
 | 📘 Chapter 2 | Math Models & Numerical Methods | **16**      | ⚪️ Low            |
 | 📘 Chapter 7 | Homogeneous Linear Systems      | **7**       | ⚪️ Low            |
 | 📘 Chapter 9 | Nonlinear Systems               | **4**       | ⚪️ Low            |
-| 📘 Chapter 8 | Inhomogeneous Systems           | **0**       | ❌ Not Found       |
+| 📘 Chapter 8 | Inhomogeneous Systems           | **0**       | ❌ Not Found      |
 
 ---
 
 ### 🔥 Heatmap Insights
 
-* **Chapter 3** (Matrices & Systems) and **Chapter 1** (First-order ODEs) are **most frequently asked** – make them your top priority.
-* **Chapter 6** (Eigenvalues), **Chapter 4** (Vector Spaces), and **Chapter 5** (Higher-order ODEs) also have strong weightage and are often tested.
-* **Chapter 2, 7, 9** have **minor but repeated presence** – revise briefly.
-* **Chapter 8** hasn’t appeared explicitly – can be skipped unless teacher suggested otherwise.
+- **Chapter 3** (Matrices & Systems) and **Chapter 1** (First-order ODEs) are **most frequently asked** – make them your top priority.
+- **Chapter 6** (Eigenvalues), **Chapter 4** (Vector Spaces), and **Chapter 5** (Higher-order ODEs) also have strong weightage and are often tested.
+- **Chapter 2, 7, 9** have **minor but repeated presence** – revise briefly.
+- **Chapter 8** hasn’t appeared explicitly – can be skipped unless teacher suggested otherwise.
 
 ---
 
@@ -37,8 +37,8 @@ From the analysis of all terms' questions, here's the **chapter-wise weightage**
 
 **🔹 Focus:** First-Order ODEs + Homogeneous & Nonlinear Systems
 
-| Time Slot    | Task                                                                    |
-| ------------ | ----------------------------------------------------------------------- |
+| Time Slot     | Task                                                                    |
+| ------------- | ----------------------------------------------------------------------- |
 | ⏰ 9:00–11:00 | 🧠 Revise all types of First-Order ODEs (homogeneous, exact, Bernoulli) |
 | ⏰ 11:30–1:00 | ✍️ Solve 10+ past paper questions from Chapter 1                        |
 | ⏰ 2:00–3:30  | 🔍 Homogeneous Linear Systems (basic concept + 1 example)               |
@@ -51,8 +51,8 @@ From the analysis of all terms' questions, here's the **chapter-wise weightage**
 
 **🔹 Focus:** Matrices, Vector Spaces
 
-| Time Slot    | Task                                                                   |
-| ------------ | ---------------------------------------------------------------------- |
+| Time Slot     | Task                                                                   |
+| ------------- | ---------------------------------------------------------------------- |
 | ⏰ 9:00–11:00 | 🧮 Revise matrix operations: inverse, rank, Gaussian, Cramer           |
 | ⏰ 11:30–1:00 | ✍️ Solve at least 5 matrix-based past paper problems                   |
 | ⏰ 2:00–3:30  | 🧵 Learn vector space theory + row/column/null space                   |
@@ -65,8 +65,8 @@ From the analysis of all terms' questions, here's the **chapter-wise weightage**
 
 **🔹 Focus:** Eigenvalues, Higher-Order ODEs
 
-| Time Slot    | Task                                                       |
-| ------------ | ---------------------------------------------------------- |
+| Time Slot     | Task                                                       |
+| ------------- | ---------------------------------------------------------- |
 | ⏰ 9:00–11:00 | 🔁 Revise Eigenvalues, diagonalization, and transformation |
 | ⏰ 11:30–1:00 | ✍️ Solve 3 past eigenvalue problems + 1 diagonalization    |
 | ⏰ 2:00–3:30  | 🔄 Learn 2nd Order ODEs + Mechanical Vibration concept     |
@@ -77,37 +77,32 @@ From the analysis of all terms' questions, here's the **chapter-wise weightage**
 
 ### 🧠 Tips for Effective Prep
 
-* 🔁 Focus on **repeat questions** — especially from Chapter 1 and 3.
-* 🧪 Practice solving under time limits.
-* ✍️ Write down integrating factor & substitution rules clearly.
-* 📄 Create a **“last minute formula sheet”** for Day-3 night review.
+- 🔁 Focus on **repeat questions** — especially from Chapter 1 and 3.
+- 🧪 Practice solving under time limits.
+- ✍️ Write down integrating factor & substitution rules clearly.
+- 📄 Create a **“last minute formula sheet”** for Day-3 night review.
 
 ---
 
 If you'd like, I can now generate:
 
-* 🧾 Printable Study Plan PDF
-* 📑 Cheat Sheets for each chapter
-* 🧠 Flashcards or quiz sets
+- 🧾 Printable Study Plan PDF
+- 📑 Cheat Sheets for each chapter
+- 🧠 Flashcards or quiz sets
 
 Let me know what you want next!
 
-
 ### 🔍 Quick Analysis:
 
-* ✅ **Top Chapters** (🔥 Highest marks):
+- ✅ **Top Chapters** (🔥 Highest marks):
+  - **Chapter 3: Linear Systems and Matrices** — 77 marks
+  - **Chapter 1: First-Order ODEs** — 74 marks
 
-  * **Chapter 3: Linear Systems and Matrices** — 77 marks
-  * **Chapter 1: First-Order ODEs** — 74 marks
+- 🟡 **Medium Priority**:
+  - **Chapter 6: Eigenvalues** — 54
+  - **Chapter 4: Vector Spaces** — 49
+  - **Chapter 5: Higher-Order ODEs** — 34
 
-* 🟡 **Medium Priority**:
-
-  * **Chapter 6: Eigenvalues** — 54
-  * **Chapter 4: Vector Spaces** — 49
-  * **Chapter 5: Higher-Order ODEs** — 34
-
-* ⚪️ **Low Weight**:
-
-  * Chapters 2, 7, 9 — under 20 marks
-  * Chapter 8 — ❌ No questions appeared
-
+- ⚪️ **Low Weight**:
+  - Chapters 2, 7, 9 — under 20 marks
+  - Chapter 8 — ❌ No questions appeared

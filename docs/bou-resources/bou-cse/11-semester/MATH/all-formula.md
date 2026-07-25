@@ -1,7 +1,7 @@
 ---
 dg-home: false
 dg-publish: true
-aliases: 
+aliases:
 tags:
 ---
 
@@ -57,13 +57,13 @@ tags:
 
 ## ✅ Memory Tricks (Summary)
 
-| Trick                            | Explanation                                     |   |      |
-| -------------------------------- | ----------------------------------------------- | - | ---- |
-| **Sine = Odd, Alt Signs**        | Powers: $x^1, x^3, x^5...$, signs: $+\,-\,+\,-$ |   |      |
-| **Cosine = Even, Alt Signs**     | Powers: $x^0, x^2, x^4...$, signs: $+\,-\,+\,-$ |   |      |
-| **Exponential = All +**          | All powers, all +                               |   |      |
-| **ln(1 + x) = Alt, Start at x**  | $x - x^2/2 + x^3/3 - \cdots$, (                 | x | < 1) |
-| **Inverse trig = Odd, Alt or +** | Like arcsin: all +; arctan: alternate           |   |      |
+| Trick                            | Explanation                                     |     |      |
+| -------------------------------- | ----------------------------------------------- | --- | ---- |
+| **Sine = Odd, Alt Signs**        | Powers: $x^1, x^3, x^5...$, signs: $+\,-\,+\,-$ |     |      |
+| **Cosine = Even, Alt Signs**     | Powers: $x^0, x^2, x^4...$, signs: $+\,-\,+\,-$ |     |      |
+| **Exponential = All +**          | All powers, all +                               |     |      |
+| **ln(1 + x) = Alt, Start at x**  | $x - x^2/2 + x^3/3 - \cdots$, (                 | x   | < 1) |
+| **Inverse trig = Odd, Alt or +** | Like arcsin: all +; arctan: alternate           |     |      |
 
 ---
 
@@ -141,8 +141,8 @@ $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$
 
 If $y$ is defined implicitly in terms of $x$:
 
-* Differentiate both sides w\.r.t. $x$ using chain rule for $y$
-* Solve for $\frac{dy}{dx}$
+- Differentiate both sides w\.r.t. $x$ using chain rule for $y$
+- Solve for $\frac{dy}{dx}$
 
 ---
 
@@ -161,5 +161,4 @@ Then differentiate using product and chain rules.
 
 ---
 
-![[image-27.png]]
-
+![image-27.png](/bou-resources/media-library/image-27.png)

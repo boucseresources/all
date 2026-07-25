@@ -1,10 +1,12 @@
 ---
 dg-home: false
 dg-publish: true
-aliases: 
+aliases:
 tags:
 ---
-![[output _1_-1.png]]
+
+![output _1_-1.png](/bou-resources/media-library/output _1_-1.png)
+
 ### 📘 Updated 4-Day Study Plan (Considering Term 221)
 
 | Day       | Focus                       | Chapters                                                               | Goals                                                                                          |
@@ -16,18 +18,17 @@ tags:
 
 Would you like this exported as:
 
-* 📄 Printable PDF / Notion page?
-* 🧪 Smart mock set generator?
-* 🧠 Flashcards for each chapter’s formula and keywords?
-
+- 📄 Printable PDF / Notion page?
+- 🧪 Smart mock set generator?
+- 🧠 Flashcards for each chapter’s formula and keywords?
 
 ### 🔍 What about **Functions & Models**?
 
 According to the heatmap and all 5 sets:
 
-* **Functions & Models** appeared **in all 5 terms**, but...
-* It's always **only 1 question** (often Q1a or Q1b), usually **domain/range**, **graph sketching**, or **continuity check**.
-* **Marks weight**: 3 to 6 marks per term — **low to moderate**.
+- **Functions & Models** appeared **in all 5 terms**, but...
+- It's always **only 1 question** (often Q1a or Q1b), usually **domain/range**, **graph sketching**, or **continuity check**.
+- **Marks weight**: 3 to 6 marks per term — **low to moderate**.
 
 ---
 
@@ -45,15 +46,14 @@ According to the heatmap and all 5 sets:
 
 **Day 1 — Warm-up (30 mins)**
 
-* Revise:
-
-  * Domain/Range rules
-  * Absolute value function graphs
-  * Piecewise continuity/differentiability logic
+- Revise:
+  - Domain/Range rules
+  - Absolute value function graphs
+  - Piecewise continuity/differentiability logic
 
 **Day 4 — Quick Review (15 mins)**
 
-* Practice 1 graph sketching + 1 domain-range from old terms
+- Practice 1 graph sketching + 1 domain-range from old terms
 
 ---
 

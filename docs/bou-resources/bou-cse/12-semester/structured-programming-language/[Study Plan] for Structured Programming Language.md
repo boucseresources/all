@@ -1,27 +1,26 @@
-![[image-32.png]]
+![image-32.png](/bou-resources/media-library/image-32.png)
 
 # Chapter-wise Question Frequency
 
-| Chapter                          | Question Count | 🟢 Remarks               |
-|----------------------------------|----------------|--------------------------|
-| Control Statements              | 20             | 🔥 Very High Priority     |
-| Functions                       | 17             | 🔥 Very High Priority     |
-| File Structures / File Handling | 12             | 🔶 High Priority          |
-| Pointers                        | 8              | 🔶 High Priority          |
-| Structures                      | 8              | 🔶 High Priority          |
-| Operators and Expressions       | 8              | 🔶 High Priority          |
-| C Language Preliminaries        | 9              | 🟡 Moderate Priority      |
-| Arrays                          | 7              | 🟡 Moderate Priority      |
-| Strings                         | 5              | 🟡 Moderate Priority      |
-| Introduction to Problem Solving | 6              | 🟢 Low Priority           |
-| Input-Output                    | 4              | 🟢 Low Priority           |
-| Storage Types                   | 1              | ⚪ Minimal – Just Review  |
-| Pre-processor Commands          | 1              | ⚪ Minimal – Just Review  |
+| Chapter                         | Question Count | 🟢 Remarks               |
+| ------------------------------- | -------------- | ------------------------ |
+| Control Statements              | 20             | 🔥 Very High Priority    |
+| Functions                       | 17             | 🔥 Very High Priority    |
+| File Structures / File Handling | 12             | 🔶 High Priority         |
+| Pointers                        | 8              | 🔶 High Priority         |
+| Structures                      | 8              | 🔶 High Priority         |
+| Operators and Expressions       | 8              | 🔶 High Priority         |
+| C Language Preliminaries        | 9              | 🟡 Moderate Priority     |
+| Arrays                          | 7              | 🟡 Moderate Priority     |
+| Strings                         | 5              | 🟡 Moderate Priority     |
+| Introduction to Problem Solving | 6              | 🟢 Low Priority          |
+| Input-Output                    | 4              | 🟢 Low Priority          |
+| Storage Types                   | 1              | ⚪ Minimal – Just Review |
+| Pre-processor Commands          | 1              | ⚪ Minimal – Just Review |
 
-
-* 🔥 **Control Statements** and **Functions** are the most asked.
-* 🔶 **File Handling**, **Pointers**, **Structures**, **Operators**, and **Arrays** are also heavily tested.
-* 🧊 **Storage Types** and **Pre-processor Commands** appear less frequently but shouldn't be skipped.
+- 🔥 **Control Statements** and **Functions** are the most asked.
+- 🔶 **File Handling**, **Pointers**, **Structures**, **Operators**, and **Arrays** are also heavily tested.
+- 🧊 **Storage Types** and **Pre-processor Commands** appear less frequently but shouldn't be skipped.
 
 ---
 
@@ -81,19 +80,19 @@ We'll follow a **high-frequency first** approach with **interleaved revision**, 
 
 ### 📌 Tips & Tricks
 
-* **Don’t memorize code blindly** — trace it with pen & paper.
-* **Write code snippets by hand** to build intuition.
-* Focus on **flowchart/algorithm questions early** — they’re easy marks.
-* Repeatedly asked areas: `loops`, `file handling`, `functions`, `arrays`.
-* In the exam: **Attempt full 5 questions**. Don’t leave subparts blank.
-* Use mnemonics: e.g., for file modes → `"r", "w", "a", "r+", etc.` = *Read Write Append Read+Write*
+- **Don’t memorize code blindly** — trace it with pen & paper.
+- **Write code snippets by hand** to build intuition.
+- Focus on **flowchart/algorithm questions early** — they’re easy marks.
+- Repeatedly asked areas: `loops`, `file handling`, `functions`, `arrays`.
+- In the exam: **Attempt full 5 questions**. Don’t leave subparts blank.
+- Use mnemonics: e.g., for file modes → `"r", "w", "a", "r+", etc.` = _Read Write Append Read+Write_
 
 ---
 
 Would you like me to generate:
 
-* 📄 Printable PDF version?
-* ✅ Daily checklist?
-* 📘 Flashcards for MCQ/theory questions?
+- 📄 Printable PDF version?
+- ✅ Daily checklist?
+- 📘 Flashcards for MCQ/theory questions?
 
 Let me know how you'd like to practice!

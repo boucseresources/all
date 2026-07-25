@@ -4,14 +4,15 @@
 
 ### Objective:
 
-* To study the I-V characteristics of silicon p-n junction diodes.
+- To study the I-V characteristics of silicon p-n junction diodes.
+
 ### Equipments:
 
-* p-n junction diode
-* Resistor
-* Chords and wire
-* Multimeter
-* DC power supply
+- p-n junction diode
+- Resistor
+- Chords and wire
+- Multimeter
+- DC power supply
 
 ---
 
@@ -30,12 +31,14 @@ NA=acceptor atoms, intrinsic =ni=1.5×10^10 cm−3 (si)
 n0= ND and P0 =ni²/ND.
 
 **Current-Voltage Characteristics:**
-![[Figure 1_ Internal and circuit representation of a diode.png|Figure 1: Internal and circuit representation of a diode]]
+![Figure 1_ Internal and circuit representation of a diode.png](/bou-resources/media-library/Figure 1\_ Internal and circuit representation of a diode.png)
 
 There are three area of operation–
-* The forward –bias region (V>0)
-* The reverse –bias region (V<0)
-* The breakdown region
+
+- The forward –bias region (V>0)
+- The reverse –bias region (V<0)
+- The breakdown region
+
 ### Procedure:
 
 1. We simulated the circuit using **TinkerCAD** to observe the diode behavior.
@@ -43,17 +46,18 @@ There are three area of operation–
 3. A **variable DC power supply** was used to apply the input voltage ($V_{DC}$).
 4. The supply voltage was varied gradually from **0.1 V, 0.2 V, 0.3 V … up to 25 V**.
 5. For each applied voltage, we measured and recorded:
+   - the **voltage drop across the diode** ($V_D$), and
+   - the **current through the diode** ($I_D$).
 
-   * the **voltage drop across the diode** ($V_D$), and
-   * the **current through the diode** ($I_D$).
 6. The recorded values were tabulated in a **data table**.
 7. Finally, the data was plotted using **Matplotlib (Python library)** to visualize the **I–V characteristics of the diode**.
 
-![[Figure 2 TinkerCAD simulation for circuit 1.png|Figure 2: TinkerCAD simulation for circuit 1]]
-                        
-                        
-![[Figure 3_ TinkerCAD simulation for circuit 1.png|Figure 3: TinkerCAD simulation for circuit 1]]
+![Figure 2 TinkerCAD simulation for circuit 1.png](/bou-resources/media-library/Figure 2 TinkerCAD simulation for circuit 1.png)
+
+![Figure 3_ TinkerCAD simulation for circuit 1.png](/bou-resources/media-library/Figure 3\_ TinkerCAD simulation for circuit 1.png)
+
 ### Data table:
+
 | Reading No. | Vdc (V) | Vd (V) | Vr (V) = Vdc – Vd | Id (mA) |
 | ----------- | ------- | ------ | ----------------- | ------- |
 | 1           | 0.00    | 0.000  | 0.000             | 0.000   |
@@ -84,12 +88,12 @@ There are three area of operation–
 ### Result:
 
 The graph has been plotted between voltage and current. It is in attachment.
-![[Figure 4_ I-V characteristics in diode.png|Figure 4: I-V characteristics in diode]]
-
+![Figure 4_ I-V characteristics in diode.png](/bou-resources/media-library/Figure 4\_ I-V characteristics in diode.png)
 
 ### Discussion:
 
 The diodes don’t work in reverse bias (RB) but forward bias (FB).
+
 ### Precautions:
 
 (i) Ammeter and voltmeter should be connected is series and parallel.

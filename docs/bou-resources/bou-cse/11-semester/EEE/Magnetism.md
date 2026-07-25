@@ -1,13 +1,15 @@
 ---
 dg-home: false
 dg-publish: true
-aliases: 
+aliases:
 tags:
 ---
+
 ### 4.2 Biot–Savart Law or Laplace’s Law
 
 According to scientific observation, a magnetic field is produced around a current-carrying conductor. To calculate the magnetic field or magnetic induction at any point, Biot and Savart formulated a law, which Laplace later used to derive a mathematical expression. In 1820, Biot and Savart demonstrated this relationship through an experiment. Hence, this is known as the Biot–Savart Law or Biot–Savart–Laplace Law. Using this law, the magnetic field due to various current elements of a conductor can be determined.
-![[image-17.png|230x217]]
+![image-17.png](/bou-resources/media-library/image-17.png)
+
 ### Determination of Magnetic Field Due to a Current Element
 
 **Law**: The magnetic field $\vec{dB}$ at a point in space due to a small current element depends on:
@@ -116,6 +118,7 @@ Any magnetic field line due to a current element lies perpendicular to both the 
 Hence, the magnetic field depends on the sine of the angle $\alpha$ between the current element and the position vector.
 
 ---
+
 ### Magnetic Force on a Current
 
 Consider a wire of length $l$ carrying a current $i$ and placed in a magnetic field $\vec{B}$:
@@ -136,8 +139,8 @@ $$
 
 Where:
 
-* $e$ is the charge of the electron,
-* $v_d$ is the drift velocity.
+- $e$ is the charge of the electron,
+- $v_d$ is the drift velocity.
 
 If $l$ is the length of the wire, the total force on the free electrons in the wire is:
 
@@ -206,6 +209,7 @@ $$
 This equation is known as the **Lorentz Equation**, and this force is called the **Lorentz Force**.
 
 ---
+
 Thank you for the clarification. Here's the simplified and easy-to-follow version of your provided explanation, keeping it formal but not too bookish — like how a good Indian teacher might explain it in class with relatable terms:
 
 ---
@@ -230,9 +234,9 @@ $$
 
 Here:
 
-* $q$ is the charge of one electron (in this case, $e$)
-* $\vec{v}_d$ is the drift velocity — this is the average speed at which electrons move in the wire
-* $\vec{B}$ is the magnetic field
+- $q$ is the charge of one electron (in this case, $e$)
+- $\vec{v}_d$ is the drift velocity — this is the average speed at which electrons move in the wire
+- $\vec{B}$ is the magnetic field
 
 Now, if the magnetic field is **perpendicular** to the direction of motion (which is the usual case in such questions), the angle $\theta = 90^\circ$, so:
 
@@ -246,9 +250,9 @@ $$
 
 If the wire has:
 
-* Length = $l$
-* Cross-sectional area = $A$
-* Free electron density = $n$ (i.e., how many free electrons in 1 m³ of wire)
+- Length = $l$
+- Cross-sectional area = $A$
+- Free electron density = $n$ (i.e., how many free electrons in 1 m³ of wire)
 
 Then, total number of free electrons = $nAl$
 
@@ -287,8 +291,8 @@ $$
 
 ### Final Formula (Scalar and Vector Form)
 
-* **Scalar form**: $F = i l B$ (when $i$, $B$, and $l$ are mutually perpendicular)
-* **Vector form**: $\vec{F} = i \vec{l} \times \vec{B}$
+- **Scalar form**: $F = i l B$ (when $i$, $B$, and $l$ are mutually perpendicular)
+- **Vector form**: $\vec{F} = i \vec{l} \times \vec{B}$
 
 So this is how we calculate the **magnetic force on a current-carrying conductor**.
 
@@ -300,13 +304,13 @@ So this is how we calculate the **magnetic force on a current-carrying conductor
 
 Suppose you have a **charged particle** (like an electron or proton), and it is moving in a region where:
 
-* There is an **electric field** $\vec{E}$
-* And also a **magnetic field** $\vec{B}$
+- There is an **electric field** $\vec{E}$
+- And also a **magnetic field** $\vec{B}$
 
 Then the particle feels **two forces at the same time**:
 
-* Electric force: $q\vec{E}$
-* Magnetic force: $q\vec{v} \times \vec{B}$
+- Electric force: $q\vec{E}$
+- Magnetic force: $q\vec{v} \times \vec{B}$
 
 So total force (called **Lorentz force**) is:
 
@@ -323,11 +327,12 @@ $$
 This equation explains the **complete effect** on a moving charge in a combined electric and magnetic field.
 
 ---
+
 Here is your translated and formatted version in **bookish English**, using **Indian-friendly phrasing** with **simple words** and **proper structure** suitable for textbooks:
 
 ---
 
-### Ampere’s Circuital Law (Ampere’s Law)**
+### Ampere’s Circuital Law (Ampere’s Law)\*\*
 
 **Subject: Physics (Second Paper)**
 **Page: 308**
@@ -349,9 +354,9 @@ $$
 
 Where:
 
-* $\mu_0$ = Permeability of free space (a constant)
-* $d\vec{l}$ = Small displacement vector along the path
-* $\oint$ = Indicates a closed path (line integral around a loop)
+- $\mu_0$ = Permeability of free space (a constant)
+- $d\vec{l}$ = Small displacement vector along the path
+- $\oint$ = Indicates a closed path (line integral around a loop)
 
 ---
 
@@ -365,16 +370,16 @@ The magnitude of this torque is given by:
 
 $$
 \vec{\tau} = \vec{p} \times \vec{B}
-\quad \text{or} \quad 
+\quad \text{or} \quad
 \tau = pB \sin\theta
 \quad \text{(Equation 4.20, 4.21)}
 $$
 
 Where:
 
-* $\vec{p}$ = Magnetic dipole moment of the bar magnet
-* $B$ = Strength of the magnetic field
-* $\theta$ = Angle between $\vec{p}$ and $\vec{B}$
+- $\vec{p}$ = Magnetic dipole moment of the bar magnet
+- $B$ = Strength of the magnetic field
+- $\theta$ = Angle between $\vec{p}$ and $\vec{B}$
 
 This tells us that:
 
@@ -403,8 +408,8 @@ $$
 
 Which means,
 
-* Magnetic field increases with current,
-* Magnetic field decreases with distance.
+- Magnetic field increases with current,
+- Magnetic field decreases with distance.
 
 To make this a proper equation, we multiply with a constant:
 
@@ -415,7 +420,7 @@ $$
 
 Where:
 
-* $\mu_0 = 4\pi \times 10^{-7}$ Weber / Ampere-metre (Permeability of free space)
+- $\mu_0 = 4\pi \times 10^{-7}$ Weber / Ampere-metre (Permeability of free space)
 
 So, this becomes:
 

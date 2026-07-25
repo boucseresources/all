@@ -9,6 +9,6 @@
   },
   "newFileLocation": "root",
   "alwaysUpdateLinks": true,
-  "useMarkdownLinks": false,
-  "attachmentFolderPath": "Media Library"
+  "useMarkdownLinks": true,
+  "attachmentFolderPath": "media-library"
 }

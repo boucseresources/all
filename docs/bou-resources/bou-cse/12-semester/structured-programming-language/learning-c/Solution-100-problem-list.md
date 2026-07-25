@@ -7,13 +7,12 @@ int main() {
  printf("Type your number");
  scanf("%d", &number);
  int square = number * number;
- 
+
  printf("the square of the number is: %d", square);
- 
+
     return 0;
 }
 ```
-
 
 ```c
 // Find area of a rectangle using user input.
@@ -26,42 +25,44 @@ int main() {
  scanf("%f", &length);
  printf("Type the width of the rectangle: ");
  scanf("%f", &width);
- 
+
  float areaOfRectangle =  length * width;
- 
+
  printf("the square of the number is: %0.3f", areaOfRectangle);
- 
+
     return 0;
 }
 ```
 
-
-
-![[image-52.png]]
+![image-52.png](/bou-resources/media-library/image-52.png)
 
 ---
-8. Input temperature in Celsius and convert to Fahrenheit. 
+
+8. Input temperature in Celsius and convert to Fahrenheit.
+
 ```c
-// Input temperature in Celsius and convert to Fahrenheit. 
+// Input temperature in Celsius and convert to Fahrenheit.
 
 #include <stdio.h>
 
 int main() {
     float cel, far;
-    
+
     printf("Type the celcius value");
-    
+
     scanf("%f", &cel);
     far = (cel * 9/5) + 32;
     printf("The Fahrenheit value is: %f", far);
-    
-    
+
+
     return 0;
 }
 ```
-![[image-53.png]]
+
+![image-53.png](/bou-resources/media-library/image-53.png)
 
 ---
+
 ```c
 // 2. Sum of First 10 Natural Numbers
 // Write a C program to compute the sum of the first 10 natural numbers.
@@ -78,15 +79,17 @@ int main() {
     for (int i = 1; i <= 10; i++){
         sum += i;
     }
-    
+
     printf("Sum of First 10 Natural Numbers %d", sum);
 
     return 0;
 }
 ```
-![[image-54.png]]
+
+![image-54.png](/bou-resources/media-library/image-54.png)
 
 ---
+
 ```c
 // Fibonacci Number Series
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, and 34
@@ -109,11 +112,12 @@ printf("%d  \n",next);
 }
 ```
 
-![[Fibonacci Number Series.png]]
+![Fibonacci Number Series.png](/bou-resources/media-library/Fibonacci Number Series.png)
 
 ---
 
 **Question: Write a C program using a for loop to print this pattern.**
+
 ```c
 1
 1 2
@@ -122,12 +126,13 @@ printf("%d  \n",next);
 1 2 3 4 5
 ```
 
-Answer: 
+Answer:
+
 ```c
 #include <stdio.h>
 
 int main() {
-   
+
    for (int row = 1; row <=5; row++){
        for (int col = 1; col <=row; col++ ){
           printf("%d", col);
@@ -139,9 +144,10 @@ int main() {
 }
 ```
 
-![[Triangle with numbers.png]]
+![Triangle with numbers.png](/bou-resources/media-library/Triangle with numbers.png)
 
 ---
+
 ```c
 // Write a C program to print numbers from 0 to 10 and 10 to 0 using two while loops.
 
@@ -159,14 +165,16 @@ while(j>=0){
     printf("%d\n", j);
     j--;
 }
-    
+
 
     return 0;
 }
 ```
-![[image-57.png]]
+
+![image-57.png](/bou-resources/media-library/image-57.png)
 
 ---
+
 ```c
 //Write a C program that calculates the product of numbers from 1 to 5 using a while loop.
 
@@ -174,7 +182,7 @@ while(j>=0){
 
 int main() {
     int i = 1, prod = 1;
-    
+
     while(i<=5){
         prod = prod * i;
         i++;
@@ -185,7 +193,7 @@ int main() {
     return 0;
 }
 ```
-![[image-58.png]]
+
+![image-58.png](/bou-resources/media-library/image-58.png)
 
 ---
-

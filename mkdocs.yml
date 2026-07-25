@@ -55,17 +55,11 @@ theme:
 
 plugins:
   - search
-  - social:
-      cards_layout_options:
-        font_family: "Noto Sans Bengali"
-  
   - privacy:
-      # Exclude problematic URLs from being cached locally by the privacy plugin
   - meta
   - glightbox
   - obsidian-bridge
   - awesome-pages
-  - mcq
   - toggle-sidebar
 
 extra:
