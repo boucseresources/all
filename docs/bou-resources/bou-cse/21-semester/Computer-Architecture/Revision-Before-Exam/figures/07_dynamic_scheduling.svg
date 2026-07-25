@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="470"
+  viewBox="0 0 1140 470" role="img" aria-labelledby="title desc">
+  <title id="title">Dynamic Scheduling with In-Order Commit</title>
+  <desc id="desc">Dynamic Scheduling with In-Order Commit</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+      markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0f172a" flood-opacity=".12"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="570" y="32" text-anchor="middle" font-size="21"
+    font-weight="700" fill="#0f172a">Dynamic Scheduling with In-Order Commit</text>
+  <g filter="url(#shadow)">
+    <rect x="35" y="175" width="145" height="90" rx="10"
+      fill="#e0f2fe" stroke="#334155" stroke-width="2"/>
+    <text x="107.5" y="215.5"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Fetch and</text>
+<text x="107.5" y="234.5"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Decode</text>
+
+    <rect x="220" y="175" width="155" height="90" rx="10"
+      fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+    <text x="297.5" y="215.5"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Instruction</text>
+<text x="297.5" y="234.5"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Queue</text>
+
+    <rect x="415" y="145" width="190" height="150" rx="10"
+      fill="#eef2ff" stroke="#334155" stroke-width="2"/>
+    <text x="510" y="215.5"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Reservation Stations</text>
+<text x="510" y="234.5"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Register Renaming</text>
+
+    <rect x="655" y="145" width="190" height="150" rx="10"
+      fill="#dbeafe" stroke="#334155" stroke-width="2"/>
+    <text x="750" y="206"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Functional Units</text>
+<text x="750" y="225"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">ALU • Load/Store</text>
+<text x="750" y="244"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Multiply</text>
+
+    <rect x="895" y="105" width="190" height="105" rx="10"
+      fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+    <text x="990" y="162.5"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Reorder Buffer</text>
+
+    <rect x="895" y="275" width="190" height="105" rx="10"
+      fill="#e0f2fe" stroke="#334155" stroke-width="2"/>
+    <text x="990" y="332.5"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">In-Order Commit</text></g>
+  <g><line x1="180" y1="220" x2="220" y2="220"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="375" y1="220" x2="415" y2="220"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="605" y1="220" x2="655" y2="220"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="845" y1="185" x2="895" y2="160"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><text x="870" y="165.5"
+        text-anchor="middle" font-size="12.5" font-weight="600" fill="#475569">
+        Result</text>
+<line x1="990" y1="210" x2="990" y2="275"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="845" y1="250" x2="415" y2="275"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><text x="630" y="340"
+        text-anchor="middle" font-size="12.5" font-weight="600" fill="#475569">
+        Result broadcast</text></g>
+  <text x="570" y="457" text-anchor="middle"
+    font-size="12" fill="#64748b">True RAW dependence remains; independent instructions can execute while operands are pending.</text>
+</svg>

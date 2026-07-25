@@ -1,6 +1,11 @@
-{% extends "base.html" %} {% block extrahead %}
-<link rel="manifest" href="{{ base_url }}/manifest.json" />
-{% endblock %} {% block announce %}
+{% extends "base.html" %} 
+
+{% block extrahead %}
+  {{ super() }}
+  <link rel="manifest" href="{{ base_url }}/manifest.json" />
+{% endblock %} 
+
+{% block announce %}
 <div class="marquee-container">
   <div class="marquee-text">
     📢 BOU CSE পরীক্ষা 2026 এর রুটিন প্রকাশিত হয়েছে!
