@@ -2,7 +2,7 @@
 date: 2026-07-25
 authors: [admin]
 description: This is a short excerpt of my blog post.
-image: thumbnail-late-fee.png
+image: https://notes.bro.bd/bou-resources/admission-information/Late-Registration/thumbnail-late-fee.png
 ---
 
 # নির্ধারিত সময়ের মধ্যে রেজিস্ট্রেশনের কাগজপত্র জমা দিতে না পারলে কী করবেন?
