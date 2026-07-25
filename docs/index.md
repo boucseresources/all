@@ -54,13 +54,15 @@ title: Home
 
 ## Admission & Semester Fee
 
-<div style="display: flex; gap:20px" >
+<div class="grid-2" style="gap: 20px;">
     <a href="/bou-resources/admission-information/bou-cse-admission-guide/" class="md-button">সম্পূর্ণ Admission Process দেখুন</a>
 
     <a href="/bou-resources/admission-information/Semser-Fee-Payment/" class="md-button">Full Semester Fee Payment Process</a>
 
 
     <a href="/bou-resources/admission-information/Retake-Improve" class="md-button">Retake & Improvement Process দেখুন</a>
+    
+    <a href="/bou-resources/admission-information/Late-Registration" class="md-button md-button--orange">Late Fee নিয়ে ঝামেলে?</a>
 
 </div>
 
