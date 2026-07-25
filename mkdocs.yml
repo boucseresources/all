@@ -49,11 +49,9 @@ theme:
 
 plugins:
   - search
+  - social
   - privacy:
       # Exclude problematic URLs from being cached locally by the privacy plugin
-      assets_exclude:
-        - "https://pubchem.ncbi.nlm.nih.gov/*"
-        - "https://polyfill.io/*"
   - meta
   - glightbox
   - obsidian-bridge
