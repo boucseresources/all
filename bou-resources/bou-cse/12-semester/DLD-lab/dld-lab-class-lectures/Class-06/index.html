@@ -61,8 +61,6 @@
     
       <link rel="stylesheet" href="../../../../../../stylesheets/custom_buttons.css">
     
-      <link rel="stylesheet" href="../../../../../../assets/mcq.css">
-    
     <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -82,18 +80,7 @@
   
   <link rel="manifest" href="../../../../../../manifest.json" />
 
-  
-<meta property="og:type" content="website" />
-<meta property="og:title" content="DLD Lab 4.1, 4.2, 4.3 and 4.4 (Circuit Design with K-Map solution ) - Bou CSE Resources" />
-<meta property="og:image" content="https://notes.bro.bd/assets/images/social/bou-resources/bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-06.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://notes.bro.bd/bou-resources/bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-06/" />
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="DLD Lab 4.1, 4.2, 4.3 and 4.4 (Circuit Design with K-Map solution ) - Bou CSE Resources" />
-<meta property="twitter:image" content="https://notes.bro.bd/assets/images/social/bou-resources/bou-cse/12-semester/DLD-lab/dld-lab-class-lectures/Class-06.png" />
- <link href="../../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -9669,8 +9656,6 @@ const registerKeyboardEventHandler = () => {
       
         
       
-        
-      
     
     
     
@@ -9815,34 +9800,6 @@ const registerKeyboardEventHandler = () => {
     
   
     C variable names (identifiers)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../structured-programming-language/learning-c/c-variables/c-variable-quiz/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    C variable quiz
   
 
     
@@ -17970,41 +17927,53 @@ const registerKeyboardEventHandler = () => {
 
 <h4 id="3-variable-k-map-solution-step-by-step-in-2-parts">3-Variable K-Map Solution (Step-by-Step, in 2 parts)<a class="headerlink" href="#3-variable-k-map-solution-step-by-step-in-2-parts" title="Anchor link to this section for reference">&para;</a></h4>
 <p><strong>"Part 1 — Problem Setup"</strong></p>
-<p>Given,<br />
-- <strong>Minterms:</strong> <span class="arithmatex">\( \Sigma m(1,2,4,5,7) \)</span><br />
-- <strong>Don’t cares:</strong> <em>(none)</em><br />
-- <strong>Variables:</strong> <span class="arithmatex">\(a, b, c\)</span><br />
-- <strong>Method:</strong> Karnaugh Map (K-map)</p>
+<p>Given,</p>
+<ul>
+<li><strong>Minterms:</strong> <span class="arithmatex">\( \Sigma m(1,2,4,5,7) \)</span></li>
+<li><strong>Don’t cares:</strong> <em>(none)</em></li>
+<li><strong>Variables:</strong> <span class="arithmatex">\(a, b, c\)</span></li>
+<li><strong>Method:</strong> Karnaugh Map (K-map)</li>
+</ul>
 <p><strong>K-map layout (Gray code on columns <span class="arithmatex">\(bc\)</span>: 00, 01, 11, 10)</strong></p>
 <p><em>Cell–minterm mapping (row <span class="arithmatex">\(a=0\)</span>: m0, m1, m3, m2; row <span class="arithmatex">\(a=1\)</span>: m4, m5, m7, m6).</em></p>
 <p><strong>Part 2 — Grouping &amp; Simplification:</strong></p>
 <p><strong>Group-1:</strong> 2-cell grouping <span class="arithmatex">\((5,7)\)</span><br />
-Cells: row <span class="arithmatex">\(a=1\)</span>, cols <span class="arithmatex">\(bc=01,11\)</span> → <span class="arithmatex">\(b\)</span> changes, <span class="arithmatex">\(a=1\)</span>, <span class="arithmatex">\(c=1\)</span><br />
-- <strong>Term:</strong> <code>ac</code></p>
+Cells: row <span class="arithmatex">\(a=1\)</span>, cols <span class="arithmatex">\(bc=01,11\)</span> → <span class="arithmatex">\(b\)</span> changes, <span class="arithmatex">\(a=1\)</span>, <span class="arithmatex">\(c=1\)</span></p>
+<ul>
+<li><strong>Term:</strong> <code>ac</code></li>
+</ul>
 <p><strong>Group-2:</strong> 2-cell grouping <span class="arithmatex">\((4,5)\)</span><br />
-Cells: row <span class="arithmatex">\(a=1\)</span>, cols <span class="arithmatex">\(bc=00,01\)</span> → <span class="arithmatex">\(c\)</span> changes, <span class="arithmatex">\(a=1\)</span>, <span class="arithmatex">\(b=0\)</span><br />
-- <strong>Term:</strong> <code>ab'</code></p>
+Cells: row <span class="arithmatex">\(a=1\)</span>, cols <span class="arithmatex">\(bc=00,01\)</span> → <span class="arithmatex">\(c\)</span> changes, <span class="arithmatex">\(a=1\)</span>, <span class="arithmatex">\(b=0\)</span></p>
+<ul>
+<li><strong>Term:</strong> <code>ab'</code></li>
+</ul>
 <p><strong>Group-3:</strong> 2-cell grouping <span class="arithmatex">\((1,5)\)</span><br />
-Cells: col <span class="arithmatex">\(bc=01\)</span>, rows <span class="arithmatex">\(a=0,1\)</span> → <span class="arithmatex">\(a\)</span> changes, <span class="arithmatex">\(b=0\)</span>, <span class="arithmatex">\(c=1\)</span><br />
-- <strong>Term:</strong> <code>b'c</code></p>
+Cells: col <span class="arithmatex">\(bc=01\)</span>, rows <span class="arithmatex">\(a=0,1\)</span> → <span class="arithmatex">\(a\)</span> changes, <span class="arithmatex">\(b=0\)</span>, <span class="arithmatex">\(c=1\)</span></p>
+<ul>
+<li><strong>Term:</strong> <code>b'c</code></li>
+</ul>
 <p><strong>Group-4:</strong> 1-cell grouping <span class="arithmatex">\((2)\)</span><br />
-Cell: <span class="arithmatex">\(m_2\)</span> at <span class="arithmatex">\(a=0,b=1,c=0\)</span><br />
-- <strong>Term:</strong> <code>a'bc'</code></p>
+Cell: <span class="arithmatex">\(m_2\)</span> at <span class="arithmatex">\(a=0,b=1,c=0\)</span></p>
+<ul>
+<li><strong>Term:</strong> <code>a'bc'</code></li>
+</ul>
 <p><strong>Final minimized SOP:</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>F(a,b,c) = ac + ab&#39; + b&#39;c + a&#39;bc&#39;
 </span></code></pre></div>
-<p><strong>Coverage check (by minterm):</strong><br />
-- <span class="arithmatex">\(m_5, m_7 \rightarrow ac\)</span><br />
-- <span class="arithmatex">\(m_4, m_5 \rightarrow ab'\)</span><br />
-- <span class="arithmatex">\(m_1, m_5 \rightarrow b'c\)</span><br />
-- <span class="arithmatex">\(m_2 \rightarrow a'bc'\)</span></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="TinkerCad of F = B'C + A'BC' + AB' + AC.png" src="../../../../../Media%20Library/TinkerCad%20of%20F%20%3D%20B%27C%20%2B%20A%27BC%27%20%2B%20AB%27%20%2B%20AC.png" /></a></p>
+<p><strong>Coverage check (by minterm):</strong></p>
+<ul>
+<li><span class="arithmatex">\(m_5, m_7 \rightarrow ac\)</span></li>
+<li><span class="arithmatex">\(m_4, m_5 \rightarrow ab'\)</span></li>
+<li><span class="arithmatex">\(m_1, m_5 \rightarrow b'c\)</span></li>
+<li><span class="arithmatex">\(m_2 \rightarrow a'bc'\)</span></li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="TinkerCad of F = B'C + A'BC' + AB' + AC.png" src="/bou-resources/media-library/TinkerCad of F = B'C + A'BC' + AB' + AC.png" /></a></p>
 <h1 id="dld-lab-42-circuit-design-with-k-map-solution">DLD Lab 4.2 (Circuit Design with K-Map solution )<a class="headerlink" href="#dld-lab-42-circuit-design-with-k-map-solution" title="Anchor link to this section for reference">&para;</a></h1>
 <hr />
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="DLD Lab 4.2.png" src="../../../../../Media%20Library/DLD%20Lab%204.2.png" /></a></p>
-<p>TinkerCad এর জন্যঃ <br />
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="F = A'C + AB'D' + ABD" src="../../../../../Media%20Library/image-50.png" /></a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="F = A'C + AB'D' + ABD.png" src="../../../../../Media%20Library/F%20%3D%20A%27C%20%2B%20AB%27D%27%20%2B%20ABD.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="DLD Lab 4.2.png" src="/bou-resources/media-library/DLD Lab 4.2.png" /></a></p>
+<p>TinkerCad এর জন্যঃ<br />
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-50.png" src="/bou-resources/media-library/image-50.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="F = A'C + AB'D' + ABD.png" src="/bou-resources/media-library/F = A'C + AB'D' + ABD.png" /></a></p>
 <hr />
 <p>এর আগের গুলোতে আমরা SOP বের করেছিলাম, এবারে আমাদের POS বের করে সেগুলো KMap দিয়ে minmize করে পরবর্তীতে সেগুলোকে TinkerCad এ circuit তৈরী করতে হবেঃ</p>
 <h1 id="lab-43">LAB - 4.3:<a class="headerlink" href="#lab-43" title="Anchor link to this section for reference">&para;</a></h1>
@@ -18190,8 +18159,6 @@ Cell: <span class="arithmatex">\(m_2\)</span> at <span class="arithmatex">\(a=0,
         <script src="../../../../../../javascripts/mathjax/mathjax.js"></script>
       
         <script src="../../../../../../javascripts/mathjax/tex-mml-chtml.js"></script>
-      
-        <script src="../../../../../../assets/mcq.js"></script>
       
     
   <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {

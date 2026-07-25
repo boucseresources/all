@@ -61,8 +61,6 @@
     
       <link rel="stylesheet" href="../../../../../stylesheets/custom_buttons.css">
     
-      <link rel="stylesheet" href="../../../../../assets/mcq.css">
-    
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -82,18 +80,7 @@
   
   <link rel="manifest" href="../../../../../manifest.json" />
 
-  
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Experiment NO.: 01 - Bou CSE Resources" />
-<meta property="og:image" content="https://notes.bro.bd/assets/images/social/bou-resources/bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-01.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://notes.bro.bd/bou-resources/bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-01/" />
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Experiment NO.: 01 - Bou CSE Resources" />
-<meta property="twitter:image" content="https://notes.bro.bd/assets/images/social/bou-resources/bou-cse/12-semester/Electronic-Device-and-Circuits-LAB/12-EEE-lab-01.png" />
- <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -9726,8 +9713,6 @@ const registerKeyboardEventHandler = () => {
       
         
       
-        
-      
     
     
     
@@ -9872,34 +9857,6 @@ const registerKeyboardEventHandler = () => {
     
   
     C variable names (identifiers)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../structured-programming-language/learning-c/c-variables/c-variable-quiz/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    C variable quiz
   
 
     
@@ -18107,29 +18064,31 @@ NA=acceptor atoms, intrinsic =ni=1.5×10^10 cm−3 (si)</p>
 <p><strong>N-type silicon</strong>: When an intrinsic silicon semiconductor is doped with p (phosphorous) impurities it becomes n-type. At thermal equilibrium:<br />
 n0= ND and P0 =ni²/ND.</p>
 <p><strong>Current-Voltage Characteristics:</strong><br />
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 1: Internal and circuit representation of a diode" src="../../../../Media%20Library/Figure%201_%20Internal%20and%20circuit%20representation%20of%20a%20diode.png" /></a></p>
-<p>There are three area of operation–<br />
-* The forward –bias region (V&gt;0)<br />
-* The reverse –bias region (V&lt;0)<br />
-* The breakdown region</p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 1_ Internal and circuit representation of a diode.png" src="/bou-resources/media-library/Figure 1_ Internal and circuit representation of a diode.png" /></a></p>
+<p>There are three area of operation–</p>
+<ul>
+<li>The forward –bias region (V&gt;0)</li>
+<li>The reverse –bias region (V&lt;0)</li>
+<li>The breakdown region</li>
+</ul>
 <h3 id="procedure">Procedure:<a class="headerlink" href="#procedure" title="Anchor link to this section for reference">&para;</a></h3>
 <ol>
 <li>We simulated the circuit using <strong>TinkerCAD</strong> to observe the diode behavior.</li>
 <li>The diode was connected in <strong>forward bias</strong>.</li>
 <li>A <strong>variable DC power supply</strong> was used to apply the input voltage (<span class="arithmatex">\(V_{DC}\)</span>).</li>
 <li>The supply voltage was varied gradually from <strong>0.1 V, 0.2 V, 0.3 V … up to 25 V</strong>.</li>
+<li>For each applied voltage, we measured and recorded:</li>
+<li>the <strong>voltage drop across the diode</strong> (<span class="arithmatex">\(V_D\)</span>), and</li>
 <li>
-<p>For each applied voltage, we measured and recorded:</p>
+<p>the <strong>current through the diode</strong> (<span class="arithmatex">\(I_D\)</span>).</p>
 </li>
 <li>
-<p>the <strong>voltage drop across the diode</strong> (<span class="arithmatex">\(V_D\)</span>), and</p>
+<p>The recorded values were tabulated in a <strong>data table</strong>.</p>
 </li>
-<li>the <strong>current through the diode</strong> (<span class="arithmatex">\(I_D\)</span>).</li>
-<li>The recorded values were tabulated in a <strong>data table</strong>.</li>
 <li>Finally, the data was plotted using <strong>Matplotlib (Python library)</strong> to visualize the <strong>I–V characteristics of the diode</strong>.</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 2: TinkerCAD simulation for circuit 1" src="../../../../Media%20Library/Figure%202%20TinkerCAD%20simulation%20for%20circuit%201.png" /></a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 3: TinkerCAD simulation for circuit 1" src="../../../../Media%20Library/Figure%203_%20TinkerCAD%20simulation%20for%20circuit%201.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 2 TinkerCAD simulation for circuit 1.png" src="/bou-resources/media-library/Figure 2 TinkerCAD simulation for circuit 1.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 3_ TinkerCAD simulation for circuit 1.png" src="/bou-resources/media-library/Figure 3_ TinkerCAD simulation for circuit 1.png" /></a></p>
 <h3 id="data-table">Data table:<a class="headerlink" href="#data-table" title="Anchor link to this section for reference">&para;</a></h3>
 <table>
 <thead>
@@ -18314,7 +18273,7 @@ n0= ND and P0 =ni²/ND.</p>
 </table>
 <h3 id="result">Result:<a class="headerlink" href="#result" title="Anchor link to this section for reference">&para;</a></h3>
 <p>The graph has been plotted between voltage and current. It is in attachment.<br />
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 4: I-V characteristics in diode" src="../../../../Media%20Library/Figure%204_%20I-V%20characteristics%20in%20diode.png" /></a></p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 4_ I-V characteristics in diode.png" src="/bou-resources/media-library/Figure 4_ I-V characteristics in diode.png" /></a></p>
 <h3 id="discussion">Discussion:<a class="headerlink" href="#discussion" title="Anchor link to this section for reference">&para;</a></h3>
 <p>The diodes don’t work in reverse bias (RB) but forward bias (FB).</p>
 <h3 id="precautions">Precautions:<a class="headerlink" href="#precautions" title="Anchor link to this section for reference">&para;</a></h3>
@@ -18494,8 +18453,6 @@ n0= ND and P0 =ni²/ND.</p>
         <script src="../../../../../javascripts/mathjax/mathjax.js"></script>
       
         <script src="../../../../../javascripts/mathjax/tex-mml-chtml.js"></script>
-      
-        <script src="../../../../../assets/mcq.js"></script>
       
     
   <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
