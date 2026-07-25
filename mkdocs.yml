@@ -5,6 +5,9 @@ docs_dir: docs # if missing, default is 'docs'
 exclude_docs: |
   **/.obsidian/
   **/.trash/
+  **/Media Library/
+  **/*.pdf
+  **/*.mp4
 
 theme:
   name: material
