@@ -55,8 +55,10 @@ theme:
 
 plugins:
   - search
-  - social
-  - optimize
+  - social:
+      cards_layout_options:
+        font_family: "Noto Sans Bengali"
+  
   - privacy:
       # Exclude problematic URLs from being cached locally by the privacy plugin
   - meta
