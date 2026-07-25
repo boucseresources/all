@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="470"
+  viewBox="0 0 980 470" role="img" aria-labelledby="title desc">
+  <title id="title">Processor Bus Structure</title>
+  <desc id="desc">Processor Bus Structure</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+      markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0f172a" flood-opacity=".12"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="490" y="32" text-anchor="middle" font-size="21"
+    font-weight="700" fill="#0f172a">Processor Bus Structure</text>
+  <g filter="url(#shadow)">
+    <rect x="70" y="160" width="205" height="130" rx="10"
+      fill="#dbeafe" stroke="#334155" stroke-width="2"/>
+    <text x="172.5" y="220.5"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Processor</text>
+<text x="172.5" y="239.5"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">CPU</text>
+
+    <rect x="705" y="80" width="205" height="120" rx="10"
+      fill="#eef2ff" stroke="#334155" stroke-width="2"/>
+    <text x="807.5" y="145"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">Main Memory</text>
+
+    <rect x="705" y="275" width="205" height="120" rx="10"
+      fill="#eef2ff" stroke="#334155" stroke-width="2"/>
+    <text x="807.5" y="340"
+      text-anchor="middle" font-size="15" font-weight="600"
+      fill="#0f172a">I/O Modules</text></g>
+  <g><line x1="275" y1="180" x2="705" y2="130"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><text x="490" y="118"
+        text-anchor="middle" font-size="12.5" font-weight="600" fill="#475569">
+        Address bus</text>
+<line x1="705" y1="160" x2="275" y2="210"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><text x="490" y="195"
+        text-anchor="middle" font-size="12.5" font-weight="600" fill="#475569">
+        Data bus (bidirectional)</text>
+<line x1="275" y1="240" x2="705" y2="190"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><text x="490" y="245"
+        text-anchor="middle" font-size="12.5" font-weight="600" fill="#475569">
+        Control bus</text>
+<line x1="275" y1="220" x2="705" y2="320"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><text x="490" y="263"
+        text-anchor="middle" font-size="12.5" font-weight="600" fill="#475569">
+        Address / control</text>
+<line x1="705" y1="365" x2="275" y2="260"
+    stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/><text x="490" y="305.5"
+        text-anchor="middle" font-size="12.5" font-weight="600" fill="#475569">
+        Data</text></g>
+  <text x="490" y="457" text-anchor="middle"
+    font-size="12" fill="#64748b">Address selects a device/location; data carries values; control coordinates each transfer.</text>
+</svg>
