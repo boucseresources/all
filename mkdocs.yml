@@ -24,12 +24,12 @@ theme:
   icon:
     annotation: material/star-four-points-circle
   features:
-    - navigation.instant.prefetch
-    - navigation.instant.progress
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
     - search.share
     - content.code.annotate
     - content.tooltips
-    - navigation.instant
+    # - navigation.instant
     - search.suggest
     - search.highlight
     - navigation.tabs
