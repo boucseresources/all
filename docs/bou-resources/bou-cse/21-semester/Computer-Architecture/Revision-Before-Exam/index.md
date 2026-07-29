@@ -69,6 +69,39 @@
 ---
 
 # Part A — Core Concepts
+## Discuss the basic functional units of a computer.
+
+??? "Discuss the basic functional units of a computer."
+      A digital computer has five basic functional units: the input unit, memory unit, arithmetic logic unit (ALU), control unit, and output unit. Together, the ALU and control unit form the Central Processing Unit (CPU).
+      ## Input Unit
+
+      * Accepts raw data and instructions from the user.
+      * Converts input into a binary code that the computer can understand.
+      * Common devices include keyboards, mice, and microphones.
+
+      ## Memory Unit
+
+      * Stores data, program instructions, and intermediate results.
+      * Primary memory (RAM) offers fast, temporary workspace during processing.
+      * Secondary memory (hard drives, SSDs) provides long-term, permanent storage.
+
+      ## Arithmetic Logic Unit (ALU)
+
+      * Performs math tasks like addition, subtraction, multiplication, and division.
+      * Handles logic choices like comparing numbers or doing true/false checks.
+
+      ## Control Unit (CU)
+
+      * Acts as the central nervous system or manager of the computer.
+      * Directs the flow of data and commands between all other units.
+      * Fetches and decodes instructions from memory to run programs.
+
+      ## Output Unit
+
+      * Takes processed binary data from the computer and converts it into a usable format.
+      * Delivers the final results to the user.
+      * Common devices include monitors, printers, and speakers.
+
 
 ## A1. Classes of Computers
 
@@ -106,75 +139,28 @@ A computer is an electronic programmable system that accepts data, processes it 
 
 Thus, “largest” does not always mean “best.” A mainframe is optimized mainly for reliable transaction and I/O processing, whereas a supercomputer is optimized for enormous numerical computation.
 
-### বাংলা উত্তর
-
-কম্পিউটার হলো এমন একটি প্রোগ্রামযোগ্য ইলেকট্রনিক ব্যবস্থা, যা ইনপুট ডেটা গ্রহণ করে, সংরক্ষিত নির্দেশ অনুযায়ী প্রক্রিয়াকরণ করে, ফলাফল প্রদান করে এবং প্রয়োজনে তা সংরক্ষণ করে। ডেটার প্রকৃতি, ব্যবহারের উদ্দেশ্য এবং ক্ষমতার ভিত্তিতে কম্পিউটারকে বিভিন্ন শ্রেণিতে ভাগ করা যায়।
-
-#### ১. ডেটা উপস্থাপনের ভিত্তিতে
-
-| শ্রেণি | প্রধান বৈশিষ্ট্য | ব্যবহার |
-|---|---|---|
-| **অ্যানালগ কম্পিউটার** | ভোল্টেজ, চাপ, তাপমাত্রা বা গতির মতো ধারাবাহিক রাশি নিয়ে কাজ করে; ফল সাধারণত আনুমানিক; continuous-system simulation-এ দ্রুত। | Process control, পুরোনো flight simulator। |
-| **ডিজিটাল কম্পিউটার** | বিচ্ছিন্ন বাইনারি মানে ডেটা প্রকাশ করে; নির্ভুল, প্রোগ্রামযোগ্য ও পুনরাবৃত্ত ফল প্রদান করে। | PC, smartphone, server, calculator। |
-| **হাইব্রিড কম্পিউটার** | অ্যানালগ অংশের দ্রুত measurement এবং ডিজিটাল অংশের নিয়ন্ত্রণ ও নির্ভুলতা একত্র করে। | ICU monitor, petrol pump, industrial control। |
-
-#### ২. উদ্দেশ্যের ভিত্তিতে
-
-- **General-purpose computer:** সফটওয়্যার পরিবর্তন করে বিভিন্ন কাজ করা যায়; যেমন laptop।
-- **Special-purpose computer:** নির্দিষ্ট একটি কাজের জন্য নকশা করা; যেমন traffic-light controller বা engine-control unit।
-- **Embedded computer:** বড় কোনো যন্ত্রের ভেতরে স্থাপিত বিশেষ কম্পিউটার। এতে সাধারণত সীমিত memory/power, real-time response এবং উচ্চ reliability থাকে।
-
-#### ৩. আকার ও কর্মক্ষমতার ভিত্তিতে
-
-- **Microcomputer/PC:** একক ব্যবহারকারীকেন্দ্রিক, microprocessor-ভিত্তিক এবং তুলনামূলক কম ব্যয়বহুল।
-- **Workstation:** উচ্চক্ষমতার single-user system; CAD, graphics ও scientific কাজের জন্য শক্তিশালী CPU/GPU এবং বেশি RAM থাকে।
-- **Midrange/Minicomputer:** একই সময়ে একাধিক ব্যবহারকারী ও terminal সমর্থন করে; আধুনিক departmental server এই ভূমিকা পালন করে।
-- **Mainframe:** বিপুল I/O throughput, security, reliability ও হাজারো concurrent transaction পরিচালনায় দক্ষ; ব্যাংক ও বিমান সংস্থায় ব্যবহৃত হয়।
-- **Supercomputer:** massive parallelism ব্যবহার করে সর্বোচ্চ numerical performance দেয়; weather forecasting, AI এবং simulation-এ ব্যবহৃত হয়।
-
-অতএব, mainframe ও supercomputer-এর উদ্দেশ্য এক নয়। Mainframe মূলত নির্ভরযোগ্য transaction processing-এ এবং supercomputer বিশাল বৈজ্ঞানিক গণনায় বিশেষভাবে দক্ষ।
-
----
 
 ## A2. Layers of Computer System Architecture
 
-### Enhanced question
+??? "Explain the layers of computer system architecture 🏗️⚙️ with a neat diagram."
 
-**Explain the layered organization of a computer system from application software down to electronic devices. Show how abstraction allows one layer to use the services of the layer below it, and draw a neat labeled diagram.**
+	### Figure: layered computer system
 
-### Figure: layered computer system
+	![Layers of Computer System Architecture](figures/01_layers_of_computer_architecture.svg)
 
-![Layers of Computer System Architecture](figures/01_layers_of_computer_architecture.svg)
 
-### English answer
+	Computer architecture is understood more easily as a hierarchy of abstractions. Each layer hides unnecessary implementation details and offers a simpler interface to the layer above.
 
-Computer architecture is understood more easily as a hierarchy of abstractions. Each layer hides unnecessary implementation details and offers a simpler interface to the layer above.
+	1. **Application layer:** Contains programs that solve users’ problems, such as browsers, word processors and database systems.
+	2. **High-level language and library layer:** Programmers express algorithms using C, C++, Java or libraries. Compilers translate this representation toward the ISA.
+	3. **Operating-system layer:** Manages processes, memory, files, security and I/O devices. It provides system calls and makes hardware resources appear orderly and shareable.
+	4. **ISA layer:** The boundary visible to machine-language programmers and compilers. It defines instructions, registers, data formats, addressing modes, exceptions and the memory model. MIPS, ARM and x86 are ISAs.
+	5. **Microarchitecture layer:** The particular hardware organization that implements an ISA—datapath, control unit, ALU, pipeline, cache and branch predictor. Different processors can implement the same ISA differently.
+	6. **Digital-logic layer:** Implements the microarchitecture using gates, adders, decoders, multiplexers, registers and state machines.
+	7. **Circuit/device layer:** Implements logic with transistors, semiconductor devices, wires, voltage and timing.
 
-1. **Application layer:** Contains programs that solve users’ problems, such as browsers, word processors and database systems.
-2. **High-level language and library layer:** Programmers express algorithms using C, C++, Java or libraries. Compilers translate this representation toward the ISA.
-3. **Operating-system layer:** Manages processes, memory, files, security and I/O devices. It provides system calls and makes hardware resources appear orderly and shareable.
-4. **ISA layer:** The boundary visible to machine-language programmers and compilers. It defines instructions, registers, data formats, addressing modes, exceptions and the memory model. MIPS, ARM and x86 are ISAs.
-5. **Microarchitecture layer:** The particular hardware organization that implements an ISA—datapath, control unit, ALU, pipeline, cache and branch predictor. Different processors can implement the same ISA differently.
-6. **Digital-logic layer:** Implements the microarchitecture using gates, adders, decoders, multiplexers, registers and state machines.
-7. **Circuit/device layer:** Implements logic with transistors, semiconductor devices, wires, voltage and timing.
+	The important idea is **abstraction**. For example, a C statement is compiled into ISA instructions; those instructions are executed by a microarchitecture; the microarchitecture is constructed from logic gates; and the gates are implemented using transistors. This separation permits software portability and independent improvement of hardware.
 
-The important idea is **abstraction**. For example, a C statement is compiled into ISA instructions; those instructions are executed by a microarchitecture; the microarchitecture is constructed from logic gates; and the gates are implemented using transistors. This separation permits software portability and independent improvement of hardware.
-
-### বাংলা উত্তর
-
-কম্পিউটার সিস্টেমকে abstraction-এর কয়েকটি স্তর হিসেবে ব্যাখ্যা করা যায়। প্রতিটি স্তর নিচের স্তরের জটিল বাস্তবায়ন লুকিয়ে উপরের স্তরকে সহজ service বা interface দেয়।
-
-1. **Application layer:** Browser, word processor ও database-এর মতো ব্যবহারকারীর সমস্যা সমাধানকারী program।
-2. **High-level language ও library layer:** C, C++, Java এবং API-এর সাহায্যে algorithm লেখা হয়; compiler এগুলোকে ISA-এর নির্দেশে রূপান্তর করে।
-3. **Operating-system layer:** Process, file, virtual memory, security ও I/O device পরিচালনা করে এবং system call দেয়।
-4. **ISA layer:** Software ও hardware-এর মধ্যবর্তী দৃশ্যমান চুক্তি। এতে instruction, register, data format, addressing mode, exception ও memory model নির্ধারিত থাকে।
-5. **Microarchitecture layer:** নির্দিষ্ট ISA বাস্তবায়নকারী datapath, control unit, ALU, pipeline, cache ও branch predictor-এর সংগঠন।
-6. **Digital-logic layer:** Gate, adder, multiplexer, decoder, register ও state machine দিয়ে microarchitecture গঠন করে।
-7. **Circuit/device layer:** Transistor, wire, voltage ও semiconductor প্রযুক্তি দিয়ে logic gate বাস্তবায়ন করে।
-
-উদাহরণস্বরূপ, একটি C statement প্রথমে machine instruction-এ অনূদিত হয়; microarchitecture সেই instruction চালায়; logic gate microarchitecture তৈরি করে; আর transistor দিয়ে gate তৈরি হয়। এই স্তরভিত্তিক গঠন software portability এবং hardware-এর স্বাধীন উন্নয়ন সম্ভব করে।
-
----
 
 ## A3. Throughput and Response Time
 
@@ -221,6 +207,17 @@ Response time বলে **একটি কাজ কত দ্রুত শে�
 
 উদাহরণ: একটি request শেষ হতে 0.2 s লাগলে response time 0.2 s। 10 s-এ 500টি request সম্পন্ন হলে throughput 50 requests/s। আরও processor যোগ করলে independent কাজের throughput প্রায় দ্বিগুণ হতে পারে, কিন্তু একটি serial কাজের response time কমতেই হবে—এমন নয়। আবার system-এর arrival rate সর্বোচ্চ throughput-এর কাছাকাছি গেলে queue তৈরি হয়ে response time দ্রুত বেড়ে যেতে পারে।
 
+সিস্টেমের কার্যক্ষমতা বোঝার মূল বিষয় হলো রেসপন্স টাইম, থ্রুপুট এবং কিউ গঠন। এই তিনটি উপাদান নির্ধারণ করে একটি কম্পিউটার বা সার্ভার কত দ্রুত ও দক্ষতার সাথে কাজ সম্পন্ন করতে পারে।
+
+**রেসপন্স টাইম ও থ্রুপুট**
+একটি নির্দিষ্ট কাজ সম্পূর্ণ হতে যে সময় লাগে তা হলো রেসপন্স টাইম (যেমন: ০.২ সেকেন্ড)।
+নির্দিষ্ট সময়ে যতগুলো কাজ শেষ হয় তা হলো থ্রুপুট (যেমন: প্রতি সেকেন্ডে ৫০টি রিকোয়েস্ট)।
+**প্রসেসর ও কাজের ধরন**
+অতিরিক্ত প্রসেসর যুক্ত করলে আলাদা ও স্বাধীন (independent) কাজের গতি ও থ্রুপুট বাড়ে।
+কিন্তু ধারাবাহিক বা সিরিয়াল (serial) কাজের ক্ষেত্রে প্রসেসর বাড়লেও রেসপন্স টাইম কমার কোনো নিশ্চয়তা নেই।
+**কিউ ও অতিরিক্ত চাপ**
+কাজের চাপ বা আগমন হার (arrival rate) যখন সর্বোচ্চ ক্ষমতার কাছাকাছি পৌঁছায়, তখন জট বা কিউ (queue) তৈরি হয়।
+এই কিউ বা সারির কারণে কাজের অপেক্ষা করার সময় বা রেসপন্স টাইম খুব দ্রুত বৃদ্ধি পায়।
 ---
 
 ## A4. Basic Functional Units of a Computer
@@ -232,6 +229,7 @@ Response time বলে **একটি কাজ কত দ্রুত শে�
 ### Figure: functional organization
 
 ![Basic Functional Units of a Computer](figures/02_basic_functional_units.svg)
+![Basic Functional Units of a Computer](image.png){height=400px}
 
 ### English answer
 
@@ -243,7 +241,30 @@ A stored-program computer contains five fundamental units:
 4. **Control unit:** Fetches and decodes instructions and issues timing/control signals that move data and select ALU, memory and I/O operations. The program counter (PC) identifies the next instruction and the instruction register (IR) holds the current one.
 5. **Output unit:** Converts binary results into a form usable by people or other systems.
 
-The **register file, ALU and control unit together form the CPU**. Buses and interconnects carry addresses, data and control information. During the fetch–decode–execute cycle, the CPU fetches an instruction from memory, decodes its opcode, obtains operands, executes the operation, accesses memory if required and writes back the result.
+The **register file, ALU and control unit together form the CPU**. Buses and __Interconnects__ carry addresses, data and control information. During the fetch–decode–execute cycle, the CPU fetches an instruction from memory, decodes its opcode, obtains operands, executes the operation, accesses memory if required and writes back the result.
+
+## Main Parts of a CPU
+
+* Register file: stores fast data inside the CPU.
+* ALU: does math and logic work.
+* Control unit: tells the other parts what to do.
+
+## Buses and Interconnects
+
+* Data bus: moves the actual data.
+* Address bus: points to memory spots.
+* Control bus: sends signals for timing and commands.
+
+## The Fetch–Decode–Execute Cycle Steps
+
+* Fetch: gets the next instruction from memory.
+* Decode: reads what the instruction means.
+* Get operands: finds the needed numbers or items.
+* Execute: runs the math or logic task.
+* Access memory: reads or writes to memory if needed.
+* Write back: saves the final answer.
+
+
 
 ### বাংলা উত্তর
 
@@ -272,20 +293,68 @@ Register file, ALU ও control unit মিলে CPU গঠিত হয়। A
 ### English answer
 
 A **bus** is a shared collection of lines that transfers information among components.
+Here is the complete and detailed English version of the video's content regarding the **Bus Structure in Computer Architecture**, without skipping any information:
 
-- The **address bus** selects a memory location or I/O port. With \(n\) address lines, up to \(2^n\) locations can be selected.
-- The **data bus** carries instructions and operand values. It is normally bidirectional, and its width influences the amount transferred at once.
-- The **control bus** carries signals such as Read, Write, clock, interrupt, reset, byte-enable, bus-request and ready/wait.
+## **1. What is a Bus?**
 
-Inside a processor, buses connect the register file, ALU, shifter and memory interface:
+The major hardware components of a computer are the CPU (Central Processing Unit), memory unit, and I/O (Input/Output) devices. These components work together to perform any given computational task. To communicate with each other, they use a set of communication paths or lines.
 
-| Organization | Operation in one cycle | Advantage | Limitation |
-|---|---|---|---|
-| **Single bus** | Only one transfer at a time | Simple and inexpensive | More cycles and bus contention |
-| **Two bus** | Usually two reads or one read/one write | Better concurrency | Still restricts some ALU transfers |
-| **Three bus** | Two source operands on A and B buses; one result on C bus | `R1 ← R2 + R3` can complete as one register transfer | More ports, wires and hardware cost |
+Collectively, this set of communication paths is called a **Bus**. Simply put, a bus is a collection of wires or paths that connects the major hardware components of a computer.
 
-A synchronous bus uses a shared clock, whereas an asynchronous bus coordinates transfers with request/acknowledge signals. Bus width, frequency and protocol determine bandwidth. Arbitration is required when several bus masters, such as CPU and DMA controller, request the bus.
+
+## **2. System Bus**
+
+A bus that connects the computer's primary hardware components (CPU, memory, and I/O devices) is called a System Bus. The system bus is divided into three functional categories:
+
+* **Data Bus:** This bus carries only data from one component to another. It consists of 8, 16, 32, or more parallel data lines. Because it is used for both receiving data (from memory or input devices) and sending data (to memory or output devices), the data bus is **bidirectional**.
+* **Address Bus:** This bus carries only the address of a memory location or an I/O device. It typically consists of 16, 20, or 24 address lines. Because the CPU can only perform one operation at a time on this bus—either sending an address to write or receiving an address to read—the address bus is **unidirectional**.
+* **Control Bus:** This bus carries control information in the form of control signals provided by the control unit. These signals are required to perform various activities, such as reading data from an input device, writing data to memory, or displaying data on an output device.
+![System Bus](image-3.png)
+---
+
+## **3. Types of Bus Structures**
+
+There are three main types of bus structures used in computer architecture:
+
+### **A. Single Bus Structure**
+
+In this structure, the data bus, address bus, and control bus are combined into a single system bus. All major hardware components are connected to this one bus.
+![Single Bus Structure](image-4.png)
+* **Operation:** The most important rule here is that **only one transfer can be done at a time**. This means only two major components (e.g., the CPU and memory, or the CPU and an I/O device) can actively use the bus at any given moment.
+* **Advantages:** It is highly cost-effective and provides great flexibility for attaching a large number of peripheral devices to the system.
+* **Disadvantages:** Because only two units can communicate at a time, all other connected peripherals must wait in an inactive state until the current transfer is complete. This results in high **propagation delay** and slower overall performance.
+
+### **B. Double Bus Structure**
+![Double Bus Structure](image-2.png)
+As the name implies, this structure utilizes two separate buses to improve efficiency:
+
+1. **Memory Bus:** Used primarily by the processor to fetch instructions and transfer data to and from the memory unit.
+2. **I/O Bus:** Used by the processor to fetch data from input devices and send data to output devices.
+
+* **Advantages:** The performance is significantly higher than a single bus structure. Because there are two distinct buses, two separate transfers can occur simultaneously (parallel execution). This makes the execution of processes much faster.
+* **Disadvantages:** The cost of constructing a double bus structure is higher since it requires wiring and managing two separate buses instead of one.
+
+### **C. Multiple Bus Structure**
+
+The multiple bus structure incorporates several specialized buses to handle different capacities and speeds. Aside from the standard system bus, it mainly focuses on three specific buses:
+![Multiple Bus Structure](image-1.png)
+1. **Local Bus:** This connects the processor to the cache memory through a local I/O controller.
+2. **High-Speed Bus:** High-capacity I/O devices (like graphics cards, video, and LAN networks) operate at very fast speeds. These are connected to the high-speed bus using interfaces like SCSI (Small Computer System Interface) and P1394 (FireWire). This bus is also connected directly to the cache memory.
+3. **Expansion Bus:** Low-capacity and slower I/O devices (like fax machines, modems, and serial devices) are connected to the expansion bus.
+
+* *Note:* The high-speed bus and the expansion bus are linked together via an **Expansion Bus Interface**. This hierarchical separation keeps slow devices from bottlenecking the fast devices.
+
+---
+
+### **Summary of Differences**
+
+* **Single Bus Structure:** Uses exactly 1 bus (System Bus) for all data and instruction fetching.
+* **Double Bus Structure:** Uses 2 buses (Memory Bus for instructions/memory data, I/O Bus for device data).
+* **Multiple Bus Structure:** Uses 3 specialized buses (Local Bus, High-speed Bus, Expansion Bus) to manage varied device speeds.
+*(Note: The foundational "System Bus" concept exists in all architectures as the base connection between the processor, main memory, and I/O).*
+
+**Conclusion:**
+At the end of the video, the presenter recaps the topics discussed (definition of a bus, system bus components, and the three structures), invites viewers to ask questions in the comment section, and encourages viewers to like, share, and subscribe to the channel for future updates.
 
 ### বাংলা উত্তর
 
@@ -300,103 +369,688 @@ CPU-এর ভেতরে bus register file, ALU, shifter ও memory interface 
 Synchronous bus clock অনুসরণ করে; asynchronous bus request/acknowledge signal ব্যবহার করে। Bus width, frequency ও protocol মোট bandwidth নির্ধারণ করে। CPU ও DMA-এর মতো একাধিক master থাকলে arbitration প্রয়োজন।
 
 ---
-
 ## A6. Instruction Set Architecture and MIPS Instruction Formats
 
-### Enhanced question
+??? info "A6. Instruction Set Architecture and MIPS Instruction Formats"
 
-**Define Instruction Set Architecture (ISA) and explain why it is called the interface between software and hardware. Describe the 32-bit MIPS R-, I- and J-type instruction formats with field functions, examples and encodings.**
+      **Explanation of the ISA Layered Diagram**
+      ![ISA Layered Diagram](image-5.png)
+      Let us carefully look at the provided image to understand the real-life feeling of how Instruction Set Architecture works. The picture beautifully shows a layered computer system where the ISA block sits exactly in the middle.
 
-### English answer
+      To feel how ISA actually works, we need to divide this image into three simple zones.
 
-An **Instruction Set Architecture (ISA)** is the programmer-visible specification of a computer. It defines machine instructions, registers, operand data types, instruction formats, addressing modes, memory organization, exceptions and I/O behavior. Compilers generate instructions according to the ISA, while processor designers construct a microarchitecture that executes them. Therefore, an ISA is a contract between software and hardware.
+      **The Software Domain (Top Portion)**
 
-Classic MIPS uses fixed 32-bit instructions and 32 general-purpose registers.
+      In the upper half of the image, we have the complete Software area. This contains high-level things like your daily Application programs, the Operating System, and translation tools like the Compiler, Assembler, and Linker.
 
-#### MIPS formats
+      * The software programmers work only in this area.
+      * They write human-readable code in languages like C, Java, or Python.
+      * They do not need to worry about how the physical wires, logic gates, or electrical signals are working inside the silicon chip.
 
-| Type | 31–26 | 25–21 | 20–16 | 15–11 | 10–6 | 5–0 |
-|---|---:|---:|---:|---:|---:|---:|
-| **R-type** | opcode 6 | rs 5 | rt 5 | rd 5 | shamt 5 | funct 6 |
-| **I-type** | opcode 6 | rs 5 | rt 5 | immediate/address 16 ||||
-| **J-type** | opcode 6 | target address 26 |||||
+      **The Hardware Domain (Bottom Portion)**
 
-**R-type:** Used mainly for register-to-register ALU operations. `rs` and `rt` identify source registers, `rd` the destination, `shamt` a shift amount and `funct` the exact ALU operation.
+      In the lower half of the image, we have the complete Hardware area. This starts from the major hardware blocks like the Processor, Memory, and I/O System, and goes deep down to Datapath Control, Digital Logic Design, and finally the Physical IC Layout (which means the actual silicon transistors).
 
-```mips
-add $t0, $t1, $t2       # $t0 = $t1 + $t2
-```
+      * The electrical and hardware engineers work exactly in this area.
+      * They design the electronic circuits and chip layouts.
+      * They do not need to know what specific software application or web browser the final user will run on the machine.
 
-Here, opcode is normally 0; `rs=$t1`, `rt=$t2`, `rd=$t0`, and `funct=100000₂` for signed `add`.
+      **The ISA as the Universal Bridge (The Middle Layer)**
 
-**I-type:** Used for immediate arithmetic, loads/stores and conditional branches.
+      Now, to make you feel "Yes, ISA works like that", just look at the large, light-green block perfectly separating the top and bottom. It is labeled "Instruction Set Architecture (Interface S/H)".
 
-```mips
-addi $t0, $t1, 12       # $t0 = $t1 + 12
-lw   $t0, 20($s0)       # $t0 = Memory[$s0 + 20]
-beq  $t0, $t1, Label    # branch using PC-relative offset
-```
+      * The word "Interface S/H" simply means Software-to-Hardware Interface.
+      * The ISA is acting like a universal translator or a strict contract between two completely different worlds.
+      * The software side compiles all its complex logic down into simple ISA commands (like `add`, `load`, or `jump`). It drops these instructions onto the ISA layer.
+      * The hardware side looks up at this ISA layer, takes those exact binary instructions, and uses its logic gates to execute them.
 
-**J-type:** Used for long-range jumps. The 26-bit target is shifted left by two and combined with the upper four bits of `PC+4`.
+      **Final Conclusion**
 
-```mips
-j Target
-```
+      Therefore, this image proves that ISA is nothing but a strict boundary line. It makes us feel that software and hardware are completely blind to each other's internal complexities. As long as both the Software top layer and the Hardware bottom layer agree to follow the standard rules of this middle ISA block, the computer will function perfectly.
 
-Fixed instruction length simplifies decoding and pipelining, while the three formats provide enough flexibility for arithmetic, memory and control-flow operations.
+      ## Concept of Instruction Set Architecture (ISA 📜🏗️
 
-### বাংলা উত্তর
+      Basically, the Instruction Set Architecture (ISA) is the main boundary line or interface between the software programs and the hardware of the computer system. We can say that it is a complete rulebook for the microprocessor. It tells the software programmer exactly what commands the CPU hardware can understand and execute.
 
-**Instruction Set Architecture (ISA)** হলো programmer ও compiler-এর কাছে দৃশ্যমান computer specification। এতে machine instruction, register, data type, instruction format, addressing mode, memory organization, exception এবং I/O আচরণ নির্ধারিত থাকে। Compiler ISA অনুযায়ী code তৈরি করে এবং processor-এর microarchitecture সেই instruction execute করে। তাই ISA-কে software ও hardware-এর মধ্যকার চুক্তি বলা হয়।
+      A complete ISA defines several important things for the system:
 
-Classic MIPS-এ instruction-এর দৈর্ঘ্য 32 bit এবং 32টি general-purpose register থাকে।
+      * It defines the complete set of instructions the hardware can do, like addition, subtraction, or moving data.
+      * It defines the data types and the size of the registers available inside the processor.
+      * It tells us about the addressing modes, which means the exact mathematical ways the CPU will find data inside the main memory.
 
-- **R-type:** Register-to-register arithmetic/logic কাজের জন্য। `rs`, `rt` source; `rd` destination; `shamt` shift amount এবং `funct` নির্দিষ্ট operation নির্দেশ করে। উদাহরণ: `add $t0,$t1,$t2`।
-- **I-type:** Immediate arithmetic, load/store ও conditional branch-এর জন্য। এতে 16-bit immediate বা displacement থাকে। উদাহরণ: `addi $t0,$t1,12`, `lw $t0,20($s0)`, `beq $t0,$t1,Label`।
-- **J-type:** দূরের unconditional jump-এর জন্য। 26-bit target-কে দুই bit বামে shift করে `PC+4`-এর উপরের চার bit-এর সঙ্গে যুক্ত করা হয়। উদাহরণ: `j Target`।
+      The best advantage of ISA is that even if two different companies design the internal chip circuits very differently, if they follow the same ISA standard, they can run the exact same software programs without any problem.
+      [To understand more watch this](https://youtu.be/rS97IGFPjRM)
+      **Explanation of MIPS Instruction Set Formats with Examples** 💡📋
 
-সব instruction 32-bit হওয়ায় instruction fetch, decoding এবং pipelining সহজ হয়। R, I ও J—এই তিন format arithmetic, memory access ও control transfer সম্পন্ন করে।
+      In the MIPS architecture, every single instruction is strictly fixed to a length of exactly 32 bits. This fixed size makes the hardware decoding process very fast and simple. Based on how these 32 bits are internally divided, the MIPS instructions are classified into three main formats.
 
----
+      **1. R-Type (Register Format)**
+
+      This format is used when all the data we need for calculation is already present inside the CPU registers. It does not use any fixed constant number from the instruction itself.
+
+      The 32 bits of R-Type are divided into 6 parts:
+
+      * **opcode (6 bits):** It is the operation code. For all R-type instructions, this value is always 0.
+      * **rs (5 bits):** The first source register index.
+      * **rt (5 bits):** The second source register index.
+      * **rd (5 bits):** The destination register where the final answer is saved.
+      * **shamt (5 bits):** Shift amount. It is used only for logical shift operations, otherwise it is kept as 0.
+      * **funct (6 bits):** Function code. Since the opcode is 0, this part tells the ALU the exact mathematical operation to do (like add, subtract, or AND).
+
+      **Example of R-Type:**
+      Let us consider the assembly instruction: `add $s1, $s2, $s3`
+      This means we are adding the data of register `$s2` and `$s3`, and storing the final result in register `$s1`.
+      => Opcode for R-type = 0
+      => rs register = `$s2`
+      => rt register = `$s3`
+      => rd register = `$s1`
+      => shamt = 0
+      => funct code for add operation = 32
+
+      **2. I-Type (Immediate Format)**
+
+      This format is used when the instruction contains a direct constant number (called an immediate value), or when we need to transfer data between the main memory and registers using load or store commands.
+
+      The 32 bits of I-Type are divided into 4 parts:
+
+      * **opcode (6 bits):** Tells the CPU the exact operation to perform (like `addi` for add immediate, or `lw` for load word).
+      * **rs (5 bits):** The source or base register index.
+      * **rt (5 bits):** The target destination register.
+      * **immediate (16 bits):** A constant mathematical value or a memory address offset.
+
+      **Example of I-Type:**
+      Let us consider the assembly instruction: `addi $t0, $t1, 100`
+      This means we are adding the direct constant value of 100 to the data inside register `$t1` and saving it in register `$t0`.
+      => Opcode for `addi` = 8
+      => rs register = `$t1`
+      => rt register = `$t0`
+      => immediate value = 100
+
+      **3. J-Type (Jump Format)**
+
+      This format is very simple and is used only for unconditional jump instructions. It is used when the program execution needs to go to a completely new address location far away in the memory space.
+
+      The 32 bits of J-Type are divided into only 2 parts:
+
+      * **opcode (6 bits):** Tells the CPU it is a jump operation.
+      * **target address (26 bits):** Holds the direct memory address target where the program execution needs to jump.
+
+      **Example of J-Type:**
+      Let us consider the assembly instruction: `j Label_Name`
+      This means the processor will immediately jump to the memory address of `Label_Name`.
+      => Opcode for standard jump = 2
+      => target address = The 26-bit binary location of the target label.
 
 ## A7. RISC and CISC Architecture
+??? question "RISC and CISC Architecture"
 
-### Enhanced question
+      RISC and CISC are design philosophies rather than rigid categories. Modern processors often combine ideas from both.
 
-**Compare RISC and CISC processor architectures critically. Discuss instruction complexity, encoding, memory access, control implementation, pipelining, code density and representative examples.**
+      | Criterion | RISC | CISC |
+      |---|---|---|
+      | Instruction set | Small, regular, simple operations | Large set with complex operations |
+      | Instruction length | Usually fixed or few formats | Often variable length |
+      | Memory access | Load/store: only load and store access memory | Many instructions may use memory operands |
+      | Registers | Usually many general-purpose registers | Historically fewer, often specialized registers |
+      | Addressing modes | Few and regular | Numerous and complex |
+      | Control unit | Commonly hardwired | Traditionally microprogrammed |
+      | Cycles per instruction | Often close to one for simple instructions | May require several internal steps |
+      | Pipelining | Easier because formats and stages are regular | Harder due to variable decoding and latency |
+      | Code size | More instructions may be required | Better code density is often possible |
+      | Compiler role | Compiler performs more scheduling and register use | Hardware performs more complex instruction work |
+      | Examples | MIPS, RISC-V, SPARC, ARM conceptually | x86, VAX, Motorola 68000 |
 
-### English answer
-
-RISC and CISC are design philosophies rather than rigid categories. Modern processors often combine ideas from both.
-
-| Criterion | RISC | CISC |
-|---|---|---|
-| Instruction set | Small, regular, simple operations | Large set with complex operations |
-| Instruction length | Usually fixed or few formats | Often variable length |
-| Memory access | Load/store: only load and store access memory | Many instructions may use memory operands |
-| Registers | Usually many general-purpose registers | Historically fewer, often specialized registers |
-| Addressing modes | Few and regular | Numerous and complex |
-| Control unit | Commonly hardwired | Traditionally microprogrammed |
-| Cycles per instruction | Often close to one for simple instructions | May require several internal steps |
-| Pipelining | Easier because formats and stages are regular | Harder due to variable decoding and latency |
-| Code size | More instructions may be required | Better code density is often possible |
-| Compiler role | Compiler performs more scheduling and register use | Hardware performs more complex instruction work |
-| Examples | MIPS, RISC-V, SPARC, ARM conceptually | x86, VAX, Motorola 68000 |
-
-RISC aims to make frequent operations fast and pipeline-friendly. CISC aims to express more work per instruction and preserve compact, powerful instruction semantics. Modern x86 processors decode complex x86 instructions into simpler internal micro-operations, while modern RISC processors include sophisticated caches, prediction and out-of-order execution. Therefore, implementation quality and workload matter more than the label alone.
-
-### বাংলা উত্তর
-
-RISC ও CISC মূলত দুইটি design philosophy; আধুনিক processor-এ প্রায়ই উভয়ের বৈশিষ্ট্য দেখা যায়।
-
-- **RISC:** ছোট ও নিয়মিত instruction set, fixed-length format, অল্প addressing mode, বহু general-purpose register এবং load/store নীতি ব্যবহার করে। সাধারণ instruction কম cycle-এ শেষ হয় এবং pipeline করা সহজ। উদাহরণ: MIPS, RISC-V, ARM।
-- **CISC:** তুলনামূলক বড় ও জটিল instruction set, variable-length instruction, বহু addressing mode এবং memory operand-সহ জটিল operation সমর্থন করে। ঐতিহ্যগতভাবে microprogrammed control ব্যবহৃত হয়। উদাহরণ: x86, VAX।
-
-RISC-এ একই কাজ করতে instruction সংখ্যা কিছুটা বেশি হতে পারে, কিন্তু decode ও pipeline সহজ। CISC-এ code density ভালো হতে পারে, তবে instruction decoding এবং execution latency জটিল হয়। আধুনিক x86 processor জটিল instruction-কে ভেতরে ছোট micro-operation-এ ভেঙে চালায়; আবার আধুনিক RISC processor-ও out-of-order execution ও branch prediction ব্যবহার করে। তাই শুধু নাম নয়, workload এবং implementation-ই প্রকৃত performance নির্ধারণ করে।
+      RISC aims to make frequent operations fast and pipeline-friendly. CISC aims to express more work per instruction and preserve compact, powerful instruction semantics. Modern x86 processors decode complex x86 instructions into simpler internal micro-operations, while modern RISC processors include sophisticated caches, prediction and out-of-order execution. Therefore, implementation quality and workload matter more than the label alone.
+      ![alt text](image-6.png)
 
 ---
 
+
+## MIPS instruction formats.
+
+??? question "MIPS instruction formats."
+
+      অবশ্যই! শিটের শুরুর দিকে MIPS-এর যে মৌলিক বিষয়গুলো এবং এর পেছনের ধারণা নিয়ে আলোচনা করা হয়েছে, তা নিচে সহজভাবে তুলে ধরা হলো:
+
+      ### MIPS কী?
+
+      MIPS-এর পূর্ণরূপ হলো **Microprocessor without Interlocked Pipelined Stages**।
+      এটি ১৯৮০-এর দশকে তৈরি করা একটি **RISC (Reduced Instruction Set Computer)** আর্কিটেকচার, যা মূলত উচ্চ কর্মক্ষমতা (high performance) এবং সরলতার জন্য ডিজাইন করা হয়েছিল।
+
+      ### MIPS বা RISC আর্কিটেকচারের মূল বৈশিষ্ট্যসমূহ
+
+      MIPS কিছু নির্দিষ্ট নীতি বা বৈশিষ্ট্যের ওপর ভিত্তি করে কাজ করে:
+
+      * **সরল অপারেশন (Simple operation):** MIPS-এ প্রতিটি নির্দেশ (instruction) দিয়ে কেবল একটি মাত্র গাণিতিক কাজ (arithmetic task) করা যায়।
+
+
+      * **নির্দিষ্ট মাপ (Fixed format):** MIPS-এর প্রতিটি নির্দেশ ঠিক ৩২-বিট (32-bit) লম্বা বা ফিক্সড সাইজের হয়।
+
+
+      * **রেজিস্টার-ভিত্তিক (Register based / Load-Store Architecture):** MIPS-এ যাবতীয় গাণিতিক কাজ (যেমন: যোগ, বিয়োগ) সরাসরি মেমরিতে করা যায় না, এগুলো কেবল প্রসেসরের ভেতরের রেজিস্টারের ডেটার ওপর করা যায়। মেমরিতে প্রবেশের জন্য শুধুমাত্র `load` এবং `store` নির্দেশ ব্যবহার করতে হয়।
+
+
+      * **দ্রুত এক্সিকিউশন (Fast execution):** ইনস্ট্রাকশনগুলো এতই সরল যে, এগুলোকে এক ক্লক সাইকেলেই (one clock cycle) কাজ শেষ করার জন্য ডিজাইন করা হয়েছে।
+
+
+
+      ### "Without Interlocked Pipeline Stages" কথার অর্থ কী?
+
+      সাধারণত প্রসেসরে যখন একটার পর একটা নির্দেশ পাইপলাইনে (পরপর ধাপে) চলতে থাকে, তখন একটি ডেটা প্রস্তুত হওয়ার আগেই যদি পরের নির্দেশ তা ব্যবহার করতে চায়, তখন এরর (Data Hazard) দেখা দেয়। এই অবস্থায় অনেক প্রসেসরের হার্ডওয়্যার নিজে থেকেই কাজ কিছুক্ষণ থামিয়ে দেয় বা 'স্টল' (stall) করে। যাকে 'ইন্টারলকড' পাইপলাইন বলা হয়।
+      কিন্তু MIPS মেশিনে হার্ডওয়্যার নিজে থেকে এই কাজ করে না। এই ডেটা হ্যাজার্ড বা এরর সামলানোর (explicit NOPs জেনারেট করার) দায়িত্ব হার্ডওয়্যারের বদলে সফটওয়্যার বা কম্পাইলারের ওপর ছেড়ে দেওয়া হয়। এ জন্যই একে "Without Interlocked Pipeline Stages" বলা হয়।
+
+      ### MIPS-এর ৫টি ক্লাসিক পাইপলাইন স্টেজ (Pipeline Stages)
+
+      MIPS-এ একটি নির্দেশের কাজ শেষ হতে প্রথাগতভাবে ৫টি ধাপ বা স্টেজ পার হতে হয়:
+      ১. **IF (Instruction Fetch):** মেমরি থেকে নির্দেশটি প্রসেসরে নিয়ে আসা হয়।
+      ২. **ID (Instruction Decode/Register Fetch):** নির্দেশটি ডিকোড করে এর অর্থ বোঝা হয় এবং রেজিস্টার থেকে ডেটা নেওয়া হয়।
+      ৩. **EX (Execute):** এই ধাপে গাণিতিক কাজ বা হিসাব করা হয়।
+      ৪. **MEM (Memory access):** শুধু `load` বা `store` নির্দেশের ক্ষেত্রে এই ধাপে মেমরিতে ঢোকা হয় (অন্য নির্দেশের জন্য এটি স্কিপ করা হয়)।
+      ৫. **WB (Write Back):** ফলাফলটি আবার রেজিস্টারে লিখে সেভ করা হয়।
+
+      ### MIPS-এ মাত্র ৩২টি রেজিস্টার কেন?
+
+      MIPS-এ মোট ৩২টি জেনারেল-পারপাস রেজিস্টার থাকে। এর প্রধান কারণ হলো **"Smaller is faster"**। অর্থাৎ, মেমরি বা রেজিস্টারের আকার যত ছোট হবে, প্রসেসর সেখান থেকে তত দ্রুত ডেটা খুঁজে বের করতে পারবে। স্পিড বা দ্রুতগতির জন্যই এতে খুব বেশি রেজিস্টার রাখা হয়নি।   
+      ![alt text](image-7.png)
+
+      আপনার দেওয়া স্লাইড এবং ভিডিওটি থেকে MIPS Instruction Format-এর পুরো বিষয়টি সহজ ও গুছিয়ে নিচে তুলে ধরা হলো।
+
+      MIPS আর্কিটেকচারে প্রতিটি ইনস্ট্রাকশন বা নির্দেশ ঠিক **৩২-বিটের (32-bit)** হয়। এই ৩২ বিটকে কীভাবে ভাগ করে প্রসেসরকে নির্দেশ দেওয়া হবে, তার ওপর ভিত্তি করে MIPS ইনস্ট্রাকশনকে **৩টি প্রধান ফরম্যাটে** ভাগ করা হয়:
+
+      ### ১. R-Type (Register Type)
+
+      যেসব অপারেশনে কোনো মেমরি বা বাইরের সংখ্যার দরকার হয় না, কেবল রেজিস্টার থেকে ডেটা নিয়ে কাজ করা হয়, সেগুলো R-type।
+      এই ৩২ বিটকে **৬টি অংশে** ভাগ করা হয়:
+
+      * **op (6 bits):** Opcode. R-type এর ক্ষেত্রে এটি সবসময় **৬টি শূন্য (000000)** হয়।
+      * **rs (5 bits):** First source register (প্রথম উৎস)।
+
+
+      * **rt (5 bits):** Second source register (দ্বিতীয় উৎস)।
+      * **rd (5 bits):** Destination register (গন্তব্য, যেখানে ফলাফল রাখা হবে)।
+      * **shamt (5 bits):** Shift amount। (শিফট অপারেশন ছাড়া অন্য সময় এটি ৫টি শূন্য হয়)।
+      * **funct (6 bits):** Function code। যেহেতু op সবসময় ০, তাই এই অংশটি প্রসেসরকে বলে দেয় ঠিক কী কাজ করতে হবে (যেমন: add, sub)।
+
+      **উদাহরণ:**
+
+      * `add $t0, $s1, $s2` : এখানে `$s1` (rs) এবং `$s2` (rt) এর মান যোগ করে ফলাফল `$t0` (rd) তে রাখা হচ্ছে।
+      * `sll $s2, $t3, 2` (Shift Left Logical): এখানে `$t3` (rs) এর ডেটাকে **২ বিট** (shamt) বামে শিফট করে `$s2` (rd) তে সেভ করা হচ্ছে।
+
+      ### ২. I-Type (Immediate Type)
+
+      যখন ইনস্ট্রাকশনের ভেতরেই সরাসরি কোনো সংখ্যা (constant) বা মেমরি অ্যাড্রেস দেওয়া থাকে, তখন I-type ব্যবহৃত হয়।
+      এর ৩২ বিটকে **৪টি অংশে** ভাগ করা হয়:
+
+      * **op (6 bits):** Opcode (এটি বলে দেয় কী কাজ হবে, যেমন: lw, sw, beq)।
+      * **rs (5 bits):** Source register (বেইজ অ্যাড্রেস বা উৎস)।
+      * **rt (5 bits):** Destination বা Source register (নির্দেশের ওপর ভিত্তি করে)।
+      * **Immediate / Constant (16 bits):** সরাসরি দেওয়া সংখ্যা বা অফসেট অ্যাড্রেস। এই ১৬-বিটের সংখ্যাটিকে প্রয়োজনে সাইন-এক্সটেন্ড (Sign-extend) করে ৩২-বিট করা হয়।
+
+      **উদাহরণ ও ভিডিওর গুরুত্বপূর্ণ টিপস:**
+
+      * **Load Word (`lw $t0, 4($s3)`):** মেমরি থেকে ডেটা রেজিস্টারে আনার জন্য। এখানে `$s3` হলো বেস অ্যাড্রেস, যার সাথে `4` যোগ করে আসল অ্যাড্রেস পাওয়া যায়। সেই অ্যাড্রেসের ডেটা `$t0` তে লোড হয়। **(এখানে প্রথম রেজিস্টার `$t0` হলো Destination)**।
+
+      * **Store Word (`sw $t0, 8($s3)`):** রেজিস্টার থেকে ডেটা মেমরিতে সেভ করার জন্য। **(ভিডিও অনুযায়ী, এখানে প্রথম রেজিস্টার `$t0` হলো Source, কারণ ডেটা $t0 থেকে মেমরিতে যাচ্ছে)**।
+
+      * **Branching (`beq $t0, $t1, else`):** যদি `$t0` এবং `$t1` সমান হয়, তবে প্রোগ্রাম `else` অ্যাড্রেসে লাফ দেবে (Jump)।
+
+      * **Add Immediate (`addi $t0, $t1, 14`):** `$t1` এর সাথে সরাসরি ১৪ (Immediate value) যোগ করে `$t0` তে রাখা।
+
+      ### ৩. J-Type (Jump Type)
+
+      প্রোগ্রামের এক লাইন থেকে অন্য একটি নির্দিষ্ট মেমরি অ্যাড্রেসে সরাসরি লাফ দেওয়ার (Jump) জন্য এই ফরম্যাট ব্যবহৃত হয়।
+      এর ৩২ বিটকে মাত্র **২টি অংশে** ভাগ করা হয়:
+
+      * **op (6 bits):** Opcode.
+      * **Target Address (26 bits):** যে মেমরি অ্যাড্রেসে লাফ দিতে হবে।
+
+      **উদাহরণ:**
+
+      * **`j loop` (Jump):** এটি সরাসরি `loop` নামক অ্যাড্রেসে প্রোগ্রামকে পাঠিয়ে দেয়।
+      * **`jal loop` (Jump and Link):** এটিও লাফ দেয়, তবে যাওয়ার আগে বর্তমান লাইনের ঠিক পরের লাইনের অ্যাড্রেসটি **`$ra` (Return Address)** রেজিস্টারে সেভ করে রাখে। এর ফলে ফাংশনের কাজ শেষ হওয়ার পর `jr $ra` কমান্ড ব্যবহার করে প্রোগ্রাম আবার আগের জায়গায় ঠিকমতো ফিরে আসতে পারে।
+
+      সংক্ষেপে:
+      * **R-type:** সব কাজ রেজিস্টারের ভেতরেই হয় (৬টি ফিল্ড)।
+      * **I-type:** একটি নির্দিষ্ট সংখ্যা (constant/immediate) নিয়ে কাজ হয় (৪টি ফিল্ড)।
+      * **J-type:** অনেক দূরের কোনো অ্যাড্রেসে লাফ দেওয়ার জন্য ব্যবহৃত হয় (২টি ফিল্ড)।
+
 # Part B — Instructions, ISA, Datapath and Control
+
+## Basic: 
+
+
+
+
+
+??? note "Define instruction types and define each types in details for 50 marks with example and block diagrams."
+
+	An **instruction** in Computer Organisation and Architecture (COA) is a binary command given to the Central Processing Unit (CPU) to perform a specific operation. The collection of all instructions understood by a processor is called its **Instruction Set Architecture (ISA)**.
+
+	Architecturally, instructions are classified into three primary functional categories:
+
+	1. **Data Transfer Instructions:** Move data between registers, memory, and I/O devices without modifying the content.
+	2. **Data Manipulation Instructions:** Perform computational tasks on data, subdivided into **Arithmetic**, **Logical**, and **Shift** instructions.
+	3. **Program Control Instructions:** Alter the sequential execution flow of a program by modifying the Program Counter (PC).
+
+	---
+
+	## Category 1: Data Transfer Instructions
+
+	Data Transfer Instructions handle the relocation of data between source and destination endpoints across the system buses. They do not alter the binary bits being moved.
+
+	### 1. Data Transfer Paths & Locations
+
+	Data movement occurs across three hardware boundaries:
+
+	* **Register to Register:** Fast transfer within internal CPU registers (e.g., Accumulator, General Purpose Registers).
+	* **Register to/from Memory:** Relocating data between CPU registers and primary memory (RAM).
+	* **Register/Memory to/from I/O Devices:** Interfacing with peripherals (keyboard, monitor, printer). External devices like printers maintain their own internal memory buffers and control registers to handle incoming data streams.
+
+	```
+	+-------------------------------------------------------------------+
+	|                        DATA TRANSFER PATHS                        |
+	|                                                                   |
+	|   +-------------------+  Load / Store  +----------------------+   |
+	|   |  CPU Registers    | <------------> |    Main Memory       |   |
+	|   | (ACC, R1, PC, IR) |                |        (RAM)         |   |
+	|   +-------------------+                +----------------------+   |
+	|             ^                                     ^               |
+	|             | IN / OUT                            | Direct Memory |
+	|             v                                     v Access (DMA)  |
+	|   +-----------------------------------------------------------+   |
+	|   |                  I/O Peripheral Devices                   |   |
+	|   |             (Keyboard, Printer Buffer, Display)           |   |
+	|   +-----------------------------------------------------------+   |
+	+-------------------------------------------------------------------+
+
+	```
+
+	### 2. Role of Addressing Modes
+
+	The micro-operations executed during data transfer depend on the **Addressing Mode** (e.g., Immediate, Direct, Indirect, Register Indirect, Indexed). A single command like `MOV` or `LD` can execute in 7 to 8 distinct variations depending on how operand addresses are specified in the instruction format.
+
+	### 3. Command List & Sub-categories
+
+	| Sub-category | Command / Mnemonic | Description / Micro-operation | Example |
+	| --- | --- | --- | --- |
+	| **Register Transfer** | `MOV Dest, Src` | Copies contents from source location to destination. | `MOV R1, R2` *(R1 ← R2)* |
+	| **Immediate Transfer** | `MOV Reg, Data` | Loads a direct operand constant directly into a register. | `MOV R1, 500` *(R1 ← 500)* |
+	| **Memory Load** | `LD` / `LDA` | Fetches data from memory into a register or Accumulator. | `LD R1, X` *(R1 ← M[X])* |
+	| **Memory Store** | `ST` / `STA` | Transfers data from a register or Accumulator to memory. | `STA X` *(M[X] ← ACC)* |
+	| **Data Exchange** | `XCHG` | Swaps contents between two registers or memory locations. | `XCHG R1, R2` *(R1 ↔ R2)* |
+	| **Input Operation** | `IN` | Fetches data from an input port to an internal register. | `IN R1, Port_A` |
+	| **Output Operation** | `OUT` | Sends data from a register to an output port. | `OUT Port_B, R1` |
+	| **Stack Transfer** | `PUSH` / `POP` | Pushes data onto or pops data off a LIFO Stack memory. | `PUSH R1` / `POP R2` |
+	| **Bit Setting** | `SET` / `CLR` | Forces target register bits to `1` (`SET`) or `0` (`CLR`). | `CLR R1` *(R1 ← 0)* |
+
+	---
+
+	## Category 2: Data Manipulation Instructions
+
+	Data Manipulation Instructions perform computational operations on binary data. They are divided into **Arithmetic**, **Logical**, and **Shift** instructions.
+
+	```
+	+-------------------------------------------------------------------+
+	|                   DATA MANIPULATION INSTRUCTIONS                  |
+	|                                                                   |
+	|   +-------------------+   +-------------------+   +-----------+   |
+	|   |    Arithmetic     |   |      Logical      |   |   Shift   |   |
+	|   | (+, -, *, /, INC) |   | (AND, OR, NOT, X) |   | (LSL, ASR)|   |
+	|   +-------------------+   +-------------------+   +-----------+   |
+	|             \                       |                  /          |
+	|              v                      v                 v           |
+	|   +-----------------------------------------------------------+   |
+	|   |               Arithmetic Logic Unit (ALU)                 |   |
+	|   +-----------------------------------------------------------+   |
+	+-------------------------------------------------------------------+
+
+	```
+
+	---
+
+	### Sub-category 2A: Arithmetic Instructions
+
+	Arithmetic instructions perform basic mathematical operations ($+$, $-$, $\times$, $\div$) on numeric operands stored in registers or memory.
+
+	#### 1. Hardware Primitives vs. Software Loops
+
+	* **Primitive Hardware:** Basic microprocessors contain hardware circuits only for Addition and Subtraction.
+	* **Software Multiplication:** Implemented via addition loops (e.g., $2 \times 3 = 2 + 2 + 2$).
+	* **Software Division:** Implemented via repeated subtraction loops.
+
+
+	* **Modern ALU Optimizations:** Modern CPUs incorporate dedicated, high-speed hardware multipliers and dividers within the ALU. Dedicated hardware eliminates software loop overhead, increasing execution speed. Higher mathematical functions (exponential, logarithmic, trigonometric) are derived from these four core operations.
+
+	#### 2. Instruction vs. Micro-Operation Execution
+
+	An **Instruction** is a macro-level assembly command, whereas a **Micro-operation** is an elementary hardware step performed by the ALU during execution clock cycles.
+
+	For a 3-Address instruction $C = A + B$ (`ADD C, A, B`):
+
+	```
+	[Instruction Memory] ---> [Fetch Phase] ---> [Instruction Register (IR)]
+														|
+														v
+												[Decode Phase]
+												(Opcode + Operands)
+														|
+														v
+	[Write Back C] <--- [Execute Phase (ALU)] <--- [Operand Fetch Phase]
+
+	```
+
+	1. **Instruction Fetch:** Instruction is transferred from memory to the Instruction Register (IR).
+	2. **Instruction Decode:** Decoder separates the **Opcode** (`ADD`) from **Operands** ($A, B, C$).
+	3. **Operand Fetch:** Operands $A$ and $B$ are retrieved based on the addressing mode.
+	4. **Execution:** ALU adds values and writes the result into destination address $C$.
+
+	#### 3. Command List & Examples
+
+	| Mnemonic | Name | Operation / Example | Description |
+	| --- | --- | --- | --- |
+	| `ADD` | Add | `ADD R1, R2` *(R1 ← R1 + R2)* | Adds contents of two registers. |
+	| `SUB` | Subtract | `SUB R1, R2` *(R1 ← R1 - R2)* | Subtracts source from destination. |
+	| `MUL` | Multiply | `MUL R1, R2` *(R1 ← R1 * R2)* | Hardware binary multiplication. |
+	| `DIV` | Divide | `DIV R1, R2` *(R1 ← R1 / R2)* | Hardware binary division. |
+	| `INC` | Increment | `INC R1` *(R1 ← R1 + 1)* | Increments register flip-flop counter by 1. |
+	| `DEC` | Decrement | `DEC R1` *(R1 ← R1 - 1)* | Decrements register flip-flop counter by 1. |
+	| `ADC` | Add with Carry | `ADC R1, R2` *(R1 ← R1 + R2 + Carry)* | Propagates previous carry bit into higher-order addition. |
+	| `SBB` | Subtract w/ Borrow | `SBB R1, R2` *(R1 ← R1 - R2 - Borrow) | Propagates borrow bit into higher-order subtraction. |
+	| `NEG` | Negate | `NEG R1` *(R1 ← 2's Complement of R1)* | Converts positive values to negative (e.g., $+5 \to -5$). |
+
+	---
+
+	### Sub-category 2B: Logical Instructions
+
+	Logical instructions perform bitwise boolean operations on binary vectors. They are used for bit manipulation, masking, testing, and flag control.
+
+	#### 1. Core Logic Operations & Applications
+
+	* **Complement / NOT:** Inverts all bits ($0 \to 1, 1 \to 0$). 1's complement is derived in hardware by XORing data against an all-1s bitmask ($0101_2 \text{ XOR } 1111_2 = 1010_2$).
+	* **Clear (`CLR`):** Resets target register flip-flops to 0 in a single clock pulse.
+	* **Bitwise AND (Bit Masking & Selective Clearing):** ANDing any bit with $0$ forces it to $0$.
+	* **Subnetting Application:** Performs bitwise AND between an IP address and a Subnet Mask to isolate the Network/Subnet ID.
+	* **Even/Odd Detection:** Performs bitwise AND between an integer bitstring and $0001_2$:
+	* *Even Result ($0000_2$):* Least Significant Bit (LSB) is $0$.
+	* *Odd Result ($0001_2$):* Least Significant Bit (LSB) is $1$.
+
+
+
+
+	* **Bitwise OR (Selective Setting):** ORing any bit string with $1$ forces those bit positions to $1$.
+	* **Bitwise XOR (Modulo-2 Addition):** Outputs $0$ for matching bits and $1$ for different bits. Equivalent to Modulo-2 addition without carry ($1 + 1 = 2 \pmod 2 = 0$).
+
+	#### 2. Flag & Interrupt Control Commands
+
+	| Mnemonic | Name | Operation | Primary Use Case |
+	| --- | --- | --- | --- |
+	| `CLC` | Clear Carry | Carry Flag $\leftarrow 0$ | Clears unwanted carry status before addition. |
+	| `STC` | Set Carry | Carry Flag $\leftarrow 1$ | Provides $+1$ offset for 2's complement generation. |
+	| `CMC` | Complement Carry | Carry Flag $\leftarrow \overline{\text{Carry}}$ | Inverts existing carry status. |
+	| `EI` | Enable Interrupt | Interrupt Flag $\leftarrow 1$ | Unmasks hardware/software interrupts. |
+	| `DI` | Disable Interrupt | Interrupt Flag $\leftarrow 0$ | Masks interrupts during critical execution sections. |
+
+	---
+
+	### Sub-category 2C: Shift Instructions
+
+	Shift instructions move bits within a register left or right. They are used in serialization, bit manipulation, and fast arithmetic computations.
+
+	#### 1. Operational Types
+
+	```
+	1. Logical Shift Left (LSL):       [0] <-- [Bit 7 <-- Bit 0] <-- 0
+									(Exits)
+
+	2. Logical Shift Right (LSR):       0 --> [Bit 7 --> Bit 0] --> [0]
+																(Exits)
+
+	3. Arithmetic Shift Right (ASR): [Sign] -> [Sign Copy --> Bit 0] --> [0]
+									(Preserved)                        (Exits)
+
+	4. Rotate Left (ROL):             +--- [Bit 7 <-- Bit 0] <---+
+									|                          |
+									+--------------------------+
+
+	5. Rotate Right w/ Carry (RCR):   +-> [Carry] -> [Bit 7 --> Bit 0] -+
+									|                                 |
+									+---------------------------------+
+
+	```
+
+	* **Logical Shift Left (LSL):** Moves bits left. Discards the MSB; fills the vacated LSB with $0$. Equivalent to **multiplying by 2** ($\times 2$).
+	* **Logical Shift Right (LSR):** Moves bits right. Discards the LSB; fills the vacated MSB with $0$. Equivalent to **unsigned integer division by 2** ($\div 2$).
+	* **Arithmetic Shift Right (ASR):** Used for **signed 2's complement numbers**. Moves bits right and discards the LSB, but **copies the MSB sign bit** back into the vacated MSB position to preserve sign integrity.
+	* **Arithmetic Shift Left (ASL):** Identical to Logical Shift Left ($0$ inserted at LSB). Hardware systems implement only one version.
+	* **Rotate Left (ROL) & Rotate Right (ROR):** Circular shifts where exiting boundary bits wrap around to fill the vacated opposite end without losing bits.
+	* **Rotate Through Carry (RCL / RCR):** Operates across a **9-bit circular loop** consisting of the 8-bit register plus the 1-bit Carry Flag.
+
+	#### 2. Instruction Format
+
+	Shift instruction opcodes contain dedicated fields specifying the shift type, shift direction, and shift count:
+
+	$$\begin{array}{\|c\|c\|c\|c\|c\|} \hline \text{Addressing Mode} & \text{Opcode (Shift)} & \text{Type (Logical/Arith/Rotate)} & \text{Direction \& Count} & \text{Register Operand} \\ \hline \end{array}$$
+
+	---
+
+	## Category 3: Program Control (Transfer of Control) Instructions
+
+	Program Control Instructions alter the normal execution sequence of a program.
+
+	### 1. Sequential Execution vs. Transfer of Control
+
+	* **Implicit Mode (Sequential Execution):** Under default conditions, the CPU executes instructions sequentially. The Program Counter (PC) automatically increments to hold the memory address of the next instruction ($100 \to 101 \to 102 \to 103$).
+	* **Transfer of Control (Non-Sequential Execution):** Program Control instructions break sequential execution by loading a new target address into the Program Counter ($PC \leftarrow \text{Target Address}$). This enables loops, function/subroutine calls, conditional branching (`if-else`), and interrupt handling.
+
+	---
+
+	### 2. Detailed Sub-categories & Commands
+
+	```
+	Sequential Execution: [PC = 100] -> [PC = 101] -> [PC = 102] -> [PC = 103]
+
+	Unconditional Branch: [PC = 101 (JMP 3000)] -------------------> [PC = 3000]
+
+	Conditional Branch:   [PC = 101 (BE R1, R2, 2000)]
+								|
+						+---------+---------+
+						|                   |
+				(R1 == R2)          (R1 != R2)
+						|                   |
+						v                   v
+				[PC = 2000]          [PC = 102] (Sequential)
+
+	```
+
+	#### A. Unconditional Branch Instructions
+
+	Transfers execution directly to a target address without evaluating conditions.
+
+	* **`JMP Target` / `BRANCH Target`:** Writes the target address directly into the Program Counter ($PC \leftarrow 2000$).
+	* **`SKP` (Skip):** Bypasses the immediately following instruction by incrementing the Program Counter an extra step ($PC \leftarrow PC + 2$), skipping execution of the next line.
+
+	#### B. Conditional Branch Instructions
+
+	Evaluates processor status flags or register comparisons before branching. If the condition evaluates to **True**, control branches to the target address; if **False**, execution continues sequentially.
+
+	* **`BE R1, R2, Target` (Branch if Equal):** Compares $R1$ and $R2$. If $R1 == R2$, $PC \leftarrow \text{Target}$; otherwise, $PC \leftarrow PC + 1$.
+	* **`BNZ R1, Target` (Branch if Non-Zero):** Branches to the target address if register $R1 \neq 0$.
+	* **`BGT` / `BLT`:** Branch if Greater / Branch if Less Than.
+
+	#### C. Subroutine Instructions & Stack Flow
+
+	Used to handle reusable code modules (functions/procedures).
+
+	```
+	Main Program                              Stack Memory
+	+-----------------------+                 +-----------------------+
+	| Address 100: Inst 1   |                 |                       |
+	| Address 101: CALL 3000| --(1. Push)---> | Return Addr (102)     | [SP]
+	| Address 102: Inst 3   | <-(3. Pop RET)- +-----------------------+
+	+-----------------------+
+				|
+		(2. Jump)
+				v
+	Subroutine (Function)
+	+-----------------------+
+	| Address 3000: Code... |
+	| Address 3015: RET     | 
+	+-----------------------+
+
+	```
+
+	1. **`CALL Target`:**
+	* Pushes the current return address ($PC + 1$) onto the **Stack** ($M[SP] \leftarrow PC$).
+	* Loads the target subroutine address into the Program Counter ($PC \leftarrow 3000$).
+
+
+	2. **`RET` (Return):**
+	* Pops the saved return address from the Stack back into the Program Counter ($PC \leftarrow M[SP]$), resuming execution in the main program.
+
+
+
+	#### D. Interrupt & Machine Control Instructions
+
+	* **`TRAP` / `INTR`:** Hardware or software-generated interrupts that suspend current main-line execution to service an Interrupt Service Routine (ISR).
+	* **`NOP` (No Operation):** Consumes one clock cycle without modifying registers or memory. Used for delay loops.
+	* **`HALT`:** Stops CPU instruction fetching and execution until a hardware reset or interrupt occurs.
+
+	---
+
+	## Comprehensive Master Instruction Set Reference
+
+	| Instruction Category | Sub-category | Key Mnemonics | Primary Target / Operand | Hardware Effect / Purpose |
+	| --- | --- | --- | --- | --- |
+	| **Data Transfer** | Register/Memory Transfer | `MOV`, `LD`, `ST`, `XCHG` | Registers, RAM | Moves data without modification across system buses. |
+	|  | Peripheral Transfer | `IN`, `OUT` | I/O Ports, Peripherals | Interfaces processor with external hardware. |
+	|  | Stack Operations | `PUSH`, `POP` | Stack Memory, Stack Pointer | Manages temporary parameters and function frames. |
+	| **Data Manipulation** | Arithmetic Operations | `ADD`, `SUB`, `MUL`, `DIV` | ALU Registers | Performs algebraic math operations on data. |
+	|  | Extended Arithmetic | `ADC`, `SBB`, `INC`, `DEC`, `NEG` | Registers, Carry Flag | Handles multi-byte arithmetic, counters, and 2's complements. |
+	|  | Logical Operations | `AND`, `OR`, `XOR`, `NOT`, `CLR` | Bit Vectors, Registers | Performs bit masking, selective setting, and even/odd checks. |
+	|  | Machine Flag Control | `CLC`, `STC`, `CMC`, `EI`, `DI` | Status Flags | Configures carry flags and masks processor interrupts. |
+	|  | Bit Shifting | `LSL`, `LSR`, `ASL`, `ASR` | Registers | Performs bit alignment, binary multiplication, and division. |
+	|  | Circular Rotations | `ROL`, `ROR`, `RCL`, `RCR` | Registers, Carry Bit | Rotates bits circular-wise with or without carry status. |
+	| **Program Control** | Unconditional Branching | `JMP`, `BR`, `SKP` | Program Counter (PC) | Changes PC address unconditionally. |
+	|  | Conditional Branching | `BE`, `BNZ`, `BGT`, `BLT` | Status Flags, PC | Implements decision-making blocks (`if-else`). |
+	|  | Subroutines | `CALL`, `RET` | Stack, PC | Manages function invocations and returns. |
+	|  | System / Halt Control | `NOP`, `HALT`, `TRAP` | CPU Control Logic | Handles timing delays, interrupts, and system termination. |
+
+	Here are the short notes structured as a hierarchical mindmap tree. Every single sub-type discussed across the videos is listed clearly without compression.
+
+	### **Mindmap: Instruction Types in Computer Architecture**
+
+	* **1. DATA TRANSFER INSTRUCTIONS**
+	* *Core Function:* Copy data from source to destination without modification.
+	* **A. Based on Location**
+	* 1. Register to Register
+	* 2. Register to Memory
+	* 3. Memory to Register
+	* 4. Input to Register/Memory (from peripheral)
+	* 5. Register/Memory to Output (to peripheral)
+	* 6. Stack Operations
+	* a. PUSH (Store to stack)
+	* b. POP (Retrieve from stack)
+
+	* **B. Based on Addressing Mode Variations (Example: MOV)**
+	* 1. Immediate Move (MOV R1, 500)
+	* 2. Direct Move (MOV R1, X)
+	* 3. Indirect Move
+	* 4. Base Addressing Move
+	* *(Note: 7 to 8 variations exist based on mode)*
+
+	* **C. Core Mnemonic List**
+	* 1. MOV (Move/Copy)
+	* 2. LD / LOAD (Load to Register/Accumulator)
+	* 3. ST / STORE (Store to Memory)
+	* 4. XCHG (Exchange/Swap)
+	* 5. IN (Input)
+	* 6. OUT (Output)
+	* 7. SET (Set to 1)
+	* 8. CLR (Clear to 0)
+
+	* **2. DATA MANIPULATION INSTRUCTIONS**
+	* *Core Function:* Perform operations on data to form new results.
+	* **I. ARITHMETIC INSTRUCTIONS**
+	* *Function:* Perform basic mathematical calculations.
+	* **A. Fundamental Operations**
+	* 1. ADD (Addition)
+	* 2. SUB (Subtraction)
+	* 3. MUL (Multiplication)
+	* 4. DIV (Division)
+
+	* **B. Incremental Operations**
+	* 1. INC (Increment by 1)
+	* 2. DEC (Decrement by 1)
+
+	* **C. Operations with Flags**
+	* 1. ADC (Add with Carry)
+	* 2. SBB / SUBB (Subtract with Borrow)
+
+	* **D. Sign Manipulation**
+	* 1. NEG (Negate - create 2's complement)
+
+	* **II. LOGICAL INSTRUCTIONS**
+	* *Function:* Perform bitwise operations on binary data.
+	* **A. Boolean Logic Operations**
+	* 1. NOT / COMPLEMENT (1's Complement)
+	* 2. AND (Bitwise multiplication / Masking)
+	* 3. OR (Bitwise addition / Selective setting)
+	* 4. XOR (Modulo-2 addition / Swapping/Testing parity)
+
+	* **B. Flag Manipulation**
+	* 1. CLC (Clear Carry flag to 0)
+	* 2. STC (Set Carry flag to 1)
+	* 3. CMC (Complement Carry flag)
+
+	* **C. Machine Control**
+	* 1. EI (Enable Interrupts)
+	* 2. DI (Disable Interrupts)
+	* 3. CLR (Clear/Reset register bits)
+
+	* **III. SHIFT INSTRUCTIONS**
+	* *Function:* Move bits left or right within a register.
+	* **A. Logical Shifts**
+	* 1. Logical Shift Left (LSL)
+	* 2. Logical Shift Right (LSR)
+
+	* **B. Arithmetic Shifts**
+	* 1. Arithmetic Shift Left (ASL) — *(Often identical to LSL)*
+	* 2. Arithmetic Shift Right (ASR)
+
+	* **C. Rotate / Circular Shifts**
+	* 1. Rotate Left (ROL)
+	* 2. Rotate Right (ROR)
+
+	* **D. Rotate through Carry**
+	* 1. Rotate Left through Carry (RCL)
+	* 2. Rotate Right through Carry (RCR)
+
+
+	* **3. PROGRAM CONTROL INSTRUCTIONS**
+	* *Core Function:* Change the flow of program execution by modifying the Program Counter.
+	* **A. Unconditional Transfer**
+	* *Function:* Jump without checking any condition.
+	* 1. JMP / JUMP (Direct jump to address)
+
+	* 2. BRA / BRANCH (Jump relative to current location)
+	* 3. SKP / SKIP (Skip the very next instruction)
+	* 4. CALL (Invoke subroutine/function; save return address)
+	* 5. RET / RETURN (Return from subroutine; retrieve return address)
+
+	* **B. Conditional Transfer**
+	* *Function:* Jump only if a specific condition is met.
+	* 1. Branch on Register Comparison
+
+	* a. BE / BZ (Branch if Equal/Zero)
+	* b. BNE / BNZ (Branch if Not Equal/Not Zero)
+
+	* 2. Branch on Processor Flags
+
+	* *(Note: Examples include Branch if Carry, Branch if No Overflow, etc.)*
+
+	![instruction types](https://res.cloudinary.com/zopgecx6/image/upload/v1785171122/instruction_types_gv59i2.png)
+	![Instruction types Classifications-tinified](https://res.cloudinary.com/zopgecx6/image/upload/v1785171756/Instruction_types_Classifications-tinified_siy7qb.png)
+	
 
 ## 1. Execution of `Load R2, LOC`
 
@@ -423,72 +1077,245 @@ Using `PC`, `MAR`, `MDR` and `IR`, a typical sequence is:
 
 With a cache or synchronous memory, T1/T4 may include wait states. The operation changes `R2` but not the memory word at `LOC`.
 
-### বাংলা উত্তর
 
-এখানে **direct addressing** ধরা হলে instruction-টির অর্থ:
+## 2. Characteristics of a RISC vs CISC Processor show 12 disctinction with example. 
 
-$$R2 \leftarrow M[\text{LOC}]$$
+??? "Characteristics of a RISC vs CISC Processor show 12 disctinction with example. "
 
-প্রথমে `PC`-এর address `MAR`-এ যায়; memory থেকে instruction `MDR`-এ আসে এবং `PC` পরবর্তী instruction-এর দিকে এগোয়। এরপর instruction `IR`-এ নিয়ে decode করা হয়। `IR`-এর address field অর্থাৎ `LOC`-কে `MAR`-এ রাখা হয়। Memory read শেষে operand `MDR`-এ আসে এবং সর্বশেষে `R2 ← MDR` দ্বারা load সম্পন্ন হয়। Memory ধীর হলে read ধাপে wait state যোগ হতে পারে। এই instruction `R2` পরিবর্তন করে, কিন্তু `LOC`-এর data পরিবর্তন করে না।
+	### The Classic Example: Multiplying Two Numbers in Memory
 
----
+	Imagine you want to multiply the data at memory address `A` with the data at memory address `B`, and save it back to `A`.
 
-## 2. Characteristics of a RISC Processor
+	* **The CISC Approach (1 step):**
+	`MULT A, B`
+	The CPU's hardware does everything. It goes to memory, fetches both values, multiplies them, and stores the result back. It takes multiple clock cycles, but it only takes up one line of code.
+	* **The RISC Approach (4 steps):**
+	`LOAD R1, A`
+	`LOAD R2, B`
+	`PROD R1, R2`
+	`STORE R1, A`
+	The CPU can only do math on registers, not directly on memory. The compiler has to break the complex task into simple, one-step commands.
 
-### Enhanced question
+	---
 
-**Explain the architectural and implementation characteristics of a RISC processor and relate them to efficient pipelining and compiler design.**
+	## The 12 Key Distinctions
 
-### English answer
+	Here is how the two architectures fundamentally differ:
 
-The principal characteristics are:
-
-1. A relatively small, regular instruction set containing frequently used operations.
-2. Fixed-length instructions and few instruction formats, making fetch and decode predictable.
-3. **Load/store architecture:** arithmetic operates on registers; only loads and stores access memory.
-4. Many general-purpose registers, reducing memory traffic.
-5. Few, simple addressing modes.
-6. Simple operations that commonly complete with uniform pipeline latency.
-7. Hardwired control is common, although this is not an absolute requirement.
-8. Strong support for pipelining, instruction scheduling and compiler optimization.
-9. Register-to-register operations usually have three explicit operands.
-10. Emphasis on high clock rate and high instruction throughput rather than maximum work in one instruction.
-
-These features reduce decoder complexity and make pipeline stages more balanced. The compiler performs register allocation, combines simple instructions and schedules independent operations. RISC may execute more instructions for a task, but each instruction is easier to decode and overlap.
-
-### বাংলা উত্তর
-
-RISC processor-এর বৈশিষ্ট্য হলো ছোট ও নিয়মিত instruction set, fixed-length instruction, অল্প format ও addressing mode, বহু general-purpose register এবং load/store architecture। Arithmetic instruction register operand নিয়ে কাজ করে; memory কেবল load ও store instruction দ্বারা access হয়। অধিকাংশ simple instruction-এর latency নিয়মিত হওয়ায় fetch, decode ও pipeline control সহজ হয়।
-
-সাধারণত hardwired control, তিন-operand register instruction, উচ্চ clock rate এবং compiler-based scheduling-এর ওপর গুরুত্ব দেওয়া হয়। Compiler register allocation এবং independent instruction scheduling করে। একই কাজের জন্য instruction সংখ্যা বাড়তে পারে, কিন্তু প্রতিটি instruction দ্রুত decode হয় এবং overlap করা সহজ হওয়ায় throughput উন্নত হয়।
-
----
+	| Feature | RISC (Reduced Instruction Set Computer) | CISC (Complex Instruction Set Computer) |
+	| --- | --- | --- |
+	| **1. Design Philosophy** | Moves the complexity to the software (compiler). | Moves the complexity to the hardware (silicon). |
+	| **2. Instruction Length** | Fixed-length (e.g., every command is exactly 32 bits). | Variable-length (commands change size based on complexity). |
+	| **3. Execution Time** | Most instructions execute in a single clock cycle. | Complex instructions can take many clock cycles to finish. |
+	| **4. Memory Access** | **Load/Store Architecture:** Only specific commands access RAM. | **Memory-to-Memory:** Math operations can happen directly on RAM. |
+	| **5. Register Count** | High. Data is kept in the CPU as long as possible to avoid slow RAM. | Low. The CPU frequently reads and writes directly to RAM. |
+	| **6. Pipelining** | Highly efficient. Uniform instruction lengths make it easy to queue up commands. | Difficult. Variable execution times cause bottlenecks in the queue. |
+	| **7. Code Size (RAM Usage)** | Larger program sizes because complex tasks require multiple lines of code. | Smaller program sizes because a single line can execute a complex task. |
+	| **8. Addressing Modes** | Very few, simple ways to locate data in memory. | Dozens of complex ways to locate and interact with memory. |
+	| **9. Hardware Circuitry** | Simpler circuits, which leaves physical room on the chip for more L1/L2 Cache. | Highly complex circuits, requiring a dedicated microcode ROM on the chip. |
+	| **10. Power Consumption** | Extremely low, making it ideal for battery-powered mobility. | High, generating more heat and requiring active cooling systems. |
+	| **11. Execution Predictability** | Highly predictable, making it excellent for real-time operating systems. | Unpredictable, as time varies wildly depending on the instruction. |
+	| **12. Real-World Examples** | ARM processors (Apple Silicon M-series, Snapdragon, smartphones). | x86 processors (Intel Core, AMD Ryzen, traditional desktop PCs). |
 
 ## 3. Three-Bus CISC-Style Processor Organization
+???  "Draw the three-bus CISC-style processor organization."
 
-### Enhanced question
 
-**Draw and explain a three-bus processor organization capable of supporting CISC-style register and memory operations. Describe the functions of the A, B and C buses and the memory interface.**
 
-### Figure: three-bus organization
+	### What is a Three-Bus Architecture and Why Do We Use It?
 
-![Three-Bus Processor Organization](figures/04_three_bus_processor.svg)
+	Inside a processor, data travels from one component to another through electrical pathways called **Busses**.
 
-### English answer
+	In older 1-bus architectures, performing a simple operation like $A + B$ took multiple clock cycles because two different inputs could not travel over the same bus at the same time. The **Three-Bus Architecture** solves this by providing three separate pathways (**Bus A**, **Bus B**, and **Bus C**). This allows the system to fetch two inputs simultaneously, process them, and write the output back—all in a single step.
 
-The register file has two read ports and one write port. Two registers can therefore place operands simultaneously on the **A** and **B** buses. The ALU performs the selected operation; an optional shifter processes the result; and the **C bus** writes the result into one destination register.
+	* **Bus A and Bus B (Input Busses):** These fetch data from registers or memory registers and feed them directly into the execution units (like the ALU).
+	* **Bus C (Output Bus):** This carries the resulting output from the ALU or other units and writes it back into the target register or memory location.
 
-For memory operands, `MAR` holds the effective address and `MDR` buffers data read from or written to memory. Multiplexers allow an immediate value, constant, PC or MDR to replace a normal register operand. The control unit selects source and destination registers, ALU function, shift operation, memory read/write and register write-enable.
+	![Three-BUS CISC-Styel Processor](https://res.cloudinary.com/zopgecx6/image/upload/v1785253272/81aa7c69-bfb5-41d4-9d56-c725ed88c2b5_xmz6zd.jpg)
+	![Three-BUS CISC-Styel Processor](https://res.cloudinary.com/zopgecx6/image/upload/v1785252855/9c4aaa53-e7df-4d23-a9d7-a684dd2f7c47_cysmob.png)
 
-The organization supports a transfer such as `R1 ← R2 + R3` in one datapath step. A CISC-style memory-register instruction still needs several micro-operations because address calculation and memory access take additional cycles.
+	### Understanding the Architecture Diagram Component-by-Component
 
-### বাংলা উত্তর
+	#### 1. PC (Program Counter) & Incrementer
 
-Three-bus organization-এর register file-এ দুইটি read port ও একটি write port থাকে। ফলে A ও B bus দিয়ে একই সময়ে দুইটি source operand ALU-তে পাঠানো যায়। ALU নির্বাচিত operation করে; প্রয়োজনে shifter ফল পরিবর্তন করে; C bus ফল destination register-এ লিখে দেয়।
+	* **Function:** Tracks the memory address of the instruction currently being executed and determines the address of the next instruction.
+	* **Connections:**
+	* Connected to an **Incrementer** that automatically increases the address value by 1 or 4.
+	* Outputs data to **Bus B** and receives new address values from **Bus C**.
 
-Memory operand-এর জন্য `MAR` effective address ধারণ করে এবং `MDR` memory থেকে পড়া বা memory-তে লেখার data buffer করে। Multiplexer-এর সাহায্যে register-এর পরিবর্তে immediate, constant, PC বা MDR-কে ALU input করা যায়। Control unit source/destination register, ALU function, shift, memory read/write ও write-enable নির্বাচন করে। Register-to-register কাজ এক datapath step-এ হলেও complex memory instruction সম্পন্ন করতে একাধিক micro-operation লাগে।
 
----
+
+	#### 2. Register File
+
+	* **Function:** A collection of fast internal storage locations ($R_0, R_1, R_2\dots$) used to hold temporary data operands.
+	* **Connections:**
+	* Can read and output **two separate register values simultaneously** onto **Bus A** and **Bus B** (allowing two operands to reach the ALU at the same time).
+	* Receives processed results from **Bus C** to store back into a target register.
+
+
+
+	#### 3. Multiplexer (MUX) & ALU (Arithmetic Logic Unit)
+
+	* **Function:** The ALU executes arithmetic operations (addition, subtraction) and logical operations (AND, OR).
+	* **Multiplexer Role:** Selects whether Input A of the ALU receives data from **Bus A** or a fixed **Constant 4** (used for stepping through memory/PC increments).
+	* **Connections:**
+	* ALU Input A connects to the MUX output (which reads from Bus A).
+	* ALU Input B connects directly to **Bus B**.
+	* ALU Output $R$ connects directly to **Bus C**.
+
+	#### 4. IR (Instruction Register) & Instruction Decoder
+
+	* **Function:** The **IR** holds the binary instruction code fetched from main memory. The **Instruction Decoder** decodes this binary pattern to determine which control signals need to be generated (e.g., addition, subtraction, load, store).
+	* **Connections:** Loads instruction data from **Bus C** and interfaces with internal control logic to drive Bus A and Bus B operations.
+
+	#### 5. MDR (Memory Data Register) & MAR (Memory Address Register)
+
+	* **Function:** These act as the hardware gateway between the internal processor busses and external main memory (RAM).
+	* **MAR (Memory Address Register):** Holds the memory address where the system needs to read or write data.
+	* **MDR (Memory Data Register):** Holds the actual data payload being transferred to or from main memory.
+
+	* **Connections:**
+	* Both MAR and MDR receive input addresses/data from **Bus C**.
+	* MDR can output stored data back onto **Bus A** or **Bus B**.
+	* The blue lines at the bottom represent external memory bus connections (Memory Data Lines and Address Lines).
+
+
+	### How an Operation Executes in a Single Clock Cycle
+
+	For example, to execute the register addition instruction `$R_3 = R_1 + R_2$`:
+
+	1. Operand $R_1$ is placed onto **Bus A** and directed to ALU Input A.
+	2. Operand $R_2$ is placed onto **Bus B** and directed to ALU Input B.
+	3. The **ALU** performs the addition operation immediately.
+	4. The result is placed onto **Bus C** and written directly into register $R_3$.
+
+
+
+##  Explain the steps of Three-Bus CISC-style from start to execution.
+
+??? "Explain the steps of Three-Bus CISC-style from start to execution."
+
+	ডায়াগ্রামের **সবগুলো কম্পোনেন্টের** সম্ভাব্য সব ডেটা ফ্লো বা পাথ নিচে অ্যারো (->) দিয়ে দেখানো হলো:
+
+	![Three-BUS CISC-Styel Processor](https://res.cloudinary.com/zopgecx6/image/upload/v1785253272/81aa7c69-bfb5-41d4-9d56-c725ed88c2b5_xmz6zd.jpg)
+
+	**১. Register File (রেজিস্টারসমূহ):**
+
+	* রিড পাথ ১: Register file -> Bus A
+	* রিড পাথ ২: Register file -> Bus B
+	* রাইট পাথ: Bus C -> Register file
+
+	**২. PC (Program Counter) ও Incrementer:**
+
+	* আউটপুট পাথ: PC -> Bus B
+	* ইনপুট/আপডেট পাথ: Bus C -> PC
+	* ইনক্রিমেন্ট পাথ (লুপ): PC -> incrementer -> PC
+
+	**৩. ALU (Arithmetic Logic Unit) ও MUX:**
+
+	* ইনপুট পাথ (Bus A থেকে): Bus A -> MUX -> ALU (Input A)
+	* ইনপুট পাথ (Constant 4 থেকে): Constant 4 -> MUX -> ALU (Input A)
+	* ইনপুট পাথ (Bus B থেকে): Bus B -> ALU (Input B)
+	* আউটপুট/রেজাল্ট পাথ: ALU (Output R) -> Bus C
+
+	**৪. IR (Instruction Register) ও Decoder:**
+
+	* ইনপুট পাথ: Bus C -> IR
+	* ডিকোড পাথ: IR -> Instruction decoder
+
+	**৫. MDR (Memory Data Register):**
+
+	* প্রসেসর থেকে মেমোরিতে রাইট করার জন্য: Bus C -> MDR -> Memory bus (Data lines)
+	* মেমোরি থেকে প্রসেসরে রিড করার জন্য: Memory bus (Data lines) -> MDR -> Bus B
+
+	**৬. MAR (Memory Address Register):**
+
+	* অ্যাড্রেস রিসিভ পাথ: Bus C -> MAR
+	* মেমোরিতে অ্যাড্রেস পাঠানোর পাথ: MAR -> Address lines
+	!!! "Example 01"
+
+		এখানে `Add R4, R5, R6` ইনস্ট্রাকশনটি সম্পূর্ণ হওয়ার শুরু থেকে শেষ পর্যন্ত অর্ডারি ফ্লো দেওয়া হলো, যেখানে সিরিয়াল অনুযায়ী প্রতিটি কম্পোনেন্ট দেখানো হয়েছে:
+
+		**Step 1 (Instruction Fetch - Address Phase):**
+
+		* PC -> Bus B -> ALU (Pass) -> Bus C -> MAR -> Address lines
+		* *(একই সময়ে প্যারালাল কাজ):* PC -> incrementer -> PC
+
+		**Step 2 (Memory Read Phase):**
+
+		* (Wait for MFC) -> Memory -> Memory bus (Data lines) -> MDR
+
+		**Step 3 (Instruction Transfer & Decode Phase):**
+
+		* MDR -> Bus B -> ALU (Pass) -> Bus C -> IR
+		* IR -> Instruction decoder
+
+		**Step 4 (Execution Phase - Add R4, R5, R6):**
+
+		* Register file (R4) -> Bus A -> MUX -> ALU (Input A)
+		* Register file (R5) -> Bus B -> ALU (Input B)
+		* ALU (Add) -> Bus C -> Register file (R6)
+
+	!!! "Example 02"
+
+		আমরা যে মাস্টার ইনস্ট্রাকশনটি নিবো তা হলো:
+		👉 **`STORE R3, 50(R2)`**
+
+		**এই ইনস্ট্রাকশনটির মানে কী?**
+		"R2 রেজিস্টারে থাকা মানের সাথে সরাসরি '50' যোগ করো। যোগ করে যে অ্যাড্রেসটি পাবে, মেমোরির ঠিক সেই অ্যাড্রেসে গিয়ে R3 রেজিস্টারের মানটি সেভ (Store) করে আসো।"
+
+		চলুন, ডায়াগ্রামের প্রতিটি পাথ ব্যবহার করে এর স্টেপ-বাই-স্টেপ ফ্লো দেখি:
+
+		### Phase 1: Instruction Fetch (ইনস্ট্রাকশন মেমোরি থেকে আনা)
+
+		**Step 1: মেমোরি অ্যাড্রেস পাঠানো**
+
+		* **PC -> Bus B -> ALU (Pass) -> Bus C -> MAR:** PC (Program Counter) তার কাছে থাকা ইনস্ট্রাকশনের অ্যাড্রেসটি Bus B-তে দেয়। ALU কোনো কাজ ছাড়াই তা Bus C হয়ে MAR-এ পাঠিয়ে দেয়।
+		* **MAR -> Address lines:** MAR সেই অ্যাড্রেসটি মেমোরির দিকে পাঠিয়ে দেয়।
+		* *(একই সময়ে)* **PC -> Incrementer -> PC:** মেইন ALU যখন অন্য কাজে ব্যস্ত, তখন ইনক্রিমেন্টার নীরবে PC-এর মান ৪ বাড়িয়ে দেয়, যাতে পরের ইনস্ট্রাকশনের অ্যাড্রেস রেডি থাকে।
+
+		**Step 2: ইনস্ট্রাকশনটি প্রসেসরে প্রবেশ**
+
+		* **Memory bus (Data lines) -> MDR:** মেমোরি থেকে `STORE R3, 50(R2)` ইনস্ট্রাকশনটির বাইনারি কোড এসে MDR-এ জমা হয়।
+
+		**Step 3: ইনস্ট্রাকশন ডিকোড বা অনুবাদ করা**
+
+		* **MDR -> Bus B -> ALU (Pass) -> Bus C -> IR:** ইনস্ট্রাকশনটি MDR থেকে Bus B এবং Bus C হয়ে IR-এ (Instruction Register) আসে।
+		* **IR -> Instruction decoder:** IR থেকে ইনস্ট্রাকশনটি ডিকোডারে যায়। ডিকোডার এটি পড়ে বুঝতে পারে: *"আমাকে R2 এর সাথে 50 যোগ করে একটা অ্যাড্রেস বানাতে হবে এবং সেখানে R3 এর ডেটা পাঠাতে হবে।"*
+
+		---
+
+		### Phase 2: Execution & Memory Write (আসল কাজ শুরু)
+
+		**Step 4: মেমোরি অ্যাড্রেস ক্যালকুলেশন (আপনার সেই স্পেশাল পাথ!)**
+
+		* **Instruction decoder -> Bus A:** ডিকোডার ইনস্ট্রাকশনের ভেতর থাকা সরাসরি মান '50'-কে আলাদা করে সরাসরি Bus A-তে পাঠিয়ে দেয়।
+		* **Register file (R2) -> Bus B:** একই সময়ে R2 রেজিস্টার তার ভেতরের মান Bus B-তে পাঠায়।
+		* **Bus A & Bus B -> ALU -> Bus C -> MAR:** ALU এই দুটো মান (50 + R2) যোগ করে টার্গেট অ্যাড্রেস তৈরি করে। ফলাফলটি Bus C দিয়ে সরাসরি MAR-এ গিয়ে জমা হয়। (এখন MAR জানে মেমোরির কোথায় ডেটা রাখতে হবে)।
+
+		**Step 5: ডেটা মেমোরিতে পাঠানোর জন্য রেডি করা**
+
+		* **Register file (R3) -> Bus B:** এখন R3 তার ডেটা (যেটা মেমোরিতে সেভ হবে) Bus B-তে পাঠায়।
+		* **Bus B -> ALU (Pass) -> Bus C -> MDR:** ALU এই ডেটাকে কোনো পরিবর্তন না করে Bus C দিয়ে সোজা MDR-এ পাঠিয়ে দেয়। (এখন MDR-এর কাছে পাঠানোর মতো ডেটা রেডি)।
+
+		**Step 6: ফাইনাল রাইট অপারেশন (Memory Write)**
+
+		* **MAR -> Address lines:** MAR তার কাছে থাকা অ্যাড্রেসটি মেমোরিকে পয়েন্ট করে।
+		* **MDR -> Memory bus (Data lines):** MDR তার ডেটাটি মেমোরিতে পাঠিয়ে দেয়। মেমোরিতে ডেটা সেভ হয়ে যায়!
+
+		---
+
+		### এক নজরে কেন এই উদাহরণটি সেরা:
+
+		* **PC এবং Incrementer** ব্যবহৃত হয়েছে (Step 1)।
+		* মেমোরি থেকে **Read** করা হয়েছে (Step 2)।
+		* **IR এবং Decoder** ব্যবহৃত হয়েছে (Step 3)।
+		* Decoder থেকে **Bus A**-এর স্পেশাল পাথটি ব্যবহৃত হয়েছে (Step 4)।
+		* ALU-তে **গাণিতিক কাজ (Add)** হয়েছে (Step 4)।
+		* ALU-তে **Pass-through (ডেটা পার করা)** কাজ হয়েছে (Step 1, 3, 5)।
+		* মেমোরিতে **Write** করা হয়েছে (Step 6)।
+
+		ডায়াগ্রামে যতগুলো অ্যারো বা তীর চিহ্ন আছে, এই একটিমাত্র ইনস্ট্রাকশন তার প্রায় সবগুলোকে অন্তত একবার ব্যবহার করেছে!
 
 ## 4. Execution of `Add (R3), R1`
 
@@ -524,47 +1351,71 @@ $$R1 \leftarrow R1 + M[R3]$$
 
 ---
 
-## 5. MIPS Addressing Modes
+## 5. Explain the MIPS addressing modes with suitable examples.
 
-### Enhanced question
+The MIPS architecture relies on five distinct addressing modes to determine where instruction operands are located in memory or CPU registers. Because MIPS is a Reduced Instruction Set Computer (RISC) architecture, it keeps these modes simple to ensure fast, predictable execution hardware.
 
-**Explain the addressing modes supported by MIPS. For each mode, show how the effective address or operand is obtained and give a suitable assembly example.**
+Here is the breakdown of each MIPS addressing mode with practical assembly examples.
 
-### English answer
+## 1. Register Addressing
+The operand is located directly inside a CPU register. This is the fastest addressing mode because it does not require any time-consuming memory access.
 
-MIPS deliberately uses a small set of regular addressing modes:
+* 
+* Example: add $t0, $t1, $t2
+* How it works: The processor grabs the values already stored in register $t1 and register $t2, adds them together, and writes the final sum straight into register $t0.
+* 
 
-| Mode | Operand/effective address | Example |
-|---|---|---|
-| **Register** | Operand is in a register. | `add $t0,$t1,$t2` |
-| **Immediate** | Constant is the 16-bit instruction field, usually sign-extended. | `addi $t0,$t1,-5` |
-| **Base/displacement** | \(EA=R[base]+\text{SignExt}(offset)\) | `lw $t0,24($s1)` |
-| **PC-relative** | \(Target=PC+4+(\text{SignExt}(imm)\ll2)\) | `beq $t0,$t1,Loop` |
-| **Pseudo-direct** | \(Target=\{(PC+4)_{31:28},instr_{25:0},00\}\) | `j Function` |
+## 2. Immediate Addressing
+The operand is a constant data value embedded directly within the instruction code itself. The constant value is limited to a 16-bit size.
 
-Register addressing is used by R-type instructions. Immediate addressing avoids a separate load for small constants. Base/displacement is appropriate for arrays, records and stack frames. PC-relative addressing makes nearby branches position-friendly. Pseudo-direct addressing provides a jump within the current 256 MB region. Pseudo-instructions such as `la` may be expanded by the assembler into multiple real instructions and are not additional hardware addressing modes.
+* 
+* Example: addi $t0, $t1, 4
+* How it works: The CPU reads the constant integer 4 from the instruction stream and adds it directly to the value found in register $t1, storing the final outcome into $t0.
+* 
 
-### বাংলা উত্তর
+## 3. Base or Displacement Addressing
+The data address in memory is calculated by adding a constant offset (displacement) to a base pointer stored in a register. This mode is primarily used by load and store instructions to pull data out of arrays or structs.
 
-MIPS অল্প কয়েকটি নিয়মিত addressing mode ব্যবহার করে:
+* 
+* Example: lw $t0, 12($s0)
+* How it works: The processor calculates the actual memory target location by computing Value in Register $s0 + 12. It then copies the data word found at that specific memory address and places it inside register $t0.
+* 
 
-- **Register addressing:** Operand register-এ থাকে; যেমন `add $t0,$t1,$t2`।
-- **Immediate addressing:** 16-bit instruction field-এ constant থাকে; যেমন `addi $t0,$t1,-5`।
-- **Base/displacement:** \(EA=R[base]+\text{SignExt}(offset)\); যেমন `lw $t0,24($s1)`। Array, structure ও stack frame-এর জন্য উপযোগী।
-- **PC-relative:** Branch target হলো \(PC+4+(\text{SignExt}(imm)\ll2)\); যেমন `beq`।
-- **Pseudo-direct:** 26-bit jump field দুই bit shift হয়ে `PC+4`-এর উপরের চার bit-এর সঙ্গে যুক্ত হয়; যেমন `j Function`।
+## 4. PC-Relative Addressing
+The target instruction address is calculated by adding a signed constant offset to the current Program Counter (PC). This mode is used strictly for conditional branch instructions.
 
-`la`-এর মতো pseudo-instruction assembler একাধিক বাস্তব instruction-এ রূপান্তর করে; এগুলো নতুন hardware addressing mode নয়।
+* 
+* Example: beq $t0, $t1, label
+* How it works: If the data inside $t0 equals the data inside $t1, the CPU jumps to a new execution path. The jump distance is calculated by adding the instruction's relative offset directly to the updating Program Counter (PC + offset).
+* 
 
----
+## 5. Pseudo-Direct Addressing
+The target address is created by combining a 26-bit value embedded in the instruction with the upper 4 bits of the current Program Counter. This mode is utilized exclusively for unconditional jump instructions.
+
+* 
+* Example: j label
+* How it works: The CPU shifts the 26-bit target field left by 2 bits (making it a 28-bit boundary address) and glues the highest 4 bits of the current PC onto the very front to construct a complete 32-bit execution jump target.
+* 
+
+------------------------------
+**MIPS Addressing Modes Summary**
+
+| Addressing Mode | Operand Location | Example Instruction | Primary Use Case |
+|---|---|---|---|
+| Register | Register file | add $t0, $t1, $t2 | Standard arithmetic and logic |
+| Immediate | Embedded in instruction | addi $t0, $t1, 4 | Fast math with small constants |
+| Base / Displacement | Memory Address (Register + Offset) | lw $t0, 12($s0) | Array and data structure access |
+| PC-Relative | PC Address + Offset | beq $t0, $t1, loop | Conditional loops and logic branches |
+| Pseudo-Direct | PC bits + Instruction bits | j cleanup | Unconditional jumps to functions |
+
+
+
 
 ## 6. MIPS Assembly for the Given C Code
 
-### Enhanced question
+**Write down the MIPS assembly code 🧑‍💻 for the following C code: 🇨💻: `f=(a+b)-(c+d); g=f+A[10];`.**
 
-**Translate the following C statements into efficient MIPS assembly, clearly state the register allocation and show how the array byte offset is calculated: `f=(a+b)-(c+d); g=f+A[10];`.**
 
-### English answer
 
 Assume all variables and array elements are 32-bit integers:
 
@@ -585,17 +1436,10 @@ add  $s1, $s0, $t2      # g  = f + A[10]
 
 If overflow trapping is not required, `addu` and `subu` may be used. The load uses offset 40, not 10, because MIPS memory is byte-addressed and each integer occupies four bytes.
 
-### বাংলা উত্তর
-
-ধরা হলো সব variable ও array element 32-bit integer; `f=$s0`, `g=$s1`, `a…d=$s2…$s5` এবং `$s6`-এ `A` array-এর base address আছে। প্রথম দুই `add` instruction যথাক্রমে `a+b` ও `c+d` temporary register-এ রাখে। `sub` ফল `f`-এ লেখে। `A[10]`-এর byte offset হলো \(10\times4=40\), তাই `lw $t2,40($s6)` ব্যবহার করা হয়। সর্বশেষ `add` দ্বারা `g=f+A[10]` সম্পন্ন হয়। Overflow trap দরকার না হলে `addu/subu` ব্যবহার করা যেতে পারে।
-
----
 
 ## 7. Compilation Process of a C Program
 
-### Enhanced question
-
-**Explain step by step how a C source program is transformed into an executable machine-language program. Distinguish preprocessing, compilation, assembly, linking and loading.**
+**Explain the compilation process of a C program step by step. 🚶‍♂️ How does a high-level language convert to machine language?.**
 
 ### Figure: translation pipeline
 
