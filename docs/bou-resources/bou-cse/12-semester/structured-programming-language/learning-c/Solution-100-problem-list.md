@@ -34,7 +34,7 @@ int main() {
 }
 ```
 
-![image-52.png](/bou-resources/media-library/image-52.png)
+![image-52.png](/bou-resources/bou-cse/media-library/image-52.png)
 
 ---
 
@@ -59,7 +59,7 @@ int main() {
 }
 ```
 
-![image-53.png](/bou-resources/media-library/image-53.png)
+![image-53.png](/bou-resources/bou-cse/media-library/image-53.png)
 
 ---
 
@@ -86,7 +86,7 @@ int main() {
 }
 ```
 
-![image-54.png](/bou-resources/media-library/image-54.png)
+![image-54.png](/bou-resources/bou-cse/media-library/image-54.png)
 
 ---
 
@@ -112,7 +112,7 @@ printf("%d  \n",next);
 }
 ```
 
-![Fibonacci Number Series.png](/bou-resources/media-library/Fibonacci Number Series.png)
+![Fibonacci Number Series.png](/bou-resources/bou-cse/media-library/Fibonacci Number Series.png)
 
 ---
 
@@ -144,7 +144,7 @@ int main() {
 }
 ```
 
-![Triangle with numbers.png](/bou-resources/media-library/Triangle with numbers.png)
+![Triangle with numbers.png](/bou-resources/bou-cse/media-library/Triangle with numbers.png)
 
 ---
 
@@ -171,7 +171,7 @@ while(j>=0){
 }
 ```
 
-![image-57.png](/bou-resources/media-library/image-57.png)
+![image-57.png](/bou-resources/bou-cse/media-library/image-57.png)
 
 ---
 
@@ -194,6 +194,6 @@ int main() {
 }
 ```
 
-![image-58.png](/bou-resources/media-library/image-58.png)
+![image-58.png](/bou-resources/bou-cse/media-library/image-58.png)
 
 ---

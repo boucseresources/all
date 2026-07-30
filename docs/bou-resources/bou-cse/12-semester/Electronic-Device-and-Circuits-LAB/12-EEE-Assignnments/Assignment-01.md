@@ -1,7 +1,7 @@
 **Assignment - 1**
 
 For the given circuit, if the forward voltage drop for diode **D₁** and **D₂** are 0.7V and 0.3V, respectively, then which statement is true?
-![circuit orientation.png](/bou-resources/media-library/circuit orientation.png){ width=60% }
+![circuit orientation.png](/bou-resources/bou-cse/media-library/circuit orientation.png){ width=60% }
 a) Both diodes **D₁** and **D₂** are ON.
 b) Diode **D₁** is ON and **D₂** is OFF.
 c) Diode **D₁** is OFF and **D₂** is ON.

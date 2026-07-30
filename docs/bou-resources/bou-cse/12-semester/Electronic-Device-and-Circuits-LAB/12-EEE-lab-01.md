@@ -31,7 +31,7 @@ NA=acceptor atoms, intrinsic =ni=1.5×10^10 cm−3 (si)
 n0= ND and P0 =ni²/ND.
 
 **Current-Voltage Characteristics:**
-![Figure 1_ Internal and circuit representation of a diode.png](/bou-resources/media-library/Figure 1\_ Internal and circuit representation of a diode.png)
+![Figure 1_ Internal and circuit representation of a diode.png](/bou-resources/bou-cse/media-library/Figure 1\_ Internal and circuit representation of a diode.png)
 
 There are three area of operation–
 
@@ -52,9 +52,9 @@ There are three area of operation–
 6. The recorded values were tabulated in a **data table**.
 7. Finally, the data was plotted using **Matplotlib (Python library)** to visualize the **I–V characteristics of the diode**.
 
-![Figure 2 TinkerCAD simulation for circuit 1.png](/bou-resources/media-library/Figure 2 TinkerCAD simulation for circuit 1.png)
+![Figure 2 TinkerCAD simulation for circuit 1.png](/bou-resources/bou-cse/media-library/Figure 2 TinkerCAD simulation for circuit 1.png)
 
-![Figure 3_ TinkerCAD simulation for circuit 1.png](/bou-resources/media-library/Figure 3\_ TinkerCAD simulation for circuit 1.png)
+![Figure 3_ TinkerCAD simulation for circuit 1.png](/bou-resources/bou-cse/media-library/Figure 3\_ TinkerCAD simulation for circuit 1.png)
 
 ### Data table:
 
@@ -88,7 +88,7 @@ There are three area of operation–
 ### Result:
 
 The graph has been plotted between voltage and current. It is in attachment.
-![Figure 4_ I-V characteristics in diode.png](/bou-resources/media-library/Figure 4\_ I-V characteristics in diode.png)
+![Figure 4_ I-V characteristics in diode.png](/bou-resources/bou-cse/media-library/Figure 4\_ I-V characteristics in diode.png)
 
 ### Discussion:
 

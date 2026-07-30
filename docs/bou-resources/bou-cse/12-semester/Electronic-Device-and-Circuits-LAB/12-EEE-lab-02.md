@@ -20,7 +20,7 @@
 ##### 3. Theory
 
 A diode which is different from the conventional semiconductor diode is the Zener diode. The Zener diode's forward-biased characteristic is the same as that of a conventional diode. But, the reverse bias characteristic is the same as an ordinary diode up to a specific value known as the Zener voltage. An attempt to increase the reverse bias voltage beyond the Zener voltage results only in an increase in the reverse current and the diode voltage tends to remain constant ( see Fig.1).
-![Fig.  1_  Zener diode application. a_ Circuit. b_ Ideal transfer characteristic..png](/bou-resources/media-library/Fig. 1* Zener diode application. a* Circuit. b\_ Ideal transfer characteristic..png)
+![Fig.  1_  Zener diode application. a_ Circuit. b_ Ideal transfer characteristic..png](/bou-resources/bou-cse/media-library/Fig. 1* Zener diode application. a* Circuit. b\_ Ideal transfer characteristic..png)
 
 The I-V characteristic of a Zener Diode is shown in Fig. 2. In the forward bias region, it is very similar to an ordinary diode (p-n junction). In the reverse bias region, there is Zener breakdown which limits the voltage to Vz. The operating region shown in Fig. 2 is where voltage regulation is effective. In other words, the output would be limited to Vz even if input exceeds it. At any point in the operating range, an incremental resistance rz can be defined as follows.
 
@@ -54,7 +54,7 @@ $$
 
 Here $R_L$ is the load.
 
-![Fig. 2. V–I characteristics for Zener Diode..png](/bou-resources/media-library/Fig. 2. V–I characteristics for Zener Diode..png)
+![Fig. 2. V–I characteristics for Zener Diode..png](/bou-resources/bou-cse/media-library/Fig. 2. V–I characteristics for Zener Diode..png)
 
 ###### 4. Procedure
 
@@ -67,10 +67,10 @@ Here $R_L$ is the load.
 7. Record $V_o$, $I_L$, and $I_Z$.
 8. Analyze how the Zener maintains constant output voltage despite load variation.
 
-![Fig 3. Circuit diagram for observing V-I characteristics for zener diode..png](/bou-resources/media-library/Fig 3. Circuit diagram for observing V-I characteristics for zener diode..png)
+![Fig 3. Circuit diagram for observing V-I characteristics for zener diode..png](/bou-resources/bou-cse/media-library/Fig 3. Circuit diagram for observing V-I characteristics for zener diode..png)
 
-![Figure 4_ TinkerCAD simulation for circuit 2.png](/bou-resources/media-library/Figure 4* TinkerCAD simulation for circuit 2.png)
-![Figure 5* I-V characteristics in zener diode.png](/bou-resources/media-library/Figure 5\_ I-V characteristics in zener diode.png)
+![Figure 4_ TinkerCAD simulation for circuit 2.png](/bou-resources/bou-cse/media-library/Figure 4* TinkerCAD simulation for circuit 2.png)
+![Figure 5* I-V characteristics in zener diode.png](/bou-resources/bou-cse/media-library/Figure 5\_ I-V characteristics in zener diode.png)
 
 ##### 5. Observations
 

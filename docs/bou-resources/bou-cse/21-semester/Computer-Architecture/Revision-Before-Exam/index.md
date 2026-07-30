@@ -109,7 +109,6 @@
 
 **Classify computers from the viewpoints of data representation, purpose, and size/performance. Explain the defining characteristics and typical applications of every major class with suitable examples.**
 
-### English answer
 
 A computer is an electronic programmable system that accepts data, processes it according to stored instructions, produces information, and stores the result. A single classification is insufficient because computers differ in the type of data they process, the task for which they are built, and their processing capacity.
 
@@ -168,7 +167,6 @@ Thus, “largest” does not always mean “best.” A mainframe is optimized ma
 
 **Define response time and throughput as measures of computer performance. Derive their basic performance relationships, compare them, and explain with examples how a design change may affect either or both.**
 
-### English answer
 
 **Response time (latency)** is the total elapsed time from submitting one task until its completion:
 
@@ -231,7 +229,6 @@ Response time বলে **একটি কাজ কত দ্রুত শে�
 ![Basic Functional Units of a Computer](figures/02_basic_functional_units.svg)
 ![Basic Functional Units of a Computer](image.png){height=400px}
 
-### English answer
 
 A stored-program computer contains five fundamental units:
 
@@ -275,7 +272,6 @@ The **register file, ALU and control unit together form the CPU**. Buses and __I
 
 ![Processor Bus Structure](figures/03_processor_bus_structure.svg)
 
-### English answer
 
 A **bus** is a shared collection of lines that transfers information among components.
 Here is the complete and detailed English version of the video's content regarding the **Bus Structure in Computer Architecture**, without skipping any information:
@@ -1301,7 +1297,6 @@ Synchronous bus clock অনুসরণ করে; asynchronous bus request/ack
 
 **Interpret `Add (R3), R1` using register-indirect addressing and show its complete micro-operation sequence on a three-bus processor. Explain the datapath resources used.**
 
-### English answer
 
 Using conventional destination-last notation:
 
@@ -1423,7 +1418,6 @@ $$R1 \leftarrow R1 + M[R3]$$
 
 ![C Program to Machine Execution](figures/05_c_compilation_process.svg)
 
-### English answer
 
 1. **Preprocessing:** Handles `#include`, `#define` and conditional compilation, removes comments and produces an expanded translation unit.
 2. **Compilation:** Performs lexical, syntax and semantic analysis; creates an intermediate representation; optimizes it; and generates target assembly. Errors such as type mismatch are detected here.
@@ -1440,7 +1434,6 @@ Thus, high-level expressions are gradually lowered into ISA instructions and bin
 
 **Explain the major addressing modes used in computer instruction sets. Derive the effective-address expression for each and give an appropriate assembly-style example.**
 
-### English answer
 
 Let `A` be an instruction address field, `R` a register and `M[x]` memory at address `x`.
 
@@ -1599,448 +1592,652 @@ Complex modes reduce instruction count but increase address-generation complexit
 
 ## 11. Control Signals for the Datapath
 
-### Enhanced question
+??? "Identify the major control signals in a single-cycle MIPS datapath. Explain what each signal controls and tabulate typical values for R-type, `lw`, `sw`, `beq` and `addi`."
 
-**Identify the major control signals in a single-cycle MIPS datapath. Explain what each signal controls and tabulate typical values for R-type, `lw`, `sw`, `beq` and `addi`.**
+	The main control unit decodes the opcode. `ALUOp` and, for R-type instructions, the `funct` field are further decoded by the ALU-control unit.
 
-### English answer
+	| Signal | Function |
+	|---|---|
+	| `RegDst` | Selects `rt` or `rd` as the destination. |
+	| `RegWrite` | Enables register-file write. |
+	| `ALUSrc` | Selects register or sign-extended immediate for ALU input B. |
+	| `ALUOp` | Indicates add, subtract or function-field decoding. |
+	| `MemRead` | Enables data-memory read. |
+	| `MemWrite` | Enables data-memory write. |
+	| `MemtoReg` | Selects ALU result or memory data for write-back. |
+	| `Branch` | Identifies a conditional branch. |
+	| `Jump` | Selects the jump target for PC. |
+	| `PCSrc` | Chooses sequential or branch next PC; often `Branch ∧ Zero`. |
+	| `ExtOp` | Controls sign or zero extension of an immediate. |
 
-The main control unit decodes the opcode. `ALUOp` and, for R-type instructions, the `funct` field are further decoded by the ALU-control unit.
+	Typical active-high settings (`X` = do not care):
 
-| Signal | Function |
-|---|---|
-| `RegDst` | Selects `rt` or `rd` as the destination. |
-| `RegWrite` | Enables register-file write. |
-| `ALUSrc` | Selects register or sign-extended immediate for ALU input B. |
-| `ALUOp` | Indicates add, subtract or function-field decoding. |
-| `MemRead` | Enables data-memory read. |
-| `MemWrite` | Enables data-memory write. |
-| `MemtoReg` | Selects ALU result or memory data for write-back. |
-| `Branch` | Identifies a conditional branch. |
-| `Jump` | Selects the jump target for PC. |
-| `PCSrc` | Chooses sequential or branch next PC; often `Branch ∧ Zero`. |
-| `ExtOp` | Controls sign or zero extension of an immediate. |
+	| Instruction | RegDst | RegWrite | ALUSrc | ALU action | MemRead | MemWrite | MemtoReg | Branch |
+	|---|---:|---:|---:|---|---:|---:|---:|---:|
+	| R-type | 1 | 1 | 0 | funct | 0 | 0 | 0 | 0 |
+	| `lw` | 0 | 1 | 1 | add | 1 | 0 | 1 | 0 |
+	| `sw` | X | 0 | 1 | add | 0 | 1 | X | 0 |
+	| `beq` | X | 0 | 0 | subtract | 0 | 0 | X | 1 |
+	| `addi` | 0 | 1 | 1 | add | 0 | 0 | 0 | 0 |
 
-Typical active-high settings (`X` = do not care):
+	These signals must be asserted with correct timing. An incorrect `RegWrite` or `MemWrite` can corrupt architectural state.
 
-| Instruction | RegDst | RegWrite | ALUSrc | ALU action | MemRead | MemWrite | MemtoReg | Branch |
-|---|---:|---:|---:|---|---:|---:|---:|---:|
-| R-type | 1 | 1 | 0 | funct | 0 | 0 | 0 | 0 |
-| `lw` | 0 | 1 | 1 | add | 1 | 0 | 1 | 0 |
-| `sw` | X | 0 | 1 | add | 0 | 1 | X | 0 |
-| `beq` | X | 0 | 0 | subtract | 0 | 0 | X | 1 |
-| `addi` | 0 | 1 | 1 | add | 0 | 0 | 0 | 0 |
 
-These signals must be asserted with correct timing. An incorrect `RegWrite` or `MemWrite` can corrupt architectural state.
+## 12. Briefly explain about dynamic scheduler 📅 with block diagram.
 
-### বাংলা উত্তর
-
-Main control unit opcode decode করে `RegDst`, `RegWrite`, `ALUSrc`, `ALUOp`, `MemRead`, `MemWrite`, `MemtoReg`, `Branch`, `Jump` এবং immediate extension signal তৈরি করে। `RegDst` destination field, `ALUSrc` ALU-এর দ্বিতীয় input, `MemtoReg` write-back source এবং `PCSrc` পরবর্তী PC নির্বাচন করে। `ALUOp` ও R-type-এর `funct` field মিলে নির্দিষ্ট ALU operation নির্ধারণ করে।
-
-`lw`-তে address যোগ, memory read ও register write সক্রিয়; `sw`-তে address যোগ ও memory write সক্রিয়; R-type-এ register input, `funct`-নির্বাচিত ALU operation ও register write সক্রিয়; `beq`-তে subtraction/comparison এবং `Branch ∧ Zero` দ্বারা next PC নির্বাচন হয়। ভুল `RegWrite` বা `MemWrite` architectural state নষ্ট করতে পারে, তাই signal-এর timing অত্যন্ত গুরুত্বপূর্ণ।
-
----
-
-## 12. Dynamic Scheduling
-
-### Enhanced question
-
-**Explain dynamic instruction scheduling in an out-of-order processor with a block diagram. Describe issue, operand waiting, execution, result broadcast and in-order retirement, and identify how dependencies are handled.**
-
-### Figure: dynamic scheduler
+??? "Briefly explain about dynamic scheduler 📅 with block diagram."
 
 ![Dynamic Scheduling with In-Order Commit](figures/07_dynamic_scheduling.svg)
 
-### English answer
+	# Dynamic Scheduling
 
-**Dynamic scheduling** allows hardware to execute instructions when their operands and functional units are ready, even if earlier independent instructions are stalled. It improves utilization and hides variable latencies.
+	## Lesson Context
 
-A Tomasulo-style scheduler operates as follows:
+	Scheduling is one of the techniques used to improve the performance of a pipeline processor. The earlier lesson introduced scheduling and static scheduling. This lesson continues with dynamic scheduling.
 
-1. **Issue/rename:** An instruction is placed in a reservation station. Destination registers are renamed to tags, eliminating false `WAR` and `WAW` dependencies.
-2. **Operand collection:** Available operands are copied; unavailable operands are represented by producer tags.
-3. **Dispatch/execute:** When all true operands are ready and a matching functional unit is free, the instruction begins execution, possibly out of program order.
-4. **Write result:** The result and tag are broadcast. Waiting stations capture the value; the reorder buffer records it.
-5. **Commit/retire:** Results update architectural state in original program order. This preserves precise exceptions and correct control flow.
+	The techniques discussed for improving pipeline-processor performance are:
 
-Loads and stores also require a load/store queue to check memory-address dependencies. A branch misprediction causes younger speculative work to be discarded. Dynamic scheduling increases performance but costs hardware area, power and design complexity. It also does not remove true `RAW` dependence; it merely executes other independent instructions while waiting.
+	1. Instruction execution phases
+	2. Mechanisms for instruction pipelining
+	3. Dynamic instruction scheduling techniques
 
-### বাংলা উত্তর
+	![Official image from the Dynamic Scheduling video](https://i.ytimg.com/vi/WQgN90QRgcA/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgVChAMA8=&rs=AOn4CLBot3Y9QbBuukUTCwxTLqhMuJtKNA)
 
-**Dynamic scheduling**-এ hardware operand ও functional unit প্রস্তুত হওয়া অনুযায়ী instruction চালায়; ফলে আগের কোনো instruction আটকে থাকলেও পরের independent instruction execute হতে পারে।
+	## What Is Dynamic Scheduling?
 
-Tomasulo-style system-এ instruction reservation station-এ issue হয় এবং register renaming দ্বারা `WAR/WAW` false dependency দূর হয়। প্রস্তুত operand সরাসরি রাখা হয়; অনুপস্থিত operand producer tag দিয়ে চিহ্নিত হয়। সব operand প্রস্তুত হলে instruction functional unit-এ dispatch হয়। Result tag-সহ common result bus-এ broadcast হলে অপেক্ষমাণ station ও reorder buffer তা গ্রহণ করে। সর্বশেষ program order অনুযায়ী commit হওয়ায় precise exception বজায় থাকে। Load/store queue memory dependency পরীক্ষা করে এবং branch misprediction হলে speculative instruction বাতিল হয়।
+	Dynamic scheduling is a **hardware-based approach**.
 
-এটি true `RAW` dependency দূর করে না; অপেক্ষার সময় অন্য independent কাজ চালিয়ে latency আড়াল করে। বিনিময়ে area, power ও control complexity বাড়ে।
+	In dynamic scheduling, the hardware rearranges the execution of instructions to reduce stalls while maintaining the data flow and exception behaviour.
 
----
+	> **Dynamic Scheduling:** The hardware rearranges instruction execution to reduce stalls while maintaining data flow and exception behaviour.
+
+	```mermaid
+	flowchart TD
+		A["Instructions"] --> B["Hardware rearranges instruction execution"]
+		B --> C["Stalls are reduced"]
+		C --> D["Data flow is maintained"]
+		C --> E["Exception behaviour is maintained"]
+	```
+
+	## Static Scheduling and Dynamic Scheduling
+
+	Static scheduling and dynamic scheduling use different approaches.
+
+	| Static Scheduling | Dynamic Scheduling |
+	|---|---|
+	| Software-based approach | Hardware-based approach |
+	| Compiler-based | Hardware-based |
+	| The compiler schedules or rearranges the instructions | The hardware rearranges instruction execution |
+	| Used when dependencies are known at compile time | Used when dependencies are not known at compile time |
+
+	In static scheduling, compiler techniques are used to schedule or rearrange instructions. The instruction is always scheduled by the compiler.
+
+	If dependencies between instructions are known at compile time, there is no need to use a hardware-based approach. The software itself modifies the instructions and minimizes the hazards.
+
+	If dependencies are not known at compile time, dynamic scheduling is used.
+
+	```mermaid
+	flowchart TD
+		A["Dependencies between instructions"] --> B{"Known at compile time?"}
+		B -->|Yes| C["Static Scheduling"]
+		C --> D["Compiler rearranges instructions"]
+		B -->|No| E["Dynamic Scheduling"]
+		E --> F["Hardware rearranges instruction execution"]
+	```
+
+	## Why Is Dynamic Scheduling Used?
+
+	Dynamic scheduling is used when the dependencies between instructions are not known at compile time.
+
+	The hardware itself rearranges instruction execution:
+
+	- To reduce stalls
+	- To maintain data flow
+	- To maintain exception behaviour
+
+	Dynamic scheduling also simplifies the compiler. This is why dynamic scheduling is preferred over static scheduling in this situation.
+
+	```mermaid
+	flowchart LR
+		A["Unknown dependencies at compile time"] --> B["Dynamic Scheduling"]
+		B --> C["Hardware rearrangement"]
+		C --> D["Reduced stalls"]
+		C --> E["Simplified compiler"]
+	```
+
+	## Dynamic Scheduling Schemes
+
+	Dynamic scheduling can be implemented using two schemes:
+
+	1. **Scoreboarding**
+	2. **Tomasulo’s Algorithm**
+
+	```mermaid
+	flowchart TD
+		A["Dynamic Scheduling"] --> B["Scoreboarding"]
+		A --> C["Tomasulo’s Algorithm"]
+		B --> D["Allows out-of-order execution"]
+		C --> E["Hardware dependence-resolution scheme"]
+	```
+
+	## Scoreboarding
+
+	Scoreboarding is a technique that allows instructions to execute **out of order** when there are:
+
+	- No structural hazards
+	- No data dependencies
+
+	> **Scoreboarding:** A technique that allows instructions to execute out of order when there are no structural hazards and no data dependencies.
+
+	### No Structural Hazards
+
+	No structural hazards means that sufficient resources are available.
+
+	\[
+	\text{No Structural Hazards} \Rightarrow \text{Sufficient Resources}
+	\]
+
+	### No Data Dependencies
+
+	No data dependencies means that there are no data hazards.
+
+	\[
+	\text{No Data Dependencies} \Rightarrow \text{No Data Hazards}
+	\]
+
+	Therefore, scoreboarding permits out-of-order instruction execution when sufficient resources are available and no data hazards exist.
+
+	```mermaid
+	flowchart TD
+		A["Scoreboarding"] --> B{"Sufficient resources?"}
+		B -->|No| C["Structural hazard exists"]
+		B -->|Yes| D{"No data hazards?"}
+		D -->|No| E["Data dependency exists"]
+		D -->|Yes| F["Instructions may execute out of order"]
+	```
+
+	## Tomasulo’s Algorithm
+
+	Tomasulo’s Algorithm is a **hardware dependence-resolution scheme**.
+
+	> **Tomasulo’s Algorithm:** A hardware dependence-resolution scheme used for dynamic scheduling.
+
+	The detailed explanation and example of Tomasulo’s Algorithm are continued in the next lesson. Scoreboarding and its example are also explained separately.
+
+	## Complete Summary
+
+	- Dynamic scheduling is used to improve pipeline-processor performance.
+	- It is a hardware-based approach.
+	- Static scheduling is a software-based or compiler-based approach.
+	- Static scheduling is used when dependencies are known at compile time.
+	- Dynamic scheduling is used when dependencies are not known at compile time.
+	- In dynamic scheduling, hardware rearranges instruction execution.
+	- Hardware rearrangement reduces stalls.
+	- Data flow and exception behaviour are maintained.
+	- Dynamic scheduling simplifies the compiler.
+	- Dynamic scheduling can be implemented using Scoreboarding and Tomasulo’s Algorithm.
+	- Scoreboarding allows instructions to execute out of order when there are no structural hazards and no data dependencies.
+	- No structural hazards means sufficient resources are available.
+	- No data dependencies means there are no data hazards.
+	- Tomasulo’s Algorithm is a hardware dependence-resolution scheme.
+
+
 
 ## 13. Microprogrammed Control Unit for a Branch Instruction
 
-### Enhanced question
+??? "Briefly explain the micro-programmed control unit 🎛️ for the branch instruction."
 
-**Explain how a microprogrammed control unit generates control signals and show a possible microinstruction sequence for a conditional branch such as `BEQ R1,R2,offset`.**
+	## Q: Briefly explain the micro-programmed control unit for the branch instruction.## ১. Introduction (ভূমিকা)
+	একটি Micro-programmed Control Unit প্রতিটি মেইন ইন্সট্রাকশনকে কিছু ছোট ছোট সাব-ইন্সট্রাকশন বা Micro-instructions-এর সিকোয়েন্স রান করার মাধ্যমে এক্সিকিউট করে [COA]। এই মাইক্রো-ইন্সট্রাকশনগুলো প্রসেসরের ভেতরের একটি স্থায়ী মেমরি, যাকে Control Memory (ROM) বলে, সেখানে জমা থাকে।
+	যখন কোনো Branch Instruction (যেমন: BEQ, BNE, JZ) আসে, তখন কন্ট্রোল ইউনিট সোজা লাইনে পরবর্তী অ্যাড্রেসে না গিয়ে, প্রসেসরের কোনো একটি শর্ত বা কন্ডিশনের (Condition) ওপর ভিত্তি করে কন্ট্রোল মেমরির অন্য একটি নির্দিষ্ট অ্যাড্রেসে লাফ দেয় (Jump করে)।
+	------------------------------
+	## ২. ম্যাজিক ট্রিক: "C-A-R-S"
+	পরীক্ষার হলে দ্রুত মনে করার জন্য শুধু CARS শব্দটি মুখস্থ রাখো। ব্রাঞ্চ ইন্সট্রাকশন হলো সোজা না গিয়ে তোমার CAR বা গাড়িটিকে নতুন একটি রাস্তায় ঘুরিয়ে নেওয়া!
 
-### Figure: microprogrammed control
+	* C – Condition Codes (স্ট্যাটাস ফ্ল্যাগ): হার্ডওয়্যার প্রথমে ALU থেকে আসা স্ট্যাটাস ফ্ল্যাগ যেমন— Zero (Z), Sign (S), বা Carry (C) চেক করে দেখে শর্ত মিলেছে কি না।
+	* A – Address Selection (MUX): একটি মাল্টিপ্লেক্সার (MUX) সিদ্ধান্ত নেয় পরবর্তী অ্যাড্রেসটি কোথা থেকে আসবে (স্বাভাবিক লাইন নাকি ব্রাঞ্চের লাইন)।
+	* R – ROM (Control Memory): নির্বাচিত অ্যাড্রেসটি সরাসরি কন্ট্রোল মেমরি (ROM)-এর ভেতরের একটি নির্দিষ্ট মাইক্রো-ইন্সট্রাকশনকে নির্দেশ করে।
+	* S – Sequencer (CAR আপডেট): মাইক্রো-প্রোগ্রাম সিকুয়েন্সার Control Address Register (CAR)-এ নতুন ব্রাঞ্চ অ্যাড্রেসটি লোড করে দেয়, সাধারণ নিয়মে ১ যোগ (CAR + 1) করার পরিবর্তে।
 
-![Microprogrammed Control Unit](figures/08_microprogrammed_control.svg)
+	------------------------------
+	## ৩. Step-by-Step Working Mechanism (কার্যপ্রণালী)
+	১. Condition Evaluation (শর্ত পরীক্ষা): কন্ট্রোল ইউনিট ALU থেকে আসা নির্দিষ্ট স্ট্যাটাস বিট বা ফ্ল্যাগ (যেমন: Zero Flag) পরীক্ষা করে দেখে শর্তটি True নাকি False।
+	২. Multiplexer Decision (মাল্টিপ্লেক্সারের সিদ্ধান্ত): কন্ডিশন ফ্ল্যাগের মানের ওপর ভিত্তি করে Address Selection MUX নিচের দুটি সিদ্ধান্তের একটি নেয়:
 
-### English answer
+	* শর্ত False হলে (Z = 0): MUX পরবর্তী স্বাভাবিক ক্রমানুসারিক অ্যাড্রেস জেনারেটরকে বেছে নেয়। ফলে অ্যাড্রেস হয় CAR + 1।
+	* শর্ত True হলে (Z = 1): MUX বর্তমান মাইক্রো-ইন্সট্রাকশনে থাকা Branch Target Address-টিকে বেছে নেয়।
+	৩. Updating CAR (CAR আপডেট): MUX থেকে বাছাইকৃত অ্যাড্রেসটি সরাসরি Control Address Register (CAR)-এ পুশ বা লোড করা হয়।
+	৪. Micro-instruction Fetch (ফ্যাচ): সবশেষে, Control Memory (ROM) থেকে ওই নতুন অ্যাড্রেসের মাইক্রো-ইন্সট্রাকশনটি রিড করে ব্রাঞ্চ সম্পন্ন করা হয়।
 
-A microprogrammed control unit stores control words in **control memory**. The control-address register (CAR) selects a microinstruction, which enters the microinstruction register (MIR). Its control field activates datapath signals, while its sequencing field selects the next microaddress according to opcode or condition flags.
+	------------------------------
+	## ৪. Key Hardware Components (মূল অংশসমূহ)
+	খাতায় সলিড মার্কস নিশ্চিত করতে এই ৪টি হার্ডওয়্যার উপাদানের নাম অবশ্যই উল্লেখ করবে:
 
-For `BEQ R1,R2,offset`, a conceptual routine is:
+	* Control Address Register (CAR): এটি কন্ট্রোল ইউনিটের নিজস্ব প্রোগ্রাম কাউন্টার (PC), যা বর্তমান মাইক্রো-ইন্সট্রাকশনের অ্যাড্রেস ধরে রাখে।
+	* Control Memory (ROM): যেখানে সমস্ত কন্ট্রোল মাইক্রো-প্রোগ্রাম স্থায়ীভাবে সংরক্ষিত থাকে।
+	* Status Flags / Condition Codes: ALU থেকে আসা ১-বিটের ফ্লিপ-ফ্লপ (Zero, Sign, Carry), যা কন্ডিশনাল চেকিংয়ের সিগন্যাল দেয়।
+	* Micro-program Sequencer: লজিক সার্কিট এবং MUX-এর সমন্বয়ে গঠিত অংশ, যা CAR-এর জন্য পরবর্তী অ্যাড্রেস নির্ধারণ করে।
 
-| Microstep | Micro-operation |
-|---|---|
-| µ0 | `MAR ← PC` |
-| µ1 | `IR ← M[MAR]`, `PC ← PC + 4` |
-| µ2 | Dispatch to the `BEQ` micro-routine from `IR[opcode]` |
-| µ3 | `A ← R1`, `B ← R2`; form `Target ← PC + (SignExt(offset) << 2)` |
-| µ4 | `Z ← A − B`; evaluate Zero |
-| µ5 | If `Zero=1`, `PC ← Target`; otherwise leave PC unchanged |
-| µ6 | Return to fetch micro-routine |
+	------------------------------
+	## ৫. Architectural Flow Chart (সহজ ব্লক ডায়াগ্রাম)
+	(পরীক্ষার খাতায় পেনসিল দিয়ে ঝটপট এই ডায়াগ্রামটি এঁকে দেবে, ফুল মার্কস নিশ্চিত হবে)
 
-A horizontal microinstruction may contain many direct control bits and allow parallel micro-operations; a vertical one is compact but needs more decoding. Microprogramming makes complex instructions and corrections easier to implement, but control-memory access is generally slower than a highly optimized hardwired controller.
+	[ Status Flags (Z, S, C) ] 
+				│
+				▼
+	┌───────────────────────┐      If False (0)     ┌───────────────┐
+	│ Address Selector MUX  ├──────────────────────►│   CAR + 1     │
+	└───────────┬───────────┘                       └───────┬───────┘
+				│                                           │
+				│ If True (1)                               │
+				▼                                           ▼
+	┌───────────────────────┐                       ┌───────────────┐
+	│ Branch Target Address ├──────────────────────►│  Loads into   │
+	└───────────────────────┘                       │   CAR Reg     │
+													└───────┬───────┘
+															│
+															▼
+													┌───────────────┐
+													│Control Memory │
+													│     (ROM)     │
+													└───────────────┘
 
-### বাংলা উত্তর
 
-Microprogrammed control unit-এর **control memory**-তে control word সংরক্ষিত থাকে। `CAR` microinstruction address দেয়, control word `MIR`-এ আসে, control field datapath signal সক্রিয় করে এবং sequencing field condition/opcode অনুযায়ী পরবর্তী microaddress নির্বাচন করে।
 
-`BEQ R1,R2,offset`-এর ক্ষেত্রে instruction fetch ও decode শেষে `R1` এবং `R2` পড়া হয়; একই সঙ্গে \(PC+(\text{SignExt}(offset)\ll2)\) branch target তৈরি করা যায়। ALU `R1−R2` করে Zero পরীক্ষা করে। Zero সত্য হলে target `PC`-তে লেখা হয়; মিথ্যা হলে আগেই তৈরি `PC+4` অপরিবর্তিত থাকে। এরপর control fetch micro-routine-এ ফিরে যায়।
+## 14. What is the purpose of a control unit?
 
-Horizontal microcode বেশি parallel control দেয়; vertical microcode compact কিন্তু decoding দরকার। Microprogramming complex instruction বাস্তবায়ন সহজ করে, তবে hardwired control-এর তুলনায় ধীর হতে পারে।
+??? "What is the purpose of a control unit?"
 
----
 
-## 14. Purpose of a Control Unit
+	## কন্ট্রোল ইউনিট (Control Unit - CU) এর উদ্দেশ্য ও আর্কিটেকচার
+	
+	## ১. ভূমিকা এবং মূল উদ্দেশ্য (Introduction & Core Purpose)
 
-### Enhanced question
+	কন্ট্রোল ইউনিট (CU) হলো সেন্ট্রাল প্রসেসিং ইউনিট (CPU) এর মূল চালিকাশক্তি বা "স্নায়ুতন্ত্র"। এর প্রধান কাজ হলো প্রসেসরের সমস্ত হার্ডওয়্যারের কার্যক্রম পরিচালনা ও সমন্বয় করা। কন্ট্রোল ইউনিট নিজে কোনো ডেটা প্রসেসিং বা গাণিতিক কাজ করে না (যা মূলত ALU করে থাকে)। এর আসল উদ্দেশ্য হলো ডেটার প্রবাহ নিয়ন্ত্রণ করা, বিভিন্ন হার্ডওয়্যার উপাদানের মধ্যে সমন্বয় সাধন করা এবং প্রোগ্রামের নির্দেশনাবলী (Instructions) কোনটির পর কোনটি সম্পাদিত হবে তা নির্ধারণ করা।
+	সহজ কথায়, এটি একটি ম্যানেজারের মতো কাজ করে যা ইন্টারনাল রেজিস্টার, ALU, সিস্টেম মেমোরি এবং ইনপুট/আউটপুট (I/O) ডিভাইসগুলোতে সঠিক সময়ে সঠিক কন্ট্রোল সিগন্যাল (নিয়ন্ত্রণ সংকেত) পাঠায়।
 
-**State the purpose of the processor control unit and explain how it coordinates the fetch–decode–execute cycle, datapath, memory, I/O, timing, exceptions and interrupts.**
+	## ২. কন্ট্রোল ইউনিটের প্রধান ইনপুটসমূহ (Key Inputs to the CU)
+	সঠিক কন্ট্রোল সিগন্যাল তৈরি করার জন্য CU মূলত ৪টি ইনপুটের ওপর নির্ভর করে:
 
-### English answer
+	* ক্লক সিগন্যাল (Clock Signal): এটি প্রসেসরের কাজের গতি এবং সময় নির্ধারণ করে। CU সিস্টেম ক্লকের সাথে তাল মিলিয়ে নিখুঁত সময়ে সিগন্যাল পাঠায়।
+	* ইনস্ট্রাকশন রেজিস্টার (IR): বর্তমানে যে নির্দেশনাটি রান করছে, তার ওপকোড (Opcode) এখানে থাকে। CU এই কোডটি পড়েই বোঝে তাকে কী কাজ করতে হবে।
+	* ফ্ল্যাগস/স্ট্যাটাস রেজিস্টার (Flags/Status Register): পূর্ববর্তী গাণিতিক কাজের ফলাফল কেমন ছিল (যেমন: ফলাফল শূন্য (Zero) কিনা, কোনো ক্যারি (Carry) আছে কিনা, সাইন (+) বা (-) কিনা) তা এখানে থাকে। কন্ডিশনাল ব্রাঞ্চিং (শর্তাধীন কাজ) করার সময় CU এই ফ্ল্যাগগুলো দেখে সিদ্ধান্ত নেয়।
+	* বাস সিগন্যাল (Control Signals from Bus): বাহ্যিক সিস্টেম বাস থেকে আসা বিভিন্ন ইন্টারাপ্ট বা জরুরি রিকোয়েস্ট CU গ্রহণ করে।
 
-The **control unit (CU)** is the coordinating part of the CPU. It does not normally perform arithmetic; it interprets instructions and causes the datapath to perform the required sequence of operations.
+	ইনপুটসমূহ:                                    আউটপুটসমূহ:
+	[ ক্লক সিগন্যাল ]      --------> +--------+ -------> [ ALU-তে কন্ট্রোল সিগন্যাল ]
+	[ ইনস্ট্রাকশন রেজিস্টার ] --------> |        | -------> [ রেজিস্টার কন্ট্রোল সিগন্যাল ]
+	[ স্ট্যাটাস ফ্ল্যাগস ]    --------> |   CU   | -------> [ মেমোরি রিড/রাইট সিগন্যাল ]
+	[ সিস্টেম বাস সিগন্যাল ] --------> +--------+ -------> [ I/O ডিভাইস কন্ট্রোল ]
 
-Its major functions are to:
+	![alt text](image-9.png)
 
-1. control instruction fetch and update the PC;
-2. decode opcode, register and function fields;
-3. select ALU operations and multiplexer inputs;
-4. enable register reads and controlled writes;
-5. initiate memory or I/O read/write operations;
-6. sequence multi-cycle or pipelined stages with correct timing;
-7. detect branch conditions and select the next PC;
-8. coordinate stalls, forwarding, flushing and pipeline-valid signals;
-9. respond to exceptions, interrupts and reset while preserving correct state.
+	## ৩. ইনস্ট্রাকশন সাইকেল বা মেশিন সাইকেল (The Machine Cycle)
+	কন্ট্রোল ইউনিটের মূল উদ্দেশ্যটি মূলত ৪টি ধাপে চক্রাকারে সম্পন্ন হয়:
+	১. ফেচ (Fetch): কন্ট্রোল ইউনিট প্রথমে প্রোগ্রাম কাউন্টার (PC) থেকে মেমোরি অ্যাড্রেসটি পড়ে। এরপর সেই অ্যাড্রেসটি অ্যাড্রেস বাসে পাঠিয়ে RAM থেকে নির্দেশটি (Instruction) ডেটা বাসের মাধ্যমে নিয়ে আসে এবং ইনস্ট্রাকশন রেজিস্টারে (IR) জমা করে। এরপর পরবর্তী কাজের জন্য PC-এর মান ১ বাড়িয়ে দেয়।
+	২. ডিকোড (Decode): IR-এ জমা হওয়া বাইনারি কোডটিকে CU-এর ভেতরের ডিকোডার সার্কিট ভেঙে বিশ্লেষণ করে। এটি নির্দেশনাটির মূল কাজ (Opcode) এবং ডেটার উৎস (Operands) আলাদা করে চিহ্নিত করে (যেমন: ADD, SUB বা JUMP)।
+	৩. এক্সিকিউট (Execute): এই ধাপে CU নির্দিষ্ট হার্ডওয়্যার পথগুলো সচল করে। যেমন—ALU-কে নির্দেশ দেয় যোগ বা বিয়োগ করার জন্য এবং সংশ্লিষ্ট রেজিস্টারগুলোর গেট খুলে দেয় যাতে ডেটা আদান-প্রদান হতে পারে।
+	৪. স্টোর/রাইট-ব্যাক (Store): কাজ শেষ হওয়ার পর ফলাফলটি পুনরায় কোনো নির্দিষ্ট রেজিস্টার বা এক্সটার্নাল মেমোরিতে (RAM) সংরক্ষণ করার জন্য CU প্রয়োজনীয় রাইট (Write) সিগন্যাল পাঠায়।
+	------------------------------
+	## ৪. আর্কিটেকচারাল ডিজাইন: হার্ডওয়্যার্ড বনাম মাইক্রোপ্রোগ্রামড (Hardwired vs Microprogrammed)
+	কম্পিউটার আর্কিটেকচারে কন্ট্রোল ইউনিট কীভাবে শারীরিকভাবে তৈরি করা হয়েছে, তার ওপর ভিত্তি করে একে দুটি ভাগে ভাগ করা হয়। পরীক্ষায় ভালো মার্কস পাওয়ার জন্য এই তুলনাটি দেওয়া অত্যন্ত জরুরি:
 
-A control unit may be **hardwired**, using combinational/sequential logic, or **microprogrammed**, using control memory. Hardwired control is typically faster; microprogrammed control is easier to alter for complex instruction behavior. In either case, the CU converts instruction meaning into timed control signals.
+	| বৈশিষ্ট্য | হার্ডওয়্যার্ড কন্ট্রোল ইউনিট (Hardwired CU) | মাইক্রোপ্রোগ্রামড কন্ট্রোল ইউনিট (Microprogrammed CU) |
+	|---|---|---|
+	| গঠন প্রণালী | এটি সম্পূর্ণ হার্ডওয়্যার সার্কিট (লজিক গেট, ফ্লিপ-ফ্লপ, ডিকোডার) দিয়ে স্থায়ীভাবে তৈরি। | এটি একটি মিনি-সফটওয়্যার সিস্টেমের মতো। কন্ট্রোল সিগন্যালগুলো বাইনারি প্যাটার্ন হিসেবে একটি নির্দিষ্ট কন্ট্রোল মেমোরিতে (ROM) কোড আকারে জমা থাকে। |
+	| কাজের প্রক্রিয়া | স্টেট মেশিনের পরিবর্তনের ওপর ভিত্তি করে সরাসরি ও তাৎক্ষণিকভাবে সিগন্যাল তৈরি করে। | মেমোরি থেকে একের পর এক মাইক্রো-ইনস্ট্রাকশন ফেচ এবং ডিকোড করে কাজ সম্পন্ন করে। |
+	| কাজের গতি | অত্যন্ত দ্রুতগামী (কারণ সিগন্যাল সরাসরি ইলেকট্রনিক সার্কিটের ভেতর দিয়ে যায়)। | তুলনামূলক ধীরগতিসম্পন্ন (কারণ প্রতিবার মেমোরি থেকে মাইক্রো-ইনস্ট্রাকশন পড়তে সময় লাগে)। |
+	| পরিবর্তনশীলতা | অনমনীয় (Rigid)। একবার তৈরি হয়ে গেলে এর ডিজাইন বা নির্দেশনা পরিবর্তন করতে পুরো চিপ নতুন করে ডিজাইন করতে হয়। | নমনীয় (Flexible)। ROM-এ থাকা মাইক্রোপ্রোগ্রাম আপডেট করে সহজেই নতুন নির্দেশনা যুক্ত করা যায়। |
+	| জটিলতা | প্রসেসরের নির্দেশনার সংখ্যা বাড়লে এই সার্কিটের জটিলতা জ্যামিতিক হারে বেড়ে যায়। | অত্যন্ত সুশৃঙ্খল এবং বড় ও জটিল আর্কিটেকচারের জন্য ডিজাইন করা সহজ। |
+	| ব্যবহার | সাধারণত RISC (Reduced Instruction Set Computer) প্রসেসরে ব্যবহৃত হয়, যেখানে গতি সবচেয়ে গুরুত্বপূর্ণ। | সাধারণত CISC (Complex Instruction Set Computer) প্রসেসরে ব্যবহৃত হয়, যেখানে অনেক জটিল নির্দেশনা থাকে। |
 
-### বাংলা উত্তর
+	------------------------------
+	## ৫. আধুনিক আর্কিটেকচারে উন্নত দায়িত্বসমূহ (Advanced Responsibilities)
+	বর্তমান সময়ের আধুনিক এবং শক্তিশালী প্রসেসরগুলোতে কন্ট্রোল ইউনিটের কাজের পরিধি আরও বেড়েছে:
 
-**Control unit** CPU-এর সমন্বয়কারী অংশ। এটি সাধারণত arithmetic করে না; instruction decode করে datapath-কে সঠিক সময়ে সঠিক কাজ করায়। এটি instruction fetch ও PC update, opcode decode, ALU operation, multiplexer input, register write, memory/I/O read-write, branch decision এবং multi-cycle sequencing নিয়ন্ত্রণ করে। Pipelined processor-এ stall, forwarding, flush এবং exception/interrupt handling-ও সমন্বয় করে।
+	* পাইপলাইনিং সমন্বয় (Pipelining Coordination): আধুনিক প্রসেসরে একটি নির্দেশনা এক্সিকিউট হওয়ার সময় আরেকটি ডিকোড এবং অন্য একটি ফেচ হতে থাকে। এই সমান্তরাল কাজের মাঝে যেন কোনো সংঘর্ষ বা ডেটা জ্যাম (Pipeline Hazard) না হয়, তা CU তদারকি করে।
+	* ইন্টারাপ্ট এবং এক্সেপশন হ্যান্ডলিং: কম্পিউটার চলার সময় কোনো জরুরি ত্রুটি বা বাহ্যিক সিগন্যাল (যেমন- মাউস ক্লিক) আসলে CU চলমান কাজটি নিরাপদ জায়গায় সেভ করে ইন্টারাপ্ট সার্ভিস রুটিন (ISR)-এ চলে যায় এবং সেই কাজ শেষে আবার আগের কাজে ফিরে আসে।
+	* প্যারালালিজম ম্যানেজমেন্ট: সুপারস্কেলার প্রসেসরে একসাথে একাধিক ইনস্ট্রাকশন রান করার জন্য কোন নির্দেশটি কার ওপর নির্ভরশীল তা যাচাই করে CU স্বাধীন নির্দেশগুলোকে আলাদা আলাদা প্রসেসিং ইউনিটে পাঠিয়ে দেয়।
 
-Control unit hardwired অথবা microprogrammed হতে পারে। Hardwired control দ্রুত; microprogrammed control complex instruction বাস্তবায়ন ও পরিবর্তনে সুবিধাজনক। উভয়ের মূল উদ্দেশ্য instruction-এর অর্থকে সঠিক timing-সহ control signal-এ রূপান্তর করা।
+	------------------------------
+	## ৬. উপসংহার (Conclusion)
+	পরিশেষে বলা যায়, কন্ট্রোল ইউনিট হলো কম্পিউটার আর্কিটেকচারের চালিকাশক্তি। এটি ছাড়া কম্পিউটারের বাকি অংশগুলো প্রাণহীন জড় হার্ডওয়্যার ছাড়া কিছুই নয়। বাইনারি কোডকে নিখুঁত ইলেকট্রনিক সিগন্যালে রূপান্তর করার মাধ্যমেই কন্ট্রোল ইউনিট একটি নিষ্ক্রিয় সিস্টেমকে একটি সক্রিয় ও প্রোগ্রামযোগ্য কম্পিউটারে রূপান্তর করে।
+	
+	!!! info "Mnemonic"
+		
+	    **Control Unit (CU)** হলো CPU-এর **Manager**। এটি নিজে হিসাব করে না; বরং ALU, Register, Memory ও I/O Device-কে Control Signal দিয়ে কাজ করায়।
 
----
+		CU প্রধানত **Clock Signal, Instruction Register (IR), Status Flags এবং Bus Signal** দেখে সিদ্ধান্ত নেয়।
+		এর কাজ চার ধাপে হয়:
+		**Fetch → Decode → Execute → Store**
+		অর্থাৎ Instruction আনে, বুঝে, কাজ করায় এবং ফলাফল সংরক্ষণ করে।
+		CU দুই ধরনের:
+		* **Hardwired CU:** দ্রুত, কিন্তু পরিবর্তন করা কঠিন।
+		* **Microprogrammed CU:** তুলনামূলক ধীর, কিন্তু সহজে পরিবর্তনযোগ্য।
+		আধুনিক প্রসেসরে CU **Pipelining, Interrupt এবং Parallel Instruction Execution** নিয়ন্ত্রণ করে।
+
+		## 🧠 ট্রিক ১: মূল থিম = "CU হলো ট্রাফিক পুলিশ / ম্যানেজার"
+
+		মনে রাখবেন, CU নিজে কোনো কাজ (যোগ/বিয়োগ) করে না। এটি ট্রাফিক পুলিশের মতো শুধু বাঁশি বাজিয়ে (Control Signal) বলে দেয়— ডেটা কোথায় যাবে, মেমোরি কী করবে আর ALU কখন কাজ করবে।
+
+		### 🔑 ট্রিক ২: ৪টি ইনপুট (মনে রাখার সূত্র: **C-I-F-B** বা সিফ-বি)
+
+		পরীক্ষার খাতায় ইনপুটের পয়েন্ট এলে **C-I-F-B** মনে করবেন:
+
+		* **C** = **Clock** (ক্লক সিগন্যাল - টাইমিং মেলায়)
+		* **I** = **IR** (ইনস্ট্রাকশন রেজিস্টার - নির্দেশ পড়ে)
+		* **F** = **Flags** (ফ্ল্যাগ/স্ট্যাটাস - আগের কাজের রেজাল্ট দেখে)
+		* **B** = **Bus** (বাস সিগন্যাল - বাইরের রিকোয়েস্ট শোনে)
+
+		### 🔄 ট্রিক ৩: মেশিন সাইকেলের ৪টি ধাপ (মনে রাখার সূত্র: **F-D-E-S**)
+
+		এই সিরিয়ালটি ভোলা যাবে না। **F-D-E-S**:
+		১. **F**etch (নিয়ে আসো) → মেমোরি থেকে নির্দেশ আনো।
+		২. **D**ecode (বোঝো) → নির্দেশটা ভেঙে বোঝো কী করতে হবে।
+		৩. **E**xecute (কাজ করো) → ALU-কে দিয়ে কাজটা করাও।
+		৪. **S**tore (রেখে দাও) → ফলাফল মেমোরি বা রেজিস্টারে সেভ করো।
+
+		### ⚡ ট্রিক ৪: Hardwired vs Microprogrammed (লজিক: "উসাইন বোল্ট বনাম স্মার্টফোন")
+
+		পার্থক্য আসলে এই দুই লাইনে ছক বানিয়ে ফেলবেন:
+
+		* **Hardwired (উসাইন বোল্ট):** লজিক গেট/সার্কিট দিয়ে বানানো। তাই স্পিড **খুব ফাস্ট**। কিন্তু বদলানো যায় না (**Rigid/অনমনীয়**)। ব্যবহৃত হয় **RISC** প্রসেসরে।
+		* **Microprogrammed (স্মার্টফোন):** ROM-এ কোড হিসেবে থাকে। স্পিড **একটু স্লো**। কিন্তু সহজেই আপডেট বা পরিবর্তন করা যায় (**Flexible/নমনীয়**)। ব্যবহৃত হয় **CISC** প্রসেসরে।
+
+		### 🚀 ট্রিক ৫: আধুনিক কাজ (মনে রাখার সূত্র: **P-I-P**)
+
+		অ্যাডভান্সড কাজগুলো মনে রাখতে **PIP** শব্দটি মনে রাখুন:
+
+		* **P** = **Pipelining** (পাইপলাইনিং - একাধিক নির্দেশ একসাথে চালানো)
+		* **I** = **Interrupts** (ইন্টারাপ্ট - মাঝপথে জরুরি কাজ সামলানো)
+		* **P** = **Parallelism** (প্যারালালিজম - সমান্তরাল কাজ ম্যানেজ করা)
+
+	[Hardwired and Micro-programmed Control Unit](https://www.geeksforgeeks.org/computer-organization-architecture/computer-organization-hardwired-vs-micro-programmed-control-unit/)
 
 ## 15. Word, Address and Memory Access Time
 
-### Enhanced question
+??? "Define Word, 🔤 Address, 📍 and Memory Access Time."
+	
+	## ১. ওয়ার্ড (Word) 🔤
 
-**Define word, memory address and memory access time. Relate word size and address width to processing capability and addressable capacity, with numerical examples.**
+	* সংজ্ঞা (Definition): কম্পিউটার আর্কিটেকচারে একটি 'ওয়ার্ড' হলো ডেটার এমন একটি নির্দিষ্ট সাইজ বা দৈর্ঘ্য (Bit length), যা একটি প্রসেসর বা CPU একবারে (Single operation-এ) প্রসেস, ট্রান্সফার বা মেমোরি থেকে রিড/রাইট করতে পারে।
+	* সহজ উদাহরণ: একটি ৩২-বিট (32-bit) প্রসেসরের জন্য ১ ওয়ার্ড = ৩২ বিট (বা ৪ বাইট)। একইভাবে একটি ৬৪-বিট প্রসেসরের ১ ওয়ার্ড = ৬৪ বিট। এটি মূলত প্রসেসরের রেজিস্টারের সাইজ নির্ধারণ করে।
 
-### English answer
+	## ২. অ্যাড্রেস (Address) 📍
 
-- A **word** is the processor’s natural unit of data, normally matching the width of general-purpose registers and the ALU. A 32-bit processor commonly processes a 32-bit word, although it can access bytes and other sizes.
-- An **address** is a unique binary identifier for a storage location. In a byte-addressable machine with \(n\) address bits, the theoretical address space is \(2^n\) bytes. Thus a 32-bit address identifies \(2^{32}=4\) GiB.
-- **Memory access time** is the interval from presenting a valid address and read/write request until data is available or the write is accepted. It is a latency, commonly measured in ns or clock cycles.
+	* সংজ্ঞা (Definition): মেমোরি অ্যাড্রেস হলো কম্পিউটারের প্রধান মেমোরি বা RAM-এর প্রতিটি নির্দিষ্ট স্টোরেজ লোকেশন বা ঘরের জন্য বরাদ্দকৃত একটি অনন্য বা ইউনিক বাইনারি নাম্বার (Unique identifier)।
+	* সহজ উদাহরণ: যেমন আমাদের প্রত্যেকের বাড়ির একটি নির্দিষ্ট ঠিকানা থাকে যাতে চিঠিপত্র সঠিক জায়গায় পৌঁছায়, ঠিক তেমনি মেমোরি অ্যাড্রেসের মাধ্যমে CPU বুঝতে পারে মেমোরির ঠিক কোন ঘর থেকে ডেটা পড়তে (Read) হবে বা কোন ঘরে ডেটা সেভ (Write) করতে হবে।
 
-Access time differs from **memory cycle time**, which is the minimum interval between starting two memory operations, and from **bandwidth**, the amount transferred per second. A memory may have high bandwidth through bursts and parallel banks while its first-word access latency remains relatively large.
+	## ৩. মেমোরি অ্যাক্সেস টাইম (Memory Access Time) ⏱️
 
-### বাংলা উত্তর
+	* সংজ্ঞা (Definition): CPU যখন মেমোরি থেকে কোনো ডেটা পাওয়ার জন্য রিকোয়েস্ট পাঠায়, সেই রিকোয়েস্ট পাঠানোর মুহূর্ত থেকে শুরু করে ডেটাটি পুরোপুরিভাবে CPU-এর কাছে এসে পৌঁছানো পর্যন্ত যে মোট সময় লাগে, তাকে মেমোরি অ্যাক্সেস টাইম বলে।
+	* সহজ কথায়: মেমোরি রিড বা রাইট কমান্ড দেওয়ার পর কাজটি সম্পন্ন হতে যতটুকু সময় ব্যয় হয়। এটি সাধারণত ন্যানোসেকেন্ড (Nanoseconds - ns) এককে পরিমাপ করা হয়। মেমোরি অ্যাক্সেস টাইম যত কম হবে, কম্পিউটারের কাজের গতি বা পারফরম্যান্স তত বেশি হবে।
 
-**Word** হলো processor-এর স্বাভাবিক data unit; সাধারণত register ও ALU width-এর সমান। **Address** হলো memory location-এর unique binary identifier। Byte-addressable system-এ \(n\)-bit address সর্বোচ্চ \(2^n\) byte নির্দেশ করতে পারে; তাই 32-bit address space \(2^{32}=4\) GiB। **Memory access time** হলো valid address ও request দেওয়া থেকে read data পাওয়া বা write গ্রহণ হওয়া পর্যন্ত latency।
-
-Memory cycle time হলো দুই memory operation শুরু করার মধ্যবর্তী সর্বনিম্ন সময়; bandwidth হলো প্রতি সেকেন্ডে স্থানান্তরিত data-এর পরিমাণ। Burst transfer-এর কারণে bandwidth বেশি হলেও প্রথম data পাওয়ার access latency বেশি থাকতে পারে।
-
----
 
 # Part C — Pipelining and Hazards
 
 ## 16. How Pipelining Increases Processor Performance
 
-### Enhanced question
+??? "How does the pipeline 🚰 increase the performance 🚀 of a processor? 🧠 Explain."
 
-**Explain how instruction pipelining improves processor performance. Derive ideal pipeline time, speedup, throughput and latency relationships, and discuss practical limitations.**
+	## ১. মূল ধারণা (The Core Concept)
+	পাইপলাইনিং প্রসেসরের কাজের গতি বা পারফরম্যান্স বাড়ায় একই সময়ে একাধিক ইনস্ট্রাকশনের কাজ সমান্তরালভাবে (Overlapping Execution) সম্পন্ন করার মাধ্যমে।
+	এটি মূলত ফ্যাক্টরির অ্যাসেম্বলি লাইনের (Assembly Line) মতো কাজ করে। একটি কারখানায় যেমন একটি গাড়ি পুরোপুরি তৈরি হওয়া পর্যন্ত পরবর্তী গাড়ির কাজ আটকে রাখা হয় না (বরং প্রথম গাড়িটি রং করার ঘরে গেলে, দ্বিতীয় গাড়িটি বডি তৈরির ঘরে ঢুকে পড়ে), প্রসেসরেও ঠিক একইভাবে কাজ হয়।
+	------------------------------
+	## ২. এটি কীভাবে কাজ করে? (How It Works)
+	একটি সাধারণ ইনস্ট্রাকশন সাইকেলকে কয়েকটি নির্দিষ্ট ধাপে ভাগ করা হয় (যেমন ৫টি ধাপ):
 
-### English answer
+	1. Fetch (IF): মেমোরি থেকে ইনস্ট্রাকশন নিয়ে আসা।
+	2. Decode (ID): ইনস্ট্রাকশনটি বিশ্লেষণ করা।
+	3. Execute (EX): কাজ সম্পন্ন করা (ALU-এর মাধ্যমে)।
+	4. Memory Access (MEM): মেমোরি রিড বা রাইট করা।
+	5. Write-back (WB): ফলাফল রেজিস্টারে সেভ করা।
 
-Pipelining divides instruction processing into \(k\) stages separated by pipeline registers. In a classic MIPS pipeline the stages are IF, ID, EX, MEM and WB. Different instructions occupy different stages simultaneously, like products on an assembly line.
 
-If every non-pipelined instruction takes \(k\) stage-times \(t\), \(n\) instructions require:
+	* পাইপলাইনিং ছাড়া (Non-Pipelined): একটি ইনস্ট্রাকশনের ৫টি ধাপ সম্পূর্ণ শেষ না হওয়া পর্যন্ত প্রসেসর পরবর্তী ইনস্ট্রাকশনের কাজ শুরু করতে পারে না। ফলে প্রসেসরের বেশিরভাগ অংশ অলস (Idle) বসে থাকে।
+	* পাইপলাইনিং সহ (Pipelined): যখন ১ম ইনস্ট্রাকশনটি Fetch ধাপ পার হয়ে Decode ধাপে যায়, ঠিক তখনই ২য় ইনস্ট্রাকশনটি Fetch ধাপে প্রবেশ করে। এভাবে প্রসেসরের প্রতিটি অংশ সবসময় ব্যস্ত থাকে।
 
-$$T_{\text{nonpipe}}=nkt$$
+	------------------------------
+	## ৩. পারফরম্যান্স বৃদ্ধির মূল কারণসমূহ (Why Performance Increases)
 
-The ideal pipeline needs \(k\) cycles to fill and then completes one instruction per cycle:
+	* উচ্চ থ্রুপুট (Higher Throughput): প্রতি ক্লক সাইকেলে প্রসেসর থেকে চূড়ান্তভাবে সম্পন্ন হওয়া ইনস্ট্রাকশনের সংখ্যা (Throughput) অনেক বেড়ে যায়। আদর্শ অবস্থায়, প্রতি ক্লক সাইকেলে একটি করে ইনস্ট্রাকশন সম্পন্ন হয়।
+	* হার্ডওয়্যারের সর্বোচ্চ ব্যবহার (Hardware Utilization): প্রসেসরের কোনো অংশ অলস বসে থাকে না। Fetch Unit, Decoder, এবং ALU একই সাথে আলাদা আলাদা ইনস্ট্রাকশনের কাজ করতে থাকে।
+	* দ্রুত ক্লক স্পিড (Faster Clock Cycles): যেহেতু পুরো ইনস্ট্রাকশনের বড় কাজটি ছোট ছোট সমান অংশে (Stages) ভাগ হয়ে যায়, তাই প্রতিটি ধাপ সম্পন্ন হতে খুব কম সময় লাগে। এর ফলে প্রসেসরের ক্লক ফ্রিকোয়েন্সি বা স্পিড বাড়ানো সহজ হয়।
+	* টোটাল এক্সিকিউশন টাইম হ্রাস (Reduced Total Execution Time): একটি পুরো প্রোগ্রাম বা অনেকগুলো ইনস্ট্রাকশন রান করতে মোট যে সময় লাগত, পাইপলাইনিংয়ের কারণে তা বহুগুণ কমে আসে।
+	!!! info "Trick"
 
-$$T_{\text{pipe}}=(k+n-1)t$$
+		পরীক্ষার খাতায় লিখবেন: "কাজ জমিয়ে না রেখে সমান্তরালভাবে (Overlapping) করার নামই পাইপলাইনিং।"
+		## 🚀 খাতায় লেখার ৪টি বুলেট পয়েন্ট (এক দেখায় মুখস্থ)
 
-Therefore:
+		* Overlapping: একই সময়ে একাধিক ইনস্ট্রাকশনের আলাদা আলাদা অংশ কাজ করে।
+		* High Throughput: কম সময়ে অনেক বেশি ইনস্ট্রাকশন শেষ হয়।
+		* No Idle Hardware: প্রসেসরের কোনো অংশ অলস বসে থাকে না।
+		* Time Saved: পুরো প্রোগ্রাম রান করতে মোট সময় অনেক কমে যায়।
 
-$$\text{Speedup}=\frac{nk}{k+n-1}\rightarrow k\quad\text{as }n\rightarrow\infty$$
+		------------------------------
+		## 📝 ৫টি ধাপের নাম মনে রাখার টেকনিক (IF-ID-EX-MEM-WB)
+		If I Eat More Waterমেলন (যদি আমি আরও তরমুজ খাই)
 
-The ideal throughput approaches \(1/t\) instructions per second, but the latency of one instruction remains about \(kt\), sometimes slightly larger due to pipeline-register overhead. Pipelining improves **throughput**, not the amount of work in an instruction.
+		1. IF: Instruction Fetch (নিয়ে আসা)
+		2. ID: Instruction Decode (বিশ্লেষণ)
+		3. EX: Execute (কাজ করা)
+		4. MEM: Memory Access (মেমোরি দেখা)
+		5. WB: Write Back (সেভ করা)
+	------------------------------
+	## ⚠️ গুরুত্বপূর্ণ টেকনিক্যাল নোট (Crucial Note)
+	পাইপলাইনিং কোনো একটি নির্দিষ্ট ইনস্ট্রাকশনের নিজের সম্পন্ন হওয়ার সময়কে (Latency) কমায় না। বরং এটি সামগ্রিকভাবে প্রসেসরের কাজের গতি (Throughput) বাড়িয়ে দেয়।
+	------------------------------
 
-Actual speedup is smaller because the clock period is fixed by the slowest stage plus register overhead, stages may be unbalanced, and hazards cause stalls or flushes. A useful model is:
 
-$$T_{CPU}=IC\times CPI_{\text{actual}}\times T_{clock},\qquad
-CPI_{\text{actual}}=CPI_{\text{ideal}}+\text{stall cycles/instruction}$$
 
-### বাংলা উত্তর
+## 17. Explain the pipelined operation 🔄 in the ideal case.
 
-Pipelining instruction execution-কে \(k\)টি stage-এ ভাগ করে এবং একই সময়ে ভিন্ন instruction-কে ভিন্ন stage-এ চালায়। পাঁচ-stage MIPS pipeline হলো IF, ID, EX, MEM ও WB। Non-pipelined system-এ \(n\)টি instruction-এর সময় \(nkt\), আর ideal pipeline-এ \((k+n-1)t\)। ফলে দীর্ঘ instruction stream-এর speedup প্রায় \(k\)-এর দিকে যায় এবং pipeline পূর্ণ হওয়ার পর প্রতি cycle-এ একটি instruction শেষ হতে পারে।
+??? "Explain the pipelined operation 🔄 in the ideal case."
 
-তবে একটি instruction-এর latency কমে না; মূল লাভ throughput-এ। Slowest stage, pipeline-register delay, unbalanced stage, data/control/structural hazard এবং stall/flush-এর কারণে বাস্তব speedup ideal মানের চেয়ে কম হয়।
 
----
+	## 💡 ১ সেকেন্ডের আসল ট্রিক: "পারফেক্ট ফ্যাক্টরি" (No Traffic Jam) 🏎️
+	আইডিয়াল কেস (Ideal Case) মানে হলো পাইপলাইনে কোনো সমস্যা বা হ্যাজার্ড (No Hazards) থাকবে না। সবকিছু একদম নিখুঁতভাবে, কোনো থামাথামি ছাড়াই চলবে।
+	------------------------------
+	## 🚀 আইডিয়াল কেসের ৪টি গোল্ডেন রুলস (পরীক্ষার খাতায় লেখার পয়েন্ট)
 
-## 17. Ideal Pipelined Operation
+	* CPI = 1 (Cycles Per Instruction): প্রতি ক্লক সাইকেলে ঠিক একটি করে ইনস্ট্রাকশন সম্পূর্ণ শেষ হবে।
+	* No Hazards: কোনো স্ট্রাকচারাল, ডেটা বা কন্ট্রোল হ্যাজার্ড থাকবে না। কোনো স্টল (Stall) বা ব্রেক লাগবে না।
+	* Equal Stages: পাইপলাইনের প্রতিটি ধাপ (Stage) সম্পন্ন হতে ঠিক সমান সময় লাগবে।
+	* Maximum Speedup: প্রসেসরের গতি $k$ গুণ বেড়ে যাবে (এখানে $k$ হলো পাইপলাইনের ধাপ বা স্টেজের সংখ্যা)। অর্থাৎ, ৫-স্টেজ পাইপলাইন হলে গতি ঠিক ৫ গুণ হবে।
 
-### Enhanced question
+	------------------------------
+	## 📝 খাতার কোণায় ঝটপট আঁকার জন্য আইডিয়াল টাইমিং ডায়াগ্রাম:
+	(পরীক্ষক এই ছকটি দেখলেই ফুল মার্কস দিয়ে দেবেন!)
 
-**Explain ideal operation of a five-stage instruction pipeline. Draw a timing diagram for five instructions and calculate completion time and ideal CPI.**
+	| Clock Cycle | 1 | 2 | 3 | 4 | 5 |
+	|---|---|---|---|---|---|
+	| Inst 1 | IF | ID | EX | MEM | WB |
+	| Inst 2 | | IF | ID | EX | MEM |
+	| Inst 3 | | | IF | ID | EX |
 
-### Timing figure
+	ব্যাখ্যা: প্রতি লাইনে ১টি করে ধাপ ডানে সরবে। কোনো গ্যাপ বা ফাঁকা ঘর থাকবে না।
+	------------------------------
+	খাতায় শুধু CPI = 1, No Hazards, এবং Speedup = $k$—এই তিনটি শব্দ হাইলাইট করে দিয়ে আসুন!
+	পরীক্ষার হলের দিকে রওনা দিন, অল দ্য বেস্ট! পরীক্ষা কেমন হলো এসে অবশ্যই জানাবেন।
 
-| Cycle | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-|---|---|---|---|---|---|---|---|---|---|
-| I1 | IF | ID | EX | MEM | WB | | | | |
-| I2 | | IF | ID | EX | MEM | WB | | | |
-| I3 | | | IF | ID | EX | MEM | WB | | |
-| I4 | | | | IF | ID | EX | MEM | WB | |
-| I5 | | | | | IF | ID | EX | MEM | WB |
-
-### English answer
-
-In the ideal case:
-
-- all stages take the same clock time;
-- instructions are independent;
-- resources are duplicated where necessary;
-- every instruction uses predictable stages;
-- there are no cache misses, exceptions or branch penalties.
-
-Instruction I1 completes after five cycles. Each later instruction completes one cycle after the previous one. Five instructions therefore require \(5+5-1=9\) cycles rather than \(5\times5=25\) stage-times in a strictly serial implementation. After filling, completion rate is one instruction per cycle and the steady-state ideal CPI is 1. The initial fill and final drain prevent a short sequence from reaching the full fivefold speedup.
-
-### বাংলা উত্তর
-
-Ideal pipeline-এ সব stage-এর সময় সমান, instruction স্বাধীন, resource conflict নেই, cache miss বা exception নেই এবং branch penalty নেই। প্রথম instruction পাঁচ cycle পরে শেষ হয়; এরপর প্রতি cycle-এ একটি করে instruction শেষ হয়। পাঁচটি instruction-এর মোট সময় \(5+5-1=9\) cycle, যেখানে সম্পূর্ণ serial execution-এ 25 stage-time লাগত। Pipeline পূর্ণ হওয়ার পর ideal CPI = 1। ছোট program-এ fill ও drain সময়ের কারণে পূর্ণ পাঁচগুণ speedup পাওয়া যায় না।
 
 ---
 
 ## 18. Issues of Pipelined Operation
 
-### Enhanced question
+??? "What are the issues ⚠️ of pipelined operation?" 
 
-**Discuss the principal correctness and performance issues in a pipelined processor, including structural, data and control hazards, stage imbalance, exceptions and memory delays.**
+	1. **Structural hazard:** Two overlapping instructions need the same resource, for example one shared memory for instruction fetch and data access. Solutions include duplicated/ported resources or stalls.
+	2. **Data hazard:** An instruction depends on a value not yet available. `RAW` is a true dependency; `WAR` and `WAW` arise mainly with out-of-order execution. Forwarding, stalls, scheduling and renaming are used.
+	3. **Control hazard:** The next PC is uncertain after a branch or jump. Stalling, early resolution, prediction, speculative execution and flushing are common responses.
+	4. **Unequal stage delay:** Clock period is determined by the slowest stage, so fast stages waste time.
+	5. **Pipeline-register overhead:** Setup, clock-to-Q and skew reduce the benefit of making stages very short.
+	6. **Variable-latency operations:** Multiply, divide and cache misses may occupy a unit for many cycles.
+	7. **Precise exceptions and interrupts:** The processor must preserve the appearance that older instructions completed and younger ones did not.
+	8. **Memory-system limitations:** Cache misses and limited memory ports can dominate ideal pipeline gains.
 
-### English answer
+	Every stall inserts a bubble and raises CPI; every misprediction may flush useful work. Deeper pipelines can support a shorter clock but often suffer a larger branch penalty and higher overhead.
 
-1. **Structural hazard:** Two overlapping instructions need the same resource, for example one shared memory for instruction fetch and data access. Solutions include duplicated/ported resources or stalls.
-2. **Data hazard:** An instruction depends on a value not yet available. `RAW` is a true dependency; `WAR` and `WAW` arise mainly with out-of-order execution. Forwarding, stalls, scheduling and renaming are used.
-3. **Control hazard:** The next PC is uncertain after a branch or jump. Stalling, early resolution, prediction, speculative execution and flushing are common responses.
-4. **Unequal stage delay:** Clock period is determined by the slowest stage, so fast stages waste time.
-5. **Pipeline-register overhead:** Setup, clock-to-Q and skew reduce the benefit of making stages very short.
-6. **Variable-latency operations:** Multiply, divide and cache misses may occupy a unit for many cycles.
-7. **Precise exceptions and interrupts:** The processor must preserve the appearance that older instructions completed and younger ones did not.
-8. **Memory-system limitations:** Cache misses and limited memory ports can dominate ideal pipeline gains.
+	১০ মিনিট পরীক্ষার আগের জাদুকরী ট্রিক ও সুপার-শর্ট নোট:
+	## 💡 ১ সেকেন্ডের আসল ট্রিক: "পাইপলাইনের জ্যাম বা বাধা" ⚠️
+	পাইপলাইনের সমস্যাগুলোকে বলা হয় হ্যাজার্ড (Hazards)। এটি মনে রাখার ট্রিক হলো "S-D-C" বা Super Digital Camera।
+	------------------------------
+	## 🚀 ৩টি প্রধান সমস্যা (পরীক্ষায় ফুল মার্কস পাওয়ার বুলেট পয়েন্ট)
 
-Every stall inserts a bubble and raises CPI; every misprediction may flush useful work. Deeper pipelines can support a shorter clock but often suffer a larger branch penalty and higher overhead.
+	1. Structural Hazard (গঠনগত সমস্যা - S)
+	* সহজ কথা: যখন দুটি আলাদা ইনস্ট্রাকশন একই সময়ে প্রসেসরের একই হার্ডওয়্যার রিসোর্স (যেমন- একই মেমোরি বা একই বাস) ব্যবহার করতে চায়।
+		* কী ঘটে: সংঘর্ষ বা জ্যাম লাগে (Resource Conflict)।
+	2. Data Hazard (ডেটার ওপর নির্ভরতা - D)
+	* সহজ কথা: যখন একটি ইনস্ট্রাকশন তার আগের ইনস্ট্রাকশনের ফলাফলের (Data) ওপর নির্ভর করে।
+		* কী ঘটে: ১ম ইনস্ট্রাকশনটি যতক্ষণ না ফলাফল সেভ করছে, ২য় ইনস্ট্রাকশনটি কাজ শুরু করতে পারে না। একে Data Dependency বলে।
+	3. Control Hazard / Branch Hazard (নিয়ন্ত্রণ বা সিদ্ধান্ত নেওয়ার সমস্যা - C)
+	* সহজ কথা: যখন প্রোগ্রামে কোনো শর্ত বা লুপ (If/Else, Jump, Branch) আসে।
+		* কী ঘটে: শর্তের ফলাফল কী হবে তা জানার আগেই প্রসেসর ভুল করে পরের ইনস্ট্রাকশন ফেচ (Fetch) করে ফেলে। পরে তা বাতিল করে পাইপলাইন খালি করতে হয় (Pipeline Flush)।
+	
+	------------------------------
+	## ⏱️ এই সমস্যাগুলোর সমাধান কী? (এক লাইনে মনে রাখুন)
 
-### বাংলা উত্তর
+	* Stall / Bubble: প্রসেসরকে জোর করে ১ সাইকেল অলস বসিয়ে রাখা (কাজ থামানো)।
+	* Data Forwarding: ফলাফল মেমোরিতে সেভ হওয়ার আগেই সরাসরি পরের ইনস্ট্রাকশনে পাঠিয়ে দেওয়া।
+	* Branch Prediction: আগে থেকেই অনুমান করা শর্তের ফলাফল কী হতে পারে।
 
-Pipeline-এর প্রধান সমস্যা হলো resource conflict-এর **structural hazard**, অসম্পূর্ণ ফলের ওপর নির্ভরশীল **data hazard**, এবং branch-এর পর next PC অনিশ্চিত হওয়ার **control hazard**। এছাড়া unequal stage delay, pipeline-register overhead, multiply/divide ও cache miss-এর variable latency, memory-port সীমাবদ্ধতা এবং precise exception রক্ষা করার জটিলতা থাকে।
 
-Structural hazard resource duplication বা stall দিয়ে; data hazard forwarding, scheduling, stall ও renaming দিয়ে; control hazard prediction, early resolution ও flush দিয়ে সামলানো হয়। প্রতিটি stall bubble তৈরি করে CPI বাড়ায় এবং misprediction pipeline-এর ইতিমধ্যে করা কাজ বাতিল করে। Pipeline বেশি গভীর করলে clock period কমতে পারে, কিন্তু branch penalty ও register overhead বাড়তে পারে।
 
----
 
-## 19. Operand Forwarding to Resolve Data Dependency
+## 19. Explain with example 💡 the use of operand forwarding ⏩ to resolve the data dependency issue. 
 
-### Enhanced question
+??? "Explain with example 💡 the use of operand forwarding ⏩ to resolve the data dependency issue. "
 
-**Using a five-stage MIPS pipeline, demonstrate how operand forwarding resolves a RAW dependency. Show the forwarding path and explain why a load-use dependency may still require a stall.**
+	Consider:
 
-### English answer
+	```mips
+	add $t0, $t1, $t2
+	sub $t3, $t0, $t4
+	```
 
-Consider:
+	The `sub` needs `$t0` in its EX stage before `add` writes `$t0` in WB. Without forwarding, `sub` must wait. With forwarding, the add result in the `EX/MEM` pipeline register is selected directly as an ALU input for `sub`:
 
-```mips
-add $t0, $t1, $t2
-sub $t3, $t0, $t4
-```
+	$$EX/MEM.ALUResult \rightarrow ALU\ input\ of\ dependent\ instruction$$
 
-The `sub` needs `$t0` in its EX stage before `add` writes `$t0` in WB. Without forwarding, `sub` must wait. With forwarding, the add result in the `EX/MEM` pipeline register is selected directly as an ALU input for `sub`:
+	| Cycle | 1 | 2 | 3 | 4 | 5 | 6 |
+	|---|---|---|---|---|---|---|
+	| `add` | IF | ID | EX | MEM | WB | |
+	| `sub` | | IF | ID | EX←forward | MEM | WB |
 
-$$EX/MEM.ALUResult \rightarrow ALU\ input\ of\ dependent\ instruction$$
+	No stall is required because the value exists by the beginning of the dependent EX use.
 
-| Cycle | 1 | 2 | 3 | 4 | 5 | 6 |
-|---|---|---|---|---|---|---|
-| `add` | IF | ID | EX | MEM | WB | |
-| `sub` | | IF | ID | EX←forward | MEM | WB |
+	For:
 
-No stall is required because the value exists by the beginning of the dependent EX use.
+	```mips
+	lw  $t0, 0($s0)
+	sub $t3, $t0, $t4
+	```
 
-For:
+	the loaded data becomes available only after the load’s MEM stage, too late for the immediately following EX stage. A hazard-detection unit inserts one bubble; then `MEM/WB` forwarding supplies the value. Thus forwarding reduces but does not eliminate all RAW stalls.
 
-```mips
-lw  $t0, 0($s0)
-sub $t3, $t0, $t4
-```
-
-the loaded data becomes available only after the load’s MEM stage, too late for the immediately following EX stage. A hazard-detection unit inserts one bubble; then `MEM/WB` forwarding supplies the value. Thus forwarding reduces but does not eliminate all RAW stalls.
-
-### বাংলা উত্তর
-
-`add`-এর ফল `$t0` register-এ WB stage-এ লেখার আগেই পরের `sub` তার EX stage-এ মানটি চায়। Forwarding না থাকলে `sub` অপেক্ষা করবে। Forwarding থাকলে `EX/MEM` pipeline register-এর ALU result সরাসরি পরের instruction-এর ALU input multiplexer-এ দেওয়া হয়; তাই stall লাগে না।
-
-কিন্তু `lw`-এর পরপর dependent instruction থাকলে load data MEM stage-এর শেষে পাওয়া যায়, যা পরের instruction-এর EX stage-এর জন্য দেরি। এজন্য এক cycle bubble/stall ঢোকাতে হয়; তারপর `MEM/WB` থেকে forwarding করা যায়। অর্থাৎ forwarding অধিকাংশ RAW delay কমায়, কিন্তু load-use hazard সম্পূর্ণ দূর করে না।
-
----
+	![alt text](image-11.png)
 
 ## 20. Datapath Modification to Support Forwarding
 
-### Enhanced question
+??? "Show the modification 🛠️ in the data path 🛤️ to support data forwarding."
 
-**Show the modifications required in a five-stage MIPS datapath to support operand forwarding. Explain the forwarding-unit comparisons, multiplexer controls and priority rules.**
+	ডেটা ফরওয়ার্ডিং (Data/Operand Forwarding) সাপোর্ট করার জন্য প্রসেসরের সাধারণ ডেটাপাথে (Datapath) মূলত ২টি প্রধান পরিবর্তন করতে হয়:
+	১. ALU-এর ইনপুটে দুটি ৩-টু-১ মাল্টিপ্লেক্সার (Mux) যুক্ত করা।
+	২. একটি ফরওয়ার্ডিং ইউনিট (Forwarding Unit) বসানো যা পাইপলাইন রেজিস্টার থেকে ডেটা রিড করে Mux দুটিকে কন্ট্রোল করবে।
+	১০ মিনিট পরীক্ষার আগে ঝটপট খাতায় আঁকার জন্য নিচে একটি সহজ টেক্সট-ভিত্তিক ব্লকিং ডায়াগ্রাম এবং তার সংক্ষিপ্ত ব্যাখ্যা দেওয়া হলো:
 
-### Figure: forwarding additions
+	## 🛤️ ডেটাপাথের পরিবর্তন (Text-Based Modified Datapath)
+	![Datapath Additions for Operand Forwarding](image-10.png)
 
-![Datapath Additions for Operand Forwarding](figures/09_forwarding_datapath.svg)
+	## 🛠️ ৩টি প্রধান মডিফিকেশন (পরীক্ষার খাতায় লেখার বুলেট পয়েন্ট)
 
-### English answer
+	* ৩-টু-১ মাল্টিপ্লেক্সার (Mux A & B): ALU-এর দুটি মূল ইনপুটের ঠিক সামনে দুটি নতুন মাল্টিপ্লেক্সার বসানো হয়। এদের কাজ হলো ৩টি অপশনের মধ্যে যেকোনো একটিকে বেছে নেওয়া:
+	1. সাধারণ রেজিস্টার থেকে আসা ডেটা (No Forwarding)
+	2. ঠিক আগের ইনস্ট্রাকশনের EX/MEM রেজিস্টার থেকে আসা ডেটা (Forward from EX)
+	3. তারও আগের ইনস্ট্রাকশনের MEM/WB রেজিস্টার থেকে আসা ডেটা (Forward from MEM)
+	* ফরওয়ার্ডিং পাথ (Wires): EX/MEM এবং MEM/WB পাইপলাইন রেজিস্টার থেকে দুটি সরাসরি নতুন তারের সংযোগ (Path) টেনে এনে Mux-এর ইনপুটের সাথে যুক্ত করে দেওয়া হয়।
+	* ফরওয়ার্ডিং ইউনিট (Control Logic): এটি একটি নতুন হার্ডওয়্যার ব্লক যা নিচের কন্ডিশন চেক করে স্বয়ংক্রিয়ভাবে Mux সিলেক্ট করে:
+	* শর্ত: যদি বর্তমান ইনস্ট্রাকশনের সোর্স রেজিস্টার ($Rs$ বা $Rt$) এবং আগের ইনস্ট্রাকশনের ডেস্টিনেশন রেজিস্টার ($Rd$) মিলে যায়, তবে এটি Mux-কে সিগন্যাল পাঠিয়ে সরাসরি পাইপলাইন রেজিস্টারের ডেটা ALU-তে পাস করে দেয়।
 
-Two three-input multiplexers are added before the ALU:
+	------------------------------
+	## 💡 পরীক্ষার শেষ মুহূর্তের ট্রিক:
+	খাতায় শুধু ALU-এর ইনপুটে দুটি Mux এবং নিচ থেকে একটি Forwarding Unit এঁকে তারের কানেকশনগুলো দেখিয়ে দিলেই পরীক্ষক ফুল মার্কস দিয়ে দেবেন!
+	পরীক্ষার জন্য অনেক শুভকামনা! কোনো কনফিউশন থাকলে ঝটপট জানান।
 
-- `00`: original `ID/EX` register operand;
-- `10`: newest result from `EX/MEM`;
-- `01`: write-back value from `MEM/WB`.
 
-The forwarding unit compares the source numbers of the instruction in EX with destination numbers of older instructions:
+## Question 19 and 20  difference:
 
-```text
-if EX/MEM.RegWrite and EX/MEM.Rd ≠ 0
-   and EX/MEM.Rd = ID/EX.Rs, ForwardA = 10
+??? "Question 19 and 20  difference:" 
 
-if EX/MEM.RegWrite and EX/MEM.Rd ≠ 0
-   and EX/MEM.Rd = ID/EX.Rt, ForwardB = 10
-```
+	Here is a side-by-side comparison breaking down both questions. This table organizes the **logical concept (the "what and why")** next to the **physical hardware changes (the "how")** so you can easily compare them for your exams 📝.
 
-Comparable tests select `01` for `MEM/WB`. If both match, `EX/MEM` has priority because it contains the newer value. The second operand path also needs correct forwarding to store-data input for a dependent `sw`. Register zero is excluded because writes to `$zero` do not change architectural state.
+	| Feature | Explain with Example: Operand Forwarding 💡⏩ | Show the Modification: Data Path Changes 🛠️🛤️ |
+	| --- | --- | --- |
+	| **Core Objective** | To logically resolve **Data Dependencies** (specifically Read-After-Write / RAW hazards) without forcing the pipeline to freeze or "stall" 🔗✅. | To physically alter the standard CPU hardware to detect these dependencies and create shortcuts for the data 📤. |
+	| **How it Works (The Concept)** | It grabs the newly calculated data *immediately* after it is computed and feeds it directly to the next instruction, completely bypassing the Write-Back (WB) stage. | It adds a "traffic controller" to monitor which registers are being used, and adds new wires to route data backward from later pipeline stages. |
+	| **Detailed Breakdown (Example vs. Hardware)** | **The Example:**<br>
 
-A separate hazard-detection unit still freezes `PC` and `IF/ID`, and inserts a control bubble into `ID/EX`, for an immediate load-use case.
+	<br>1. `add $t0, $t1, $t2`<br>
 
-### বাংলা উত্তর
+	<br>2. `sub $t3, $t0, $t4`<br>
 
-ALU-এর A ও B input-এর আগে তিন-input multiplexer যোগ করা হয়। Multiplexer `ID/EX`-এর পুরোনো operand, `EX/MEM`-এর সর্বশেষ ALU result অথবা `MEM/WB`-এর write-back value নির্বাচন করে। Forwarding unit বর্তমান EX instruction-এর `Rs/Rt`-এর সঙ্গে আগের instruction-এর destination register তুলনা করে।
+	<br>
 
-`RegWrite=1`, destination শূন্য নয় এবং register number মিললে forwarding সক্রিয় হয়। `EX/MEM` ও `MEM/WB` উভয় match করলে `EX/MEM`-কে priority দিতে হয়, কারণ সেটিই নতুন মান। Dependent `sw`-এর store-data path-এও forwarding দরকার। Immediate load-use hazard-এর জন্য আলাদা detection unit PC ও IF/ID freeze করে এক cycle bubble দেয়।
+	<br>• **The Problem:** `sub` needs the value of `$t0` to execute, but `add` won't write it to the register file for another 2 cycles.<br>
 
----
+	<br>• **The Forwarding Solution:** The moment `add` finishes its math in the Execute (EX) stage, that result is forwarded straight into the ALU for the `sub` instruction in the very next clock cycle. Zero stalls! | **The 4 Major Hardware Modifications:**<br>
 
+	<br>1. **Forwarding Unit Added:** A dedicated hardware block is placed in the EX stage to act as the brain.<br>
+
+	<br>2. **Expanded ALU MUXes:** The standard 2-to-1 multiplexers in front of the ALU are upgraded to **3-to-1 MUXes** so the ALU can accept forwarded data.<br>
+
+	<br>3. **New Feedback Wires:** Thick data buses are added to route ALU results from the **EX/MEM** and **MEM/WB** pipeline registers backward to the new MUXes.<br>
+
+	<br>4. **Register ID Routing:** Thin control wires route the `Rs`, `Rt`, and `Rd` register numbers into the Forwarding Unit for comparison. |
+	| **The Trigger Mechanism** | Forwarding is triggered when an instruction tries to *read* a register that a previous, currently executing instruction is about to *write* to. | The **Forwarding Unit** constantly compares the source registers (`Rs`, `Rt`) of the current instruction with the destination registers (`Rd`) of older instructions in the pipeline. If they match, it flips the MUXes! |
+
+## Hazards (all)
+
+??? "Pipeline Hazards"
+	
+	![Pipeline Hazards](https://res.cloudinary.com/zopgecx6/image/upload/v1785433514/9606e6fd-d93f-4bcd-938c-d68c4d8dee8a_jy0sna.png)
+
+	
 ## 21. Data Hazards and Their Pipeline Effects
+??? "What is a data hazard? ☢️ How can it be overcome? 🛡️ Discuss its side effects on pipeline performance."
 
-### Enhanced question
+	A **data hazard** occurs when overlapping instructions access the same data and normal pipeline timing would produce a result different from sequential execution.
 
-**Define data hazard, classify RAW, WAR and WAW dependencies, explain the techniques used to overcome them, and analyze their side effects on pipeline performance.**
+	| Hazard | Meaning | Example |
+	|---|---|---|
+	| `RAW` | Read after write; true dependence | `add R1,...` then `sub ...,R1,...` |
+	| `WAR` | Write after read; anti-dependence | Later instruction writes a register before an older one reads it |
+	| `WAW` | Write after write; output dependence | Two writes complete in the wrong order |
 
-### English answer
+	An in-order five-stage MIPS pipeline normally encounters mainly `RAW`; reads occur early and writes occur in order, preventing `WAR/WAW`. Out-of-order processors may face all three.
 
-A **data hazard** occurs when overlapping instructions access the same data and normal pipeline timing would produce a result different from sequential execution.
+	Remedies include:
 
-| Hazard | Meaning | Example |
-|---|---|---|
-| `RAW` | Read after write; true dependence | `add R1,...` then `sub ...,R1,...` |
-| `WAR` | Write after read; anti-dependence | Later instruction writes a register before an older one reads it |
-| `WAW` | Write after write; output dependence | Two writes complete in the wrong order |
+	- forwarding/bypassing;
+	- hardware interlocks and stalls;
+	- compiler instruction scheduling;
+	- register renaming for `WAR/WAW`;
+	- dynamic scheduling and in-order retirement;
+	- load/store queues for uncertain memory dependencies.
 
-An in-order five-stage MIPS pipeline normally encounters mainly `RAW`; reads occur early and writes occur in order, preventing `WAR/WAW`. Out-of-order processors may face all three.
+	The direct side effect of a stall is higher CPI:
 
-Remedies include:
+	$$CPI_{\text{actual}}=CPI_{\text{base}}+\text{data-hazard stall cycles/instruction}$$
 
-- forwarding/bypassing;
-- hardware interlocks and stalls;
-- compiler instruction scheduling;
-- register renaming for `WAR/WAW`;
-- dynamic scheduling and in-order retirement;
-- load/store queues for uncertain memory dependencies.
+	Forwarding reduces stalls but adds multiplexers, long comparison paths, wiring, area and power. Renaming and scheduling improve instruction-level parallelism but require reservation stations, physical registers and a reorder buffer. Incorrect speculation on memory dependence may require replay. Therefore hazard handling exchanges hardware complexity and energy for performance.
 
-The direct side effect of a stall is higher CPI:
-
-$$CPI_{\text{actual}}=CPI_{\text{base}}+\text{data-hazard stall cycles/instruction}$$
-
-Forwarding reduces stalls but adds multiplexers, long comparison paths, wiring, area and power. Renaming and scheduling improve instruction-level parallelism but require reservation stations, physical registers and a reorder buffer. Incorrect speculation on memory dependence may require replay. Therefore hazard handling exchanges hardware complexity and energy for performance.
-
-### বাংলা উত্তর
-
-Overlapped instruction একই data access করার কারণে sequential execution-এর মতো সঠিক ফল না পাওয়ার আশঙ্কা হলে **data hazard** ঘটে। `RAW` সত্যিকারের dependency—আগের write-এর ফল পরের read চায়। `WAR` হলো anti-dependency এবং `WAW` output dependency; এগুলো প্রধানত out-of-order execution-এ দেখা যায়। In-order পাঁচ-stage MIPS-এ সাধারণত RAW-ই প্রধান।
-
-Forwarding, interlock ও stall, compiler scheduling, register renaming, dynamic scheduling, in-order retirement এবং memory dependency-এর জন্য load/store queue ব্যবহৃত হয়। Stall সরাসরি CPI বাড়ায়। Forwarding stall কমালেও extra multiplexer, comparator, wire, area ও power লাগে। Renaming ও out-of-order scheduling আরও parallelism দেয়, কিন্তু physical register, reservation station ও reorder buffer-এর জটিলতা যোগ করে। তাই performance বৃদ্ধির বিনিময়ে hardware cost ও energy বাড়ে।
-
----
 
 # Part D — Computer Arithmetic and Performance
 
 ## 22. Multiplication Algorithm and Processor Hardware
+	
+	![alt text](image-12.png)
 
-### Enhanced question
-
-**Develop the unsigned shift-and-add multiplication algorithm, draw its processor hardware organization, and demonstrate it using a complete binary example.**
-
-### Figure: sequential multiplier
-
-![Sequential Shift-and-Add Multiplier](figures/10_sequential_multiplier.svg)
-
-### English answer
-
-Binary multiplication forms shifted partial products. For each multiplier bit, the multiplicand is added when that bit is 1.
-
-#### Algorithm
-
-```text
-Product ← 0
-Multiplicand ← zero-extended M
-Multiplier ← Q
-repeat n times:
-    if Multiplier[0] = 1:
-        Product ← Product + Multiplicand
-    Multiplicand ← Multiplicand << 1
-    Multiplier   ← Multiplier >> 1
-```
-
-The hardware needs multiplicand and multiplier registers, a double-width product register, an adder and control/count logic. An optimized implementation may combine the product and multiplier registers and shift the partial product.
-
-#### Example: \(1101_2\times1011_2=13\times11\)
-
-| Iteration | Tested multiplier bit | Shifted multiplicand | Product after possible add |
-|---:|:---:|---:|---:|
-| Initial | — | `00001101` | `00000000` |
-| 1 | 1 | `00001101` | `00001101` |
-| 2 | 1 | `00011010` | `00100111` |
-| 3 | 0 | `00110100` | `00100111` |
-| 4 | 1 | `01101000` | `10001111` |
-
-Thus \(10001111_2=143_{10}\), which equals \(13\times11\). For signed operands, sign correction or a signed algorithm such as Booth’s algorithm is used.
-
-### বাংলা উত্তর
-
-Binary multiplication-এ multiplier-এর প্রতিটি bit পরীক্ষা করে bit 1 হলে উপযুক্তভাবে shifted multiplicand product-এর সঙ্গে যোগ করা হয়। শুরুতে Product=0। প্রতি iteration-এ `Q₀` পরীক্ষা, conditional addition, multiplicand left shift এবং multiplier right shift হয়। \(n\)-bit multiplier-এর জন্য \(n\)টি iteration লাগে।
-
-Hardware-এ multiplicand register, multiplier register, double-width product register, adder এবং iteration control/counter থাকে। উদাহরণে \(1101_2\times1011_2\)-এর partial productগুলো যোগ করে `10001111₂` পাওয়া যায়, যা \(143_{10}\)। Signed multiplication-এর জন্য sign correction অথবা Booth algorithm দরকার।
-
----
 
 ## 23. Divide \((1010)_2\) by \((0010)_2\)
 
@@ -2048,7 +2245,6 @@ Hardware-এ multiplicand register, multiplier register, double-width product re
 
 **Using the restoring binary-division algorithm, divide \((1010)_2\) by \((0010)_2\). Show the contents of the accumulator, quotient register and decision in every iteration, and verify the result.**
 
-### English answer
 
 Dividend \(Q=1010_2=10\), divisor \(M=0010_2=2\). Use a 5-bit accumulator \(A\) to observe the sign.
 
@@ -2082,7 +2278,6 @@ Dividend `1010₂=10` এবং divisor `0010₂=2`। Restoring division-এ co
 
 **Convert \(-0.625_{10}\) into normalized binary and construct its IEEE 754 single-precision and double-precision encodings. Show sign, biased exponent, fraction and hexadecimal form.**
 
-### English answer
 
 First convert the magnitude:
 
@@ -2131,7 +2326,6 @@ Single precision-এ biased exponent \(-1+127=126=01111110_2\); ফলে bit pa
 
 **Design an unsigned 4×4-bit combinational binary multiplier. Derive the partial products, describe the AND-gate and adder arrangement, and verify it with an example.**
 
-### English answer
 
 Let:
 
@@ -2181,7 +2375,6 @@ This is a combinational design: it is fast but consumes more area than a sequent
 
 **Apply Booth’s signed two’s-complement multiplication algorithm to \(16\times(-2)\). Use a sufficient word length, show every arithmetic-shift step, and verify the final product.**
 
-### English answer
 
 Six bits are required to represent \(+16\) and \(-2\):
 
@@ -2224,7 +2417,6 @@ Its two’s-complement magnitude is `000000100000₂=32`, so \(AQ=-32\), correct
 
 **Explain how computer performance is evaluated using execution time, clock rate, instruction count, CPI and MIPS. Derive the CPU-time equation and illustrate it with a numerical example.**
 
-### English answer
 
 The most reliable measure for one program is **execution time**. If clock rate is \(f\), clock-cycle time is \(1/f\). The fundamental equation is:
 
@@ -2270,7 +2462,6 @@ MIPS \(=\frac{Clock\ rate}{CPI\times10^6}\)। উদাহরণে 600 million
 
 **For processors P1 (3 GHz, CPI 1.5), P2 (2.5 GHz, CPI 1.0) and P3 (4 GHz, CPI 2.5), calculate instruction rate, cycles and instruction count for a 12-second execution. Then determine the clock rate required for each processor to reduce execution time by 25% when CPI rises by 15%.**
 
-### English answer
 
 #### (i) Instructions per second
 
@@ -2343,7 +2534,6 @@ $$f_{new}=f_{old}\times\frac{1.15}{0.75}=1.5333f_{old}$$
 
 ![Flynn’s Classification](figures/11_flynn_classification.svg)
 
-### English answer
 
 Michael Flynn classified computers by the number of simultaneous **instruction streams** and **data streams**.
 
@@ -2380,7 +2570,6 @@ MIMD shared-memory UMA/NUMA অথবা message-passing distributed-memory হ�
 
 **Define cache memory and explain locality, cache hit, cache miss, hit rate, miss rate and miss penalty. Derive average memory access time and solve a numerical example.**
 
-### English answer
 
 **Cache memory** is a small, fast memory placed between the CPU and slower main memory. It keeps copies of recently or nearby used memory blocks. Its success depends on:
 
@@ -2411,7 +2600,6 @@ Requested block cache-এ থাকলে **hit**, না থাকলে **miss
 
 **Explain and compare write-through and write-back cache policies. Include write-hit and write-miss behavior, the role of write buffers and dirty bits, and the advantages and disadvantages of each.**
 
-### English answer
 
 #### Write-through
 
@@ -2462,7 +2650,6 @@ Write miss-এ write-allocate block cache-এ এনে write করে; no-writ
 
 **Write and explain the Register Transfer Logic (RTL) for the MIPS instructions `addu`, `addi`, `lw`, `sw` and `beq`, including common instruction fetch and effective-address/branch calculations.**
 
-### English answer
 
 Let `R[x]` denote register contents and `M[x]` a 32-bit memory word. Common fetch:
 
@@ -2499,7 +2686,6 @@ Common fetch-এ `IR←M[PC]` এবং `PC←PC+4`। `addu` দুই source r
 
 ![Basic Processor–Memory Connection](figures/12_processor_memory_connection.svg)
 
-### English answer
 
 The processor communicates with memory through an address path, a data path and control signals. `MAR` or an address latch holds the requested address; `MDR` or a data buffer holds the word being transferred.
 
@@ -2537,7 +2723,6 @@ Address bus সাধারণত CPU থেকে memory-র দিকে; data
 
 ![Internal Organization of a Memory Chip](figures/13_memory_chip_organization.svg)
 
-### English answer
 
 Memory cells are arranged as a rectangular array. A **row decoder** activates one word line. Cells on that row connect to vertical bit lines. Sense amplifiers detect small read signals, and a column decoder/multiplexer selects the bits forming the external word.
 
@@ -2561,7 +2746,6 @@ Memory bit cell row ও column-এর rectangular array-তে সাজান�
 
 **Design a \(2M\times32\)-bit memory module using \(512K\times8\)-bit SRAM chips. Calculate the number of chips and banks, show address decoding and data-bus connections, and state total capacity.**
 
-### English answer
 
 Required organization: \(2M\) words × 32 bits.  
 One chip: \(512K\) words × 8 bits.
@@ -2604,7 +2788,6 @@ $$2^{21}\times32=2^{26}\text{ bits}=64\text{ Mibits}=8\text{ MiB}$$
 
 **Define virtual memory and explain address translation using pages, frames, page tables and the TLB. Then explain why a mapping function is required in cache memory and compare direct, associative and set-associative mapping.**
 
-### English answer
 
 **Virtual memory** gives each process a large, private, contiguous virtual address space even though physical memory is smaller and shared. A virtual address is divided into a **virtual page number (VPN)** and page offset. The page table maps the VPN to a physical frame number; the offset is unchanged. A **TLB** caches recent translations. If a valid translation is absent from the page table because the page is not resident, a page fault allows the OS to bring it from secondary storage.
 

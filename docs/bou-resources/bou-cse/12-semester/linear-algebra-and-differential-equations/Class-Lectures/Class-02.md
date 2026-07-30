@@ -111,7 +111,7 @@ Hence proved. $\quad \text{(Shown)}$ ✅
 
 ### Short Question: Concentric Circle Whose Centre is the Origin
 
-![image-40.png](/bou-resources/media-library/image-40.png)
+![image-40.png](/bou-resources/bou-cse/media-library/image-40.png)
 **1.**
 A concentric circle with its centre at the origin has the general equation:
 
@@ -255,7 +255,7 @@ $$
 \boxed{(x^2 - y^2) dy - 2xy dx = 0}
 $$
 
-![image-42.png](/bou-resources/media-library/image-42.png)
+![image-42.png](/bou-resources/bou-cse/media-library/image-42.png)
 
 ✅ **এটাই চেয়েছিল।**
 **বোঝার লজিক**:

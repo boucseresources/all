@@ -1,8 +1,8 @@
-![image-62.png](/bou-resources/media-library/image-62.png)
+![image-62.png](/bou-resources/bou-cse/media-library/image-62.png)
 
 === "বাংলায় সহজে"
 
-    ![image-61.png](/bou-resources/media-library/image-61.png)
+    ![image-61.png](/bou-resources/bou-cse/media-library/image-61.png)
 
 
     এই ছবিটি মূলত **Thevenin's Theorem** অ্যাপ্লাই করার সময় আমরা যে ৩টি ভিন্ন পরিস্থিতির (Case) মুখোমুখি হই, সেগুলোকে ক্লাসিফাই করেছে। সার্কিটে কী ধরণের **Source** (Voltage বা Current) আছে, তার ওপর ভিত্তি করে ** (Thevenin Resistance)** বের করার নিয়ম আলাদা হয়।
@@ -344,13 +344,13 @@
     ### **Introduction: Mastering Thevenin’s Theorem**
 
     **[[00:00](http://www.youtube.com/watch?v=-X7otqsma4Q&t=0)]** I want to make you an expert at using Thevenin's theorem to solve circuits. Imagine you have a complex circuit and you need to find the voltage or current through just one specific resistor. We call this resistor our "load." Instead of analyzing the entire complex mess every time, what if there was a way to represent the whole circuit—excluding the load—as something much simpler?
-    ![image-63.png](/bou-resources/media-library/image-63.png)
+    ![image-63.png](/bou-resources/bou-cse/media-library/image-63.png)
     That is exactly what Thevenin’s theorem does. It allows us to replace all the current sources, voltage sources, and resistors in a circuit with just two simple elements connected in series with our load:
 
     1. **Thevenin Equivalent Voltage ():** This acts as a single voltage source
-    ![image-64.png](/bou-resources/media-library/image-64.png)
+    ![image-64.png](/bou-resources/bou-cse/media-library/image-64.png)
     2. **Thevenin Equivalent Resistance ():** This acts as a single resistor.
-    ![image-65.png](/bou-resources/media-library/image-65.png)
+    ![image-65.png](/bou-resources/bou-cse/media-library/image-65.png)
 
     **[[03:47](http://www.youtube.com/watch?v=-X7otqsma4Q&t=227)]** You might wonder why we bother with this if methods like Nodal or Mesh analysis exist. The huge benefit here is flexibility. If you wanted to test five different loads on a circuit, you would normally have to re-analyze the whole circuit five times. With Thevenin’s theorem, you solve the complex part once to get your equivalent circuit, and then you can easily swap in any load you want.
 
@@ -360,7 +360,7 @@
 
     **[[01:14](http://www.youtube.com/watch?v=-X7otqsma4Q&t=74)]** To solve these problems, we always need to find two values:  and . Finding  is usually straightforward (we find the Open Circuit Voltage, or ), but finding  depends entirely on what is inside your circuit. I classify these into three specific scenarios:
 
-    ![image-66.png](/bou-resources/media-library/image-66.png)
+    ![image-66.png](/bou-resources/bou-cse/media-library/image-66.png)
 
     1. **Independent Sources Only:** To find , we remove the load and calculate the voltage across the open terminals (). To find , we turn off the sources: voltage sources become short circuits (wires), and current sources become open circuits (broken wires). We then look back into the circuit and calculate the total resistance.
     2. **Mix of Dependent and Independent Sources:** We find  normally (). However, we *cannot* turn off dependent sources. Instead, we remove the load and place a short circuit (a wire) across the terminals. We calculate the current flowing through that wire, which we call the Short Circuit Current (). Then, we use the formula:
@@ -371,15 +371,15 @@
 
     ### **Chapter 2: Example with Independent Sources**
 
-    ![image-67.png](/bou-resources/media-library/image-67.png)
+    ![image-67.png](/bou-resources/bou-cse/media-library/image-67.png)
 
-    ![image-68.png](/bou-resources/media-library/image-68.png)
+    ![image-68.png](/bou-resources/bou-cse/media-library/image-68.png)
 
-    ![image-69.png](/bou-resources/media-library/image-69.png)
+    ![image-69.png](/bou-resources/bou-cse/media-library/image-69.png)
 
-    ![image-70.png](/bou-resources/media-library/image-70.png)
+    ![image-70.png](/bou-resources/bou-cse/media-library/image-70.png)
 
-    ![image-71.png](/bou-resources/media-library/image-71.png)
+    ![image-71.png](/bou-resources/bou-cse/media-library/image-71.png)
 
 
 
