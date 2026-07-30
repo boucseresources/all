@@ -75,7 +75,7 @@ The relationship between the imaginary lines of force and the electric field str
 ###### ① Tangent Property:
 
 > The tangent to a line of force at any point gives the direction of $\vec{E}$ at that point.
-> ![image-2.png](/bou-resources/media-library/image-2.png)
+> ![image-2.png](/bou-resources/bou-cse/media-library/image-2.png)
 > _(Illustration shows field lines going from a positive to a negative charge with curved paths — this represents a dipole field.)_
 
 ###### ② Density and Magnitude:
@@ -120,7 +120,7 @@ $$
 A positive and a negative charge of equal magnitude $q$ are placed at a distance $2a$ apart, forming an electric dipole. Find the electric field $\vec{E}$ at point $P$, located a distance $r$ from the center of the dipole along the perpendicular bisector.
 _Assume $r \gg a$._
 
-![image-3.png](/bou-resources/media-library/image-3.png)
+![image-3.png](/bou-resources/bou-cse/media-library/image-3.png)
 
 **Solution:**
 The total electric field at point $P$ is the vector sum of the fields due to $+q$ and $-q$:
@@ -181,7 +181,7 @@ Yes, the electric field ($\vec{E}$) is directed from the positive charge to the 
 In contrast, the **electric dipole moment** ($\vec{p}$) is a vector quantity that points from the **negative charge to the positive charge**. It is defined as $\vec{p} = q \cdot \vec{d}$, where $\vec{d}$ is the vector from −q to +q.
 
 Thus,
-![image-5.png](/bou-resources/media-library/image-5.png)
+![image-5.png](/bou-resources/bou-cse/media-library/image-5.png)
 
 - **Electric field direction:** $+ \rightarrow -$
 - **Dipole moment direction:** $- \rightarrow +$
@@ -369,7 +369,7 @@ $$
 $$
 
 Here, **p** is the dipole moment.
-![image-15.png](/bou-resources/media-library/image-15.png)
+![image-15.png](/bou-resources/bou-cse/media-library/image-15.png)
 
 In vector form, equation (2.36) is written as:
 

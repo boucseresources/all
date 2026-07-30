@@ -1,4 +1,4 @@
-![image-39.png](/bou-resources/media-library/image-39.png)
+![image-39.png](/bou-resources/bou-cse/media-library/image-39.png)
 
 ### ✅ Chapter-wise Analysis Summary: BOU MAT1231
 

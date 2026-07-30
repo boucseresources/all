@@ -52,18 +52,18 @@ F(a,b,c) = ac + ab' + b'c + a'bc'
 - \(m_1, m_5 \rightarrow b'c\)
 - \(m_2 \rightarrow a'bc'\)
 
-![TinkerCad of F = B'C + A'BC' + AB' + AC.png](/bou-resources/media-library/TinkerCad of F = B'C + A'BC' + AB' + AC.png)
+![TinkerCad of F = B'C + A'BC' + AB' + AC.png](/bou-resources/bou-cse/media-library/TinkerCad of F = B'C + A'BC' + AB' + AC.png)
 
 # DLD Lab 4.2 (Circuit Design with K-Map solution )
 
 ---
 
-![DLD Lab 4.2.png](/bou-resources/media-library/DLD Lab 4.2.png)
+![DLD Lab 4.2.png](/bou-resources/bou-cse/media-library/DLD Lab 4.2.png)
 
 TinkerCad এর জন্যঃ
-![image-50.png](/bou-resources/media-library/image-50.png)
+![image-50.png](/bou-resources/bou-cse/media-library/image-50.png)
 
-![F = A'C + AB'D' + ABD.png](/bou-resources/media-library/F = A'C + AB'D' + ABD.png)
+![F = A'C + AB'D' + ABD.png](/bou-resources/bou-cse/media-library/F = A'C + AB'D' + ABD.png)
 
 ---
 

@@ -5,7 +5,7 @@ aliases:
 tags:
 ---
 
-![output _1_-1.png](/bou-resources/media-library/output _1_-1.png)
+![output _1_-1.png](/bou-resources/bou-cse/media-library/output _1_-1.png)
 
 ### 📘 Updated 4-Day Study Plan (Considering Term 221)
 

@@ -10,3 +10,5 @@
 
 3. Shanu Kuttan CSE Classes  ⟹ [Advance Computer Architecture/ Parallel Processing & Computing](https://www.youtube.com/playlist?list=PL3R9-um41Jsz4as9nqgVB6YRR90rs0wE6) 
 
+4. Clean explanation about most of the topics: 
+[Advanced Computer Architecture by AllAboutCSIT](https://www.youtube.com/playlist?list=PLGuh2K9TUN4Qxkrylyq_qwfhAZiuzZ2gz)

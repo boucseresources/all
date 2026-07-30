@@ -399,6 +399,6 @@ Which is **decimal 54**
 
 ---
 
-![image-22.png](/bou-resources/media-library/image-22.png)
+![image-22.png](/bou-resources/bou-cse/media-library/image-22.png)
 
-![image-23.png](/bou-resources/media-library/image-23.png)
+![image-23.png](/bou-resources/bou-cse/media-library/image-23.png)

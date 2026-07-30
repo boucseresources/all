@@ -28,7 +28,7 @@ share_updated: 2025-07-01T14:49:22+06:00
 | Day 3 | Reading    | 13.25     |
 | Day 3 | Review All | Flexible  |
 
-![image-28.png](/bou-resources/media-library/image-28.png)
+![image-28.png](/bou-resources/bou-cse/media-library/image-28.png)
 
 ### ✅ Summary:
 

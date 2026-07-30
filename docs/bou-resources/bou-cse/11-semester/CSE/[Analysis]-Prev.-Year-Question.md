@@ -236,7 +236,7 @@ aliases:
 - 📌 What are communication protocols? Name any four.
 - 📌 Explain TCP/IP model and its layers briefly.
 
-![image-21.png](/bou-resources/media-library/image-21.png)
+![image-21.png](/bou-resources/bou-cse/media-library/image-21.png)
 
 ### 🔥 Key Chapter Suggestions Based on Frequency:
 

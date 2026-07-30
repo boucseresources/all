@@ -118,7 +118,7 @@ title: DLDL - Class 05
 * 3য় NAND Gate → আউটপুট = $\overline{\overline{A} \cdot \overline{B}} = A + B$ |
 * চূড়ান্ত আউটপুট = OR Gate |
 
-![OR-Gate-Using-NAND-Gate.png](/bou-resources/media-library/OR-Gate-Using-NAND-Gate.png)
+![OR-Gate-Using-NAND-Gate.png](/bou-resources/bou-cse/media-library/OR-Gate-Using-NAND-Gate.png)
 ---
 
 ### ✅ NOR Gate Using NAND Gate
@@ -129,7 +129,7 @@ title: DLDL - Class 05
 * 3য় NAND Gate → আউটপুট = $\overline{(A \cdot B) \cdot (A \cdot B)} = \overline{A \cdot B}$ |
 * চূড়ান্ত আউটপুট = NOR Gate |
 
-![NOR-Gate-Using-NAND-Gate.png](/bou-resources/media-library/NOR-Gate-Using-NAND-Gate.png)
+![NOR-Gate-Using-NAND-Gate.png](/bou-resources/bou-cse/media-library/NOR-Gate-Using-NAND-Gate.png)
 
 
 
@@ -139,7 +139,7 @@ title: DLDL - Class 05
     * ধাপে ধাপে শেষে আউটপুট = $A \oplus B$ .
     * চূড়ান্ত আউটপুট = XOR Gate.
 
-    ![XOR0-Gate-Using-NAND-Gate.png](/bou-resources/media-library/XOR0-Gate-Using-NAND-Gate.png)
+    ![XOR0-Gate-Using-NAND-Gate.png](/bou-resources/bou-cse/media-library/XOR0-Gate-Using-NAND-Gate.png)
     **FULL Implementation:**
     ![XOR Gate Using NAND Gate](image-19.png)
 
@@ -289,7 +289,7 @@ title: DLDL - Class 05
     * ধাপে ধাপে NAND ব্যবহার করে আউটপুট = $\overline{A \oplus B}$ |
     * চূড়ান্ত আউটপুট = XNOR Gate |
 
-    ![image-47.png](/bou-resources/media-library/image-47.png)
+    ![image-47.png](/bou-resources/bou-cse/media-library/image-47.png)
 
     ![Full AND/OR/NOT Set to Implement Ex-NOR](image-20.png)
     ---

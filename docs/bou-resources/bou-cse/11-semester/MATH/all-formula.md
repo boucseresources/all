@@ -161,4 +161,4 @@ Then differentiate using product and chain rules.
 
 ---
 
-![image-27.png](/bou-resources/media-library/image-27.png)
+![image-27.png](/bou-resources/bou-cse/media-library/image-27.png)

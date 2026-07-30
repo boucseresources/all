@@ -1,4 +1,4 @@
-![image-32.png](/bou-resources/media-library/image-32.png)
+![image-32.png](/bou-resources/bou-cse/media-library/image-32.png)
 
 # Chapter-wise Question Frequency
 

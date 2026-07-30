@@ -9,11 +9,11 @@ share_updated: 2025-07-05T02:36:26+06:00
 
 ![alt text](e6bc26c7a2617dafea44379d5d236b97.gif)
 
-![image-30.png](/bou-resources/media-library/image-30.png)
+![image-30.png](/bou-resources/bou-cse/media-library/image-30.png)
 
 ---
 
-![image-31.png](/bou-resources/media-library/image-31.png)
+![image-31.png](/bou-resources/bou-cse/media-library/image-31.png)
 
 ### 🔥 **Chapter-wise Heatmap Analysis (Based on Past Frequency)**
 

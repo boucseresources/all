@@ -6,7 +6,7 @@ title: XNOR Gate from NAND Gate
 
 আমরা জানি, NAND Gate হলো একটি universal logic gate, যেটি ব্যবহার করে যেকোনো ধরনের logic gate তৈরি করা যায়। এখন আমরা কেবল NAND gate ব্যবহার করে XNOR gate বাস্তবায়ন করব।
 
-![image-47.png](/bou-resources/media-library/image-47.png)
+![image-47.png](/bou-resources/bou-cse/media-library/image-47.png)
 
 ![Full AND/OR/NOT Set to Implement Ex-NOR](image-20.png)
 
