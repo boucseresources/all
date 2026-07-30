@@ -265,21 +265,6 @@ The **register file, ALU and control unit together form the CPU**. Buses and __I
 * Write back: saves the final answer.
 
 
-
-### বাংলা উত্তর
-
-Stored-program computer-এর পাঁচটি মৌলিক functional unit হলো:
-
-1. **Input unit:** Keyboard, sensor, network বা storage থেকে data/program গ্রহণ করে binary form-এ রূপান্তর করে।
-2. **Memory unit:** Instruction ও data উভয়ই সংরক্ষণ করে। Register সবচেয়ে দ্রুত; cache CPU–memory speed gap কমায়; main memory চলমান program রাখে; secondary storage দীর্ঘমেয়াদি সংরক্ষণ দেয়।
-3. **ALU:** Arithmetic, logic, comparison ও shift operation সম্পন্ন করে। Zero, carry, sign এবং overflow flag-ও তৈরি করতে পারে।
-4. **Control unit:** Instruction fetch ও decode করে এবং datapath, memory ও I/O-এর জন্য প্রয়োজনীয় timing/control signal দেয়। PC পরবর্তী instruction-এর address এবং IR বর্তমান instruction ধারণ করে।
-5. **Output unit:** Binary ফলাফলকে মানুষ বা অন্য system-এর উপযোগী রূপে প্রকাশ করে।
-
-Register file, ALU ও control unit মিলে CPU গঠিত হয়। Address, data এবং control bus ইউনিটগুলোর মধ্যে তথ্য বহন করে। Fetch–decode–execute cycle-এ instruction memory থেকে আনা হয়, decode করা হয়, operand সংগ্রহ করা হয়, operation সম্পন্ন হয় এবং ফল register বা memory-তে লেখা হয়।
-
----
-
 ## A5. Bus Structure of a Processor
 
 ### Enhanced question
@@ -617,9 +602,6 @@ Synchronous bus clock অনুসরণ করে; asynchronous bus request/ack
 # Part B — Instructions, ISA, Datapath and Control
 
 ## Basic: 
-
-
-
 
 
 ??? note "Define instruction types and define each types in details for 50 marks with example and block diagrams."
@@ -1052,30 +1034,27 @@ Synchronous bus clock অনুসরণ করে; asynchronous bus request/ack
 	![Instruction types Classifications-tinified](https://res.cloudinary.com/zopgecx6/image/upload/v1785171756/Instruction_types_Classifications-tinified_siy7qb.png)
 	
 
-## 1. Execution of `Load R2, LOC`
+## 1. Consider the below instruction: `Load R2, LOC`. Write the execution step of the above machine instruction.
 
-### Enhanced question
+??? "Consider the below instruction: `Load R2, LOC`. Write the execution step of the above machine instruction."
 
-**For a stored-program processor, show the complete fetch, decode and execute register-transfer sequence for `Load R2, LOC`. State the assumed addressing mode and explain each micro-operation.**
 
-### English answer
+	Assume **direct addressing**, so `LOC` is the memory address of the operand and the instruction means:
 
-Assume **direct addressing**, so `LOC` is the memory address of the operand and the instruction means:
+	$$R2 \leftarrow M[\text{LOC}]$$
 
-$$R2 \leftarrow M[\text{LOC}]$$
+	Using `PC`, `MAR`, `MDR` and `IR`, a typical sequence is:
 
-Using `PC`, `MAR`, `MDR` and `IR`, a typical sequence is:
+	| Step | Register-transfer operation | Meaning |
+	|---|---|---|
+	| T0 | `MAR ← PC` | Send next-instruction address to memory. |
+	| T1 | `MDR ← M[MAR]`, `PC ← PC + instruction_length` | Read instruction and advance PC. |
+	| T2 | `IR ← MDR` | Place instruction in IR and decode it. |
+	| T3 | `MAR ← IR[address]` | Put `LOC` in MAR. |
+	| T4 | `MDR ← M[MAR]` | Read the operand stored at `LOC`. |
+	| T5 | `R2 ← MDR` | Complete the load. |
 
-| Step | Register-transfer operation | Meaning |
-|---|---|---|
-| T0 | `MAR ← PC` | Send next-instruction address to memory. |
-| T1 | `MDR ← M[MAR]`, `PC ← PC + instruction_length` | Read instruction and advance PC. |
-| T2 | `IR ← MDR` | Place instruction in IR and decode it. |
-| T3 | `MAR ← IR[address]` | Put `LOC` in MAR. |
-| T4 | `MDR ← M[MAR]` | Read the operand stored at `LOC`. |
-| T5 | `R2 ← MDR` | Complete the load. |
-
-With a cache or synchronous memory, T1/T4 may include wait states. The operation changes `R2` but not the memory word at `LOC`.
+	With a cache or synchronous memory, T1/T4 may include wait states. The operation changes `R2` but not the memory word at `LOC`.
 
 
 ## 2. Characteristics of a RISC vs CISC Processor show 12 disctinction with example. 
@@ -1118,9 +1097,8 @@ With a cache or synchronous memory, T1/T4 may include wait states. The operation
 	| **12. Real-World Examples** | ARM processors (Apple Silicon M-series, Snapdragon, smartphones). | x86 processors (Intel Core, AMD Ryzen, traditional desktop PCs). |
 
 ## 3. Three-Bus CISC-Style Processor Organization
+
 ???  "Draw the three-bus CISC-style processor organization."
-
-
 
 	### What is a Three-Bus Architecture and Why Do We Use It?
 
@@ -1353,88 +1331,88 @@ $$R1 \leftarrow R1 + M[R3]$$
 
 ## 5. Explain the MIPS addressing modes with suitable examples.
 
-The MIPS architecture relies on five distinct addressing modes to determine where instruction operands are located in memory or CPU registers. Because MIPS is a Reduced Instruction Set Computer (RISC) architecture, it keeps these modes simple to ensure fast, predictable execution hardware.
+??? "Explain the MIPS addressing modes with suitable examples."
 
-Here is the breakdown of each MIPS addressing mode with practical assembly examples.
+	The MIPS architecture relies on five distinct addressing modes to determine where instruction operands are located in memory or CPU registers. Because MIPS is a Reduced Instruction Set Computer (RISC) architecture, it keeps these modes simple to ensure fast, predictable execution hardware.
 
-## 1. Register Addressing
-The operand is located directly inside a CPU register. This is the fastest addressing mode because it does not require any time-consuming memory access.
+	Here is the breakdown of each MIPS addressing mode with practical assembly examples.
 
-* 
-* Example: add $t0, $t1, $t2
-* How it works: The processor grabs the values already stored in register $t1 and register $t2, adds them together, and writes the final sum straight into register $t0.
-* 
+	## 1. Register Addressing
+	The operand is located directly inside a CPU register. This is the fastest addressing mode because it does not require any time-consuming memory access.
 
-## 2. Immediate Addressing
-The operand is a constant data value embedded directly within the instruction code itself. The constant value is limited to a 16-bit size.
+	* 
+	* Example: add $t0, $t1, $t2
+	* How it works: The processor grabs the values already stored in register $t1 and register $t2, adds them together, and writes the final sum straight into register $t0.
+	* 
 
-* 
-* Example: addi $t0, $t1, 4
-* How it works: The CPU reads the constant integer 4 from the instruction stream and adds it directly to the value found in register $t1, storing the final outcome into $t0.
-* 
+	## 2. Immediate Addressing
+	The operand is a constant data value embedded directly within the instruction code itself. The constant value is limited to a 16-bit size.
 
-## 3. Base or Displacement Addressing
-The data address in memory is calculated by adding a constant offset (displacement) to a base pointer stored in a register. This mode is primarily used by load and store instructions to pull data out of arrays or structs.
+	* 
+	* Example: addi $t0, $t1, 4
+	* How it works: The CPU reads the constant integer 4 from the instruction stream and adds it directly to the value found in register $t1, storing the final outcome into $t0.
+	* 
 
-* 
-* Example: lw $t0, 12($s0)
-* How it works: The processor calculates the actual memory target location by computing Value in Register $s0 + 12. It then copies the data word found at that specific memory address and places it inside register $t0.
-* 
+	## 3. Base or Displacement Addressing
+	The data address in memory is calculated by adding a constant offset (displacement) to a base pointer stored in a register. This mode is primarily used by load and store instructions to pull data out of arrays or structs.
 
-## 4. PC-Relative Addressing
-The target instruction address is calculated by adding a signed constant offset to the current Program Counter (PC). This mode is used strictly for conditional branch instructions.
+	* 
+	* Example: lw $t0, 12($s0)
+	* How it works: The processor calculates the actual memory target location by computing Value in Register $s0 + 12. It then copies the data word found at that specific memory address and places it inside register $t0.
+	* 
 
-* 
-* Example: beq $t0, $t1, label
-* How it works: If the data inside $t0 equals the data inside $t1, the CPU jumps to a new execution path. The jump distance is calculated by adding the instruction's relative offset directly to the updating Program Counter (PC + offset).
-* 
+	## 4. PC-Relative Addressing
+	The target instruction address is calculated by adding a signed constant offset to the current Program Counter (PC). This mode is used strictly for conditional branch instructions.
 
-## 5. Pseudo-Direct Addressing
-The target address is created by combining a 26-bit value embedded in the instruction with the upper 4 bits of the current Program Counter. This mode is utilized exclusively for unconditional jump instructions.
+	* 
+	* Example: beq $t0, $t1, label
+	* How it works: If the data inside $t0 equals the data inside $t1, the CPU jumps to a new execution path. The jump distance is calculated by adding the instruction's relative offset directly to the updating Program Counter (PC + offset).
+	* 
 
-* 
-* Example: j label
-* How it works: The CPU shifts the 26-bit target field left by 2 bits (making it a 28-bit boundary address) and glues the highest 4 bits of the current PC onto the very front to construct a complete 32-bit execution jump target.
-* 
+	## 5. Pseudo-Direct Addressing
+	The target address is created by combining a 26-bit value embedded in the instruction with the upper 4 bits of the current Program Counter. This mode is utilized exclusively for unconditional jump instructions.
 
-------------------------------
-**MIPS Addressing Modes Summary**
+	* 
+	* Example: j label
+	* How it works: The CPU shifts the 26-bit target field left by 2 bits (making it a 28-bit boundary address) and glues the highest 4 bits of the current PC onto the very front to construct a complete 32-bit execution jump target.
+	* 
 
-| Addressing Mode | Operand Location | Example Instruction | Primary Use Case |
-|---|---|---|---|
-| Register | Register file | add $t0, $t1, $t2 | Standard arithmetic and logic |
-| Immediate | Embedded in instruction | addi $t0, $t1, 4 | Fast math with small constants |
-| Base / Displacement | Memory Address (Register + Offset) | lw $t0, 12($s0) | Array and data structure access |
-| PC-Relative | PC Address + Offset | beq $t0, $t1, loop | Conditional loops and logic branches |
-| Pseudo-Direct | PC bits + Instruction bits | j cleanup | Unconditional jumps to functions |
+	------------------------------
+	**MIPS Addressing Modes Summary**
 
-
-
-
-## 6. MIPS Assembly for the Given C Code
-
-**Write down the MIPS assembly code 🧑‍💻 for the following C code: 🇨💻: `f=(a+b)-(c+d); g=f+A[10];`.**
+	| Addressing Mode | Operand Location | Example Instruction | Primary Use Case |
+	|---|---|---|---|
+	| Register | Register file | add $t0, $t1, $t2 | Standard arithmetic and logic |
+	| Immediate | Embedded in instruction | addi $t0, $t1, 4 | Fast math with small constants |
+	| Base / Displacement | Memory Address (Register + Offset) | lw $t0, 12($s0) | Array and data structure access |
+	| PC-Relative | PC Address + Offset | beq $t0, $t1, loop | Conditional loops and logic branches |
+	| Pseudo-Direct | PC bits + Instruction bits | j cleanup | Unconditional jumps to functions |
 
 
 
-Assume all variables and array elements are 32-bit integers:
 
-| C object | MIPS register |
-|---|---|
-| `f`, `g` | `$s0`, `$s1` |
-| `a`, `b`, `c`, `d` | `$s2`, `$s3`, `$s4`, `$s5` |
-| Base address of `A` | `$s6` |
+## 6. Write down the MIPS assembly code 🧑‍💻 for the following C code: 🇨💻: `f=(a+b)-(c+d); g=f+A[10];`.
 
-```mips
-add  $t0, $s2, $s3      # t0 = a + b
-add  $t1, $s4, $s5      # t1 = c + d
-sub  $s0, $t0, $t1      # f  = (a+b) - (c+d)
+??? "Write down the MIPS assembly code 🧑‍💻 for the following C code: 🇨💻: `f=(a+b)-(c+d); g=f+A[10];`."
 
-lw   $t2, 40($s6)       # t2 = A[10]; offset = 10 × 4 bytes
-add  $s1, $s0, $t2      # g  = f + A[10]
-```
+	Assume all variables and array elements are 32-bit integers:
 
-If overflow trapping is not required, `addu` and `subu` may be used. The load uses offset 40, not 10, because MIPS memory is byte-addressed and each integer occupies four bytes.
+	| C object | MIPS register |
+	|---|---|
+	| `f`, `g` | `$s0`, `$s1` |
+	| `a`, `b`, `c`, `d` | `$s2`, `$s3`, `$s4`, `$s5` |
+	| Base address of `A` | `$s6` |
+
+	```mips
+	add  $t0, $s2, $s3      # t0 = a + b
+	add  $t1, $s4, $s5      # t1 = c + d
+	sub  $s0, $t0, $t1      # f  = (a+b) - (c+d)
+
+	lw   $t2, 40($s6)       # t2 = A[10]; offset = 10 × 4 bytes
+	add  $s1, $s0, $t2      # g  = f + A[10]
+	```
+
+	If overflow trapping is not required, `addu` and `subu` may be used. The load uses offset 40, not 10, because MIPS memory is byte-addressed and each integer occupies four bytes.
 
 
 ## 7. Compilation Process of a C Program
@@ -1455,13 +1433,6 @@ If overflow trapping is not required, `addu` and `subu` may be used. The load us
 
 Thus, high-level expressions are gradually lowered into ISA instructions and binary fields. The CPU does not directly understand C; it fetches and executes only the final machine instructions.
 
-### বাংলা উত্তর
-
-প্রথমে **preprocessor** `#include`, `#define` ও conditional directive প্রক্রিয়া করে expanded source তৈরি করে। **Compiler** lexical, syntax ও semantic analysis করে, intermediate representation তৈরি ও optimize করে, তারপর target assembly দেয়। **Assembler** mnemonic-কে binary machine instruction-এ রূপান্তর করে object file তৈরি করে; এতে code, data, symbol table ও relocation information থাকে। **Linker** একাধিক object file ও library যুক্ত করে external symbol resolve করে executable তৈরি করে। সর্বশেষ **loader** executable-এর code/data virtual memory-তে map করে, stack ও heap প্রস্তুত করে, shared library যুক্ত করে এবং entry point-এ control দেয়।
-
-CPU সরাসরি C বোঝে না; compiler toolchain C-এর অর্থ ISA-নির্দিষ্ট binary instruction-এ নামিয়ে আনে এবং CPU সেই machine code execute করে।
-
----
 
 ## 8. General Addressing Modes
 
@@ -1491,76 +1462,140 @@ Let `A` be an instruction address field, `R` a register and `M[x]` memory at add
 
 Complex modes reduce instruction count but increase address-generation complexity. RISC ISAs normally retain register, immediate, base/displacement, PC-relative and jump modes, while CISC ISAs often provide most of the modes above.
 
-### বাংলা উত্তর
 
-Addressing mode নির্ধারণ করে instruction-এর operand কোথায় আছে বা effective address কীভাবে বের হবে। Immediate mode-এ constant instruction-এর ভেতরে থাকে; register mode-এ operand register-এ; direct mode-এ instruction field-ই memory address; indirect mode-এ field বা register আরেকটি address নির্দেশ করে। Base/displacement ও indexed mode array, structure এবং stack frame access-এ ব্যবহৃত হয়। PC-relative mode branch target নির্ণয় করে। Auto-increment/decrement ধারাবাহিক data ও stack operation সহজ করে। Implied mode-এ operand opcode থেকেই বোঝা যায়।
-
-Complex addressing mode instruction সংখ্যা কমাতে পারে, কিন্তু address-generation hardware ও execution time বাড়ায়। এজন্য RISC সাধারণত অল্প mode এবং CISC তুলনামূলক বেশি mode সমর্থন করে।
-
----
 
 ## 9. Instruction and Its Computer Representation
 
-### Enhanced question
+??? "Define a machine instruction. Explain how an instruction is represented, stored, decoded and executed by a computer, using a generic instruction format and a short example."
 
-**Define a machine instruction. Explain how an instruction is represented, stored, decoded and executed by a computer, using a generic instruction format and a short example.**
 
-### English answer
+	An **instruction** is a binary-coded command that tells the processor what operation to perform, where the operands are located and where the result should go. An instruction normally contains:
 
-An **instruction** is a binary-coded command that tells the processor what operation to perform, where the operands are located and where the result should go. An instruction normally contains:
+	- an **opcode** identifying an operation such as add, load or branch;
+	- **operand specifiers** identifying source and destination registers;
+	- an **addressing-mode** indication, explicit or implied;
+	- an **immediate, displacement or target field**, when required.
 
-- an **opcode** identifying an operation such as add, load or branch;
-- **operand specifiers** identifying source and destination registers;
-- an **addressing-mode** indication, explicit or implied;
-- an **immediate, displacement or target field**, when required.
+	A generic representation is:
 
-A generic representation is:
+	| Opcode | Mode | Source 1 | Source 2 / immediate | Destination |
+	|---|---|---|---|---|
 
-| Opcode | Mode | Source 1 | Source 2 / immediate | Destination |
-|---|---|---|---|---|
+	The exact bit allocation is defined by the ISA. For example, a 32-bit MIPS R-type instruction contains six-bit opcode and function fields plus three five-bit register numbers. Assembly text such as `add $t0,$t1,$t2` is only a human-readable representation; the assembler converts it into a 32-bit pattern. The pattern is stored in memory like other binary data.
 
-The exact bit allocation is defined by the ISA. For example, a 32-bit MIPS R-type instruction contains six-bit opcode and function fields plus three five-bit register numbers. Assembly text such as `add $t0,$t1,$t2` is only a human-readable representation; the assembler converts it into a 32-bit pattern. The pattern is stored in memory like other binary data.
+	During execution, the PC supplies the instruction address, memory returns the bit pattern into the IR, the decoder interprets the opcode and fields, and the control unit activates the datapath. Context and the instruction format give the bits meaning; without ISA rules, a word of bits is neither inherently an instruction nor data.
+	An **instruction** (নির্দেশ) is a fundamental command given to a computer’s Central Processing Unit (CPU) to perform a specific task, such as arithmetic calculation, logical decision-making, or data movement. A complete software program is composed of a sequence of these instructions executed sequentially by the hardware.
 
-During execution, the PC supplies the instruction address, memory returns the bit pattern into the IR, the decoder interprets the opcode and fields, and the control unit activates the datapath. Context and the instruction format give the bits meaning; without ISA rules, a word of bits is neither inherently an instruction nor data.
 
-### বাংলা উত্তর
+	A computer represents an instruction in memory as a binary sequence of bits structured according to a defined layout known as an **Instruction Format**. This format specifies how the bits are divided into different functional fields (ক্ষেত্র):
 
-**Instruction** হলো binary-coded command, যা processor-কে কোন operation করতে হবে, operand কোথায় এবং ফল কোথায় যাবে তা জানায়। সাধারণত instruction-এ opcode, source/destination operand field, addressing-mode information এবং প্রয়োজনে immediate, displacement বা target field থাকে।
+	1. **Opcode (Operation Code / অপারেশনের কোড):** A binary code field that defines the specific operational task to be performed by the CPU (e.g., ADD, SUB, or data transfer).
+	2. **Operands (অপারেন্ড / ডাটা বা ঠিকানা):** Fields that store the actual data values or memory references (addresses) on which the operation acts.
+	3. **Addressing Mode (অ্যাড্রেসিং মোড / ঠিকানা নির্ধারণ পদ্ধতি):** A control field that specifies how the CPU should locate or interpret the operand address (such as direct, indirect, or immediate).
 
-`add $t0,$t1,$t2` মানুষের পাঠযোগ্য assembly notation; assembler এটিকে ISA-নির্ধারিত 32-bit pattern-এ রূপান্তর করে। Patternটি memory-তে অন্যান্য data-এর মতোই থাকে। Execution-এর সময় `PC` instruction address দেয়, instruction `IR`-এ আসে, decoder opcode ও field বিশ্লেষণ করে এবং control unit datapath-এর signal সক্রিয় করে। একই bit pattern-এর অর্থ ISA এবং execution context দ্বারা নির্ধারিত হয়।
+	---
 
----
+	### Types of Instruction Representations (Based on Address Fields)
+
+	Instruction formats are primarily categorized by the number of explicit (স্পষ্টভাবে উল্লিখিত) memory or register address fields they contain. This structure directly depends on the underlying CPU Organization:
+
+	#### 1. Three-Address Instructions
+
+	* **Structure:** `[ Opcode | Destination Address | Source Address 1 | Source Address 2 ]`
+	* **Representation:** Specifies three operands. Two operands act as inputs for the operation, and the result is stored in the third location.
+	* **CPU Organization:** Used in **General Register Organizations**.
+	* **Characteristics:** Makes assembly programs shorter and easier to write, but requires a larger instruction size (more bits per instruction).
+	* **Example:** `R1 ← R2 + R3`
+
+	#### 2. Two-Address Instructions
+
+	* **Structure:** `[ Opcode | Destination / Operand 1 Address | Source / Operand 2 Address ]`
+	* **Representation:** Specifies two address fields. The operation is performed on both operands, and the calculated result overwrites one of the specified destination addresses.
+	* **CPU Organization:** Common in commercial computers.
+	* **Characteristics:** Reduces instruction bit-size compared to three-address formats while maintaining flexible memory/register storage.
+	* **Example:** `R1 = R1 + B`
+
+	#### 3. One-Address Instructions
+
+	* **Structure:** `[ Opcode | Operand Address ]`
+	* **Representation:** Specifies only one explicit address field. The second operand and the destination are implicitly (অন্তর্নিহিতভাবে) assumed to be a dedicated register called the **Accumulator (AC)**.
+	* **CPU Organization:** Used in **Accumulator-based Organizations**.
+	* **Characteristics:** Saves memory space because the CPU automatically knows one operand resides in the Accumulator without needing an explicit address.
+	* **Example:** `AC = AC + B`
+
+	#### 4. Zero-Address Instructions
+
+	* **Structure:** `[ Opcode ]`
+	* **Representation:** Contains no explicit address or operand fields. Operands are implicitly retrieved from the top of a **Stack** data structure (`TOP`).
+	* **CPU Organization:** Used in **Stack Organizations**.
+	* **Characteristics:** Operates by popping the top two items from the stack, executing the operation, and pushing the final result back onto the stack. Evaluates expressions converted into Postfix Notation (Reverse Polish Notation).
+	* **Example:** `ADD` (implicitly computes `TOP = A + B`)
+	[Instruction Format Full](/bou-resources/bou-cse/21-semester/Computer-Architecture/Instruction-Format/geek-instruction-format/){  }
+
 
 ## 10. Datapath of a Processor
 
-### Enhanced question
+??? "Explain with block diagram 🔲 the data path 🛣️ of a processor."
 
-**With a labeled block diagram, explain the main datapath of a single-cycle MIPS-like processor and show the paths taken by arithmetic, load/store and branch instructions.**
+	Last Updated : 14 Oct, 2025
 
-### Figure: simplified MIPS datapath
+	In computer architecture, the datapath is a core part of the CPU that executes instructions by processing and transferring data. It includes components like registers, ALUs, multiplexers, and buses, all coordinated by control signals from the control unit.
 
-![Simplified Single-Cycle MIPS Datapath](figures/06_mips_datapath.svg)
+	- Performs arithmetic, logic, data storage, and transfer operations.
+	- Operates under the control unit, which directs data flow through control signals.
 
-### English answer
+	## Types of Datapath Designs
 
-The datapath is the collection of storage elements, functional units and interconnections that move and transform instruction data.
+	### **1\. Single-Cycle Datapath**
 
-1. **Instruction fetch:** PC addresses instruction memory. An adder generates `PC+4`.
-2. **Decode/register read:** Opcode and fields are decoded while the register file supplies `R[rs]` and `R[rt]`.
-3. **Execute/address calculation:** The ALU either combines two register operands, uses a sign-extended immediate, computes a load/store address or compares branch operands.
-4. **Memory access:** `lw` reads data memory; `sw` writes the second register operand. ALU instructions bypass this read.
-5. **Write-back:** A multiplexer selects ALU result or memory data and writes the chosen destination register.
-6. **Next-PC selection:** Normally `PC+4` is selected. A taken branch selects the PC-relative target; jump hardware may provide another input.
+	Each instruction is completed in a single clock cycle, performing all steps in one go. It's simple but inefficient due to the long cycle time.
 
-For R-type instructions, `RegDst` selects `rd`, `ALUSrc=0`, and the ALU result returns to the register file. For `lw`, `ALUSrc=1`, memory is read and `MemtoReg=1`. For `sw`, memory write is enabled and register write is disabled. For `beq`, the ALU compares registers and `Branch AND Zero` selects the branch target.
+	- All instruction stages (fetch to write-back) occur in one long clock cycle.
+	- Executes one instruction at a time with no overlapping.
+	- Simple design with no extra registers or complex control.
 
-### বাংলা উত্তর
+	![1](https://media.geeksforgeeks.org/wp-content/uploads/20251011174305179098/1.webp)
 
-Datapath হলো register, functional unit, multiplexer এবং interconnection-এর সমষ্টি, যার মাধ্যমে instruction-এর data চলাচল ও পরিবর্তন হয়। `PC` instruction memory address করে এবং adder `PC+4` তৈরি করে। Register file `rs` ও `rt` পড়ে। ALU register operand-এর arithmetic, immediate operation, load/store effective address বা branch comparison করে। `lw/sw` data memory ব্যবহার করে। Write-back multiplexer ALU result অথবা memory data destination register-এ পাঠায়। Next-PC multiplexer সাধারণত `PC+4` এবং branch নেওয়া হলে branch target নির্বাচন করে।
+	### **2\. Multi-Cycle Datapath**
 
-R-type operation-এ দুই register ALU-তে যায়; `lw`-তে sign-extended offset দিয়ে address তৈরি ও memory read হয়; `sw`-তে memory write হয়; `beq`-তে register comparison-এর `Zero` signal branch control-এর সঙ্গে যুক্ত হয়ে নতুন PC বেছে নেয়।
+	Instructions are broken into multiple steps, each taking one clock cycle. This allows for better efficiency with more complex control logic.
 
----
+	- Instruction is split across multiple short cycles, using extra registers between stages.
+	- Only one instruction is executed at a time, still without overlapping.
+	- More efficient than single-cycle but requires complex control logic.
+
+	![2](https://media.geeksforgeeks.org/wp-content/uploads/20251011174304963741/2.webp)
+
+	Multi-cycle Datapath
+
+	### **3\. Pipelined Datapath**
+
+	Instruction execution is divided into fixed stages, allowing multiple instructions to be processed simultaneously. This improves throughput but introduces complexity.
+
+	- Multiple instructions are executed in parallel, each at a different stage.
+	- Uses short clock cycles with extra registers between pipeline stages.
+	- High performance but needs hazard detection and handling logic.
+
+	![20](https://media.geeksforgeeks.org/wp-content/uploads/20251013104854573823/20.webp)
+
+	Pipelined Datapath
+
+	> **Note:** Single-cycle uses a longer clock cycle for all instructions while multi-cycle and pipelined designs use shorter, more efficient cycles.
+
+	## Main Components of a Datapath
+
+	Key hardware elements involved in executing instructions by processing and transferring data.
+
+	1. **Registers:** Temporary storage for data and intermediate results (e.g., PC, IR).
+	2. **Register File:** A collection of registers with multiple read/write ports for fast access.
+	3. **ALU (Arithmetic Logic Unit):** Performs arithmetic and logical operations on data.
+	4. **Multiplexers (MUX):** Select one of several input signals based on control inputs.
+	5. **Memory:** Stores instructions and data for read/write operations during execution.
+	6. **Sign/Zero Extender:** Extends immediate values to match the datapath's bit-width.
+	7. **Shift Units:** Performs bit-level shifts, often used in address or data calculations.
+	8. **Buses:** Shared data lines for transferring information between components.
+	9. **Control Signals:** Guide the operation of all datapath elements during instruction execution.
+
 
 ## 11. Control Signals for the Datapath
 
