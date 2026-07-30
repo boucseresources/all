@@ -11478,6 +11478,8 @@ const registerKeyboardEventHandler = () => {
       
         
       
+        
+      
     
     
     
@@ -11583,6 +11585,128 @@ const registerKeyboardEventHandler = () => {
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4_3_9_2" id="__nav_2_2_4_3_9_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduling
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_2_2_4_3_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4_3_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scheduling
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../21-semester/Computer-Architecture/Data-path-Control/Scheduling/Dynamic-Scheduling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Scheduling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../21-semester/Computer-Architecture/Data-path-Control/Scheduling/Static-Scheduling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Static Scheduling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -18595,7 +18719,7 @@ const registerKeyboardEventHandler = () => {
 </ul>
 <h5 id="3-theory">3. Theory<a class="headerlink" href="#3-theory" title="Anchor link to this section for reference">&para;</a></h5>
 <p>A diode which is different from the conventional semiconductor diode is the Zener diode. The Zener diode's forward-biased characteristic is the same as that of a conventional diode. But, the reverse bias characteristic is the same as an ordinary diode up to a specific value known as the Zener voltage. An attempt to increase the reverse bias voltage beyond the Zener voltage results only in an increase in the reverse current and the diode voltage tends to remain constant ( see Fig.1).<br />
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fig.  1_  Zener diode application. a_ Circuit. b_ Ideal transfer characteristic..png" src="/bou-resources/media-library/Fig. 1* Zener diode application. a* Circuit. b_ Ideal transfer characteristic..png" /></a></p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fig.  1_  Zener diode application. a_ Circuit. b_ Ideal transfer characteristic..png" src="/bou-resources/bou-cse/media-library/Fig. 1* Zener diode application. a* Circuit. b_ Ideal transfer characteristic..png" /></a></p>
 <p>The I-V characteristic of a Zener Diode is shown in Fig. 2. In the forward bias region, it is very similar to an ordinary diode (p-n junction). In the reverse bias region, there is Zener breakdown which limits the voltage to Vz. The operating region shown in Fig. 2 is where voltage regulation is effective. In other words, the output would be limited to Vz even if input exceeds it. At any point in the operating range, an incremental resistance rz can be defined as follows.</p>
 <p><strong>Incremental resistance (<span class="arithmatex">\(r_z\)</span>)</strong>:</p>
 <div class="arithmatex">\[
@@ -18616,7 +18740,7 @@ r_z = \frac{\Delta V}{\Delta I}
 \frac{r_z \times R_L}{(r_z + R_L)}
 \]</div>
 <p>Here <span class="arithmatex">\(R_L\)</span> is the load.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fig. 2. V–I characteristics for Zener Diode..png" src="/bou-resources/media-library/Fig. 2. V–I characteristics for Zener Diode..png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fig. 2. V–I characteristics for Zener Diode..png" src="/bou-resources/bou-cse/media-library/Fig. 2. V–I characteristics for Zener Diode..png" /></a></p>
 <h6 id="4-procedure">4. Procedure<a class="headerlink" href="#4-procedure" title="Anchor link to this section for reference">&para;</a></h6>
 <ol>
 <li>Construct the circuit as shown in Fig. 3 with series resistance of 100 Ω and the Zener diode in reverse bias.</li>
@@ -18628,9 +18752,9 @@ r_z = \frac{\Delta V}{\Delta I}
 <li>Record <span class="arithmatex">\(V_o\)</span>, <span class="arithmatex">\(I_L\)</span>, and <span class="arithmatex">\(I_Z\)</span>.</li>
 <li>Analyze how the Zener maintains constant output voltage despite load variation.</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fig 3. Circuit diagram for observing V-I characteristics for zener diode..png" src="/bou-resources/media-library/Fig 3. Circuit diagram for observing V-I characteristics for zener diode..png" /></a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 4_ TinkerCAD simulation for circuit 2.png" src="/bou-resources/media-library/Figure 4* TinkerCAD simulation for circuit 2.png" /></a><br />
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 5* I-V characteristics in zener diode.png" src="/bou-resources/media-library/Figure 5_ I-V characteristics in zener diode.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fig 3. Circuit diagram for observing V-I characteristics for zener diode..png" src="/bou-resources/bou-cse/media-library/Fig 3. Circuit diagram for observing V-I characteristics for zener diode..png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 4_ TinkerCAD simulation for circuit 2.png" src="/bou-resources/bou-cse/media-library/Figure 4* TinkerCAD simulation for circuit 2.png" /></a><br />
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 5* I-V characteristics in zener diode.png" src="/bou-resources/bou-cse/media-library/Figure 5_ I-V characteristics in zener diode.png" /></a></p>
 <h5 id="5-observations">5. Observations<a class="headerlink" href="#5-observations" title="Anchor link to this section for reference">&para;</a></h5>
 <h6 id="a-reverse-bias-characteristics">a) Reverse Bias Characteristics<a class="headerlink" href="#a-reverse-bias-characteristics" title="Anchor link to this section for reference">&para;</a></h6>
 <table>
