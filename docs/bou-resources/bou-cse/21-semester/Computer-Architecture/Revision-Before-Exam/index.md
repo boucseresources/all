@@ -2237,6 +2237,7 @@ Complex modes reduce instruction count but increase address-generation complexit
 ## 22. Multiplication Algorithm and Processor Hardware
 	
 	![alt text](image-12.png)
+	![alt text](image-13.png)
 
 
 ## 23. Divide \((1010)_2\) by \((0010)_2\)
