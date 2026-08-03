@@ -37,3 +37,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: mkdocs gh-deploy --force
+      - name: Clear broken privacy cache
+        run: rm -rf .cache/plugin/privacy
