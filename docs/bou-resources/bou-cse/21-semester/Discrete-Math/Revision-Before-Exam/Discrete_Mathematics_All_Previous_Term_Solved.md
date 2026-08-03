@@ -33,7 +33,8 @@ The definitions, theorems and standard algorithms were checked against these hig
 
 # Term 151 (Jan–Jun 2015)
 
-??? "Term 151 — Question 1: Propositions, logical connectives, tautology and contradiction"
+??? question "Term 151 — Question 1: Propositions, logical connectives, tautology and contradiction"
+    
     **Exact question**
 
     **(a)** Let \(p,q\), and \(r\) be the propositions:
@@ -92,7 +93,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** “Necessary” reverses the arrow; “sufficient” gives the arrow. A tautology is always true, a contradiction always false, and \(\neg(p\leftrightarrow q)\equiv p\leftrightarrow\neg q\).
 
-??? "Term 151 — Question 2: Sets, divisibility, quotient–remainder, functions and Hilbert's Hotel"
+??? question "Term 151 — Question 2: Sets, divisibility, quotient–remainder, functions and Hilbert's Hotel"
     **Exact question**
 
     **(a)** Show that if \(A,B,C\) are sets, then \(\overline{A\cap B\cap C}=\bar A\cup\bar B\cup\bar C\): (i) by showing each side is a subset of the other; (ii) using a membership table.
@@ -150,7 +151,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** De Morgan changes intersection to union and complements every set. Divisibility uses \(b=ak\). Division requires \(0\le r<d\). Split guests into even and odd numbers to fill two countable buildings.
 
-??? "Term 151 — Question 3: Quantifiers, predicates and logical translation"
+??? question "Term 151 — Question 3: Quantifiers, predicates and logical translation"
     **Exact question**
 
     **(a)** Define and distinguish between universal quantifier and existential quantifier. Briefly discuss the negation of quantifiers using example. **(b)** Explain predicates and quantifiers with necessary examples. **(c)** Convert into logical expressions: (i) Everyone has exactly one best friend. (ii) Every student of your university has a computer or has a friend who has a computer. (iii) If somebody is female and is a parent, then this person is someone's mother.
@@ -170,7 +171,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** \(\forall\)=every, \(\exists\)=at least one. When negating, swap the quantifier and negate the predicate. “Exactly one” means existence plus uniqueness.
 
-??? "Term 151 — Question 4(a): Generalized Pigeonhole Principle"
+??? question "Term 151 — Question 4(a): Generalized Pigeonhole Principle"
     **Exact question:** Prove the generalized Pigeonhole principle.
 
     **Answer:** If \(N\) objects are placed into \(k\) boxes, some box contains at least
@@ -193,7 +194,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
 # Term 161 (Jan–Jun 2016)
 
-??? "Term 161 — Question 1: Logical translation, equivalence and quantifiers"
+??? question "Term 161 — Question 1: Logical translation, equivalence and quantifiers"
     **Exact question**
 
     **(a)** Let \(p\): You can send an email; \(q\): your inbox is full; \(r\): new emails are stored in your inbox. Translate: (i) You cannot send an email iff your inbox is full. (ii) New emails are stored in your inbox unless your inbox is full.
@@ -227,7 +228,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** “Unless” gives \(\neg q\to r\). Nested implication becomes \(\neg p\lor\neg q\lor r\), so \(p\to(q\to r)\equiv(p\land q)\to r\).
 
-??? "Term 161 — Question 2: Sets, divisibility, division, functions and countability"
+??? question "Term 161 — Question 2: Sets, divisibility, division, functions and countability"
     **Exact question**
 
     **(a)** Show that if \(A,B,C\) are sets, then \(\overline{A\cap B\cap C}=\bar A\cup\bar B\cup\bar C\): (i) by showing each side is a subset of the other side; (ii) using a membership table. **(b)** Let \(a,b,c\) be integers. Show: (i) if \(a\mid b\), then \(a\mid bc\) for every integer \(c\); (ii) if \(a\mid b\) and \(b\mid c\), then \(a\mid c\). **(c)** Find quotient and remainder when (i) \(-111\) is divided by 11; (ii) 3 is divided by 5. **(d)** Find the domain and range of the four printed bit-string/perfect-square functions. **(e)** Show how the guests of a fully occupied countably infinite Hilbert's Hotel can be spread across two countably infinite buildings so every room is filled.
@@ -242,7 +243,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** De Morgan, \(b=ak\), \(a=dq+r\), mod-8 leftovers, and even/odd splitting solve the five parts.
 
-??? "Term 161 — Question 3: Proof methods, divisibility, Euclidean algorithm and congruence"
+??? question "Term 161 — Question 3: Proof methods, divisibility, Euclidean algorithm and congruence"
     **Exact question**
 
     **(a)** Name the basic methods to prove theorem. Define vacuous proof and trivial proof with example. **(b)** Prove: (i) If \(n\) is an integer and \(3n+2\) is odd, then \(n\) is odd. (ii) If \(n\) is odd, then \(n^2\) is odd. **(c)** Find GCD of 414 and 662 using the Euclidean algorithm. **(d)** Let \(m\) be positive. Show that \(a\equiv b\pmod m\) iff \(a\bmod m=b\bmod m\).
@@ -270,7 +271,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Contrapositive handles Q3(b)(i); odd means \(2k+1\); Euclid's last nonzero remainder is 2; congruent numbers have the same remainder modulo \(m\).
 
-??? "Term 161 — Question 4: Simple graph, degrees, handshaking theorem and standard graphs"
+??? question "Term 161 — Question 4: Simple graph, degrees, handshaking theorem and standard graphs"
     **Exact question**
 
     **(a)** Define a simple graph. What are the degrees of the vertices in Fig. 5(a)? **(b)** State the handshaking theorem for directed and undirected graph. **(c)** Draw: (i) \(K_3\), (ii) \(K_{4,4}\), (iii) \(C_7\), (iv) \(W_7\), (v) \(Q_4\).
@@ -296,7 +297,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** A loop counts twice in degree. Undirected degree sum is \(2|E|\); directed in-degree sum and out-degree sum both equal \(|E|\).
 
-??? "Term 161 — Question 5: Bipartite, connectivity, chromatic number and Euler conditions"
+??? question "Term 161 — Question 5: Bipartite, connectivity, chromatic number and Euler conditions"
     **Exact question**
 
     **(a)** Are the graphs shown in Fig. 6(a) bipartite? Justify. **(b)** Distinguish strongly and weakly connected directed graphs. **(c)** Define chromatic number; find it for \(C_5\) and \(C_6\). **(d)** State the properties used to determine whether a graph has an Euler circuit or path.
@@ -311,7 +312,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Bipartite \(\Leftrightarrow\) no odd cycle. Odd cycle needs 3 colors; even cycle needs 2. Euler circuit: 0 odd-degree vertices; Euler path: exactly 2.
 
-??? "Term 161 — Question 6: Tree properties, expression tree and traversals"
+??? question "Term 161 — Question 6: Tree properties, expression tree and traversals"
     **Exact question**
 
     **(a)** Write the different properties of tree. **(b)** Represent \(((x+y)z)\uparrow((x-4)/3)\) using a binary tree. **(c)** Write preorder, inorder and postorder traversals for the printed tree. **(d)** Compare Euler circuit and Hamilton circuit.
@@ -336,7 +337,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Tree: connected, no cycle, \(n-1\) edges. Preorder=root first, postorder=root last. Euler concerns edges; Hamilton concerns vertices.
 
-??? "Term 161 — Question 7: Pigeonhole, counting, telephone numbers and pseudorandom sequence"
+??? question "Term 161 — Question 7: Pigeonhole, counting, telephone numbers and pseudorandom sequence"
     **Exact question**
 
     **(a)** Prove the generalized Pigeonhole principle. **(b)** Minimum students to ensure six receive the same grade among A, B, C, D, F. **(c)** Choose either one of 37 mathematics faculty or one of 83 mathematics majors, with no overlap. **(d)** With \(N\in\{2,\ldots,7\}\), \(Y\in\{0,1,2\}\), and \(X\in\{0,\ldots,9\}\), how many telephone numbers of form NYX-NNX-XXXX? **(e)** Find the sequence from LCG \(m=9,a=7,c=4,x_0=3\).
@@ -359,7 +360,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
 # Term 171
 
-??? "Term 171 — Question 1: Proposition, equivalence, tautology, quantifiers and De Morgan's law"
+??? question "Term 171 — Question 1: Proposition, equivalence, tautology, quantifiers and De Morgan's law"
     **Exact question**
 
     **(a)** Define proposition. Show that \(p\lor(q\land r)\) and \((p\lor q)\land(p\lor r)\) are logically equivalent. **(b)** Show that \((p\land q)\to(p\lor q)\) is a tautology. **(c)** Let \(A=\{1,2,3,4,5\}\). Determine the truth values of: (i) \((\exists x\in A)(x+3=10)\); (ii) \((\forall x\in A)(x+3<10)\); (iii) \((\exists x\in A)(x+3<5)\); (iv) \((\forall x\in A)(x+3\le7)\). **(d)** Prove \(\neg(p\land q)\equiv\neg p\lor\neg q\).
@@ -387,7 +388,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Proposition = definite T/F statement. Distribute \(\lor\) over \(\land\). For quantifiers, one counterexample makes a universal statement false.
 
-??? "Term 171 — Question 2: Functions, set identities and prime factorization"
+??? question "Term 171 — Question 2: Functions, set identities and prime factorization"
     **Exact question**
 
     **(a)** Let \(A=\{a,b,c\}\), \(B=\{1,2,3\}\), \(C=\{w,x,y,z\}\), \(D=\{4,5,6\}\), with \(f=\{(a,2),(b,1),(c,2)\}\), \(g=\{(1,y),(2,x),(3,w)\}\), \(h=\{(x,4),(y,6),(z,4),(w,5)\}\). Determine whether each function is onto or one-to-one, and find \(h\circ g\circ f\). **(b)** Prove: (i) \((A\cup B)\cap(A\cup B^c)=A\); (ii) \((A\cup B)\setminus(A\cap B)=(A\setminus B)\cup(B\setminus A)\). **(c)** Prime-factorize 100, 641, 999 and 1024.
@@ -413,7 +414,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Check injective by repeated outputs and onto by missing codomain values. Composite result is \(a\mapsto4,b\mapsto6,c\mapsto4\). Symmetric difference means “in exactly one set.”
 
-??? "Term 171 — Question 3: Pascal's Triangle, combinations and Pigeonhole Principle"
+??? question "Term 171 — Question 3: Pascal's Triangle, combinations and Pigeonhole Principle"
     **Exact question**
 
     **(a)** Using Pascal's Triangle find \((a-b)^6\). **(b)** A bag has six white and five red marbles. How many ways can four be drawn if exactly two are white and two red? **(c)** Minimum students needed to guarantee five are in the same class among Freshman, Sophomore, Junior and Senior.
@@ -434,7 +435,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Pascal coefficients: 1-6-15-20-15-6-1. Marbles: multiply combinations. Same class: \(4(5-1)+1=17\).
 
-??? "Term 171 — Question 4: LCM, Caesar cipher, passwords and probability"
+??? question "Term 171 — Question 4: LCM, Caesar cipher, passwords and probability"
     **Exact question**
 
     **(a)** Find the LCM of \(2^3 3^5 7^2\) and \(2^4 3^3\). **(b)** Find the secret message produced from “MEET YOU IN THE PARK” using the Caesar cipher. **(c)** Passwords are 6–8 characters, using uppercase letters or digits, and must contain at least one digit. How many passwords? **(d)** Ten random bits are generated. What is the probability that at least one is 0?
@@ -459,7 +460,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** LCM takes maximum prime exponents. At-least-one digit = all passwords minus all-letter passwords. At-least-one zero = 1 minus all ones.
 
-??? "Term 171 — Question 5: Graph vertices, degrees, traversability, Euler/Hamilton, complete and regular graphs"
+??? question "Term 171 — Question 5: Graph vertices, degrees, traversability, Euler/Hamilton, complete and regular graphs"
     **Exact question**
 
     **(a)** For Fig. 1 find \(V(G)\), \(E(G)\), every vertex degree, and verify the handshaking theorem. **(b)** Explain traversable, Eulerian and Hamiltonian graphs. **(c)** Define complete and regular graphs with examples.
@@ -486,7 +487,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** For Fig. 1 the degrees are 3,3,4,2,2 and sum to 14. Euler uses all edges; Hamilton uses all vertices. \(K_n\) has every possible edge.
 
-??? "Term 171 — Question 6: Weighted-graph representation and minimum spanning tree"
+??? question "Term 171 — Question 6: Weighted-graph representation and minimum spanning tree"
     **Exact question**
 
     **(a)** Represent the weighted graph in Fig. 2 using sequential and linked-list representation. **(b)** Find its minimum spanning tree.
@@ -512,7 +513,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Keep the paper's duplicate E labels distinct. Take five weight-1 edges, connect the left group with weight 2, then attach \(F\) using weight 7: MST weight 14.
 
-??? "Term 171 — Question 7: Binary search tree, traversals and postfix evaluation"
+??? question "Term 171 — Question 7: Binary search tree, traversals and postfix evaluation"
     **Exact question**
 
     **(a)** Form a BST for mathematics, physics, geography, zoology, meteorology, geology, psychology and chemistry in that insertion order. **(b)** Perform inorder, preorder and postorder traversal of the printed ordered rooted tree. **(c)** Evaluate postfix `7 2 3 * - 4 ↑ 9 3 / +`.
@@ -543,7 +544,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
 # Term 181
 
-??? "Term 181 — Question 1: Universal/existential quantifiers, predicates and translation"
+??? question "Term 181 — Question 1: Universal/existential quantifiers, predicates and translation"
     **Exact question:** Define and distinguish universal and existential quantifiers; discuss their negation; explain predicates and quantifiers; translate: (i) Everyone has exactly one best friend. (ii) Every university student has a computer or a friend with a computer. (iii) If somebody is female and a parent, that person is someone's mother.
 
     **Answer:**
@@ -563,7 +564,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Swap \(\forall\) and \(\exists\) when negating. “Exactly one” = exists plus uniqueness.
 
-??? "Term 181 — Question 2: Sets, subsets and equality of sets"
+??? question "Term 181 — Question 2: Sets, subsets and equality of sets"
     **Exact question**
 
     **(a)** Define set, power set and proper set. Using a membership table show \(\overline{A\cup(B\cap C)}=(\bar C\cup\bar B)\cap\bar A\). **(b)** For \(A=\{2,4,6\}\), \(B=\{2,6\}\), \(C=\{4,6\}\), \(D=\{4,6,8\}\), determine subset relations. **(c)** Determine equality: (i) \(\{1,3,3,3,5,5,5,5,5\}\) and \(\{5,3,1\}\); (ii) \(\{\{1\}\}\) and \(\{1,\{1\}\}\).
@@ -585,7 +586,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Sets ignore duplicates and order. Power set contains subsets. Here \(B,C\subset A\), and \(C\subset D\).
 
-??? "Term 181 — Question 3: Ackermann recursion and function composition"
+??? question "Term 181 — Question 3: Ackermann recursion and function composition"
     **Exact question**
 
     **(a)** For the recursively defined Ackermann function, find \(A(2,3)\). **(b)** If \(f(x)=2x+3\), \(g(x)=3x+2\), find the compositions of \(f,g\) and \(g,f\).
@@ -606,7 +607,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** \(A(2,n)=2n+3\), so \(A(2,3)=9\). Composition order matters: \(f\circ g=6x+7\), \(g\circ f=6x+11\).
 
-??? "Term 181 — Question 4: Committees, officers, converse, contrapositive and inverse"
+??? question "Term 181 — Question 4: Committees, officers, converse, contrapositive and inverse"
     **Exact question**
 
     **(a)** A class has 10 students: 6 men and 4 women. Find ways to (i) select a 4-member committee; (ii) select 2 men and 2 women; (iii) elect president, vice-president and treasurer. **(b)** State converse, contrapositive and inverse of: (i) If it snows tonight, I will stay home. (ii) I go out today if it is a sunny summer day.
@@ -626,7 +627,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Committees use combinations; distinct offices use permutations. Converse swaps; inverse negates; contrapositive swaps and negates.
 
-??? "Term 181 — Question 5: Vertices, edges, degrees and handshaking theorem"
+??? question "Term 181 — Question 5: Vertices, edges, degrees and handshaking theorem"
     **Exact question:** For the printed graph, find \(V(G)\), \(E(G)\), each degree, and verify that the degree sum is twice the number of edges.
 
     **Answer:** The same complete figure reappears clearly in Term 201. Ignoring weights for degree calculations:
@@ -647,7 +648,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Degrees in vertex order 0–6 are **2,3,4,4,5,3,3**; total 24 for 12 edges.
 
-??? "Term 181 — Question 6: Hamilton circuit, Euler versus Hamilton and odd-degree theorem"
+??? question "Term 181 — Question 6: Hamilton circuit, Euler versus Hamilton and odd-degree theorem"
     **Exact question**
 
     **(a)** Determine whether each printed graph has a Hamiltonian circuit; give one if it does. **(b)** Differentiate Eulerian and Hamiltonian graphs. **(c)** Prove that an undirected graph has an even number of odd-degree vertices.
@@ -666,7 +667,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Both figures have Hamilton cycles. Euler=edge; Hamilton=vertex. Odd-degree count is even because the total degree sum is even.
 
-??? "Term 181 — Question 7: Isomorphism, tree traversals and postfix evaluation"
+??? question "Term 181 — Question 7: Isomorphism, tree traversals and postfix evaluation"
     **Exact question**
 
     **(a)** Show the pentagon and pentagram graphs are isomorphic. **(b)** Give postorder, inorder and preorder of the printed rooted tree. **(c)** Evaluate postfix `3 2 * 2 ↑ 5 3 − 8 4 / * −`.
@@ -695,7 +696,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
 # Term 191
 
-??? "Term 191 — Question 1: Discrete mathematics, proposition, truth tables and equivalence"
+??? question "Term 191 — Question 1: Discrete mathematics, proposition, truth tables and equivalence"
     **Exact question**
 
     **(a)** Define Discrete mathematics. List the problems that can be solved using it. **(b)** What is proposition? Let \(p\): “Maria learns discrete mathematics” and \(q\): “Maria will find a good job.” Express \(p\to q\) and \(p\leftrightarrow q\) in English and show their truth tables. **(c)** Define tautology, contradiction and contingency. Show \(\neg p\lor q\equiv p\to q\).
@@ -718,7 +719,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Discrete math handles countable structures. \(p\to q\equiv\neg p\lor q\). Biconditional is true when truth values match.
 
-??? "Term 191 — Question 2: Function composition, basic logic operations and quantified translation"
+??? question "Term 191 — Question 2: Function composition, basic logic operations and quantified translation"
     **Exact question**
 
     **(a)** For the printed functions \(f,g,h\), find \(h\circ g\circ f\). **(b)** Define basic logic operations with examples. **(c)** Translate: (i) Some students in the class have visited Cairo. (ii) Every student has visited either Aswan or Cairo.
@@ -740,7 +741,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Composite mapping is \(a\to4,b\to6,c\to4\). “Some” uses \(\exists\); “every student” uses \(\forall x(S(x)\to\cdots)\).
 
-??? "Term 191 — Question 3: Valid argument and quantified truth values"
+??? question "Term 191 — Question 3: Valid argument and quantified truth values"
     **Exact question**
 
     **(a)** Prove that \(p\to q,q\to r\vdash p\to r\) is valid. **(b)** For \(A=\{1,2,3,4,5\}\), determine: (i) \(\exists x(x+3=10)\); (ii) \(\forall x(x+3<10)\); (iii) \(\exists x(x+3<5)\); (iv) \(\forall x(x+3\le7)\).
@@ -757,7 +758,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Chain implications: \(p\to q,q\to r\Rightarrow p\to r\). Answers: **F, T, T, F**.
 
-??? "Term 191 — Question 4: Linear congruential generator and shift-cipher decryption"
+??? question "Term 191 — Question 4: Linear congruential generator and shift-cipher decryption"
     **Exact question**
 
     **(a)** Generate ten pseudorandom numbers with \(m=9,a=7,c=4,x_0=3\). **(b)** Decrypt with \(f(p)=(p+10)\bmod26\): (i) `CEBBOXNOB XYG`; (ii) `LO WI PBSOXN`.
@@ -781,7 +782,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** LCG sequence: **7-8-6-1-2-0-4-5-3-7**. Shift +10 decrypts by −10: **SURRENDER NOW; BE MY FRIEND**.
 
-??? "Term 191 — Question 5: Directed graph, standard graphs, degree feasibility and bipartite cycle"
+??? question "Term 191 — Question 5: Directed graph, standard graphs, degree feasibility and bipartite cycle"
     **Exact question**
 
     **(a)** For Fig. 5(a), find vertices, edges, each in/out degree and verify \(|E|=\sum\deg^-=\sum\deg^+\). **(b)** Draw \(K_3,K_{4,4},C_7,W_7,Q_4\). **(c)** (i) Can all five vertices have degree 3? (ii) Is \(C_8\) bipartite?
@@ -807,7 +808,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Directed degree pairs: \((1,2),(1,1),(2,2),(2,1),(1,3),(2,0)\). Five degree-3 vertices are impossible. \(C_8\) is bipartite.
 
-??? "Term 191 — Question 6: Recursion, quantified English and binary-tree memory representation"
+??? question "Term 191 — Question 6: Recursion, quantified English and binary-tree memory representation"
     **Exact question**
 
     **(a)** \(P(x,y)=0\) if \(x<y\); \(P(x,y)=P(x-y,y)+1\) if \(y\le x\). Find \(P(26,5)\). **(b)** Translate: (i) \(\forall x(C(x)\land F(x))\); (ii) \(\exists x(C(x)\land F(x))\), where \(C\)=comedian, \(F\)=funny. **(c)** Draw the tree from the printed memory table and find traversals.
@@ -831,7 +832,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** The recursion counts how many full 5s fit in 26: **5**. Quantifiers mean “everyone” and “someone.” Follow only pointers reachable from Root=2.
 
-??? "Term 191 — Question 7: Planarity, chromatic number, isomorphism and Hamilton conditions"
+??? question "Term 191 — Question 7: Planarity, chromatic number, isomorphism and Hamilton conditions"
     **Exact question**
 
     **(a)** Define planar graph and chromatic number. Explain why \(K_5\) and \(K_{3,3}\) are non-planar. **(b)** Check whether printed graphs G and H are isomorphic. **(c)** State necessary conditions for Hamilton circuits.
@@ -854,7 +855,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
 # Term 201
 
-??? "Term 201 — Question 1: De Morgan truth table, weighted graph degrees and implication forms"
+??? question "Term 201 — Question 1: De Morgan truth table, weighted graph degrees and implication forms"
     **Exact question**
 
     **(a)** Define proposition and propositional logic. Show by truth table that \(\neg(p\land q)\) and \(\neg p\lor\neg q\) are equivalent. **(b)** For Fig. 1b, find vertices, edges, degrees and verify the handshaking theorem. **(c)** Find converse, contrapositive and inverse of “If it is holiday, then there are crowds in the shopping mall.”
@@ -881,7 +882,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** De Morgan: negate AND to OR of negations. Graph has 12 edges and degree sequence **2,3,4,4,5,3,3**.
 
-??? "Term 201 — Question 2: Sequential/list graph representation and MST"
+??? question "Term 201 — Question 2: Sequential/list graph representation and MST"
     **Exact question:** **(a)** Suppose a weighted graph \(G\) in Fig. 2b. Represent the graph in memory using sequential and linked-list representation. **(b)** Find the minimum spanning tree from the graph \(G\) in Fig. 2b.
 
     **Answer:** This is the same graph as Term 171 Q6, including the duplicated printed label `E`. Using \(E_L,E_R\), the sequential edge list and MST are given there. One MST is
@@ -894,7 +895,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Sequential = edge/adjacency table; linked = weighted adjacency lists. MST weight: **14**.
 
-??? "Term 201 — Question 3: Sets, quantified truth values and tennis-tournament tree"
+??? question "Term 201 — Question 3: Sets, quantified truth values and tennis-tournament tree"
     **Exact question**
 
     **(a)** Define Set, Power Set and Proper Set. Using membership table show that \(\overline{A\cup(B\cap C)}=(\bar C\cup\bar B)\cap\bar A\), where \(A,B,C\) are sets. **(b)** Let \(A=\{1,2,3,4,5\}\). Determine the truth value of: (i) \((\exists x\in A)(x+3=10)\); (ii) \((\forall x\in A)(x+3<10)\); (iii) \((\exists x\in A)(x+3<5)\); (iv) \((\forall x\in A)(x+3\le7)\). **(c)** Suppose A and B are playing a tennis tournament such that the first person to win two games consecutively or to win a total of three games wins the tournament. Find the number of ways the tournament can proceed (use a rooted tree).
@@ -912,7 +913,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Quantifier answers: **F-T-T-F**. Stop the game tree immediately after `AA`/`BB` or after either player gets a third total win: **10 leaves**.
 
-??? "Term 201 — Question 4: Expression tree and binary-tree memory representation"
+??? question "Term 201 — Question 4: Expression tree and binary-tree memory representation"
     **Exact question**
 
     **(a)** Represent `((a+b)(c+d))-(e+f)/h+g` using a binary tree. **(b)** Draw the tree from the printed memory representation and find preorder, inorder and postorder.
@@ -933,7 +934,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Expression root is final `+g`. Memory-tree traversals begin preorder `a b...`, inorder `d m...`, postorder `m h...a`.
 
-??? "Term 201 — Question 5: Binomial expansion, marble combinations, inverse and composite functions"
+??? question "Term 201 — Question 5: Binomial expansion, marble combinations, inverse and composite functions"
     **Exact question**
 
     **(a)** Expand \((a+b)^6\) using Pascal's Triangle. **(b)** Choose two white from six and two red from five. **(c)** Define inverse function; for \(f(x)=2x+3,g(x)=3x+2\), find both composites.
@@ -954,7 +955,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Plus expansion has all positive coefficients. Marbles = 150. Composites = **6x+7** and **6x+11**.
 
-??? "Term 201 — Question 6: Functions, relation composition/matrices and induction"
+??? question "Term 201 — Question 6: Functions, relation composition/matrices and induction"
     **Exact question**
 
     **(a)** Determine whether printed \(f,g,h\) are onto/one-to-one and find \(h\circ g\circ f\). **(b)** With \(R=\{(1,b),(2,a),(2,c),(3,b)\}\) and \(S=\{(a,y),(c,z),(c,y),(b,x)\}\), find the composition and matrices. **(c)** Prove by induction that \(n^3-n\) is divisible by 3.
@@ -985,7 +986,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Relation pairs: **(1,x),(2,y),(2,z),(3,x)**. Induction step adds \(3k(k+1)\).
 
-??? "Term 201 — Question 7: Isomorphism, Pigeonhole and prefix/postfix evaluation"
+??? question "Term 201 — Question 7: Isomorphism, Pigeonhole and prefix/postfix evaluation"
     **Exact question**
 
     **(a)** Show the pentagon and pentagram are isomorphic. **(b)** Minimum students to guarantee five in one of four classes. **(c)** Evaluate: (i) prefix `+ - * 2 3 5 / ↑ 2 3 4`; (ii) postfix `7 2 3 * - 4 ↑ 9 3 / +`.
@@ -1010,7 +1011,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
 # Term 211
 
-??? "Term 211 — Question 1: Discrete mathematics and symbolic/verbal propositions"
+??? question "Term 211 — Question 1: Discrete mathematics and symbolic/verbal propositions"
     **Exact question**
 
     **(a)** Define discrete mathematics. List out the problems that can be solved using discrete mathematics. **(b)** Let \(p\) be “it is cold” and \(q\) be “It is raining”. Give a simple verbal sentence describing: (i) \(\neg p\); (ii) \(p\land q\); (iii) \(p\lor q\); (iv) \(p\to q\); (v) \(p\leftrightarrow q\). **(c)** Let \(p\) be “Ram reads the Newsweek”, \(q\) be “Ram reads the Times”, and \(r\) be “Ram reads the Sun”. Write in symbolic form: (i) Ram reads Newsweek or the Sun, but not Times. (ii) Ram reads Newsweek and the Times, or he does not read Newsweek and the Sun. (iii) It is not true that Ram reads Newsweek but not Times.
@@ -1031,7 +1032,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** `but` means AND. The three symbolic answers are \((p\lor r)\land\neg q\), \((p\land q)\lor(\neg p\land r)\), and \(\neg(p\land\neg q)\).
 
-??? "Term 211 — Question 2: Tautology, implication variants and negation"
+??? question "Term 211 — Question 2: Tautology, implication variants and negation"
     **Exact question**
 
     **(a)** Define tautology and verify \(p\lor\neg(p\land q)\) is a tautology. **(b)** Find converse, inverse and contrapositive of “If Ram is a poet, then he is poor.” **(c)** Negate: “If she works, she will earn money.”
@@ -1051,7 +1052,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** \(p\lor\neg(p\land q)=T\). Negation of “if \(p\), then \(q\)” is \(p\land\neg q\).
 
-??? "Term 211 — Question 3: Set operations, Cartesian product and compositions"
+??? question "Term 211 — Question 3: Set operations, Cartesian product and compositions"
     **Exact question**
 
     **(a)** Define set, power set and proper set. Given \(U=\{0,1,\ldots,10\}\), \(A=\{1,2,3,4,5\}\), \(B=\{4,5,6,7,8\}\), find \(A\cup B,A\cap B,B^c,A-B\). **(b)** Find \(A\times B\times C\) for \(A=\{2,4\}\), \(B=\{3,5\}\), \(C=\{x,y,z\}\). **(c)** For \(f(x)=2x+3,g(x)=3x+2\), find both compositions.
@@ -1079,7 +1080,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Union 1–8; intersection 4,5; \(B^c=0,1,2,3,9,10\); \(A-B=1,2,3\). Cartesian product has 12 triples.
 
-??? "Term 211 — Question 4: Quantifiers, Pigeonhole, combinations and shift encryption"
+??? question "Term 211 — Question 4: Quantifiers, Pigeonhole, combinations and shift encryption"
     **Exact question**
 
     **(a)** Determine the three printed quantified truth values for \(A=\{1,2,3,4,5\}\). **(b)** Find minimum students to guarantee: (i) three born in the same month; (ii) five in the same class among four class years. **(c)** Choose two white from six and two red from five. **(d)** Encrypt `STOP GLOBAL WARMING` using shift \(k=11\).
@@ -1093,7 +1094,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Truths **F-T-T**; month answer **25**; class answer **17**; marbles **150**; cipher **DEZA RWZMLW HLCXTYR**.
 
-??? "Term 211 — Question 5: Eight spanning trees and four-bit strings without consecutive zeros"
+??? question "Term 211 — Question 5: Eight spanning trees and four-bit strings without consecutive zeros"
     **Exact question**
 
     **(a)** Find all eight spanning trees of Fig. 5(a). **(b)** Using a tree diagram find four-bit binary numbers without consecutive 0s.
@@ -1119,7 +1120,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** A spanning tree on four vertices uses three edges, stays connected and has no cycle. Four-bit no-00 strings: **8**.
 
-??? "Term 211 — Question 6: Adjacency/incidence matrices, Prim's MST, planarity and coloring"
+??? question "Term 211 — Question 6: Adjacency/incidence matrices, Prim's MST, planarity and coloring"
     **Exact question**
 
     **(a)** Represent Fig. 6(a) using adjacency and incidence matrices. **(b)** Define MST and find it using Prim's algorithm. **(c)** Define planar graph and chromatic number; explain why \(K_5,K_{3,3}\) are non-planar.
@@ -1172,7 +1173,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
     **30-second revision:** Edge weights selected by Prim/Kruskal: **2,3,3,4,4,5**; MST total **21**. \(K_5:10>9\), \(K_{3,3}:9>8\).
 
-??? "Term 211 — Question 7: Expression tree and memory-represented tree traversals"
+??? question "Term 211 — Question 7: Expression tree and memory-represented tree traversals"
     **Exact question**
 
     **(a)** Represent `((a+b)(c+d))-(e+f)/h+g` using a binary tree. **(b)** From the printed memory representation, draw the tree and find preorder, inorder and postorder.
