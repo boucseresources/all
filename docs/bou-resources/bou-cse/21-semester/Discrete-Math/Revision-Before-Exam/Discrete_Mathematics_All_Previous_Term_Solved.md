@@ -34,7 +34,6 @@ The definitions, theorems and standard algorithms were checked against these hig
 # Term 151 (Jan–Jun 2015)
 
 ??? question "Term 151 — Question 1: Propositions, logical connectives, tautology and contradiction"
-    
     **Exact question**
 
     **(a)** Let \(p,q\), and \(r\) be the propositions:
@@ -1189,7 +1188,7 @@ The definitions, theorems and standard algorithms were checked against these hig
 
 ---
 
-# Ultra-Quick Final Revision Sheet
+## Ultra-Quick Final Revision Sheet
 
 | Topic | Must-remember result |
 |---|---|
