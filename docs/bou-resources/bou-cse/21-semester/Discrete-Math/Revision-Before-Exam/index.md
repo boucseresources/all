@@ -1209,6 +1209,238 @@
     This process perfectly accommodates every current guest while subsequently occupying room 1, 2, 3... onwards for both infinite buildings seamlessly.
 
 
+## Logic - Quantifier Truth Values
+
+??? "Logic - Quantifier Truth Values"
+
+    ### **Exact Exam Question:**
+
+    **Let $A=\{1,2,3,4,5\}$. Determine the truth value of each of the following statement with explanation:**
+    **(i) $(\exists x\in A)(x+3=10)$**
+    **(ii) $(\forall x\in A)(x+3<10)$**
+    **(iii) $(\exists x\in A)(x+3<5)$**
+    **(iv) $(\forall x\in A)(x+3<7)$**
+    *(Note: Term 191 had a slight variation for iv: $(\forall x\in A)(x+3\le 7)$)*
+
+    ---
+
+    ### **Exam-Ready Solution:**
+
+    **Given Data (প্রদত্ত তথ্য):**
+    The domain (ডোমেইন) or universal set is $A = \{1, 2, 3, 4, 5\}$.
+
+    **Solution for (i): $(\exists x\in A)(x+3=10)$**
+
+    * **Meaning:** There exists (অন্তত একটির অস্তিত্ব আছে) an element $x$ in set $A$ such that $x + 3 = 10$.
+    * **Truth Value:** **False** (মিথ্যা)
+    * **Explanation:** To make $x + 3 = 10$, the value of $x$ must be 7. However, 7 is not an element of set $A$ ($7 \notin A$). Because no such $x$ exists in the domain, the statement is False.
+
+    **Solution for (ii): $(\forall x\in A)(x+3<10)$**
+
+    * **Meaning:** For ALL (সকলের জন্য) elements $x$ in set $A$, the condition $x + 3 < 10$ is true.
+    * **Truth Value:** **True** (সত্য)
+    * **Explanation:** We need to check if the condition holds for every single element. If we test the maximum value in set $A$, which is $x = 5$, we get $5 + 3 = 8$. Since $8 < 10$ is mathematically correct, and all other smaller elements (1, 2, 3, 4) will also produce results strictly less than 10, the statement is True for all $x$.
+
+    **Solution for (iii): $(\exists x\in A)(x+3<5)$**
+
+    * **Meaning:** There exists (অন্তত একটির অস্তিত্ব আছে) an element $x$ in set $A$ such that $x + 3 < 5$.
+    * **Truth Value:** **True** (সত্য)
+    * **Explanation:** For an existential quantifier ($\exists$), we only need to find **one** single example that works. Let us test the minimum value in set $A$, which is $x = 1$. If $x = 1$, then $1 + 3 = 4$. Since $4 < 5$ is correct, we have successfully found at least one valid $x$. Therefore, the statement is True.
+
+    **Solution for (iv) - Variation 1: $(\forall x\in A)(x+3<7)$** *(Terms 171, 201)*
+
+    * **Meaning:** For ALL (সকলের জন্য) elements $x$ in set $A$, the condition $x + 3 < 7$ is true.
+    * **Truth Value:** **False** (মিথ্যা)
+    * **Explanation:** To prove a universal quantifier ($\forall$) is false, we only need to find one counterexample (পাল্টা উদাহরণ). Let us test $x = 4$. If $x = 4$, then $4 + 3 = 7$. The condition says the result must be strictly *less than* 7 ($7 \not< 7$). Because the condition fails for $x = 4$ and $x = 5$, it is not true for *all* $x$. Therefore, the statement is False.
+
+    **Solution for (iv) - Variation 2: $(\forall x\in A)(x+3 \le 7)$** *(Term 191)*
+
+    * **Meaning:** For ALL (সকলের জন্য) elements $x$ in set $A$, the condition $x + 3 \le 7$ (less than OR equal to 7) is true.
+    * **Truth Value:** **False** (মিথ্যা)
+    * **Explanation:** We need to find a counterexample (পাল্টা উদাহরণ). Let us test the maximum value, $x = 5$. If $x = 5$, then $5 + 3 = 8$. Since 8 is neither less than nor equal to 7 ($8 \not\le 7$), the condition fails. Because it does not work for $x = 5$, the statement is False.
+
+
+## The Handshaking Theorem (হ্যান্ডশেক উপপাদ্য)
+
+??? "The Handshaking Theorem (হ্যান্ডশেক উপপাদ্য)"
+
+    ### The Handshaking Theorem (হ্যান্ডশেক উপপাদ্য)
+
+    **Basic Concept:** This theorem shows the direct relationship between the total number of edges (প্রান্ত) and the total degree (ডিগ্রি) of all vertices (শীর্ষবিন্দু) in a graph.
+
+    ---
+
+    #### 1. For Undirected Graph (অনির্দেশিত গ্রাফের জন্য)
+
+    * **Statement (বিবৃতি):** In any undirected graph, the sum (সমষ্টি) of the degrees of all vertices is equal to exactly twice (দ্বিগুণ) the number of edges.
+    * **Formula (সূত্র):**
+
+    $$\sum_{v \in V} \deg(v) = 2\vert{}E\vert{}$$
+
+
+
+    *(Where $V$ = Set of Vertices, $\vert{}E\vert{}$ = Total number of edges)*
+    * **Why it works (যুক্তি):** Every single edge connects exactly 2 vertices. So, 1 edge always adds exactly 2 to the total degree count.
+    * **Important Exam Corollary (গুরুত্বপূর্ণ অনুসিদ্ধান্ত):** Because of this theorem, an undirected graph will **always** have an even number (জোড় সংখ্যা) of vertices with odd degrees (বিজোড় ডিগ্রি).
+
+    ---
+
+    #### 2. For Directed Graph (দিকনির্দেশিত গ্রাফের জন্য)
+
+    * **Statement (বিবৃতি):** In a directed graph, the sum of all in-degrees (অন্তর্মুখী ডিগ্রি) is perfectly equal to the sum of all out-degrees (বহির্মুখী ডিগ্রি). Both of these sums are exactly equal to the total number of edges.
+    * **Formula (সূত্র):**
+
+    $$\sum_{v \in V} \deg^-(v) = \sum_{v \in V} \deg^+(v) = \vert{}E\vert{}$$
+
+
+
+    *(Where $\deg^-$ = in-degree, and $\deg^+$ = out-degree)*
+    * **Why it works (যুক্তি):** Every arrow (edge) leaves one vertex (giving +1 out-degree) and enters another vertex (giving +1 in-degree). So, the total "ins" must equal the total "outs".
+
+    *(Exam Tip: If the question asks you to "verify" this theorem from a given graph image, just make a small table, count the degrees, sum them up, and show that it equals $2 \times$ Total Edges!)*
+
+## CryptoGraphy, Tree
+
+??? "CryptoGraphy, Tree"
+
+
+    ### **Topic 1: Counting - The Marble Problem (মার্বেল বাছায়ের অঙ্ক)**
+
+    **Exact Exam Question:**
+    **A bag contains six white marbles and five red marbles. Find the number of ways four marbles can be drawn from the bag if two must be white and two red.**
+    *(Appeared in: Term 171 Q3b, Term 201 Q4b, Term 211 Q4c)*
+
+    **Exam-Ready Solution:**
+
+    **Given Data (প্রদত্ত তথ্য):**
+
+    * Total White marbles = 6
+    * Total Red marbles = 5
+    * Target: Draw exactly 4 marbles (2 White **AND** 2 Red).
+
+    **Calculation Strategy (গণনার কৌশল):**
+    Since the order in which we pick the marbles does not matter, we will use the **Combination (সমাবেশ)** formula: $C(n, r) = \frac{n!}{r!(n-r)!}$
+    Because we must pick White marbles **AND** Red marbles to complete our draw, we will multiply the combinations using the **Product Rule (গুণন বিধি)**.
+
+    * **Step 1: Choosing 2 White marbles out of 6.**
+    Number of ways = $C(6, 2) = \frac{6!}{2!(6-2)!} = \frac{6 \times 5 \times 4!}{2 \times 1 \times 4!} = \frac{30}{2} = 15$ ways.
+    * **Step 2: Choosing 2 Red marbles out of 5.**
+    Number of ways = $C(5, 2) = \frac{5!}{2!(5-2)!} = \frac{5 \times 4 \times 3!}{2 \times 1 \times 3!} = \frac{20}{2} = 10$ ways.
+    * **Step 3: Applying the Product Rule.**
+    Total number of ways = $C(6, 2) \times C(5, 2)$
+    Total number of ways = $15 \times 10 = 150$
+
+    **Final Answer:**
+    There are exactly **150** ways to draw the marbles.
+
+    ---
+
+    ### **Topic 2: Set Theory - Membership Table Proofs (সদস্যপদ সারণি প্রমাণ)**
+
+    *(Note: There are two exact proofs that repeat constantly. You just need to draw the table perfectly.)*
+
+    **Exact Exam Question 1:**
+    **Using membership table show that $\overline{A\cap B\cap C}=\bar A\cup\bar B\cup\bar C$.** *(De Morgan's Law)*
+    *(Appeared in: Term 151 Q2a, Term 161 Q2a)*
+
+    **Exam-Ready Solution:**
+    Let $1$ denote True (element belongs to the set) and $0$ denote False (element does not belong to the set).
+
+    | A | B | C | $A\cap B\cap C$ | $\overline{A\cap B\cap C}$ (LHS) | $\bar A$ | $\bar B$ | $\bar C$ | $\bar A\cup\bar B\cup\bar C$ (RHS) |
+    | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+    | 1 | 1 | 1 | 1 | **0** | 0 | 0 | 0 | **0** |
+    | 1 | 1 | 0 | 0 | **1** | 0 | 0 | 1 | **1** |
+    | 1 | 0 | 1 | 0 | **1** | 0 | 1 | 0 | **1** |
+    | 1 | 0 | 0 | 0 | **1** | 0 | 1 | 1 | **1** |
+    | 0 | 1 | 1 | 0 | **1** | 1 | 0 | 0 | **1** |
+    | 0 | 1 | 0 | 0 | **1** | 1 | 0 | 1 | **1** |
+    | 0 | 0 | 1 | 0 | **1** | 1 | 1 | 0 | **1** |
+    | 0 | 0 | 0 | 0 | **1** | 1 | 1 | 1 | **1** |
+
+    **Conclusion:** Since the columns for $\overline{A\cap B\cap C}$ and $\bar A\cup\bar B\cup\bar C$ are exactly identical, the given identity is verified (প্রমাণিত).
+
+    ---
+
+    **Exact Exam Question 2:**
+    **Using membership table show that $\overline{A\cup(B\cap C)}=(\bar C\cup\bar B)\cap\bar A$.**
+    *(Appeared in: Term 181 Q2a, Term 201 Q3a, Term 211 Q3a)*
+
+    **Exam-Ready Solution:**
+
+    | A | B | C | $B\cap C$ | $A\cup(B\cap C)$ | $\mathbf{\overline{A\cup(B\cap C)}}$ (LHS) | $\bar C$ | $\bar B$ | $\bar A$ | $\bar C\cup\bar B$ | $\mathbf{(\bar C\cup\bar B)\cap\bar A}$ (RHS) |
+    | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+    | 1 | 1 | 1 | 1 | 1 | **0** | 0 | 0 | 0 | 0 | **0** |
+    | 1 | 1 | 0 | 0 | 1 | **0** | 1 | 0 | 0 | 1 | **0** |
+    | 1 | 0 | 1 | 0 | 1 | **0** | 0 | 1 | 0 | 1 | **0** |
+    | 1 | 0 | 0 | 0 | 1 | **0** | 1 | 1 | 0 | 1 | **0** |
+    | 0 | 1 | 1 | 1 | 1 | **0** | 0 | 0 | 1 | 0 | **0** |
+    | 0 | 1 | 0 | 0 | 0 | **1** | 1 | 0 | 1 | 1 | **1** |
+    | 0 | 0 | 1 | 0 | 0 | **1** | 0 | 1 | 1 | 1 | **1** |
+    | 0 | 0 | 0 | 0 | 0 | **1** | 1 | 1 | 1 | 1 | **1** |
+
+    **Conclusion:** The columns for LHS and RHS are identical. Therefore, the identity is proved.
+
+    ---
+
+    ### **Topic 3: Cryptography - Shift Cipher (ক্রিপ্টোগ্রাফি)**
+
+    **Exact Exam Question:**
+    **Encrypt the plaintext message "STOP GLOBAL WARMING" using the shift cipher with shift $k=11$.**
+    *(Appeared in: Term 211 Q4d)*
+
+    **Exam-Ready Solution:**
+
+    **Encryption Formula (এনক্রিপশন সূত্র):**
+    $E(p) = (p + k) \pmod{26}$, where $k$ is the shift key.
+    Here, $k = 11$.
+
+    First, we assign numerical values to each letter starting from $A=0, B=1, \dots, Z=25$.
+
+    **1. Word: STOP**
+
+    * S (18): $(18 + 11) \pmod{26} = 29 \pmod{26} = 3 \rightarrow$ **D**
+    * T (19): $(19 + 11) \pmod{26} = 30 \pmod{26} = 4 \rightarrow$ **E**
+    * O (14): $(14 + 11) \pmod{26} = 25 \pmod{26} = 25 \rightarrow$ **Z**
+    * P (15): $(15 + 11) \pmod{26} = 26 \pmod{26} = 0 \rightarrow$ **A**
+    * *Ciphertext:* **DEZA**
+
+    **2. Word: GLOBAL**
+
+    * G (6): $(6 + 11) \pmod{26} = 17 \rightarrow$ **R**
+    * L (11): $(11 + 11) \pmod{26} = 22 \rightarrow$ **W**
+    * O (14): $(14 + 11) \pmod{26} = 25 \rightarrow$ **Z**
+    * B (1): $(1 + 11) \pmod{26} = 12 \rightarrow$ **M**
+    * A (0): $(0 + 11) \pmod{26} = 11 \rightarrow$ **L**
+    * L (11): $(11 + 11) \pmod{26} = 22 \rightarrow$ **W**
+    * *Ciphertext:* **RWZMLW**
+
+    **3. Word: WARMING**
+
+    * W (22): $(22 + 11) \pmod{26} = 33 \pmod{26} = 7 \rightarrow$ **H**
+    * A (0): $(0 + 11) \pmod{26} = 11 \rightarrow$ **L**
+    * R (17): $(17 + 11) \pmod{26} = 28 \pmod{26} = 2 \rightarrow$ **C**
+    * M (12): $(12 + 11) \pmod{26} = 23 \rightarrow$ **X**
+    * I (8): $(8 + 11) \pmod{26} = 19 \rightarrow$ **T**
+    * N (13): $(13 + 11) \pmod{26} = 24 \rightarrow$ **Y**
+    * G (6): $(6 + 11) \pmod{26} = 17 \rightarrow$ **R**
+    * *Ciphertext:* **HLCXTYR**
+
+    **Final Answer:**
+    The encrypted message is: **DEZA RWZMLW HLCXTYR**
+
+    ---
+
+    ### **Topic 4: Trees - Memory Representation (মেমোরি টেবিল থেকে ট্রি গঠন)**
+
+    **Exact Exam Question:**
+    **Given a memory representation of binary tree as follows. Root=2; Avail=4. (i) Draw the diagram of the tree. (ii) Find the preorder, in-order and post-order traversals.**
+    *(Appeared in: Term 191 Q6c, Term 201 Q4b, Term 211 Q7b)*
+
+    **Important Note for this Problem:**
+    The actual data for this problem is inside a table (Image: `CSE2133_..._Memory_Table.png`), which has columns for `INFO`, `LEFT`, and `RIGHT` pointers. I do not have access to the numbers inside that table!
+
+    Could you please provide the values from that memory table (INFO, LEFT, RIGHT values for indices 1 to 10)? Once you provide the table data, I will instantly draw the tree logic and solve the traversals for you!
+
 ## 
 
 ??? ""
