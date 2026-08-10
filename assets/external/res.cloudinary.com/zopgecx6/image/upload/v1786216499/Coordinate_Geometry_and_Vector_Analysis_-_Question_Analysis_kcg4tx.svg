@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="651" viewBox="0 0 1050 651" role="img" aria-labelledby="chart-title chart-desc">
+  <title id="chart-title">Coordinate Geometry and Vector Analysis Topic Frequency</title>
+  <desc id="chart-desc">Distinct-term appearances across 6 supplied examination papers</desc>
+  <rect width="1050" height="651" rx="26" fill="#f8fafc"/>
+  <text x="44" y="50" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">Coordinate Geometry and Vector Analysis Topic Frequency</text>
+  <text x="44" y="78" font-family="Arial, sans-serif" font-size="15" fill="#475569">Distinct-term appearances across 6 supplied examination papers</text>
+  <line x1="455.0" y1="98" x2="455.0" y2="566" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="534.2" y1="98" x2="534.2" y2="566" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="613.3" y1="98" x2="613.3" y2="566" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="692.5" y1="98" x2="692.5" y2="566" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="771.7" y1="98" x2="771.7" y2="566" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="850.8" y1="98" x2="850.8" y2="566" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="930.0" y1="98" x2="930.0" y2="566" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="440" y="125" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Coordinate transformation, rotation and Cartesian…</text>
+  <rect x="455" y="108" width="475.0" height="22" rx="11" fill="#ef4444"/>
+  <text x="946.0" y="125" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">6</text>
+  <text x="440" y="164" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Pair of straight lines and second-degree equations</text>
+  <rect x="455" y="147" width="475.0" height="22" rx="11" fill="#ef4444"/>
+  <text x="946.0" y="164" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">6</text>
+  <text x="440" y="203" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Lines, planes, spheres and shortest distance in 3D</text>
+  <rect x="455" y="186" width="475.0" height="22" rx="11" fill="#ef4444"/>
+  <text x="946.0" y="203" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">6</text>
+  <text x="440" y="242" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Vector magnitude, dot product, cross product and …</text>
+  <rect x="455" y="225" width="475.0" height="22" rx="11" fill="#ef4444"/>
+  <text x="946.0" y="242" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">6</text>
+  <text x="440" y="281" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Directional derivative and gradient</text>
+  <rect x="455" y="264" width="475.0" height="22" rx="11" fill="#ef4444"/>
+  <text x="946.0" y="281" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">6</text>
+  <text x="440" y="320" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Divergence and curl</text>
+  <rect x="455" y="303" width="475.0" height="22" rx="11" fill="#ef4444"/>
+  <text x="946.0" y="320" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">6</text>
+  <text x="440" y="359" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Irrotational, conservative and solenoidal fields</text>
+  <rect x="455" y="342" width="475.0" height="22" rx="11" fill="#ef4444"/>
+  <text x="946.0" y="359" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">6</text>
+  <text x="440" y="398" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Line integrals and path independence</text>
+  <rect x="455" y="381" width="475.0" height="22" rx="11" fill="#ef4444"/>
+  <text x="946.0" y="398" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">6</text>
+  <text x="440" y="437" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Green’s theorem and applications</text>
+  <rect x="455" y="420" width="475.0" height="22" rx="11" fill="#ef4444"/>
+  <text x="946.0" y="437" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#b91c1c">6</text>
+  <text x="440" y="476" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Conics, circles, centers and classification</text>
+  <rect x="455" y="459" width="395.8" height="22" rx="11" fill="#f97316"/>
+  <text x="866.8" y="476" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#c2410c">5</text>
+  <text x="440" y="515" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Vector identities and triple products</text>
+  <rect x="455" y="498" width="316.7" height="22" rx="11" fill="#eab308"/>
+  <text x="787.7" y="515" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#a16207">4</text>
+  <text x="440" y="554" font-family="Arial, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">Velocity and acceleration of a particle</text>
+  <rect x="455" y="537" width="237.5" height="22" rx="11" fill="#22c55e"/>
+  <text x="708.5" y="554" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#15803d">3</text>
+  <text x="455.0" y="598" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">0</text>
+  <text x="534.2" y="598" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">1</text>
+  <text x="613.3" y="598" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">2</text>
+  <text x="692.5" y="598" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">3</text>
+  <text x="771.7" y="598" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">4</text>
+  <text x="850.8" y="598" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">5</text>
+  <text x="930.0" y="598" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">6 terms</text>
+</svg>
