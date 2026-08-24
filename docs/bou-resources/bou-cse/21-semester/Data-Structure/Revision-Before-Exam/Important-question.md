@@ -729,3 +729,241 @@ To optimize space and computation, only non-zero entries are stored as triplets:
 | 0 | 3 | 5 |
 | 2 | 0 | 8 |
 | 3 | 2 | 3 |
+
+
+### 1. Define linear linked list. Explain the process of inserting an element into a linked list with a suitable example.
+
+A **linear linked list** is a dynamic, linear data structure in which elements (called **nodes**) are allocated non-contiguously (অসংলগ্ন / বিক্ষিপ্ত মেমরিতে) in memory. Each node consists of two essential parts:
+
+1. **`INFO` (or `DATA`)**: Stores the actual data element.
+2. **`NEXT` (or `LINK`)**: A pointer (নির্দেশক) holding the physical memory address of the next consecutive node.
+
+A pointer variable `START` (or `HEAD`) stores the address of the first node, and the `NEXT` field of the terminal node contains a `NULL` (বা শূন্য নির্দেশক) pointer.
+
+```
+       +-------------+      +-------------+      +-------------+
+START  | INFO | NEXT |      | INFO | NEXT |      | INFO | NEXT |
+-----> |  10  |   *--|----> |  20  |   *--|----> |  30  | NULL |
+       +-------------+      +-------------+      +-------------+
+
+```
+
+#### Process of Inserting an Element (Insertion After a Given Node `LOC`):
+
+To insert a new node containing value `ITEM` immediately after a given node at address `LOC`:
+
+```
+Before Insertion:
+... -> [ Node LOC: 20 | * ] -------------> [ Node: 30 | NULL ]
+
+Step 1 & 2: Allocate NEW node [ ITEM: 25 | NULL ]
+Step 3: Point NEW->NEXT to LOC->NEXT (Node 30)
+Step 4: Point LOC->NEXT to NEW node
+
+After Insertion:
+... -> [ Node LOC: 20 | * ]               [ Node: 30 | NULL ]
+               \                         ^
+                \--> [ NEW: 25 | * ] ---/
+
+```
+
+* **Step 1 (Memory Allocation):** Allocate a new node `NEW` from the free storage pool (`AVAIL` list / heap memory). If no memory is available, signal **Overflow** (ধারণক্ষমতা উপচে পড়া) and terminate.
+* **Step 2 (Assign Data):** Set `INFO[NEW] = ITEM`.
+* **Step 3 (Re-link Successor):** Point the `NEXT` pointer of the new node to the logical successor (পরবর্তী নোড) of `LOC`:
+
+$$\text{NEXT}[\text{NEW}] = \text{NEXT}[\text{LOC}]$$
+
+
+* **Step 4 (Re-link Predecessor):** Update the `NEXT` pointer of node `LOC` to reference the newly allocated node:
+
+$$\text{NEXT}[\text{LOC}] = \text{NEW}$$
+
+
+* **Time Complexity:** $\mathcal{O}(1)$ constant time if the pointer `LOC` is already known; $\mathcal{O}(n)$ if searching for `LOC` is required.
+
+---
+
+### 2. Explain the process of deleting an element from a linked list. Which cases must be considered?
+
+The deletion process removes a target node from the logical sequence by adjusting the pointers of adjacent (পার্শ্ববর্তী) nodes and returning the unlinked node to the dynamic memory pool (`AVAIL` list).
+
+```
+Unlinking an Intermediate Node:
+              +-------------------------------------+
+              |                                     |
+              v                                     |
+... -> [ Node LOCP: 10 | * ]     [ Node LOC: 20 | * ]     [ Node: 30 | NULL ]
+                                 \__________________/
+                                   (To be deleted)
+
+```
+
+#### Steps in Deletion:
+
+1. Locate the target node (`LOC`) and track its immediate predecessor (পূর্ববর্তী নোড, `LOCP`).
+2. Update the pointer of `LOCP` to bypass (বাইপাস করা / এড়িয়ে যাওয়া) `LOC` and directly point to `LOC`'s successor:
+
+$$\text{NEXT}[\text{LOCP}] = \text{NEXT}[\text{LOC}]$$
+
+
+3. Deallocate (মেমরি মুক্ত করা) node `LOC` by returning it to the `AVAIL` list.
+
+#### Cases That Must Be Considered:
+
+* **Case 1: Underflow Condition (`START == NULL`):** Attempting to delete from an already empty list. Must terminate with an error.
+* **Case 2: Deletion of the First Node (`LOC == START`):** The list anchor `START` must be shifted directly to the second node:
+
+$$\text{START} = \text{NEXT}[\text{START}]$$
+
+
+* **Case 3: Deletion of an Intermediate Node:** Normal pointer reassignment using predecessor `LOCP`:
+
+$$\text{NEXT}[\text{LOCP}] = \text{NEXT}[\text{LOC}]$$
+
+
+* **Case 4: Deletion of the Last Node (Tail Node):** The predecessor's link must be set to `NULL`:
+
+$$\text{NEXT}[\text{LOCP}] = \text{NULL}$$
+
+
+* **Case 5: Target Element Not Found:** Traversal reaches `NULL` without locating the key; issue an appropriate "Item Absent" signal.
+
+---
+
+### 3. Define doubly linked list. What are its advantages and disadvantages compared with a singly linked list?
+
+A **doubly linked list** (or two-way list) is a linear data structure in which each node contains three fields:
+
+1. **`INFO`**: The payload / actual data value.
+2. **`FORW` (or `NEXT`)**: Pointer to the successor node.
+3. **`BACK` (or `PREV`)**: Pointer to the predecessor node.
+
+```
+         +-----------------------+-----------------------+
+         |                       |                       |
+NULL <-- [ BACK | INFO | FORW ] <-> [ BACK | INFO | FORW ] --> NULL
+
+```
+
+#### Advantages Over Singly Linked List:
+
+* **Bidirectional Traversal (দ্বিমুখী পরিক্রমণ):** The list can be navigated forward (`FORW`) and backward (`BACK`) with equal efficiency.
+* **$\mathcal{O}(1)$ Deletion Given Node Pointer:** A node can delete itself without traversing from `START` to locate its predecessor, because `node->BACK` directly gives the previous node:
+
+$$\text{node}\to\text{BACK}\to\text{FORW} = \text{node}\to\text{FORW}$$
+
+
+* **Efficient Predecessor Insertion:** Inserting a new node immediately *before* a given node takes $\mathcal{O}(1)$ time.
+
+#### Disadvantages Compared to Singly Linked List:
+
+* **Increased Memory Overhead (অতিরিক্ত মেমরি অপচয়):** Every node requires space for two pointer variables instead of one.
+* **Complex Pointer Maintenance:** Operations (insertion, deletion) require updating $4$ pointers instead of $2$, increasing code complexity and execution overhead.
+
+---
+
+### 4. Write the definition of a header linked list and a two-way linked list with examples.
+
+#### Header Linked List:
+
+A **header linked list** contains a dedicated, special node at the beginning called the **Header Node** (বা শীর্ষ নোড). The `START` pointer always points to this header node, while the actual data elements begin from the node immediately following it.
+
+* **Grounded Header List (সীমাবদ্ধ হেডার লিস্ট):** The last node's `NEXT` pointer contains `NULL`.
+* **Circular Header List (বৃত্তাকার হেডার লিস্ট):** The last node's `NEXT` pointer points back to the Header Node.
+
+```
+Circular Header Linked List Example:
+             +------------------------------------------------------+
+             |                                                      |
+             v                                                      |
+START -> [ HEADER | * ] -> [ 'A' | * ] -> [ 'B' | * ] -> [ 'C' | * -+ ]
+         (Count = 3)
+
+```
+
+#### Two-Way (Doubly) Linked List:
+
+A **two-way linked list** is a linked data structure where each node maintains explicit forward and backward links to facilitate bidirectional traversal.
+
+```
+Two-Way Linked List Example:
+          +-------------------+     +-------------------+
+START     | PREV | INFO | NEXT|     | PREV | INFO | NEXT|
+----->    | NULL | 100  |  * -|---->|  *   | 200  | NULL|
+          +-------------------+<----+-------------------+
+
+```
+
+---
+
+### 5. Explain the terms garbage collection, overflow and underflow with reference to linked lists.
+
+* **Garbage Collection (অব্যবহৃত মেমরি পুনরুদ্ধার / সংগ্রহ):**
+* **Concept:** When nodes are deleted or unlinked from a linked list, their physical memory cells remain allocated unless explicitly freed. Garbage collection is the operating system or runtime mechanism that identifies these orphaned (সংযোগহীন) memory blocks and returns them to the free storage pool (`AVAIL` list).
+* **Significance:** Prevents **memory leaks** (মেমরি ক্ষয়) during prolonged execution of programs with high dynamic allocations.
+
+
+* **Overflow (ধারণক্ষমতা উপচে পড়া):**
+* **Concept:** Occurs during an **insertion** operation when the system attempts to allocate memory for a new node, but the free storage list is empty (`AVAIL == NULL`) due to complete physical memory exhaustion.
+* **Condition:** $\text{AVAIL} = \text{NULL} \implies \text{Overflow Error}$.
+
+
+* **Underflow (শূন্যতাবস্থা / উপাদান অপ্রতুলতা):**
+* **Concept:** Occurs during a **deletion** operation when an algorithm attempts to remove a node from an already empty linked list (`START == NULL`).
+* **Condition:** $\text{START} = \text{NULL} \implies \text{Underflow Error}$.
+
+
+
+---
+
+### 6. Differentiate between an array and a linked list.
+
+| Evaluation Metric | Array (অ্যারে) | Linked List (সংযুক্ত তালিকা) |
+| --- | --- | --- |
+| **Memory Allocation** | **Static / Contiguous:** Fixed size allocated in continuous memory blocks. | **Dynamic / Non-contiguous:** Nodes allocated at runtime across scattered heap memory. |
+| **Element Access Time** | Direct $\mathcal{O}(1)$ random access using index. | Sequential $\mathcal{O}(n)$ access via pointer traversal. |
+| **Insertion / Deletion Cost** | Expensive $\mathcal{O}(n)$ due to physical shifting of elements. | Efficient $\mathcal{O}(1)$ once the pointer location is identified (no shifting). |
+| **Memory Overhead** | **Zero:** Space is used strictly for data values. | **High:** Each node requires auxiliary (সহায়ক) pointer storage (`NEXT`, `PREV`). |
+| **Cache Locality (ক্যাশ নৈকট্য)** | Excellent spatial locality; maximizes CPU cache hits. | Poor spatial locality; nodes distributed across heap cause cache misses. |
+| **Resizing Flexibility** | Fixed capacity; dynamic expansion requires reallocation and copying. | Fully dynamic; grows and shrinks node-by-node seamlessly. |
+
+---
+
+### 7. Why is a linked list called a dynamic data structure? Explain its advantages over an array.
+
+#### Why It Is Called a Dynamic Data Structure:
+
+A linked list is termed **dynamic** because its memory footprint (মেমরি পরিসর) is not predetermined at compile-time. Instead, memory is allocated and released individually for each node at runtime (প্রোগ্রাম চলাকালীন সময়ে) directly from the system heap using operations like `malloc()` or `new`. It expands when elements are added and contracts when elements are removed without needing bulk block allocations.
+
+#### Advantages Over an Array:
+
+* **No Pre-allocation Waste (মেমরি অপচয় রোধ):** Eliminates internal fragmentation since there is no requirement to declare a fixed maximum capacity in advance.
+* **Constant-Time Insertion and Deletion:** Inserting or deleting a node at a known location requires only adjusting link pointers ($\mathcal{O}(1)$), completely avoiding the costly element-shifting operations ($\mathcal{O}(n)$) typical of arrays.
+* **Efficient Utilization of Fragmented Memory:** Since contiguous physical blocks are not required, a linked list can utilize non-contiguous memory segments that would otherwise be unusable for large arrays.
+
+---
+
+### 8. Explain the purpose of the header node in a header linked list.
+
+The **header node** is placed at index $0$ of the list to streamline algorithmic design and record global metadata:
+
+* **Elimination of Boundary / Special Cases (প্রান্তিক শর্ত সহজীকরণ):**
+* In a standard linked list, inserting or deleting the very first node requires modifying the global `START` pointer itself.
+* In a header linked list, `START` permanently points to the invariant (অপরিবর্তনীয়) header node. All insertions and deletions—even at the logical beginning of the data sequence—occur *after* the header node, removing the need for separate edge-case logic for `START`.
+
+
+
+```
+Standard List Insertion at Beginning:   Requires modifying master START pointer
+Header List Insertion at Beginning:     Standard insertion after Header node (No START modification)
+
+```
+
+* **Metadata Repository (মেটাডেটা সংরক্ষণ):**
+The `INFO` field of the header node can store global summary information about the list, including:
+* Total node count (allowing $\mathcal{O}(1)$ length queries).
+* Pointers to the maximum/minimum data values.
+* Timestamp or list status flags.
+
+
+* **Simplification of Circular Traversal:** In circular header lists, the header node provides an unambiguous anchor point to detect when a full loop traversal has completed.
