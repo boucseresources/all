@@ -21,7 +21,7 @@ BOU -এর School of Science and Technology—এই বিভাগের **�
 - পরীক্ষার সময়,
   সব ছিল!
 
-![image-38.png](/bou-resources/bou-cse/media-library/image-38.png)
+![bou cse notice - notes.bro.bd](https://res.cloudinary.com/zopgecx6/image/upload/v1787530958/image-38_pof3dy.png)
 
 Program Details: [https://bou.ac.bd/SST/BSCSE](https://bou.ac.bd/SST/BSCSE)
 BOU CSE Admission Notice Board: [https://bousst.edu.bd/notice/admission-notice/](https://bousst.edu.bd/notice/admission-notice/){\_blank}
@@ -31,13 +31,13 @@ BOU CSE Admission Notice Board: [https://bousst.edu.bd/notice/admission-notice/]
 বিজ্ঞপ্তিতে যেই তারিখ দেয়া ছিল, তার মধ্যেই আবেদন করতে হতো।
 **আমার সাজেশন?** একেবারে শেষ দিন পর্যন্ত অপেক্ষা কোরো না ভাই! আমি কিন্তু এক সপ্তাহ আগেই আবেদন করেছিলাম। কারণ যদি সেদিন **সার্ভার ডাউন** থাকে, অথবা কোনো **দুর্যোগ** হয়, তখন তো আর করা যাবে না—সোজা মিস!
 
-![image-35.png](/bou-resources/bou-cse/media-library/image-35.png)
+![bou cse addmission sample (real)](https://res.cloudinary.com/zopgecx6/image/upload/v1787530968/image-35_wi3vzm.png)
 
 ---
 
 ## 📚 প্রিপারেশন কাহিনি: Pearl-এ পাওয়া মুক্তা
 
-![image-36.png](/bou-resources/bou-cse/media-library/image-36.png)
+![Pearl - BOU CSE admission book](https://res.cloudinary.com/zopgecx6/image/upload/v1787531191/Pearl_-_BOU_CSE_admission_book_datv7z.png){width=300px}
 
 এবার আসি সবচেয়ে টেনশনের জায়গায়—প্রিপারেশন।
 
