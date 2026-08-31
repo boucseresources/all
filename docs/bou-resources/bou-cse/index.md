@@ -1,3 +1,6 @@
 # All Semester Resources
 
-Here you will find all semester resources.
+!!! error "Notice for Semester Questions"
+
+    ২০২৬ সাল থেকে কোন ধরনের প্রশ্নপত্র শিক্ষার্থীদেরকে না দিয়ে দেয়ার কারণে তা সংরক্ষণ করা সম্ভব হয় না।
+    তবে ২০২৬ সালের আগের পূর্ববর্তী সালের প্রশ্নগুলো এখানে পাওয়া যাবে। 
