@@ -8,7 +8,7 @@ title: Home
 
 এই সাইটে আপনি পাবেন ক্লাস নোট, বই, লেকচার স্লাইড, প্রশ্ন, এবং হ্যান্ডরাইটেন সামারি — সব সাজানো ৮টা সেমিস্টার অনুযায়ী।
 
-!!! error "Notice for Semester Questions"
+!!! danger "Notice for Semester Questions"
 
     ২০২৬ সাল থেকে কোন ধরনের প্রশ্নপত্র শিক্ষার্থীদেরকে না দিয়ে দেয়ার কারণে তা সংরক্ষণ করা সম্ভব হয় না।
     তবে ২০২৬ সালের আগের পূর্ববর্তী সালের প্রশ্নগুলো এখানে পাওয়া যাবে। 
@@ -69,6 +69,10 @@ title: Home
     <a href="/bou-resources/admission-information/Retake-Improve" class="md-button">Retake & Improvement Process দেখুন</a>
     
     <a href="/bou-resources/admission-information/Late-Registration" class="md-button md-button--orange">Late Fee নিয়ে ঝামেলে?</a>
+
+    <a href="https://cseform.vercel.app/" class=""><img  src="https://res.cloudinary.com/zopgecx6/image/upload/v1788222883/bou-cse_form.bak_fmjefe.png"/></a>
+    
+    <a href="/cover-page/cover-page.html" class=""><img  src="https://res.cloudinary.com/zopgecx6/image/upload/v1788223234/bou-cover_pagae_-generator_lktazv.png"/></a>
 
 </div>
 
