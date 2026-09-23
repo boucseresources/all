@@ -81,8 +81,8 @@
 
     ### 📈 Introduction to Economics
 
-    ![Dr. Md. Mahfuzur Rahman](assets/faculty/mahfuzur-rahman.jpg){ align=left width="120" }
-
+    ![Dr. Md. Mahfuzur Rahman](https://res.cloudinary.com/zopgecx6/image/upload/v1789961093/md-zulfiker-mahmud_hhyc7x.png){ align=left width="120" }
+    
     **Dr. Md. Mahfuzur Rahman (DMMR)**  
     Economics, School of Business  
     Bangladesh Open University
@@ -94,7 +94,8 @@
 
     ### ⚡ Microprocessors and Microcontrollers
 
-    ![Prof. Dr. Mohammed Nasir Uddin](assets/faculty/mohammed-nasir-uddin.jpg){ align=left width="120" }
+    ![Prof. Dr. Mohammed Nasir Uddin](https://res.cloudinary.com/zopgecx6/image/upload/v1789961094/abdul-kadar-muhammad-masum_zwnati.png){ align=left width="120" }
+    
 
     **Prof. Dr. Mohammed Nasir Uddin (MNU)**  
     Professor, Department of Computer Science & Engineering  
@@ -107,8 +108,7 @@
 
     ### 🔬 Microprocessors and Assembly Language Lab
 
-    ![Mr. Md. Rakib Hossen](assets/faculty/rakib-hossen.jpg){ align=left width="120" }
-
+    ![Mr. Md. Rakib Hossen](https://res.cloudinary.com/zopgecx6/image/upload/v1789961094/md-rakib-hossen_tu3he4.png){ align=left width="120" }
     **Mr. Md. Rakib Hossen (RH)**
 
     **Course:** CSE22P3 — Microprocessors and Assembly Language Lab  
@@ -118,7 +118,7 @@
 
     ### 📑 Information System Analysis and Design
 
-    ![Prof. Dr. Abdul Kadar Muhammad Masum](assets/faculty/abdul-kadar-muhammad-masum.jpg){ align=left width="120" }
+    ![Prof. Dr. Abdul Kadar Muhammad Masum](https://res.cloudinary.com/zopgecx6/image/upload/v1789961093/mohammed-nasir-uddin_gb8fgx.png){ align=left width="120" }
 
     **Prof. Dr. Abdul Kadar Muhammad Masum (AKMM)**
 
@@ -134,7 +134,7 @@
 
     ### 🧮 Computer Algorithms
 
-    ![Prof. Dr. Md. Zulfiker Mahmud](assets/faculty/zulfiker-mahmud.jpg){ align=left width="120" }
+    ![Prof. Dr. Md. Zulfiker Mahmud](https://res.cloudinary.com/zopgecx6/image/upload/v1789961093/md-mahfuzur-rahman_j0dgoz.png){ align=left width="120" }
 
     **Prof. Dr. Md. Zulfiker Mahmud (ZM)**  
     Professor, Department of Computer Science & Engineering  
@@ -152,7 +152,7 @@
 
     ### 🗄️ Database Management System
 
-    ![Ms. Shayla Sharmin](assets/faculty/shayla-sharmin.jpg){ align=left width="120" }
+    ![Ms. Shayla Sharmin](https://res.cloudinary.com/zopgecx6/image/upload/v1789961093/shayla-sharmin_kctgnm.png){ align=left width="120" }
 
     **Ms. Shayla Sharmin (SS)**
 
@@ -163,7 +163,7 @@
     **Resources:**  
     [DBMS Resources](database-management-system/) ·
     [Lab Resources](database-management-system-lab/)
-    
+
 !!! info "Program Coordinator"
 
     **Prof. Dr. Mohammad Mamunur Rashid**  
