@@ -4,6 +4,14 @@
 
  ---
 
+!!! info "8086 Microprocessor 3d Diagram"
+    
+    [8086 Microprocessor Pin Diagram](https://8086-microprocessor.vercel.app/)
+
+!!! info "8086 Microprocessor Pin Diagram"
+    
+    [8086 Microprocessor Pin Diagram](https://8086-microprocessor.vercel.app/)
+
 !!! info "KMap Generator"
     
     [![KMap Generator](image.png)](/VARIOUS-TOOLS/abc-kmap-generator/index.html)

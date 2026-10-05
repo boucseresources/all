@@ -2,7 +2,9 @@
 
 ![7 Segment Display with Arduino (Common Cathode)](https://res.cloudinary.com/zopgecx6/image/upload/v1790616804/Arduino_Uno_-_Seven_segment_Display_Common_Cathode_alhakm.gif)
 
-[TinkerCad Link: ](https://www.tinkercad.com/things/4bS6YYJgcq8-arduino-uno-seven-segment-display-common-cathode)
+!!! info "TinkerCad project link" 
+
+    [TinkerCad Link: ](https://www.tinkercad.com/things/4bS6YYJgcq8-arduino-uno-seven-segment-display-common-cathode)
 
 ### Seven Segment Digits
 ![Seven Segment Digits](https://media.geeksforgeeks.org/wp-content/uploads/20200413202916/Untitled-Diagram-237.png)
