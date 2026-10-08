@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -78,220 +75,19 @@
     
     
   
-  <link rel="manifest" href="../../../../../../manifest.json" />
+  <link rel="manifest" href="../../../../../../manifest.json">
 
-   <link href="../../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../../assets/javascripts/glightbox.min.js"></script><script>(function() {
-    const customDynamicStyle = document.createElement("style");
-    // We must put it outside of the head and body, since they are replaced by the instant navigation feature in the Material theme
-    document.documentElement.appendChild(customDynamicStyle);
-
-    const TOGGLE_BUTTON_REFERENCE_ELEMENT_NOT_FOUND_WARNING = "[mkdocs-toggle-sidebar-plugin] Reference element for inserting 'toggle_button' not found. This version of the plugin may not be compatible with this version of the theme. Try updating both to the latest version. If that fails, you can open an GitHub issue.";
-
-    const loadBool = (name, default_value) => {
-        const value = localStorage.getItem(`TOGGLE_SIDEBAR_${name}`);
-        if (value == null) {
-            return default_value;
-        } else {
-            return value == "1";
-        }
-    }
-
-    const loadNavigationState = () => loadBool("NAVIGATION", true);
-    const loadTocState = () => loadBool("TOC", true);
-
-    const saveBool = (name, value) => {
-        localStorage.setItem(`TOGGLE_SIDEBAR_${name}`, value ? "1" : "0");
-    }
-
-    const toggleVisibility = (toggleNavigation, toggleTOC) => {
-        let newNavigation = loadNavigationState();
-        let newTOC = loadTocState();
-        
-        if (toggleNavigation) {
-            newNavigation = !newNavigation;
-            saveBool("NAVIGATION", newNavigation);
-        }
-        if (toggleTOC) {
-            newTOC = !newTOC;
-            saveBool("TOC", newTOC);
-        }
-        
-        _setVisibility(newNavigation, newTOC);
-    }
-
-    const _setVisibility = (newNavigation, newTOC) => {
-        console.debug(`Setting new visibility: navigation=${newNavigation}, TOC=${newTOC}`);
-        // combine this into one operation, so that it is more efficient (for toggling both) and easier to code with dynamic CSS generation
-        customDynamicStyle.innerHTML = setCombinedVisibility(newNavigation, newTOC);
-    }
-
-    // START OF INCLUDE
-    // This gets replaced with the definitions of: 
-    // - setCombinedVisibility(showNavigation: bool, showTOC: bool) -> string (dynamic CSS)
-    // - registerKeyboardEventHandler() -> void
-    const setCombinedVisibility = (showNavigation, showTOC) => {
-    // Hide the button when on mobile (and menu us shown as hamburger menu anyways).
-    // The exact max-width is taken from the styling of the 'body > header > nav > a' element
-    
-    let style = `
-.mkdocs-toggle-sidebar-button {
-    cursor: pointer;
-    margin-right: 5px;
-    margin-left: 1rem;
-}
-
-@media screen and (max-width: 76.1875em) {
-    .mkdocs-toggle-sidebar-button {
-        display: none;
-    }
-}
-`;
-// The TOC has a different break point than the navigation.
-// It can be seen on the nav.md-nav--secondary:nth-child(1) element (60em)
-// If the screen is smaller, it is shown in the navigation section if you click the nested hamburger menu
-if (!showTOC) {
-    style += `
-@media screen and (min-width: 60em) {
-    div.md-sidebar.md-sidebar--secondary {
-        display: none;
-    }
-}
-`;
-        }
-        
-    // We always have to show the navigation in mobile view, otherwise the hamburger menu is broken
-    if (!showNavigation) {
-        style += `
-@media screen and (min-width: 76.1875em) {
-    div.md-sidebar.md-sidebar--primary {
-        display: none;
-    }
-}
-`;
-    }
-
-    return style;
-}
-
-const addToggleButton = (toggleNavigation, toggleTOC) => {
-    const toggleBtn = createDefaultToggleButton(toggleNavigation, toggleTOC);
-    toggleBtn.classList.add("md-icon");
-  
-    const titleElement = document.querySelector(".md-header__title");
-    if (titleElement) {
-        titleElement.parentNode.insertBefore(toggleBtn, titleElement.nextSibling);  
-    } else {
-        console.warn(TOGGLE_BUTTON_REFERENCE_ELEMENT_NOT_FOUND_WARNING);
-    }
-}
-
-const registerKeyboardEventHandler = () => {
-    // Custom key handlers: SEE https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=key+bind#docsjavascriptsshortcutsjs
-    keyboard$.subscribe(key => {
-        if (key.mode === "global") {
-            if (coreEventListenerLogic(key.type)) {
-                // event handled, stop propagation
-                key.claim();
-            }
-        }
-    });
-}
-
-    // END OF INCLUDE
-
-    // argument: string, returns true if the key was handled and the event should be marked as already handled
-    const coreEventListenerLogic = (keyChar) => {
-        if (keyChar === "t") {
-            toggleVisibility(false, true);
-            return true;
-        } else if (keyChar === "m") {
-            toggleVisibility(true, false);
-            return true;
-        } else if (keyChar === "b") {
-            toggleVisibility(true, true);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    const onPageLoadedAction = () => {
-        console.log("The mkdocs-toggle-sidebar-plugin is installed. It adds the following key bindings:\n T -> toggle table of contents sidebar\n M -> toggle navigation menu sidebar\n B -> toggle both sidebars (TOC and navigation)");
-
-        const toggle_button = "none";
-        if (toggle_button == "none") {
-            // do nothing
-        } else if (toggle_button == "navigation") {
-            addToggleButton(true, false);
-        } else if (toggle_button == "toc") {
-            addToggleButton(false, true);
-        } else if (toggle_button == "all") {
-            addToggleButton(true, true);
-        } else {
-            console.error(`[mkdocs-toggle-sidebar-plugin] Unknown value for toggle_button: '${toggleButtonType}'`);
-        }
-
-        registerKeyboardEventHandler();
-    }
-
-    const createDefaultToggleButton = (toggleNavigation, toggleTOC) => {
-        const toggleBtn = document.createElement("div");
-        toggleBtn.className = "mkdocs-toggle-sidebar-button";
-        toggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>`;
-        if (toggleNavigation && toggleTOC) {
-            toggleBtn.title = "Toggle Navigation and Table of Contents";
-        } else if (toggleNavigation) {
-            toggleBtn.title = "Toggle Navigation";
-        } else if (toggleTOC) {
-            toggleBtn.title = "Toggle Table of Contents";
-        }
-        toggleBtn.addEventListener("click", () => toggleVisibility(toggleNavigation, toggleTOC));
-        return toggleBtn;
-    };
-
-    // Export functions that the user can call to modify the state
-    window.MkdocsToggleSidebarPlugin = {
-        setNavigationVisibility: (show) => {
-            saveBool("NAVIGATION", show);
-            _setVisibility(show, loadTocState());
-        },
-        setTocVisibility: (show) => {
-            saveBool("TOC", show);
-            _setVisibility(loadNavigationState(), show);
-        },
-        setAllVisibility: (showNavigation, showTOC) => {
-            saveBool("NAVIGATION", showNavigation);
-            saveBool("TOC", showTOC);
-            _setVisibility(showNavigation, showTOC);
-        },
-        toggleNavigationVisibility: () => toggleVisibility(true, false),
-        toggleTocVisibility: () => toggleVisibility(false, true),
-        toggleAllVisibility: () => toggleVisibility(true, true)
-    };
-
-    // Run this immediately instead of waiting for page.onload to prevent page flicker
-    customDynamicStyle.innerHTML = setCombinedVisibility(loadNavigationState(), loadTocState());
-    // console.log("Debug: hide sidebar completed");
-
-    // SEE https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event#checking_whether_loading_is_already_complete
-    if (document.readyState === "loading") {
-        // console.debug("Registering DOMContentLoaded event listener");
-        document.addEventListener("DOMContentLoaded", onPageLoadedAction);
-    } else {
-        // console.debug("DOMContentLoaded has already fired");
-        onPageLoadedAction();
-    }
-}());
-</script></head>
+  <link href="../../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style><script src="../../../../../../assets/javascripts/toggle-sidebar.js"></script></head>
   
   
     
@@ -324,8 +120,7 @@ const registerKeyboardEventHandler = () => {
 <div class="marquee-container">
   <div class="marquee-text">
     📢 BOU CSE ভর্তি বিজ্ঞপ্তি 2026 প্রকাশিত হয়েছে!
-    <a href="https://www.bou.ac.bd/upload/notice/admission/1876367910238366.pdf" target="_blank" rel="noopener">এখানে দেখুন</a
-    >
+    <a href="https://www.bou.ac.bd/upload/notice/admission/1876367910238366.pdf" target="_blank" rel="noopener">এখানে দেখুন</a>
     📄
   </div>
 </div>
@@ -350,7 +145,7 @@ const registerKeyboardEventHandler = () => {
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -375,20 +170,20 @@ const registerKeyboardEventHandler = () => {
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="yellow"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="yellow" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
       </label>
     
   
@@ -404,29 +199,29 @@ const registerKeyboardEventHandler = () => {
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -434,7 +229,7 @@ const registerKeyboardEventHandler = () => {
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -699,7 +494,7 @@ const registerKeyboardEventHandler = () => {
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -718,7 +513,7 @@ const registerKeyboardEventHandler = () => {
     Bou CSE Resources
   </label>
   
-  <ul class="md-nav__list" data-md-scrollfix>
+  <ul class="md-nav__list" data-md-scrollfix="">
     
       
       
@@ -778,7 +573,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -808,7 +603,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -847,7 +642,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -884,7 +679,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -1065,7 +860,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1102,7 +897,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1144,7 +939,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1181,7 +976,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1233,7 +1028,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1270,7 +1065,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1640,7 +1435,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1677,7 +1472,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1807,7 +1602,7 @@ const registerKeyboardEventHandler = () => {
   <span class="md-ellipsis">
     
   
-    Chapter data communication & networks
+    Chapter data communication &amp; networks
   
 
     
@@ -2071,7 +1866,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_4" id="__nav_2_2_2_4_label" tabindex="0">
@@ -2101,7 +1896,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -2421,7 +2216,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_11">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2458,7 +2253,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2668,7 +2463,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_12">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2705,7 +2500,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2831,7 +2626,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_5" id="__nav_2_2_2_5_label" tabindex="0">
@@ -2861,7 +2656,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3301,7 +3096,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_6" id="__nav_2_2_2_6_label" tabindex="0">
@@ -3331,7 +3126,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3595,7 +3390,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_7" id="__nav_2_2_2_7_label" tabindex="0">
@@ -3625,7 +3420,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3735,7 +3530,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_7_4" id="__nav_2_2_2_7_4_label" tabindex="0">
@@ -3765,7 +3560,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3865,7 +3660,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -3902,7 +3697,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3994,7 +3789,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -4031,7 +3826,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -4087,7 +3882,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_4_3" id="__nav_2_2_3_4_3_label" tabindex="0">
@@ -4117,7 +3912,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4179,7 +3974,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_4_4" id="__nav_2_2_3_4_4_label" tabindex="0">
@@ -4209,7 +4004,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4293,7 +4088,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -4330,7 +4125,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -4414,7 +4209,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_4" id="__nav_2_2_3_5_4_label" tabindex="0">
@@ -4444,7 +4239,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4506,7 +4301,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_5" id="__nav_2_2_3_5_5_label" tabindex="0">
@@ -4536,7 +4331,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4610,7 +4405,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_6" id="__nav_2_2_3_5_6_label" tabindex="0">
@@ -4640,7 +4435,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4872,7 +4667,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_7" id="__nav_2_2_3_5_7_label" tabindex="0">
@@ -4902,7 +4697,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5012,7 +4807,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6" id="__nav_2_2_3_6_label" tabindex="0">
@@ -5042,7 +4837,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5096,7 +4891,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_2" id="__nav_2_2_3_6_2_label" tabindex="0">
@@ -5126,7 +4921,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5188,7 +4983,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_3" id="__nav_2_2_3_6_3_label" tabindex="0">
@@ -5218,7 +5013,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5282,7 +5077,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_4" id="__nav_2_2_3_6_4_label" tabindex="0">
@@ -5312,7 +5107,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5402,7 +5197,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_5" id="__nav_2_2_3_6_5_label" tabindex="0">
@@ -5432,7 +5227,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5494,7 +5289,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_6" id="__nav_2_2_3_6_6_label" tabindex="0">
@@ -5524,7 +5319,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5588,7 +5383,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_7" id="__nav_2_2_3_6_7_label" tabindex="0">
@@ -5618,7 +5413,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5724,7 +5519,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7" checked="">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7" id="__nav_2_2_3_7_label" tabindex="0">
@@ -5754,7 +5549,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5808,7 +5603,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_2" id="__nav_2_2_3_7_2_label" tabindex="0">
@@ -5838,7 +5633,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5922,7 +5717,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3" checked="">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3" id="__nav_2_2_3_7_3_label" tabindex="0">
@@ -5952,7 +5747,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6014,7 +5809,7 @@ const registerKeyboardEventHandler = () => {
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#1-semiconductor-devices" class="md-nav__link">
@@ -6937,7 +6732,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_3" id="__nav_2_2_3_7_3_3_label" tabindex="0">
@@ -6967,7 +6762,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7031,7 +6826,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_4" id="__nav_2_2_3_7_3_4_label" tabindex="0">
@@ -7061,7 +6856,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7151,7 +6946,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_5" id="__nav_2_2_3_7_3_5_label" tabindex="0">
@@ -7181,7 +6976,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7243,7 +7038,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_6" id="__nav_2_2_3_7_3_6_label" tabindex="0">
@@ -7273,7 +7068,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7335,7 +7130,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_7" id="__nav_2_2_3_7_3_7_label" tabindex="0">
@@ -7365,7 +7160,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7427,7 +7222,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_8" id="__nav_2_2_3_7_3_8_label" tabindex="0">
@@ -7457,7 +7252,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7521,7 +7316,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_9" id="__nav_2_2_3_7_3_9_label" tabindex="0">
@@ -7551,7 +7346,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7641,7 +7436,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_10" id="__nav_2_2_3_7_3_10_label" tabindex="0">
@@ -7671,7 +7466,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7733,7 +7528,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_11" id="__nav_2_2_3_7_3_11_label" tabindex="0">
@@ -7763,7 +7558,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7837,7 +7632,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_4" id="__nav_2_2_3_7_4_label" tabindex="0">
@@ -7867,7 +7662,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7999,7 +7794,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8" id="__nav_2_2_3_8_label" tabindex="0">
@@ -8029,7 +7824,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8111,7 +7906,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8_3" id="__nav_2_2_3_8_3_label" tabindex="0">
@@ -8141,7 +7936,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8205,7 +8000,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8_4" id="__nav_2_2_3_8_4_label" tabindex="0">
@@ -8235,7 +8030,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8347,7 +8142,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9" id="__nav_2_2_3_9_label" tabindex="0">
@@ -8377,7 +8172,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8519,7 +8314,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_5" id="__nav_2_2_3_9_5_label" tabindex="0">
@@ -8549,7 +8344,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8669,7 +8464,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6" id="__nav_2_2_3_9_6_label" tabindex="0">
@@ -8699,7 +8494,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8725,7 +8520,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6_1" id="__nav_2_2_3_9_6_1_label" tabindex="0">
@@ -8755,7 +8550,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8819,7 +8614,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6_2" id="__nav_2_2_3_9_6_2_label" tabindex="0">
@@ -8849,7 +8644,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8949,7 +8744,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_7" id="__nav_2_2_3_9_7_label" tabindex="0">
@@ -8979,7 +8774,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9071,7 +8866,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_8" id="__nav_2_2_3_9_8_label" tabindex="0">
@@ -9101,7 +8896,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9217,7 +9012,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10" id="__nav_2_2_3_10_label" tabindex="0">
@@ -9247,7 +9042,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9443,7 +9238,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7" id="__nav_2_2_3_10_7_label" tabindex="0">
@@ -9473,7 +9268,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9507,7 +9302,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7_1" id="__nav_2_2_3_10_7_1_label" tabindex="0">
@@ -9537,7 +9332,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9717,7 +9512,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7_2" id="__nav_2_2_3_10_7_2_label" tabindex="0">
@@ -9747,7 +9542,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9903,7 +9698,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_8" id="__nav_2_2_3_10_8_label" tabindex="0">
@@ -9933,7 +9728,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10023,7 +9818,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_9" id="__nav_2_2_3_10_9_label" tabindex="0">
@@ -10053,7 +9848,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10133,7 +9928,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10" id="__nav_2_2_3_10_10_label" tabindex="0">
@@ -10163,7 +9958,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10387,7 +10182,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_8" id="__nav_2_2_3_10_10_8_label" tabindex="0">
@@ -10417,7 +10212,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10521,7 +10316,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_9" id="__nav_2_2_3_10_10_9_label" tabindex="0">
@@ -10551,7 +10346,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10817,7 +10612,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_10" id="__nav_2_2_3_10_10_10_label" tabindex="0">
@@ -10847,7 +10642,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -11063,7 +10858,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11100,7 +10895,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11142,7 +10937,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11179,7 +10974,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11237,7 +11032,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11269,7 +11064,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11307,7 +11102,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11339,7 +11134,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11377,7 +11172,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11409,7 +11204,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11447,7 +11242,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11479,7 +11274,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11521,7 +11316,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11558,7 +11353,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11684,7 +11479,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11721,7 +11516,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11781,7 +11576,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_3" id="__nav_2_2_4_3_3_label" tabindex="0">
@@ -11811,7 +11606,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -11933,7 +11728,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11970,7 +11765,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12042,7 +11837,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_5" id="__nav_2_2_4_3_5_label" tabindex="0">
@@ -12072,7 +11867,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12250,7 +12045,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12287,7 +12082,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12351,7 +12146,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_7" id="__nav_2_2_4_3_7_label" tabindex="0">
@@ -12381,7 +12176,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12445,7 +12240,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12477,7 +12272,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12515,7 +12310,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_9" id="__nav_2_2_4_3_9_label" tabindex="0">
@@ -12545,7 +12340,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12573,7 +12368,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12605,7 +12400,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12643,7 +12438,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_9_2" id="__nav_2_2_4_3_9_2_label" tabindex="0">
@@ -12673,7 +12468,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12779,7 +12574,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_10">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12816,7 +12611,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12936,7 +12731,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_11" id="__nav_2_2_4_3_11_label" tabindex="0">
@@ -12966,7 +12761,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13044,7 +12839,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_12">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13081,7 +12876,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13319,7 +13114,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_13">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13356,7 +13151,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13478,7 +13273,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13515,7 +13310,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13629,7 +13424,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13661,7 +13456,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13699,7 +13494,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_6" id="__nav_2_2_4_4_6_label" tabindex="0">
@@ -13729,7 +13524,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13821,7 +13616,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13853,7 +13648,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13891,7 +13686,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13923,7 +13718,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13959,7 +13754,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_9" id="__nav_2_2_4_4_9_label" tabindex="0">
@@ -13989,7 +13784,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14051,7 +13846,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_10" id="__nav_2_2_4_4_10_label" tabindex="0">
@@ -14081,7 +13876,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14145,7 +13940,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_11" id="__nav_2_2_4_4_11_label" tabindex="0">
@@ -14175,7 +13970,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14231,7 +14026,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14263,7 +14058,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14321,7 +14116,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5" id="__nav_2_2_4_5_label" tabindex="0">
@@ -14351,7 +14146,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14377,7 +14172,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5_1" id="__nav_2_2_4_5_1_label" tabindex="0">
@@ -14407,7 +14202,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14469,7 +14264,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5_2" id="__nav_2_2_4_5_2_label" tabindex="0">
@@ -14499,7 +14294,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14565,7 +14360,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14602,7 +14397,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14668,7 +14463,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14700,7 +14495,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14744,7 +14539,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_6" id="__nav_2_2_4_6_label" tabindex="0">
@@ -14774,7 +14569,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14848,7 +14643,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_7" id="__nav_2_2_4_7_label" tabindex="0">
@@ -14878,7 +14673,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15018,7 +14813,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15050,7 +14845,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15092,7 +14887,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_7_6" id="__nav_2_2_4_7_6_label" tabindex="0">
@@ -15122,7 +14917,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15270,7 +15065,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15302,7 +15097,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15366,7 +15161,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15403,7 +15198,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15461,7 +15256,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15493,7 +15288,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15529,7 +15324,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_4" id="__nav_2_2_4_8_4_label" tabindex="0">
@@ -15559,7 +15354,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15621,7 +15416,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_5" id="__nav_2_2_4_8_5_label" tabindex="0">
@@ -15651,7 +15446,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15681,7 +15476,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15718,7 +15513,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15792,7 +15587,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15824,7 +15619,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15860,7 +15655,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_7" id="__nav_2_2_4_8_7_label" tabindex="0">
@@ -15890,7 +15685,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15962,7 +15757,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_8" id="__nav_2_2_4_8_8_label" tabindex="0">
@@ -15992,7 +15787,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16196,7 +15991,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_9">
         
           
           <div class="md-nav__link md-nav__container">
@@ -16228,7 +16023,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -16268,7 +16063,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_10" id="__nav_2_2_4_8_10_label" tabindex="0">
@@ -16298,7 +16093,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16444,7 +16239,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9">
         
           
           <div class="md-nav__link md-nav__container">
@@ -16481,7 +16276,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -16747,7 +16542,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10" id="__nav_2_2_4_9_10_label" tabindex="0">
@@ -16777,7 +16572,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16815,7 +16610,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_1" id="__nav_2_2_4_9_10_1_label" tabindex="0">
@@ -16845,7 +16640,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17085,7 +16880,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_2" id="__nav_2_2_4_9_10_2_label" tabindex="0">
@@ -17115,7 +16910,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17325,7 +17120,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_3" id="__nav_2_2_4_9_10_3_label" tabindex="0">
@@ -17355,7 +17150,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17543,7 +17338,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_4" id="__nav_2_2_4_9_10_4_label" tabindex="0">
@@ -17573,7 +17368,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17843,7 +17638,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_5" id="__nav_2_2_4_9_10_5_label" tabindex="0">
@@ -17873,7 +17668,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18121,7 +17916,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_6" id="__nav_2_2_4_9_10_6_label" tabindex="0">
@@ -18151,7 +17946,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18477,7 +18272,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_7" id="__nav_2_2_4_9_10_7_label" tabindex="0">
@@ -18507,7 +18302,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18747,7 +18542,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_8" id="__nav_2_2_4_9_10_8_label" tabindex="0">
@@ -18777,7 +18572,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19013,7 +18808,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -19050,7 +18845,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -19078,7 +18873,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2" id="__nav_2_2_5_2_label" tabindex="0">
@@ -19108,7 +18903,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19134,7 +18929,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2_1" id="__nav_2_2_5_2_1_label" tabindex="0">
@@ -19164,7 +18959,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19190,7 +18985,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2_1_1" id="__nav_2_2_5_2_1_1_label" tabindex="0">
@@ -19220,7 +19015,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19300,7 +19095,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3" id="__nav_2_2_5_3_label" tabindex="0">
@@ -19330,7 +19125,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19340,6 +19135,10 @@ const registerKeyboardEventHandler = () => {
   
     
     
+      
+        
+      
+        
       
         
       
@@ -19362,7 +19161,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3_1" id="__nav_2_2_5_3_1_label" tabindex="0">
@@ -19392,7 +19191,35 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../22-semester/DBMS/Intro/DB-table-vs-ER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DB-table-vs-ER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -19485,6 +19312,34 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
+      <a href="../../../../22-semester/DBMS/Intro/Storage-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../22-semester/DBMS/Intro/Types-of-SQL-Commands/" class="md-nav__link">
         
   
@@ -19538,7 +19393,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3_2" id="__nav_2_2_5_3_2_label" tabindex="0">
@@ -19568,7 +19423,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19644,7 +19499,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -19681,7 +19536,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -19713,7 +19568,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_4_2" id="__nav_2_2_5_4_2_label" tabindex="0">
@@ -19743,7 +19598,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19863,7 +19718,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -19895,7 +19750,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -19939,7 +19794,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_5" id="__nav_2_2_5_5_label" tabindex="0">
@@ -19969,7 +19824,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20039,7 +19894,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
@@ -20069,7 +19924,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20131,7 +19986,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
@@ -20161,7 +20016,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20223,7 +20078,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_8" id="__nav_2_2_8_label" tabindex="0">
@@ -20253,7 +20108,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20315,7 +20170,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_9" id="__nav_2_2_9_label" tabindex="0">
@@ -20345,7 +20200,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20411,7 +20266,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20448,7 +20303,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20476,7 +20331,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_10_2" id="__nav_2_2_10_2_label" tabindex="0">
@@ -20506,7 +20361,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20534,7 +20389,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20566,7 +20421,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20624,7 +20479,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20661,7 +20516,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20691,7 +20546,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20723,7 +20578,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20759,7 +20614,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_11_3" id="__nav_2_2_11_3_label" tabindex="0">
@@ -20789,7 +20644,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20859,7 +20714,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12">
         
           
           <label class="md-nav__link" for="__nav_2_2_12" id="__nav_2_2_12_label" tabindex="0">
@@ -20889,7 +20744,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20951,7 +20806,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13">
         
           
           <label class="md-nav__link" for="__nav_2_2_13" id="__nav_2_2_13_label" tabindex="0">
@@ -20981,7 +20836,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -21019,7 +20874,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1" id="__nav_2_2_13_1_label" tabindex="0">
@@ -21049,7 +20904,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -21103,7 +20958,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1_2" id="__nav_2_2_13_1_2_label" tabindex="0">
@@ -21133,7 +20988,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -21161,7 +21016,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21193,7 +21048,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21239,7 +21094,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21271,7 +21126,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21307,7 +21162,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1_4" id="__nav_2_2_13_1_4_label" tabindex="0">
@@ -21337,7 +21192,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -21401,7 +21256,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21433,7 +21288,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21473,7 +21328,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21510,7 +21365,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21540,7 +21395,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21572,7 +21427,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21618,7 +21473,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21650,7 +21505,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21702,7 +21557,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_14">
         
           
           <label class="md-nav__link" for="__nav_2_2_14" id="__nav_2_2_14_label" tabindex="0">
@@ -21732,7 +21587,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -22036,7 +21891,7 @@ const registerKeyboardEventHandler = () => {
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -22050,7 +21905,7 @@ const registerKeyboardEventHandler = () => {
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#1-semiconductor-devices" class="md-nav__link">
@@ -22931,8 +22786,8 @@ const registerKeyboardEventHandler = () => {
 
   <h1>Syallabus In Details</h1>
 
-<h2 id="1-semiconductor-devices">1. Semiconductor Devices<a class="headerlink" href="#1-semiconductor-devices" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="pn-junction-diode">PN Junction Diode<a class="headerlink" href="#pn-junction-diode" title="Anchor link to this section for reference">&para;</a></h3>
+<h2 id="1-semiconductor-devices">1. Semiconductor Devices<a class="headerlink" href="#1-semiconductor-devices" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="pn-junction-diode">PN Junction Diode<a class="headerlink" href="#pn-junction-diode" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Formation of PN junction</li>
 <li>Depletion region and barrier potential</li>
@@ -22940,101 +22795,101 @@ const registerKeyboardEventHandler = () => {
 <li><strong>Diffusion current</strong></li>
 <li>Equilibrium condition in a PN junction</li>
 </ul>
-<hr />
-<h2 id="2-diode">2. Diode<a class="headerlink" href="#2-diode" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="construction-and-biasing">Construction and Biasing<a class="headerlink" href="#construction-and-biasing" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="2-diode">2. Diode<a class="headerlink" href="#2-diode" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="construction-and-biasing">Construction and Biasing<a class="headerlink" href="#construction-and-biasing" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Physical construction of a diode</li>
 <li>Forward bias</li>
 <li>Reverse bias</li>
 </ul>
-<h3 id="vi-characteristics">V–I Characteristics<a class="headerlink" href="#vi-characteristics" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="vi-characteristics">V–I Characteristics<a class="headerlink" href="#vi-characteristics" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Forward region behavior</li>
 <li>Reverse region behavior</li>
 <li>Cut-in voltage</li>
 <li>Breakdown region</li>
 </ul>
-<hr />
-<h2 id="3-zener-diode">3. Zener Diode<a class="headerlink" href="#3-zener-diode" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="zener-diode-operation">Zener Diode Operation<a class="headerlink" href="#zener-diode-operation" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="3-zener-diode">3. Zener Diode<a class="headerlink" href="#3-zener-diode" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="zener-diode-operation">Zener Diode Operation<a class="headerlink" href="#zener-diode-operation" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Zener breakdown</li>
 <li>Avalanche breakdown</li>
 <li>V–I characteristics of Zener diode</li>
 </ul>
-<h3 id="zener-regulator">Zener Regulator<a class="headerlink" href="#zener-regulator" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="zener-regulator">Zener Regulator<a class="headerlink" href="#zener-regulator" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Circuit diagram</li>
 <li>Principle of voltage regulation</li>
 <li>Line regulation</li>
 <li>Load regulation</li>
 </ul>
-<hr />
-<h2 id="4-bipolar-junction-transistor-bjt">4. Bipolar Junction Transistor (BJT)<a class="headerlink" href="#4-bipolar-junction-transistor-bjt" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="bjt-basics">BJT Basics<a class="headerlink" href="#bjt-basics" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="4-bipolar-junction-transistor-bjt">4. Bipolar Junction Transistor (BJT)<a class="headerlink" href="#4-bipolar-junction-transistor-bjt" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="bjt-basics">BJT Basics<a class="headerlink" href="#bjt-basics" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Construction of BJT</li>
 <li>Modes of operation</li>
 <li><strong>BJT V–I characteristics</strong></li>
 </ul>
-<h3 id="common-emitter-ce-configuration">Common Emitter (CE) Configuration<a class="headerlink" href="#common-emitter-ce-configuration" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="common-emitter-ce-configuration">Common Emitter (CE) Configuration<a class="headerlink" href="#common-emitter-ce-configuration" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Input characteristics</li>
 <li>Output characteristics</li>
 <li>Current gain (β)</li>
 <li>Advantages of CE configuration</li>
 </ul>
-<h3 id="bjt-current-equation">BJT Current Equation<a class="headerlink" href="#bjt-current-equation" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="bjt-current-equation">BJT Current Equation<a class="headerlink" href="#bjt-current-equation" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Collector current equation</li>
 <li>Relationship between IB, IC, and IE</li>
 </ul>
-<h3 id="h-parameter-model">h-Parameter Model<a class="headerlink" href="#h-parameter-model" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="h-parameter-model">h-Parameter Model<a class="headerlink" href="#h-parameter-model" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>h-parameters in CE configuration</li>
 <li>Small-signal equivalent circuit</li>
 <li>Applications of h-parameter model</li>
 </ul>
-<hr />
-<h2 id="5-mosfet">5. MOSFET<a class="headerlink" href="#5-mosfet" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="types-of-mosfet">Types of MOSFET<a class="headerlink" href="#types-of-mosfet" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="5-mosfet">5. MOSFET<a class="headerlink" href="#5-mosfet" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="types-of-mosfet">Types of MOSFET<a class="headerlink" href="#types-of-mosfet" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li><strong>DMOS (Depletion-type MOSFET)</strong></li>
 <li><strong>EMOS (Enhancement-type MOSFET)</strong></li>
 </ul>
-<h3 id="vi-characteristics_1">V–I Characteristics<a class="headerlink" href="#vi-characteristics_1" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="vi-characteristics_1">V–I Characteristics<a class="headerlink" href="#vi-characteristics_1" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Cut-off region</li>
 <li>Triode (ohmic) region</li>
 <li>Saturation region</li>
 </ul>
-<h3 id="transconductance">Transconductance<a class="headerlink" href="#transconductance" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="transconductance">Transconductance<a class="headerlink" href="#transconductance" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Definition of transconductance</li>
 <li>Expression for transconductance</li>
 <li>Importance in amplification</li>
 </ul>
-<h3 id="mosfet-current-equation">MOSFET Current Equation<a class="headerlink" href="#mosfet-current-equation" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="mosfet-current-equation">MOSFET Current Equation<a class="headerlink" href="#mosfet-current-equation" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Drain current equation in different regions</li>
 </ul>
-<hr />
-<h2 id="6-moll-current-equation">6. Moll Current Equation<a class="headerlink" href="#6-moll-current-equation" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="6-moll-current-equation">6. Moll Current Equation<a class="headerlink" href="#6-moll-current-equation" title="Anchor link to this section for reference">¶</a></h2>
 <ul>
 <li>Purpose of Moll equation</li>
 <li>Relation with transistor current behavior</li>
 <li>Application in semiconductor analysis</li>
 </ul>
-<hr />
-<h2 id="chapter-1-rectifiers-and-power-supply-fundamentals"><strong>Chapter 1: Rectifiers and Power Supply Fundamentals</strong><a class="headerlink" href="#chapter-1-rectifiers-and-power-supply-fundamentals" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="11-introduction-to-rectifiers">1.1 Introduction to Rectifiers<a class="headerlink" href="#11-introduction-to-rectifiers" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="chapter-1-rectifiers-and-power-supply-fundamentals"><strong>Chapter 1: Rectifiers and Power Supply Fundamentals</strong><a class="headerlink" href="#chapter-1-rectifiers-and-power-supply-fundamentals" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="11-introduction-to-rectifiers">1.1 Introduction to Rectifiers<a class="headerlink" href="#11-introduction-to-rectifiers" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Purpose of rectification</li>
 <li>Difference between AC and DC</li>
 <li>Role of rectifiers in electronic circuits</li>
 </ul>
-<h3 id="12-half-wave-rectifier">1.2 Half-Wave Rectifier<a class="headerlink" href="#12-half-wave-rectifier" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="12-half-wave-rectifier">1.2 Half-Wave Rectifier<a class="headerlink" href="#12-half-wave-rectifier" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Circuit construction</li>
 <li>Working principle</li>
@@ -23045,7 +22900,7 @@ const registerKeyboardEventHandler = () => {
 <li>Advantages and disadvantages</li>
 <li>Applications</li>
 </ul>
-<h3 id="13-full-wave-rectifier">1.3 Full-Wave Rectifier<a class="headerlink" href="#13-full-wave-rectifier" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="13-full-wave-rectifier">1.3 Full-Wave Rectifier<a class="headerlink" href="#13-full-wave-rectifier" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>
 <p>Types of full-wave rectifier</p>
@@ -23063,126 +22918,126 @@ const registerKeyboardEventHandler = () => {
 <li>Comparison with half-wave rectifier</li>
 <li>Applications</li>
 </ul>
-<hr />
-<h2 id="chapter-2-bipolar-junction-transistor-bjt"><strong>Chapter 2: Bipolar Junction Transistor (BJT)</strong><a class="headerlink" href="#chapter-2-bipolar-junction-transistor-bjt" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="21-introduction-to-transistors">2.1 Introduction to Transistors<a class="headerlink" href="#21-introduction-to-transistors" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="chapter-2-bipolar-junction-transistor-bjt"><strong>Chapter 2: Bipolar Junction Transistor (BJT)</strong><a class="headerlink" href="#chapter-2-bipolar-junction-transistor-bjt" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="21-introduction-to-transistors">2.1 Introduction to Transistors<a class="headerlink" href="#21-introduction-to-transistors" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Need for transistors</li>
 <li>Difference between diode and transistor</li>
 </ul>
-<h3 id="22-construction-of-bjt">2.2 Construction of BJT<a class="headerlink" href="#22-construction-of-bjt" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="22-construction-of-bjt">2.2 Construction of BJT<a class="headerlink" href="#22-construction-of-bjt" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>NPN and PNP transistor</li>
 <li>Emitter, base, and collector</li>
 <li>Doping levels and physical structure</li>
 </ul>
-<h3 id="23-working-principle-of-bjt">2.3 Working Principle of BJT<a class="headerlink" href="#23-working-principle-of-bjt" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="23-working-principle-of-bjt">2.3 Working Principle of BJT<a class="headerlink" href="#23-working-principle-of-bjt" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Transistor action</li>
 <li>Carrier movement</li>
 <li>Current components</li>
 </ul>
-<h3 id="24-modes-of-operation">2.4 Modes of Operation<a class="headerlink" href="#24-modes-of-operation" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="24-modes-of-operation">2.4 Modes of Operation<a class="headerlink" href="#24-modes-of-operation" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Cut-off region</li>
 <li>Active region</li>
 <li>Saturation region</li>
 </ul>
-<h3 id="25-bjt-characteristics">2.5 BJT Characteristics<a class="headerlink" href="#25-bjt-characteristics" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="25-bjt-characteristics">2.5 BJT Characteristics<a class="headerlink" href="#25-bjt-characteristics" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Input characteristics</li>
 <li>Output characteristics</li>
 <li>Transfer characteristics</li>
 </ul>
-<h3 id="26-applications-of-bjt">2.6 Applications of BJT<a class="headerlink" href="#26-applications-of-bjt" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="26-applications-of-bjt">2.6 Applications of BJT<a class="headerlink" href="#26-applications-of-bjt" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>As a switch</li>
 <li>As an amplifier</li>
 </ul>
-<hr />
-<h2 id="chapter-3-unijunction-transistor-ujt"><strong>Chapter 3: Unijunction Transistor (UJT)</strong><a class="headerlink" href="#chapter-3-unijunction-transistor-ujt" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="31-introduction-to-ujt">3.1 Introduction to UJT<a class="headerlink" href="#31-introduction-to-ujt" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="chapter-3-unijunction-transistor-ujt"><strong>Chapter 3: Unijunction Transistor (UJT)</strong><a class="headerlink" href="#chapter-3-unijunction-transistor-ujt" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="31-introduction-to-ujt">3.1 Introduction to UJT<a class="headerlink" href="#31-introduction-to-ujt" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Basic structure</li>
 <li>Terminals of UJT</li>
 </ul>
-<h3 id="32-construction-of-ujt">3.2 Construction of UJT<a class="headerlink" href="#32-construction-of-ujt" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="32-construction-of-ujt">3.2 Construction of UJT<a class="headerlink" href="#32-construction-of-ujt" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Physical structure</li>
 <li>Equivalent circuit</li>
 </ul>
-<h3 id="33-ujt-operation">3.3 UJT Operation<a class="headerlink" href="#33-ujt-operation" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="33-ujt-operation">3.3 UJT Operation<a class="headerlink" href="#33-ujt-operation" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Working principle</li>
 <li>Emitter characteristics</li>
 </ul>
-<h3 id="34-negative-resistance-concept">3.4 Negative Resistance Concept<a class="headerlink" href="#34-negative-resistance-concept" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="34-negative-resistance-concept">3.4 Negative Resistance Concept<a class="headerlink" href="#34-negative-resistance-concept" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Meaning of negative resistance</li>
 <li>V–I characteristic curve</li>
 <li>Explanation of peak point and valley point</li>
 </ul>
-<h3 id="35-applications-of-ujt">3.5 Applications of UJT<a class="headerlink" href="#35-applications-of-ujt" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="35-applications-of-ujt">3.5 Applications of UJT<a class="headerlink" href="#35-applications-of-ujt" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Relaxation oscillator</li>
 <li>Triggering of SCR</li>
 </ul>
-<hr />
-<h2 id="chapter-4-junction-field-effect-transistor-jfet"><strong>Chapter 4: Junction Field Effect Transistor (JFET)</strong><a class="headerlink" href="#chapter-4-junction-field-effect-transistor-jfet" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="41-introduction-to-fet">4.1 Introduction to FET<a class="headerlink" href="#41-introduction-to-fet" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="chapter-4-junction-field-effect-transistor-jfet"><strong>Chapter 4: Junction Field Effect Transistor (JFET)</strong><a class="headerlink" href="#chapter-4-junction-field-effect-transistor-jfet" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="41-introduction-to-fet">4.1 Introduction to FET<a class="headerlink" href="#41-introduction-to-fet" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Comparison between BJT and FET</li>
 <li>Advantages of FET</li>
 </ul>
-<h3 id="42-construction-of-jfet">4.2 Construction of JFET<a class="headerlink" href="#42-construction-of-jfet" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="42-construction-of-jfet">4.2 Construction of JFET<a class="headerlink" href="#42-construction-of-jfet" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>N-channel JFET</li>
 <li>P-channel JFET</li>
 <li>Gate, source, and drain</li>
 </ul>
-<h3 id="43-working-principle-of-jfet">4.3 Working Principle of JFET<a class="headerlink" href="#43-working-principle-of-jfet" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="43-working-principle-of-jfet">4.3 Working Principle of JFET<a class="headerlink" href="#43-working-principle-of-jfet" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Depletion region</li>
 <li>Pinch-off voltage</li>
 <li>Drain current control</li>
 </ul>
-<h3 id="44-jfet-vi-characteristics">4.4 JFET V–I Characteristics<a class="headerlink" href="#44-jfet-vi-characteristics" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="44-jfet-vi-characteristics">4.4 JFET V–I Characteristics<a class="headerlink" href="#44-jfet-vi-characteristics" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Output characteristics</li>
 <li>Transfer characteristics</li>
 </ul>
-<h3 id="45-applications-of-jfet">4.5 Applications of JFET<a class="headerlink" href="#45-applications-of-jfet" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="45-applications-of-jfet">4.5 Applications of JFET<a class="headerlink" href="#45-applications-of-jfet" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Amplifier</li>
 <li>Switch</li>
 </ul>
-<hr />
-<h2 id="chapter-5-filters-in-power-supplies"><strong>Chapter 5: Filters in Power Supplies</strong><a class="headerlink" href="#chapter-5-filters-in-power-supplies" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="51-need-for-filters">5.1 Need for Filters<a class="headerlink" href="#51-need-for-filters" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="chapter-5-filters-in-power-supplies"><strong>Chapter 5: Filters in Power Supplies</strong><a class="headerlink" href="#chapter-5-filters-in-power-supplies" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="51-need-for-filters">5.1 Need for Filters<a class="headerlink" href="#51-need-for-filters" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Ripple in rectifier output</li>
 <li>Importance of smoothing</li>
 </ul>
-<h3 id="52-capacitor-input-filter">5.2 Capacitor Input Filter<a class="headerlink" href="#52-capacitor-input-filter" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="52-capacitor-input-filter">5.2 Capacitor Input Filter<a class="headerlink" href="#52-capacitor-input-filter" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Circuit diagram</li>
 <li>Working principle</li>
 <li>Advantages and limitations</li>
 </ul>
-<h3 id="53-choke-input-filter">5.3 Choke Input Filter<a class="headerlink" href="#53-choke-input-filter" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="53-choke-input-filter">5.3 Choke Input Filter<a class="headerlink" href="#53-choke-input-filter" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Circuit diagram</li>
 <li>Working principle</li>
 <li>Comparison with capacitor filter</li>
 </ul>
-<hr />
-<h2 id="chapter-6-amplifiers"><strong>Chapter 6: Amplifiers</strong><a class="headerlink" href="#chapter-6-amplifiers" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="61-introduction-to-amplifiers">6.1 Introduction to Amplifiers<a class="headerlink" href="#61-introduction-to-amplifiers" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="chapter-6-amplifiers"><strong>Chapter 6: Amplifiers</strong><a class="headerlink" href="#chapter-6-amplifiers" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="61-introduction-to-amplifiers">6.1 Introduction to Amplifiers<a class="headerlink" href="#61-introduction-to-amplifiers" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Definition of amplification</li>
 <li>Types of amplifiers</li>
 </ul>
-<h3 id="62-common-emitter-ce-amplifier">6.2 Common Emitter (CE) Amplifier<a class="headerlink" href="#62-common-emitter-ce-amplifier" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="62-common-emitter-ce-amplifier">6.2 Common Emitter (CE) Amplifier<a class="headerlink" href="#62-common-emitter-ce-amplifier" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Circuit diagram</li>
 <li>Working principle</li>
@@ -23190,94 +23045,94 @@ const registerKeyboardEventHandler = () => {
 <li>Current gain</li>
 <li>Power gain</li>
 </ul>
-<h3 id="63-ce-amplifier-with-feedback">6.3 CE Amplifier with Feedback<a class="headerlink" href="#63-ce-amplifier-with-feedback" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="63-ce-amplifier-with-feedback">6.3 CE Amplifier with Feedback<a class="headerlink" href="#63-ce-amplifier-with-feedback" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Concept of feedback</li>
 <li>Effect of feedback on gain</li>
 <li>Stability and bandwidth</li>
 </ul>
-<h3 id="64-ce-amplifier-without-feedback">6.4 CE Amplifier without Feedback<a class="headerlink" href="#64-ce-amplifier-without-feedback" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="64-ce-amplifier-without-feedback">6.4 CE Amplifier without Feedback<a class="headerlink" href="#64-ce-amplifier-without-feedback" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Gain and frequency response</li>
 </ul>
-<h3 id="65-frequency-response-of-ce-amplifier">6.5 Frequency Response of CE Amplifier<a class="headerlink" href="#65-frequency-response-of-ce-amplifier" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="65-frequency-response-of-ce-amplifier">6.5 Frequency Response of CE Amplifier<a class="headerlink" href="#65-frequency-response-of-ce-amplifier" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Low frequency response</li>
 <li>Mid frequency response</li>
 <li>High frequency response</li>
 </ul>
-<h3 id="66-cs-mosfet-amplifier">6.6 CS MOSFET Amplifier<a class="headerlink" href="#66-cs-mosfet-amplifier" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="66-cs-mosfet-amplifier">6.6 CS MOSFET Amplifier<a class="headerlink" href="#66-cs-mosfet-amplifier" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Circuit diagram</li>
 <li>Working principle</li>
 <li>Gain analysis</li>
 <li>Applications</li>
 </ul>
-<hr />
-<h2 id="chapter-7-oscillators"><strong>Chapter 7: Oscillators</strong><a class="headerlink" href="#chapter-7-oscillators" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="71-introduction-to-oscillators">7.1 Introduction to Oscillators<a class="headerlink" href="#71-introduction-to-oscillators" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="chapter-7-oscillators"><strong>Chapter 7: Oscillators</strong><a class="headerlink" href="#chapter-7-oscillators" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="71-introduction-to-oscillators">7.1 Introduction to Oscillators<a class="headerlink" href="#71-introduction-to-oscillators" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Need for oscillations</li>
 <li>Difference between amplifier and oscillator</li>
 </ul>
-<h3 id="72-basic-conditions-for-oscillation">7.2 Basic Conditions for Oscillation<a class="headerlink" href="#72-basic-conditions-for-oscillation" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="72-basic-conditions-for-oscillation">7.2 Basic Conditions for Oscillation<a class="headerlink" href="#72-basic-conditions-for-oscillation" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Barkhausen criterion</li>
 </ul>
-<h3 id="73-role-of-feedback-in-oscillators">7.3 Role of Feedback in Oscillators<a class="headerlink" href="#73-role-of-feedback-in-oscillators" title="Anchor link to this section for reference">&para;</a></h3>
-<hr />
-<h2 id="chapter-8-operational-amplifier"><strong>Chapter 8: Operational Amplifier</strong><a class="headerlink" href="#chapter-8-operational-amplifier" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="81-introduction-to-operational-amplifier">8.1 Introduction to Operational Amplifier<a class="headerlink" href="#81-introduction-to-operational-amplifier" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="73-role-of-feedback-in-oscillators">7.3 Role of Feedback in Oscillators<a class="headerlink" href="#73-role-of-feedback-in-oscillators" title="Anchor link to this section for reference">¶</a></h3>
+<hr>
+<h2 id="chapter-8-operational-amplifier"><strong>Chapter 8: Operational Amplifier</strong><a class="headerlink" href="#chapter-8-operational-amplifier" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="81-introduction-to-operational-amplifier">8.1 Introduction to Operational Amplifier<a class="headerlink" href="#81-introduction-to-operational-amplifier" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Ideal op-amp characteristics</li>
 <li>Practical op-amp limitations</li>
 </ul>
-<h3 id="82-inverting-amplifier">8.2 Inverting Amplifier<a class="headerlink" href="#82-inverting-amplifier" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="82-inverting-amplifier">8.2 Inverting Amplifier<a class="headerlink" href="#82-inverting-amplifier" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Circuit diagram</li>
 <li>Gain derivation</li>
 <li>Applications</li>
 </ul>
-<h3 id="83-non-inverting-amplifier">8.3 Non-Inverting Amplifier<a class="headerlink" href="#83-non-inverting-amplifier" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="83-non-inverting-amplifier">8.3 Non-Inverting Amplifier<a class="headerlink" href="#83-non-inverting-amplifier" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Circuit diagram</li>
 <li>Gain derivation</li>
 <li>Comparison with inverting amplifier</li>
 </ul>
-<h3 id="84-applications-of-operational-amplifier">8.4 Applications of Operational Amplifier<a class="headerlink" href="#84-applications-of-operational-amplifier" title="Anchor link to this section for reference">&para;</a></h3>
-<h4 id="841-summing-amplifier">8.4.1 Summing Amplifier<a class="headerlink" href="#841-summing-amplifier" title="Anchor link to this section for reference">&para;</a></h4>
+<h3 id="84-applications-of-operational-amplifier">8.4 Applications of Operational Amplifier<a class="headerlink" href="#84-applications-of-operational-amplifier" title="Anchor link to this section for reference">¶</a></h3>
+<h4 id="841-summing-amplifier">8.4.1 Summing Amplifier<a class="headerlink" href="#841-summing-amplifier" title="Anchor link to this section for reference">¶</a></h4>
 <ul>
 <li>Principle</li>
 <li>Applications</li>
 </ul>
-<h4 id="842-subtractor">8.4.2 Subtractor<a class="headerlink" href="#842-subtractor" title="Anchor link to this section for reference">&para;</a></h4>
+<h4 id="842-subtractor">8.4.2 Subtractor<a class="headerlink" href="#842-subtractor" title="Anchor link to this section for reference">¶</a></h4>
 <ul>
 <li>Circuit operation</li>
 <li>Applications</li>
 </ul>
-<h4 id="843-integrator">8.4.3 Integrator<a class="headerlink" href="#843-integrator" title="Anchor link to this section for reference">&para;</a></h4>
+<h4 id="843-integrator">8.4.3 Integrator<a class="headerlink" href="#843-integrator" title="Anchor link to this section for reference">¶</a></h4>
 <ul>
 <li>Working principle</li>
 <li>Output waveform</li>
 </ul>
-<h4 id="844-differentiator">8.4.4 Differentiator<a class="headerlink" href="#844-differentiator" title="Anchor link to this section for reference">&para;</a></h4>
+<h4 id="844-differentiator">8.4.4 Differentiator<a class="headerlink" href="#844-differentiator" title="Anchor link to this section for reference">¶</a></h4>
 <ul>
 <li>Working principle</li>
 <li>Output waveform</li>
 </ul>
-<hr />
-<h2 id="chapter-9-op-amp-based-converters-and-filters"><strong>Chapter 9: Op-Amp Based Converters and Filters</strong><a class="headerlink" href="#chapter-9-op-amp-based-converters-and-filters" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="91-analog-to-digital-converter-adc">9.1 Analog to Digital Converter (ADC)<a class="headerlink" href="#91-analog-to-digital-converter-adc" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="chapter-9-op-amp-based-converters-and-filters"><strong>Chapter 9: Op-Amp Based Converters and Filters</strong><a class="headerlink" href="#chapter-9-op-amp-based-converters-and-filters" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="91-analog-to-digital-converter-adc">9.1 Analog to Digital Converter (ADC)<a class="headerlink" href="#91-analog-to-digital-converter-adc" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Basic concept</li>
 <li>Working principle</li>
 </ul>
-<h3 id="92-digital-to-analog-converter-dac">9.2 Digital to Analog Converter (DAC)<a class="headerlink" href="#92-digital-to-analog-converter-dac" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="92-digital-to-analog-converter-dac">9.2 Digital to Analog Converter (DAC)<a class="headerlink" href="#92-digital-to-analog-converter-dac" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Basic concept</li>
 <li>Working principle</li>
 </ul>
-<h3 id="93-active-filters">9.3 Active Filters<a class="headerlink" href="#93-active-filters" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="93-active-filters">9.3 Active Filters<a class="headerlink" href="#93-active-filters" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Low pass filter</li>
 <li>First order low pass filter</li>
@@ -23297,7 +23152,7 @@ const registerKeyboardEventHandler = () => {
 
 
 
-  <form class="md-feedback" name="feedback" hidden>
+  <form class="md-feedback" name="feedback" hidden="">
     <fieldset>
       <legend class="md-feedback__title">
         Was this page helpful?
@@ -23306,17 +23161,17 @@ const registerKeyboardEventHandler = () => {
         <div class="md-feedback__list">
           
             <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"></path></svg>
             </button>
           
             <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"></path></svg>
             </button>
           
         </div>
         <div class="md-feedback__note">
           
-            <div data-md-value="1" hidden>
+            <div data-md-value="1" hidden="">
               
               
                 
@@ -23329,7 +23184,7 @@ const registerKeyboardEventHandler = () => {
               Thanks for your feedback!
             </div>
           
-            <div data-md-value="0" hidden>
+            <div data-md-value="0" hidden="">
               
               
                 
@@ -23356,9 +23211,9 @@ const registerKeyboardEventHandler = () => {
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -23368,13 +23223,13 @@ const registerKeyboardEventHandler = () => {
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../../12-eee-assignments/Assignment-01/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Assignment 01">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -23399,7 +23254,7 @@ const registerKeyboardEventHandler = () => {
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -23411,7 +23266,7 @@ const registerKeyboardEventHandler = () => {
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2026 Rakibul Hashan
+      Copyright © 2026 Rakibul Hashan
     </div>
   
   
@@ -23428,7 +23283,7 @@ const registerKeyboardEventHandler = () => {
       
     
     <a href="https://www.linkedin.com/in/rakibulhashanrabbi/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
     </a>
   
 </div>
@@ -23458,7 +23313,8 @@ const registerKeyboardEventHandler = () => {
         <script src="../../../../../../javascripts/mathjax/tex-mml-chtml.js"></script>
       
     
-  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+  
+<script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
     try {
         var img = element.querySelector('img');
         if (img && img.src) {
@@ -23471,6 +23327,5 @@ const registerKeyboardEventHandler = () => {
     }
 });
 const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
-</html>
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

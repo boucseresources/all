@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -78,220 +75,19 @@
     
     
   
-  <link rel="manifest" href="../../../../../../manifest.json" />
+  <link rel="manifest" href="../../../../../../manifest.json">
 
-   <link href="../../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../../assets/javascripts/glightbox.min.js"></script><script>(function() {
-    const customDynamicStyle = document.createElement("style");
-    // We must put it outside of the head and body, since they are replaced by the instant navigation feature in the Material theme
-    document.documentElement.appendChild(customDynamicStyle);
-
-    const TOGGLE_BUTTON_REFERENCE_ELEMENT_NOT_FOUND_WARNING = "[mkdocs-toggle-sidebar-plugin] Reference element for inserting 'toggle_button' not found. This version of the plugin may not be compatible with this version of the theme. Try updating both to the latest version. If that fails, you can open an GitHub issue.";
-
-    const loadBool = (name, default_value) => {
-        const value = localStorage.getItem(`TOGGLE_SIDEBAR_${name}`);
-        if (value == null) {
-            return default_value;
-        } else {
-            return value == "1";
-        }
-    }
-
-    const loadNavigationState = () => loadBool("NAVIGATION", true);
-    const loadTocState = () => loadBool("TOC", true);
-
-    const saveBool = (name, value) => {
-        localStorage.setItem(`TOGGLE_SIDEBAR_${name}`, value ? "1" : "0");
-    }
-
-    const toggleVisibility = (toggleNavigation, toggleTOC) => {
-        let newNavigation = loadNavigationState();
-        let newTOC = loadTocState();
-        
-        if (toggleNavigation) {
-            newNavigation = !newNavigation;
-            saveBool("NAVIGATION", newNavigation);
-        }
-        if (toggleTOC) {
-            newTOC = !newTOC;
-            saveBool("TOC", newTOC);
-        }
-        
-        _setVisibility(newNavigation, newTOC);
-    }
-
-    const _setVisibility = (newNavigation, newTOC) => {
-        console.debug(`Setting new visibility: navigation=${newNavigation}, TOC=${newTOC}`);
-        // combine this into one operation, so that it is more efficient (for toggling both) and easier to code with dynamic CSS generation
-        customDynamicStyle.innerHTML = setCombinedVisibility(newNavigation, newTOC);
-    }
-
-    // START OF INCLUDE
-    // This gets replaced with the definitions of: 
-    // - setCombinedVisibility(showNavigation: bool, showTOC: bool) -> string (dynamic CSS)
-    // - registerKeyboardEventHandler() -> void
-    const setCombinedVisibility = (showNavigation, showTOC) => {
-    // Hide the button when on mobile (and menu us shown as hamburger menu anyways).
-    // The exact max-width is taken from the styling of the 'body > header > nav > a' element
-    
-    let style = `
-.mkdocs-toggle-sidebar-button {
-    cursor: pointer;
-    margin-right: 5px;
-    margin-left: 1rem;
-}
-
-@media screen and (max-width: 76.1875em) {
-    .mkdocs-toggle-sidebar-button {
-        display: none;
-    }
-}
-`;
-// The TOC has a different break point than the navigation.
-// It can be seen on the nav.md-nav--secondary:nth-child(1) element (60em)
-// If the screen is smaller, it is shown in the navigation section if you click the nested hamburger menu
-if (!showTOC) {
-    style += `
-@media screen and (min-width: 60em) {
-    div.md-sidebar.md-sidebar--secondary {
-        display: none;
-    }
-}
-`;
-        }
-        
-    // We always have to show the navigation in mobile view, otherwise the hamburger menu is broken
-    if (!showNavigation) {
-        style += `
-@media screen and (min-width: 76.1875em) {
-    div.md-sidebar.md-sidebar--primary {
-        display: none;
-    }
-}
-`;
-    }
-
-    return style;
-}
-
-const addToggleButton = (toggleNavigation, toggleTOC) => {
-    const toggleBtn = createDefaultToggleButton(toggleNavigation, toggleTOC);
-    toggleBtn.classList.add("md-icon");
-  
-    const titleElement = document.querySelector(".md-header__title");
-    if (titleElement) {
-        titleElement.parentNode.insertBefore(toggleBtn, titleElement.nextSibling);  
-    } else {
-        console.warn(TOGGLE_BUTTON_REFERENCE_ELEMENT_NOT_FOUND_WARNING);
-    }
-}
-
-const registerKeyboardEventHandler = () => {
-    // Custom key handlers: SEE https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=key+bind#docsjavascriptsshortcutsjs
-    keyboard$.subscribe(key => {
-        if (key.mode === "global") {
-            if (coreEventListenerLogic(key.type)) {
-                // event handled, stop propagation
-                key.claim();
-            }
-        }
-    });
-}
-
-    // END OF INCLUDE
-
-    // argument: string, returns true if the key was handled and the event should be marked as already handled
-    const coreEventListenerLogic = (keyChar) => {
-        if (keyChar === "t") {
-            toggleVisibility(false, true);
-            return true;
-        } else if (keyChar === "m") {
-            toggleVisibility(true, false);
-            return true;
-        } else if (keyChar === "b") {
-            toggleVisibility(true, true);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    const onPageLoadedAction = () => {
-        console.log("The mkdocs-toggle-sidebar-plugin is installed. It adds the following key bindings:\n T -> toggle table of contents sidebar\n M -> toggle navigation menu sidebar\n B -> toggle both sidebars (TOC and navigation)");
-
-        const toggle_button = "none";
-        if (toggle_button == "none") {
-            // do nothing
-        } else if (toggle_button == "navigation") {
-            addToggleButton(true, false);
-        } else if (toggle_button == "toc") {
-            addToggleButton(false, true);
-        } else if (toggle_button == "all") {
-            addToggleButton(true, true);
-        } else {
-            console.error(`[mkdocs-toggle-sidebar-plugin] Unknown value for toggle_button: '${toggleButtonType}'`);
-        }
-
-        registerKeyboardEventHandler();
-    }
-
-    const createDefaultToggleButton = (toggleNavigation, toggleTOC) => {
-        const toggleBtn = document.createElement("div");
-        toggleBtn.className = "mkdocs-toggle-sidebar-button";
-        toggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>`;
-        if (toggleNavigation && toggleTOC) {
-            toggleBtn.title = "Toggle Navigation and Table of Contents";
-        } else if (toggleNavigation) {
-            toggleBtn.title = "Toggle Navigation";
-        } else if (toggleTOC) {
-            toggleBtn.title = "Toggle Table of Contents";
-        }
-        toggleBtn.addEventListener("click", () => toggleVisibility(toggleNavigation, toggleTOC));
-        return toggleBtn;
-    };
-
-    // Export functions that the user can call to modify the state
-    window.MkdocsToggleSidebarPlugin = {
-        setNavigationVisibility: (show) => {
-            saveBool("NAVIGATION", show);
-            _setVisibility(show, loadTocState());
-        },
-        setTocVisibility: (show) => {
-            saveBool("TOC", show);
-            _setVisibility(loadNavigationState(), show);
-        },
-        setAllVisibility: (showNavigation, showTOC) => {
-            saveBool("NAVIGATION", showNavigation);
-            saveBool("TOC", showTOC);
-            _setVisibility(showNavigation, showTOC);
-        },
-        toggleNavigationVisibility: () => toggleVisibility(true, false),
-        toggleTocVisibility: () => toggleVisibility(false, true),
-        toggleAllVisibility: () => toggleVisibility(true, true)
-    };
-
-    // Run this immediately instead of waiting for page.onload to prevent page flicker
-    customDynamicStyle.innerHTML = setCombinedVisibility(loadNavigationState(), loadTocState());
-    // console.log("Debug: hide sidebar completed");
-
-    // SEE https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event#checking_whether_loading_is_already_complete
-    if (document.readyState === "loading") {
-        // console.debug("Registering DOMContentLoaded event listener");
-        document.addEventListener("DOMContentLoaded", onPageLoadedAction);
-    } else {
-        // console.debug("DOMContentLoaded has already fired");
-        onPageLoadedAction();
-    }
-}());
-</script></head>
+  <link href="../../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style><script src="../../../../../../assets/javascripts/toggle-sidebar.js"></script></head>
   
   
     
@@ -324,8 +120,7 @@ const registerKeyboardEventHandler = () => {
 <div class="marquee-container">
   <div class="marquee-text">
     📢 BOU CSE ভর্তি বিজ্ঞপ্তি 2026 প্রকাশিত হয়েছে!
-    <a href="https://www.bou.ac.bd/upload/notice/admission/1876367910238366.pdf" target="_blank" rel="noopener">এখানে দেখুন</a
-    >
+    <a href="https://www.bou.ac.bd/upload/notice/admission/1876367910238366.pdf" target="_blank" rel="noopener">এখানে দেখুন</a>
     📄
   </div>
 </div>
@@ -350,7 +145,7 @@ const registerKeyboardEventHandler = () => {
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -375,20 +170,20 @@ const registerKeyboardEventHandler = () => {
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="yellow"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="yellow" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
       </label>
     
   
@@ -404,29 +199,29 @@ const registerKeyboardEventHandler = () => {
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -434,7 +229,7 @@ const registerKeyboardEventHandler = () => {
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -699,7 +494,7 @@ const registerKeyboardEventHandler = () => {
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -718,7 +513,7 @@ const registerKeyboardEventHandler = () => {
     Bou CSE Resources
   </label>
   
-  <ul class="md-nav__list" data-md-scrollfix>
+  <ul class="md-nav__list" data-md-scrollfix="">
     
       
       
@@ -778,7 +573,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -808,7 +603,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -847,7 +642,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -884,7 +679,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -1065,7 +860,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1102,7 +897,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1144,7 +939,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1181,7 +976,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1233,7 +1028,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1270,7 +1065,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1640,7 +1435,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1677,7 +1472,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1807,7 +1602,7 @@ const registerKeyboardEventHandler = () => {
   <span class="md-ellipsis">
     
   
-    Chapter data communication & networks
+    Chapter data communication &amp; networks
   
 
     
@@ -2071,7 +1866,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_4" id="__nav_2_2_2_4_label" tabindex="0">
@@ -2101,7 +1896,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -2421,7 +2216,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_11">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2458,7 +2253,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2668,7 +2463,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_12">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2705,7 +2500,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2831,7 +2626,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_5" id="__nav_2_2_2_5_label" tabindex="0">
@@ -2861,7 +2656,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3301,7 +3096,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_6" id="__nav_2_2_2_6_label" tabindex="0">
@@ -3331,7 +3126,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3595,7 +3390,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_7" id="__nav_2_2_2_7_label" tabindex="0">
@@ -3625,7 +3420,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3735,7 +3530,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_7_4" id="__nav_2_2_2_7_4_label" tabindex="0">
@@ -3765,7 +3560,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3865,7 +3660,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -3902,7 +3697,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3996,7 +3791,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -4033,7 +3828,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -4089,7 +3884,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_4_3" id="__nav_2_2_3_4_3_label" tabindex="0">
@@ -4119,7 +3914,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4183,7 +3978,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_4" checked="">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_4_4" id="__nav_2_2_3_4_4_label" tabindex="0">
@@ -4213,7 +4008,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4275,7 +4070,7 @@ const registerKeyboardEventHandler = () => {
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#-" class="md-nav__link">
@@ -4593,7 +4388,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -4630,7 +4425,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -4714,7 +4509,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_4" id="__nav_2_2_3_5_4_label" tabindex="0">
@@ -4744,7 +4539,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4806,7 +4601,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_5" id="__nav_2_2_3_5_5_label" tabindex="0">
@@ -4836,7 +4631,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4910,7 +4705,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_6" id="__nav_2_2_3_5_6_label" tabindex="0">
@@ -4940,7 +4735,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5172,7 +4967,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_7" id="__nav_2_2_3_5_7_label" tabindex="0">
@@ -5202,7 +4997,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5312,7 +5107,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6" id="__nav_2_2_3_6_label" tabindex="0">
@@ -5342,7 +5137,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5396,7 +5191,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_2" id="__nav_2_2_3_6_2_label" tabindex="0">
@@ -5426,7 +5221,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5488,7 +5283,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_3" id="__nav_2_2_3_6_3_label" tabindex="0">
@@ -5518,7 +5313,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5582,7 +5377,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_4" id="__nav_2_2_3_6_4_label" tabindex="0">
@@ -5612,7 +5407,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5702,7 +5497,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_5" id="__nav_2_2_3_6_5_label" tabindex="0">
@@ -5732,7 +5527,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5794,7 +5589,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_6" id="__nav_2_2_3_6_6_label" tabindex="0">
@@ -5824,7 +5619,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5888,7 +5683,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_7" id="__nav_2_2_3_6_7_label" tabindex="0">
@@ -5918,7 +5713,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6022,7 +5817,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7" id="__nav_2_2_3_7_label" tabindex="0">
@@ -6052,7 +5847,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6106,7 +5901,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_2" id="__nav_2_2_3_7_2_label" tabindex="0">
@@ -6136,7 +5931,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6218,7 +6013,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3" id="__nav_2_2_3_7_3_label" tabindex="0">
@@ -6248,7 +6043,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6330,7 +6125,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_3" id="__nav_2_2_3_7_3_3_label" tabindex="0">
@@ -6360,7 +6155,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6424,7 +6219,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_4" id="__nav_2_2_3_7_3_4_label" tabindex="0">
@@ -6454,7 +6249,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6544,7 +6339,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_5" id="__nav_2_2_3_7_3_5_label" tabindex="0">
@@ -6574,7 +6369,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6636,7 +6431,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_6" id="__nav_2_2_3_7_3_6_label" tabindex="0">
@@ -6666,7 +6461,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6728,7 +6523,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_7" id="__nav_2_2_3_7_3_7_label" tabindex="0">
@@ -6758,7 +6553,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6820,7 +6615,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_8" id="__nav_2_2_3_7_3_8_label" tabindex="0">
@@ -6850,7 +6645,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6914,7 +6709,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_9" id="__nav_2_2_3_7_3_9_label" tabindex="0">
@@ -6944,7 +6739,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7034,7 +6829,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_10" id="__nav_2_2_3_7_3_10_label" tabindex="0">
@@ -7064,7 +6859,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7126,7 +6921,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_11" id="__nav_2_2_3_7_3_11_label" tabindex="0">
@@ -7156,7 +6951,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7230,7 +7025,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_4" id="__nav_2_2_3_7_4_label" tabindex="0">
@@ -7260,7 +7055,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7392,7 +7187,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8" id="__nav_2_2_3_8_label" tabindex="0">
@@ -7422,7 +7217,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7504,7 +7299,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8_3" id="__nav_2_2_3_8_3_label" tabindex="0">
@@ -7534,7 +7329,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7598,7 +7393,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8_4" id="__nav_2_2_3_8_4_label" tabindex="0">
@@ -7628,7 +7423,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7740,7 +7535,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9" id="__nav_2_2_3_9_label" tabindex="0">
@@ -7770,7 +7565,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7912,7 +7707,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_5" id="__nav_2_2_3_9_5_label" tabindex="0">
@@ -7942,7 +7737,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8062,7 +7857,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6" id="__nav_2_2_3_9_6_label" tabindex="0">
@@ -8092,7 +7887,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8118,7 +7913,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6_1" id="__nav_2_2_3_9_6_1_label" tabindex="0">
@@ -8148,7 +7943,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8212,7 +8007,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6_2" id="__nav_2_2_3_9_6_2_label" tabindex="0">
@@ -8242,7 +8037,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8342,7 +8137,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_7" id="__nav_2_2_3_9_7_label" tabindex="0">
@@ -8372,7 +8167,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8464,7 +8259,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_8" id="__nav_2_2_3_9_8_label" tabindex="0">
@@ -8494,7 +8289,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8610,7 +8405,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10" id="__nav_2_2_3_10_label" tabindex="0">
@@ -8640,7 +8435,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8836,7 +8631,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7" id="__nav_2_2_3_10_7_label" tabindex="0">
@@ -8866,7 +8661,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8900,7 +8695,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7_1" id="__nav_2_2_3_10_7_1_label" tabindex="0">
@@ -8930,7 +8725,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9110,7 +8905,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7_2" id="__nav_2_2_3_10_7_2_label" tabindex="0">
@@ -9140,7 +8935,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9296,7 +9091,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_8" id="__nav_2_2_3_10_8_label" tabindex="0">
@@ -9326,7 +9121,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9416,7 +9211,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_9" id="__nav_2_2_3_10_9_label" tabindex="0">
@@ -9446,7 +9241,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9526,7 +9321,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10" id="__nav_2_2_3_10_10_label" tabindex="0">
@@ -9556,7 +9351,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9780,7 +9575,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_8" id="__nav_2_2_3_10_10_8_label" tabindex="0">
@@ -9810,7 +9605,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9914,7 +9709,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_9" id="__nav_2_2_3_10_10_9_label" tabindex="0">
@@ -9944,7 +9739,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10210,7 +10005,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_10" id="__nav_2_2_3_10_10_10_label" tabindex="0">
@@ -10240,7 +10035,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10456,7 +10251,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10493,7 +10288,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -10535,7 +10330,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10572,7 +10367,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -10630,7 +10425,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10662,7 +10457,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -10700,7 +10495,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10732,7 +10527,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -10770,7 +10565,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10802,7 +10597,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -10840,7 +10635,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10872,7 +10667,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -10914,7 +10709,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10951,7 +10746,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11077,7 +10872,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11114,7 +10909,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11174,7 +10969,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_3" id="__nav_2_2_4_3_3_label" tabindex="0">
@@ -11204,7 +10999,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -11326,7 +11121,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11363,7 +11158,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11435,7 +11230,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_5" id="__nav_2_2_4_3_5_label" tabindex="0">
@@ -11465,7 +11260,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -11643,7 +11438,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11680,7 +11475,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11744,7 +11539,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_7" id="__nav_2_2_4_3_7_label" tabindex="0">
@@ -11774,7 +11569,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -11838,7 +11633,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11870,7 +11665,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11908,7 +11703,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_9" id="__nav_2_2_4_3_9_label" tabindex="0">
@@ -11938,7 +11733,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -11966,7 +11761,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11998,7 +11793,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12036,7 +11831,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_9_2" id="__nav_2_2_4_3_9_2_label" tabindex="0">
@@ -12066,7 +11861,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12172,7 +11967,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_10">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12209,7 +12004,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12329,7 +12124,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_11" id="__nav_2_2_4_3_11_label" tabindex="0">
@@ -12359,7 +12154,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12437,7 +12232,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_12">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12474,7 +12269,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12712,7 +12507,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_13">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12749,7 +12544,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12871,7 +12666,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12908,7 +12703,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13022,7 +12817,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13054,7 +12849,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13092,7 +12887,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_6" id="__nav_2_2_4_4_6_label" tabindex="0">
@@ -13122,7 +12917,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13214,7 +13009,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13246,7 +13041,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13284,7 +13079,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13316,7 +13111,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13352,7 +13147,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_9" id="__nav_2_2_4_4_9_label" tabindex="0">
@@ -13382,7 +13177,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13444,7 +13239,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_10" id="__nav_2_2_4_4_10_label" tabindex="0">
@@ -13474,7 +13269,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13538,7 +13333,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_11" id="__nav_2_2_4_4_11_label" tabindex="0">
@@ -13568,7 +13363,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13624,7 +13419,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13656,7 +13451,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13714,7 +13509,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5" id="__nav_2_2_4_5_label" tabindex="0">
@@ -13744,7 +13539,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13770,7 +13565,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5_1" id="__nav_2_2_4_5_1_label" tabindex="0">
@@ -13800,7 +13595,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13862,7 +13657,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5_2" id="__nav_2_2_4_5_2_label" tabindex="0">
@@ -13892,7 +13687,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13958,7 +13753,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13995,7 +13790,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14061,7 +13856,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14093,7 +13888,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14137,7 +13932,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_6" id="__nav_2_2_4_6_label" tabindex="0">
@@ -14167,7 +13962,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14241,7 +14036,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_7" id="__nav_2_2_4_7_label" tabindex="0">
@@ -14271,7 +14066,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14411,7 +14206,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14443,7 +14238,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14485,7 +14280,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_7_6" id="__nav_2_2_4_7_6_label" tabindex="0">
@@ -14515,7 +14310,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14663,7 +14458,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14695,7 +14490,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14759,7 +14554,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14796,7 +14591,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14854,7 +14649,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14886,7 +14681,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14922,7 +14717,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_4" id="__nav_2_2_4_8_4_label" tabindex="0">
@@ -14952,7 +14747,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15014,7 +14809,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_5" id="__nav_2_2_4_8_5_label" tabindex="0">
@@ -15044,7 +14839,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15074,7 +14869,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15111,7 +14906,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15185,7 +14980,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15217,7 +15012,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15253,7 +15048,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_7" id="__nav_2_2_4_8_7_label" tabindex="0">
@@ -15283,7 +15078,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15355,7 +15150,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_8" id="__nav_2_2_4_8_8_label" tabindex="0">
@@ -15385,7 +15180,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15589,7 +15384,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_9">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15621,7 +15416,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15661,7 +15456,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_10" id="__nav_2_2_4_8_10_label" tabindex="0">
@@ -15691,7 +15486,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15837,7 +15632,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15874,7 +15669,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -16140,7 +15935,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10" id="__nav_2_2_4_9_10_label" tabindex="0">
@@ -16170,7 +15965,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16208,7 +16003,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_1" id="__nav_2_2_4_9_10_1_label" tabindex="0">
@@ -16238,7 +16033,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16478,7 +16273,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_2" id="__nav_2_2_4_9_10_2_label" tabindex="0">
@@ -16508,7 +16303,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16718,7 +16513,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_3" id="__nav_2_2_4_9_10_3_label" tabindex="0">
@@ -16748,7 +16543,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16936,7 +16731,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_4" id="__nav_2_2_4_9_10_4_label" tabindex="0">
@@ -16966,7 +16761,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17236,7 +17031,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_5" id="__nav_2_2_4_9_10_5_label" tabindex="0">
@@ -17266,7 +17061,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17514,7 +17309,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_6" id="__nav_2_2_4_9_10_6_label" tabindex="0">
@@ -17544,7 +17339,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17870,7 +17665,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_7" id="__nav_2_2_4_9_10_7_label" tabindex="0">
@@ -17900,7 +17695,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18140,7 +17935,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_8" id="__nav_2_2_4_9_10_8_label" tabindex="0">
@@ -18170,7 +17965,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18406,7 +18201,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -18443,7 +18238,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -18471,7 +18266,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2" id="__nav_2_2_5_2_label" tabindex="0">
@@ -18501,7 +18296,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18527,7 +18322,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2_1" id="__nav_2_2_5_2_1_label" tabindex="0">
@@ -18557,7 +18352,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18583,7 +18378,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2_1_1" id="__nav_2_2_5_2_1_1_label" tabindex="0">
@@ -18613,7 +18408,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18693,7 +18488,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3" id="__nav_2_2_5_3_label" tabindex="0">
@@ -18723,7 +18518,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18733,6 +18528,10 @@ const registerKeyboardEventHandler = () => {
   
     
     
+      
+        
+      
+        
       
         
       
@@ -18755,7 +18554,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3_1" id="__nav_2_2_5_3_1_label" tabindex="0">
@@ -18785,7 +18584,35 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../22-semester/DBMS/Intro/DB-table-vs-ER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DB-table-vs-ER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -18878,6 +18705,34 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
+      <a href="../../../../22-semester/DBMS/Intro/Storage-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../22-semester/DBMS/Intro/Types-of-SQL-Commands/" class="md-nav__link">
         
   
@@ -18931,7 +18786,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3_2" id="__nav_2_2_5_3_2_label" tabindex="0">
@@ -18961,7 +18816,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19037,7 +18892,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -19074,7 +18929,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -19106,7 +18961,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_4_2" id="__nav_2_2_5_4_2_label" tabindex="0">
@@ -19136,7 +18991,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19256,7 +19111,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -19288,7 +19143,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -19332,7 +19187,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_5" id="__nav_2_2_5_5_label" tabindex="0">
@@ -19362,7 +19217,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19432,7 +19287,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
@@ -19462,7 +19317,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19524,7 +19379,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
@@ -19554,7 +19409,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19616,7 +19471,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_8" id="__nav_2_2_8_label" tabindex="0">
@@ -19646,7 +19501,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19708,7 +19563,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_9" id="__nav_2_2_9_label" tabindex="0">
@@ -19738,7 +19593,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19804,7 +19659,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10">
         
           
           <div class="md-nav__link md-nav__container">
@@ -19841,7 +19696,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -19869,7 +19724,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_10_2" id="__nav_2_2_10_2_label" tabindex="0">
@@ -19899,7 +19754,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19927,7 +19782,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -19959,7 +19814,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20017,7 +19872,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20054,7 +19909,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20084,7 +19939,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20116,7 +19971,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20152,7 +20007,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_11_3" id="__nav_2_2_11_3_label" tabindex="0">
@@ -20182,7 +20037,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20252,7 +20107,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12">
         
           
           <label class="md-nav__link" for="__nav_2_2_12" id="__nav_2_2_12_label" tabindex="0">
@@ -20282,7 +20137,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20344,7 +20199,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13">
         
           
           <label class="md-nav__link" for="__nav_2_2_13" id="__nav_2_2_13_label" tabindex="0">
@@ -20374,7 +20229,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20412,7 +20267,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1" id="__nav_2_2_13_1_label" tabindex="0">
@@ -20442,7 +20297,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20496,7 +20351,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1_2" id="__nav_2_2_13_1_2_label" tabindex="0">
@@ -20526,7 +20381,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20554,7 +20409,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20586,7 +20441,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20632,7 +20487,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20664,7 +20519,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20700,7 +20555,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1_4" id="__nav_2_2_13_1_4_label" tabindex="0">
@@ -20730,7 +20585,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20794,7 +20649,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20826,7 +20681,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20866,7 +20721,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20903,7 +20758,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20933,7 +20788,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20965,7 +20820,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21011,7 +20866,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21043,7 +20898,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21095,7 +20950,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_14">
         
           
           <label class="md-nav__link" for="__nav_2_2_14" id="__nav_2_2_14_label" tabindex="0">
@@ -21125,7 +20980,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -21429,7 +21284,7 @@ const registerKeyboardEventHandler = () => {
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -21443,7 +21298,7 @@ const registerKeyboardEventHandler = () => {
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#-" class="md-nav__link">
@@ -21717,44 +21572,44 @@ const registerKeyboardEventHandler = () => {
 
   <h1>BS For Exam</h1>
 
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-2.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-2.png"></a></p>
 <details>
 <summary>The ancient Trade of Rome with India</summary>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-1.png" /></a><br />
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-4.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-1.png"></a><br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-4.png"></a></p>
 <p><strong>Assignment on The Ancient Trade of India with Rome</strong></p>
-<p><strong>Introduction (ভূমিকা)</strong><br />
+<p><strong>Introduction (ভূমিকা)</strong><br>
 The ancient trade between India and Rome was one of the most significant commercial relationships of antiquity. The economic and diplomatic ties established between the Roman Empire and various Indian kingdoms contributed to a flourishing exchange of goods, ideas, and cultural practices. This trade relationship began in the first century BCE and continued until the Roman economic crisis in the third century CE. The significance of this trade lies not only in the economic impact on both civilizations but also in the lasting cultural exchanges between them. This paper explores the historical, political, and economic contexts of the trade between India and Rome, focusing on the goods exchanged, the trade routes, and the broader implications of this exchange.</p>
 <p><strong>Historical Background (ঐতিহাসিক প্রেক্ষাপট)</strong></p>
 <ul>
 <li>
-<p><strong>Political Context of India and Rome</strong><br />
+<p><strong>Political Context of India and Rome</strong><br>
 During the first century BCE, the political environment in India was dominated by powerful empires such as the Mauryas and the Guptas, whose political stability allowed for the development of robust trade networks. In contrast, the Roman Empire, under the reign of Augustus and his successors, sought to expand its influence and secure trade routes across the Mediterranean and Asia. This period marked the establishment of key diplomatic and economic ties between Rome and India, leading to the flourishing of trade.</p>
 </li>
 <li>
-<p><strong>Contemporary Politics, Governance, and Historical Events</strong><br />
+<p><strong>Contemporary Politics, Governance, and Historical Events</strong><br>
 The Roman Empire, after consolidating power in the Mediterranean, turned its attention eastward, reaching as far as the Indian subcontinent. The relationship between Rome and India was characterized by the exchange of diplomatic envoys and mutual respect for each other's cultures. While Rome’s political and military activities focused on maintaining control over the Mediterranean, India’s key role was as a supplier of valuable goods, such as spices, textiles, and luxury items, which were highly sought after in Rome.</p>
 </li>
 </ul>
 <p><strong>Ancient Trade (প্রাচীন বাণিজ্য সম্পর্ক)</strong></p>
 <ul>
 <li>
-<p><strong>Nature of Trade: Land and Sea Routes</strong><br />
+<p><strong>Nature of Trade: Land and Sea Routes</strong><br>
 The trade between India and Rome occurred through both land and sea routes. Roman merchants primarily utilized the sea route, traveling across the Red Sea and the Persian Gulf to reach India. The seasonal monsoon winds played a crucial role in facilitating the regular voyages between the two regions. Roman merchant ships would set sail from the Egyptian port of Berenice, passing through the Red Sea, the Gulf of Aden, and finally reaching the Indian subcontinent. The land route, which passed through the Parthian Empire, was also crucial for the transport of goods such as silk and precious stones.</p>
 </li>
 <li>
-<p><strong>Major Trade Centers and Ports</strong><br />
+<p><strong>Major Trade Centers and Ports</strong><br>
 The most important Indian ports for trade with Rome were Muziris, Barbarikon, and Barygaza. Muziris, located in Kerala, was one of the busiest trade hubs, handling large quantities of Roman goods in exchange for Indian spices and textiles. Barbarikon, near modern-day Karachi, and Barygaza, now known as Bharuch, were other key ports that connected the Roman and Indian worlds. These ports served as crucial entry points for the exchange of luxury goods, with Roman coins and other artifacts found in these regions.</p>
 </li>
 <li>
-<p><strong>Trade Theories and Historical Evidence</strong><br />
+<p><strong>Trade Theories and Historical Evidence</strong><br>
 Archaeological evidence of the trade between India and Rome can be found in the form of Roman coins discovered in Indian ports, as well as Indian pottery and artifacts found in Roman ruins. Additionally, ancient texts such as the <em>Periplus of the Erythraean Sea</em> provide detailed descriptions of the trade routes and the goods exchanged between the two civilizations. This document, written by an anonymous Greek merchant in the first century CE, outlines the conditions of trade, the types of goods available in various regions, and the challenges faced by traders.</p>
 </li>
 </ul>
 <p><strong>Economic Context (অর্থনৈতিক প্রেক্ষাপট)</strong></p>
 <ul>
 <li>
-<p><strong>Economic Impact of Indo-Roman Trade</strong><br />
+<p><strong>Economic Impact of Indo-Roman Trade</strong><br>
 The trade between India and Rome had profound economic implications for both civilizations. For India, the trade facilitated the export of valuable goods such as silk, spices, gemstones, and textiles, leading to significant wealth for Indian merchants and rulers. The import of Roman goods, such as wine, olive oil, and glassware, further enriched the Indian elite, who greatly valued these luxury items. On the Roman side, the insatiable demand for Indian products drained the Roman economy of precious metals, with estimates indicating an annual trade deficit of 100 million sesterces, as reported by the Roman historian Pliny the Elder.</p>
 </li>
 <li>
@@ -21767,27 +21622,27 @@ The trade between India and Rome had profound economic implications for both civ
 <p><strong>Imports from Rome</strong>: India, in turn, imported luxury items such as Roman wine, olive oil, glassware, metals (tin, copper, and lead), horses, and amber. Roman glassware, in particular, became a status symbol in India, adorning the palaces of the upper classes. Additionally, exotic animals, including elephants and tigers, were imported from India to the Roman Empire, as were aromatic plants like nard and malabathron.</p>
 </li>
 <li>
-<p><strong>Balance of Trade Discussion</strong><br />
+<p><strong>Balance of Trade Discussion</strong><br>
 The trade balance between India and Rome was heavily skewed in favor of India. While India exported far more goods to Rome than it imported, this trade imbalance had significant financial consequences for the Roman Empire. The Roman historian Pliny the Elder highlighted this trade deficit, emphasizing the high cost of luxury items and the drain of gold and silver from the Roman treasury. Despite this, the demand for Indian goods remained strong, and the Romans continued to engage in this profitable trade.</p>
 </li>
 </ul>
-<p><strong>Conclusion (উপসংহার)</strong><br />
+<p><strong>Conclusion (উপসংহার)</strong><br>
 In conclusion, the ancient trade between India and Rome was a key factor in shaping the economies and cultures of both civilizations. The exchange of goods such as spices, textiles, and luxury items fostered economic prosperity in both India and Rome. The trade also facilitated the exchange of ideas, with cultural, religious, and philosophical influences being shared between the two regions. The diplomatic exchanges and cultural interactions between India and Rome laid the foundation for a rich and enduring relationship that transcended mere trade and contributed to the broader history of the ancient world.</p>
 <p>This version merges the content from the article into the original assignment format while maintaining a formal, academic tone. Feel free to modify or expand on specific points based on your requirements.</p>
 </details>
 <details>
 <summary>Bangla Saltanat</summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Bangla (Exam Style Notes)</label><label for="__tabbed_1_2">English (Exam Style Notes)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Bangla (Exam Style Notes)</label><label for="__tabbed_1_2">English (Exam Style Notes)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<h3 id="-"><strong>বিষয়: স্বাধীন সুলতানি আমল ও বাংলায় আফগান শাসন (১৩৩৮ - ১৫৭৬ খ্রি.)</strong><a class="headerlink" href="#-" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="-"><strong>বিষয়: স্বাধীন সুলতানি আমল ও বাংলায় আফগান শাসন (১৩৩৮ - ১৫৭৬ খ্রি.)</strong><a class="headerlink" href="#-" title="Anchor link to this section for reference">¶</a></h3>
 <p><strong>পটভূমি (Background):</strong></p>
 <ul>
 <li><strong>১২০৪ - ১৩৩৮:</strong> দিল্লীর শাসন। এই সময়ে বাংলাকে বলা হতো <strong>"বুলগাকপুর"</strong> (বিদ্রোহের নগরী)।</li>
 <li><strong>১৩৩৮:</strong> ফখরুদ্দিন মোবারক শাহের মাধ্যমে স্বাধীনতার সূচনা।</li>
 </ul>
-<hr />
-<h3 id="-_1"><strong>১. স্বাধীনতা ও ইলিয়াস শাহী বংশ (১৩৩৮ - ১৪১৪)</strong><a class="headerlink" href="#-_1" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="-_1"><strong>১. স্বাধীনতা ও ইলিয়াস শাহী বংশ (১৩৩৮ - ১৪১৪)</strong><a class="headerlink" href="#-_1" title="Anchor link to this section for reference">¶</a></h3>
 <p><strong>ক) ফখরুদ্দিন মোবারক শাহ (১৩৩৮ - ১৩৪৯)</strong></p>
 <ul>
 <li>সোনারগাঁয়ে স্বাধীনতা ঘোষণা করেন।</li>
@@ -21810,27 +21665,27 @@ In conclusion, the ancient trade between India and Rome was a key factor in shap
 <li>পারস্যের কবি <strong>হাফেজের</strong> সাথে পত্রালাপ ছিল।</li>
 <li>চীনা পরিব্রাজক <strong>মা-হুয়ান</strong> তাঁর সময়ে আসেন।</li>
 </ul>
-<hr />
-<h3 id="-_2"><strong>২. রাজা গণেশ ও তাঁর বংশ (১৪১৪ - ১৪৩৫)</strong><a class="headerlink" href="#-_2" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="-_2"><strong>২. রাজা গণেশ ও তাঁর বংশ (১৪১৪ - ১৪৩৫)</strong><a class="headerlink" href="#-_2" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>ইলিয়াস শাহী বংশের দুর্বলতার সুযোগে হিন্দু রাজা গণেশ ক্ষমতা দখল করেন।</li>
 <li><strong>জালালউদ্দিন মুহাম্মদ শাহ (যদু):</strong> রাজা গণেশর ছেলে, যিনি ইসলাম ধর্ম গ্রহণ করে সিংহাসনে বসেন।</li>
 <li>তিনি রাজধানী পাণ্ডুয়া থেকে গৌড়ে স্থানান্তর করেন।</li>
 </ul>
-<hr />
-<h3 id="-_3"><strong>৩. পরবর্তী ইলিয়াস শাহী বংশ (১৪৩৫ - ১৪৮৭)</strong><a class="headerlink" href="#-_3" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="-_3"><strong>৩. পরবর্তী ইলিয়াস শাহী বংশ (১৪৩৫ - ১৪৮৭)</strong><a class="headerlink" href="#-_3" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>নাসিরউদ্দিন মাহমুদ শাহ ও রুকনউদ্দিন বারবক শাহ এই সময়ের উল্লেখযোগ্য শাসক।</li>
 <li><strong>রুকনউদ্দিন বারবক শাহ:</strong> শ্রীকৃষ্ণবিজয় কাব্যের রচয়িতা মালাধর বসুকে 'গুণরাজ খান' উপাধি দেন।</li>
 </ul>
-<hr />
-<h3 id="-_4"><strong>৪. হাবশি শাসন (১৪৮৭ - ১৪৯৩)</strong><a class="headerlink" href="#-_4" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="-_4"><strong>৪. হাবশি শাসন (১৪৮৭ - ১৪৯৩)</strong><a class="headerlink" href="#-_4" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>এটি বাংলার ইতিহাসের <strong>অরাজকতার সময়</strong> বা কালো অধ্যায়।</li>
 <li>চারজন হাবশি সুলতান প্রায় ৬ বছর শাসন করেন।</li>
 </ul>
-<hr />
-<h3 id="-_5"><strong>৫. হোসেন শাহী বংশ (১৪৯৪ - ১৫৩৮) — "বাংলার স্বর্ণযুগ"</strong><a class="headerlink" href="#-_5" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="-_5"><strong>৫. হোসেন শাহী বংশ (১৪৯৪ - ১৫৩৮) — "বাংলার স্বর্ণযুগ"</strong><a class="headerlink" href="#-_5" title="Anchor link to this section for reference">¶</a></h3>
 <p><strong>ক) আলাউদ্দিন হোসেন শাহ (১৪৯৪ - ১৫১৯)</strong></p>
 <ul>
 <li><strong>শ্রেষ্ঠ সুলতান:</strong> এই বংশের এবং মধ্যযুগের বাংলার শ্রেষ্ঠ সুলতান।</li>
@@ -21848,8 +21703,8 @@ In conclusion, the ancient trade between India and Rome was a key factor in shap
 <li>স্বাধীন সুলতানি আমলের <strong>শেষ সুলতান</strong>।</li>
 <li>১৫৩৮ সালে শের শাহের কাছে পরাজিত হন।</li>
 </ul>
-<hr />
-<h3 id="-_6"><strong>৬. আফগান শাসন ও মুঘল আগমন (১৫৩৮ - ১৫৭৬)</strong><a class="headerlink" href="#-_6" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="-_6"><strong>৬. আফগান শাসন ও মুঘল আগমন (১৫৩৮ - ১৫৭৬)</strong><a class="headerlink" href="#-_6" title="Anchor link to this section for reference">¶</a></h3>
 <p><strong>ক) শূর বংশ (১৫৩৮ - ১৫৬৩)</strong></p>
 <ul>
 <li><strong>শের শাহ শুরি:</strong> হুমায়ুনকে পরাজিত করে বাংলা ও দিল্লী দখল করেন।</li>
@@ -21867,8 +21722,8 @@ In conclusion, the ancient trade between India and Rome was a key factor in shap
 <li><strong>দ্বন্দ্ব:</strong> দাউদ খান কররানী বনাম মুঘল সেনাপতি খান জাহান (আকবরের সময়)।</li>
 <li><strong>ফলাফল:</strong> দাউদ খান পরাজিত ও নিহত হন। বাংলায় মুঘল শাসন শুরু হয়।</li>
 </ul>
-<hr />
-<h3 id="exam-refresher"><strong>একনজরে গুরুত্বপূর্ণ তথ্য (Exam Refresher):</strong><a class="headerlink" href="#exam-refresher" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="exam-refresher"><strong>একনজরে গুরুত্বপূর্ণ তথ্য (Exam Refresher):</strong><a class="headerlink" href="#exam-refresher" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li><strong>বুলগাকপুর:</strong> বিদ্রোহের নগরী (দিল্লী শাসনামলে)।</li>
 <li><strong>জান্নাতাবাদ:</strong> হুমায়ুন গৌড়ের এই নাম দেন।</li>
@@ -21877,14 +21732,14 @@ In conclusion, the ancient trade between India and Rome was a key factor in shap
 </ul>
 </div>
 <div class="tabbed-block">
-<h3 id="topic-independent-sultanate-afghan-rule-in-bengal-1338-1576-ad"><strong>Topic: Independent Sultanate &amp; Afghan Rule in Bengal (1338 - 1576 AD)</strong><a class="headerlink" href="#topic-independent-sultanate-afghan-rule-in-bengal-1338-1576-ad" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="topic-independent-sultanate-afghan-rule-in-bengal-1338-1576-ad"><strong>Topic: Independent Sultanate &amp; Afghan Rule in Bengal (1338 - 1576 AD)</strong><a class="headerlink" href="#topic-independent-sultanate-afghan-rule-in-bengal-1338-1576-ad" title="Anchor link to this section for reference">¶</a></h3>
 <p><strong>Background:</strong></p>
 <ul>
 <li><strong>1204 - 1338:</strong> Rule of Delhi Sultanate via Governors. Bengal was known as <strong>"Bulgakpur"</strong> (City of Rebellion) due to constant revolts.</li>
 <li><strong>1338:</strong> Start of independence by Fakhruddin Mubarak Shah.</li>
 </ul>
-<hr />
-<h3 id="1-establishment-ilyas-shahi-dynasty-1338-1414"><strong>1. Establishment &amp; Ilyas Shahi Dynasty (1338 - 1414)</strong><a class="headerlink" href="#1-establishment-ilyas-shahi-dynasty-1338-1414" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="1-establishment-ilyas-shahi-dynasty-1338-1414"><strong>1. Establishment &amp; Ilyas Shahi Dynasty (1338 - 1414)</strong><a class="headerlink" href="#1-establishment-ilyas-shahi-dynasty-1338-1414" title="Anchor link to this section for reference">¶</a></h3>
 <p><strong>A) Fakhruddin Mubarak Shah (1338 - 1349)</strong></p>
 <ul>
 <li>Declared independence in <strong>Sonargaon</strong>.</li>
@@ -21907,27 +21762,27 @@ In conclusion, the ancient trade between India and Rome was a key factor in shap
 <li>Exchanged letters with the Persian poet <strong>Hafez</strong>.</li>
 <li>Chinese envoy <strong>Ma Huan</strong> visited during his time.</li>
 </ul>
-<hr />
-<h3 id="2-house-of-raja-ganesha-1414-1435"><strong>2. House of Raja Ganesha (1414 - 1435)</strong><a class="headerlink" href="#2-house-of-raja-ganesha-1414-1435" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="2-house-of-raja-ganesha-1414-1435"><strong>2. House of Raja Ganesha (1414 - 1435)</strong><a class="headerlink" href="#2-house-of-raja-ganesha-1414-1435" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>A brief Hindu rule interrupting the Ilyas Shahi dynasty.</li>
 <li><strong>Jalaluddin Muhammad Shah (Jadu):</strong> Son of Raja Ganesha, converted to Islam.</li>
 <li>Shifted capital from Pandua back to <strong>Gaur</strong>.</li>
 </ul>
-<hr />
-<h3 id="3-restored-ilyas-shahi-dynasty-1435-1487"><strong>3. Restored Ilyas Shahi Dynasty (1435 - 1487)</strong><a class="headerlink" href="#3-restored-ilyas-shahi-dynasty-1435-1487" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="3-restored-ilyas-shahi-dynasty-1435-1487"><strong>3. Restored Ilyas Shahi Dynasty (1435 - 1487)</strong><a class="headerlink" href="#3-restored-ilyas-shahi-dynasty-1435-1487" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Notable Rulers: Nasiruddin Mahmud Shah, Rukunuddin Barbak Shah.</li>
 <li><strong>Barbak Shah:</strong> Hired Abyssinian (Habshi) slaves for the army, which later led to their takeover. Patronized Maladhar Basu.</li>
 </ul>
-<hr />
-<h3 id="4-habshi-rule-1487-1493"><strong>4. Habshi Rule (1487 - 1493)</strong><a class="headerlink" href="#4-habshi-rule-1487-1493" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="4-habshi-rule-1487-1493"><strong>4. Habshi Rule (1487 - 1493)</strong><a class="headerlink" href="#4-habshi-rule-1487-1493" title="Anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>Known as the <strong>Dark Age</strong> or Period of Anarchy in Bengal.</li>
 <li>ruled by Abyssinian palace guards for about 6 years.</li>
 </ul>
-<hr />
-<h3 id="5-hussain-shahi-dynasty-1494-1538-the-golden-age"><strong>5. Hussain Shahi Dynasty (1494 - 1538) — "The Golden Age"</strong><a class="headerlink" href="#5-hussain-shahi-dynasty-1494-1538-the-golden-age" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="5-hussain-shahi-dynasty-1494-1538-the-golden-age"><strong>5. Hussain Shahi Dynasty (1494 - 1538) — "The Golden Age"</strong><a class="headerlink" href="#5-hussain-shahi-dynasty-1494-1538-the-golden-age" title="Anchor link to this section for reference">¶</a></h3>
 <p><strong>A) Alauddin Hussain Shah (1494 - 1519)</strong></p>
 <ul>
 <li><strong>Greatest Sultan:</strong> Considered the best ruler of medieval Bengal.</li>
@@ -21945,8 +21800,8 @@ In conclusion, the ancient trade between India and Rome was a key factor in shap
 <li>The <strong>Last Sultan</strong> of the independent Sultanate period.</li>
 <li>Defeated by Sher Shah Suri in 1538.</li>
 </ul>
-<hr />
-<h3 id="6-afghan-rule-mughal-conquest-1538-1576"><strong>6. Afghan Rule &amp; Mughal Conquest (1538 - 1576)</strong><a class="headerlink" href="#6-afghan-rule-mughal-conquest-1538-1576" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="6-afghan-rule-mughal-conquest-1538-1576"><strong>6. Afghan Rule &amp; Mughal Conquest (1538 - 1576)</strong><a class="headerlink" href="#6-afghan-rule-mughal-conquest-1538-1576" title="Anchor link to this section for reference">¶</a></h3>
 <p><strong>A) Suri Dynasty (1538 - 1563)</strong></p>
 <ul>
 <li><strong>Sher Shah Suri:</strong> Defeated Mughal Emperor Humayun (Battle of Chausa &amp; Kannauj).</li>
@@ -21970,20 +21825,20 @@ In conclusion, the ancient trade between India and Rome was a key factor in shap
 </details>
 <details>
 <summary>Background and Formation of Muslim League</summary>
-<p><strong>Introduction</strong><br />
+<p><strong>Introduction</strong><br>
 The formation (গঠন) of the All India Muslim League in 1906 is a major event in the history of the Indian subcontinent. During the British rule, the Muslims of India gradually realized the need for a separate political organization (রাজনৈতিক সংগঠন) to protect their rights and interests (স্বার্থ). It was not a sudden event but the result of various social, political, and economic factors that developed over the 19th century.</p>
 <p><strong>Background Factors Leading to the Formation</strong></p>
-<p><strong>1. The Aftermath of the 1857 Revolt</strong><br />
+<p><strong>1. The Aftermath of the 1857 Revolt</strong><br>
 After the Sepoy Mutiny of 1857, the British government was very harsh towards the Muslims. They considered Muslims as the main conspirators (ষড়যন্ত্রকারী) of the revolt. As a result, the Muslims faced severe suppression (দমন) and lost their positions in administration and the army. This created a sense of backwardness (পশ্চাৎপদতা) among the community compared to the Hindus, who were adapting to Western education.</p>
-<p><strong>2. The Aligarh Movement</strong><br />
+<p><strong>2. The Aligarh Movement</strong><br>
 Sir Syed Ahmed Khan played a vital role in the awakening (জাগরণ) of the Muslims. He understood that without modern education, Muslims could not progress. He started the Aligarh Movement and established the MAO College. He advised Muslims to stay away from active politics initially and focus on education. However, his movement created a conscious educated class (শিক্ষিত শ্রেণী) who later felt the need for political involvement.</p>
-<p><strong>3. Formation of Indian National Congress (1885)</strong><br />
+<p><strong>3. Formation of Indian National Congress (1885)</strong><br>
 The Indian National Congress was formed in 1885 to represent Indians. However, many Muslim leaders felt that the Congress was dominated by Hindu interests. Leaders like Sir Syed Ahmed Khan feared that in a democratic system (গণতান্ত্রিক ব্যবস্থা), the Muslim minority would be permanently suppressed by the Hindu majority. This suspicion (সন্দেহ) laid the foundation for a separate party.</p>
-<p><strong>4. The Urdu-Hindi Controversy</strong><br />
+<p><strong>4. The Urdu-Hindi Controversy</strong><br>
 In the late 19th century, there was a movement to replace Urdu with Hindi in official courts and offices. Since Urdu was closely linked to Muslim culture (সংস্কৃতি), the Muslims saw this as an attack on their identity. This controversy united the Muslims to defend their language and heritage.</p>
-<p><strong>5. Partition of Bengal (1905)</strong><br />
+<p><strong>5. Partition of Bengal (1905)</strong><br>
 The most immediate cause (প্রত্যক্ষ কারণ) was the Partition of Bengal in 1905 by Lord Curzon. The partition created a separate province of Eastern Bengal and Assam with a Muslim majority. Muslims welcomed this as it brought economic opportunities. However, the Congress and Hindu leaders launched the Swadeshi Movement to annul (বাতিল করা) the partition. This strong opposition from the Congress convinced the Muslim leaders that they needed their own political platform to save their interests.</p>
-<p><strong>The Simla Deputation (1906)</strong><br />
+<p><strong>The Simla Deputation (1906)</strong><br>
 Before the actual formation of the league, a significant event took place. On October 1, 1906, a delegation of 35 prominent Muslim leaders led by the Aga Khan met the Viceroy Lord Minto at Simla. This is known as the Simla Deputation. They presented two main demands</p>
 <ul>
 <li>Separate Electorates (পৃথক নির্বাচন ব্যবস্থা) for Muslims.</li>
@@ -21991,7 +21846,7 @@ Before the actual formation of the league, a significant event took place. On Oc
 </ul>
 <p>Lord Minto gave a sympathetic response, which encouraged the leaders to form a permanent political organization.</p>
 <p><strong>Formation of the Muslim League (1906)</strong></p>
-<p><strong>The Dhaka Session</strong><br />
+<p><strong>The Dhaka Session</strong><br>
 In December 1906, the All India Muhammadan Educational Conference held its annual session in Dhaka. After the conference, on <strong>30th December 1906</strong>, a special meeting was held at Shahbag distributed by <strong>Nawab Salimullah</strong> of Dhaka.</p>
 <p>In this meeting, Nawab Salimullah proposed the formation of a political party to look after the interests of Muslims. The proposal was supported by leaders like Hakim Ajmal Khan, Maulana Zafar Ali Khan, and others. Thus, the <strong>All India Muslim League</strong> was officially established.</p>
 <p><strong>Key Leaders</strong></p>
@@ -22000,25 +21855,25 @@ In December 1906, the All India Muhammadan Educational Conference held its annua
 <li><strong>Aga Khan III:</strong> He was appointed as the first Honorary President (সভাপতি).</li>
 <li><strong>Nawab Viqar-ul-Mulk and Nawab Mohsin-ul-Mulk:</strong> They were appointed as Joint Secretaries.</li>
 </ul>
-<p><strong>Objectives of the Muslim League</strong><br />
+<p><strong>Objectives of the Muslim League</strong><br>
 The constitution of the League was framed in 1907 at Karachi. The main objectives (উদ্দেশ্য) were</p>
 <ol>
 <li><strong>Loyalty:</strong> To promote feelings of loyalty (আনুগত্য) towards the British Government among the Muslims.</li>
 <li><strong>Protection of Rights:</strong> To protect and advance the political rights and interests of the Muslims of India and to represent their needs to the government.</li>
 <li><strong>Prevention of Hostility:</strong> To prevent the rise of prejudice (বিদ্বেষ) or hostility towards other communities in India.</li>
 </ol>
-<p><strong>Significance</strong><br />
+<p><strong>Significance</strong><br>
 The formation of the Muslim League was a turning point. It ended the era of political isolation for Muslims. For the first time, Muslims had a platform to speak to the government directly. While it started as a loyalist party, it eventually evolved to demand self-rule and later, a separate homeland.</p>
-<p><strong>Conclusion</strong><br />
-To conclude, the birth of the Muslim League was a logical outcome of the political circumstances (পরিস্থিতি) of that time. The fear of Hindu domination and the need for a separate identity drove the Muslims to unite. Starting from the Aligarh movement to the Partition of Bengal, every event contributed to this. The establishment of the League in Dhaka in 1906 ultimately changed the course of Indian history.<br />
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-3.png" /></a></p>
+<p><strong>Conclusion</strong><br>
+To conclude, the birth of the Muslim League was a logical outcome of the political circumstances (পরিস্থিতি) of that time. The fear of Hindu domination and the need for a separate identity drove the Muslims to unite. Starting from the Aligarh movement to the Partition of Bengal, every event contributed to this. The establishment of the League in Dhaka in 1906 ultimately changed the course of Indian history.<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-3.png"></a></p>
 </details>
 <details>
 <summary>Bangla Sultanat</summary>
 <p><strong>History of the Bengal Sultanate: Rise, Golden Age and Fall (1204 - 1538 AD)</strong></p>
-<p><strong>Introduction:</strong><br />
+<p><strong>Introduction:</strong><br>
 The Bengal Sultanate was an independent dynasty (স্বাধীন রাজবংশ) that lasted for about 234 years (1342-1576), which is a glorious chapter (গৌরবোজ্জ্বল অধ্যায়) in the history of Bengal. During the reign (শাসনকাল) of about 7 dynasties and 33 Sultans, 'Bangala' emerged as a unified independent state (ঐক্যবদ্ধ স্বাধীন রাষ্ট্র) for the first time. The historical progression (ঐতিহাসিক পরিক্রমা) is discussed below.</p>
-<h3 id="1-initiation-of-muslim-rule-and-lakhnauti-phase-1204-1338-ad"><strong>1. Initiation of Muslim Rule and Lakhnauti Phase (1204 - 1338 AD)</strong><a class="headerlink" href="#1-initiation-of-muslim-rule-and-lakhnauti-phase-1204-1338-ad" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="1-initiation-of-muslim-rule-and-lakhnauti-phase-1204-1338-ad"><strong>1. Initiation of Muslim Rule and Lakhnauti Phase (1204 - 1338 AD)</strong><a class="headerlink" href="#1-initiation-of-muslim-rule-and-lakhnauti-phase-1204-1338-ad" title="Anchor link to this section for reference">¶</a></h3>
 <p>Before the establishment of the independent Sultanate, this region was ruled by Delhi or by rebel rulers (বিদ্রোহী শাসক) of Delhi.</p>
 <ul>
 <li><strong>1204 AD:</strong> Ikhtiyar Uddin Muhammad Bakhtiar Khilji defeated Raja Lakshman Sen and conquered 'Lakhnauti' (North Bengal).</li>
@@ -22029,14 +21884,14 @@ The Bengal Sultanate was an independent dynasty (স্বাধীন রাজ
 <li>Satgaon (South Bengal)</li>
 <li>Sonargaon (East Bengal)</li>
 </ul>
-<h3 id="2-beginning-of-independence-fakhruddin-mubarak-shah-1338-1349-ad"><strong>2. Beginning of Independence: Fakhruddin Mubarak Shah (1338 - 1349 AD)</strong><a class="headerlink" href="#2-beginning-of-independence-fakhruddin-mubarak-shah-1338-1349-ad" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="2-beginning-of-independence-fakhruddin-mubarak-shah-1338-1349-ad"><strong>2. Beginning of Independence: Fakhruddin Mubarak Shah (1338 - 1349 AD)</strong><a class="headerlink" href="#2-beginning-of-independence-fakhruddin-mubarak-shah-1338-1349-ad" title="Anchor link to this section for reference">¶</a></h3>
 <p>Taking advantage of Delhi's weakness, the first sun of independence rose in East Bengal.</p>
 <ul>
 <li><strong>1338 AD:</strong> After the death of Bahram Khan, the administrator (প্রশাসক) of Sonargaon, his bodyguard Fakhruddin declared himself independent and took the name <strong>'Fakhruddin Mubarak Shah'</strong>.</li>
 <li><strong>Success of Navy:</strong> When the ruler of Lakhnauti, Qadar Khan, attacked him on the orders of Delhi, Fakhruddin defeated and killed Qadar Khan by utilizing his powerful navy (নৌবাহিনী) and the geographical advantage (ভৌগোলিক সুবিধা) of the rainy season.</li>
 <li><strong>1340 AD:</strong> He conquered Chittagong. Ibn Battuta came to Bengal during his time. He also expanded his kingdom to Sylhet and Noakhali regions.</li>
 </ul>
-<h3 id="3-establishment-of-unified-bengal-sultanate-iliyas-shahi-dynasty-1342-1414-ad"><strong>3. Establishment of Unified Bengal Sultanate: Iliyas Shahi Dynasty (1342 - 1414 AD)</strong><a class="headerlink" href="#3-establishment-of-unified-bengal-sultanate-iliyas-shahi-dynasty-1342-1414-ad" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="3-establishment-of-unified-bengal-sultanate-iliyas-shahi-dynasty-1342-1414-ad"><strong>3. Establishment of Unified Bengal Sultanate: Iliyas Shahi Dynasty (1342 - 1414 AD)</strong><a class="headerlink" href="#3-establishment-of-unified-bengal-sultanate-iliyas-shahi-dynasty-1342-1414-ad" title="Anchor link to this section for reference">¶</a></h3>
 <p>This chapter is the most important in the history of Bengal because 'Bangala' was unified (একীভূত) at this time.</p>
 <ul>
 <li><strong>1342 AD:</strong> Haji Iliyas captured the throne of Lakhnauti and established an independent Sultanate taking the name <strong>'Shamsuddin Iliyas Shah'</strong>.</li>
@@ -22044,14 +21899,14 @@ The Bengal Sultanate was an independent dynasty (স্বাধীন রাজ
 <li><strong>Ekdala Fort and Treaty (1353 AD):</strong> When Delhi Sultan Firoz Shah Tughlaq attacked Bengal, Iliyas Shah took shelter in Ekdala Fort (দুর্গ). Firoz Shah was forced to sign a treaty (সন্ধি) and return due to the rainy season and Iliyas Shah's strategy. Through this, the independence of Bengal became solid.</li>
 <li><strong>Kingdom Expansion:</strong> He conducted expeditions (অভিযান) up to Kathmandu in Nepal (1350), Chilka Lake in Odisha, and Bihar.</li>
 </ul>
-<h3 id="4-raja-ganesha-and-intermediate-anarchy-1414-1435-ad"><strong>4. Raja Ganesha and Intermediate Anarchy (1414 - 1435 AD)</strong><a class="headerlink" href="#4-raja-ganesha-and-intermediate-anarchy-1414-1435-ad" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="4-raja-ganesha-and-intermediate-anarchy-1414-1435-ad"><strong>4. Raja Ganesha and Intermediate Anarchy (1414 - 1435 AD)</strong><a class="headerlink" href="#4-raja-ganesha-and-intermediate-anarchy-1414-1435-ad" title="Anchor link to this section for reference">¶</a></h3>
 <p>Taking advantage of the weakness of the Iliyas Shahi dynasty, the rise of Hindu landlords (জমিদার) happened.</p>
 <ul>
 <li><strong>1410-14 AD:</strong> After the death of Ghiyasuddin Azam Shah, his son and subsequent rulers were killed in palace conspiracy (প্রাসাদ ষড়যন্ত্র).</li>
 <li><strong>1414 AD:</strong> Raja Ganesha, a landlord of Dinajpur, seized power.</li>
 <li><strong>Jalaluddin Muhammad Shah:</strong> With the intervention of Sufi saint Noor Qutb-e-Alam, Ganesha converted his son Jadu to Islam. Jadu took the name <strong>'Jalaluddin Muhammad Shah'</strong> (1415-1416 and 1418-1433) and ruled Bengal very successfully. During his reign, Bengal regained stability (স্থিতিশীলতা).</li>
 </ul>
-<h3 id="5-golden-age-of-bengal-hussain-shahi-dynasty-1493-1538-ad"><strong>5. Golden Age of Bengal: Hussain Shahi Dynasty (1493 - 1538 AD)</strong><a class="headerlink" href="#5-golden-age-of-bengal-hussain-shahi-dynasty-1493-1538-ad" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="5-golden-age-of-bengal-hussain-shahi-dynasty-1493-1538-ad"><strong>5. Golden Age of Bengal: Hussain Shahi Dynasty (1493 - 1538 AD)</strong><a class="headerlink" href="#5-golden-age-of-bengal-hussain-shahi-dynasty-1493-1538-ad" title="Anchor link to this section for reference">¶</a></h3>
 <p>After a long anarchy (অরাজকতা), this dynasty started by ending the Habshi rule. This is the golden age of Bengali literature and empire expansion.</p>
 <ul>
 <li><strong>1493 AD:</strong> Alauddin Hussain Shah sat on the throne. He was of Arab descent.</li>
@@ -22064,7 +21919,7 @@ The Bengal Sultanate was an independent dynasty (স্বাধীন রাজ
 <p><strong>Cultural Excellence:</strong> During his time, the Vaishnava movement of Sri Chaitanya Dev and Sufism spread widely. He was a secular (অসাম্প্রদায়িক) ruler. He has been called <strong>'Sultan of Sultans'</strong> in inscriptions.</p>
 </li>
 </ul>
-<h3 id="6-fall-and-afghan-mughal-conflict-1519-1538-ad"><strong>6. Fall and Afghan-Mughal Conflict (1519 - 1538 AD)</strong><a class="headerlink" href="#6-fall-and-afghan-mughal-conflict-1519-1538-ad" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="6-fall-and-afghan-mughal-conflict-1519-1538-ad"><strong>6. Fall and Afghan-Mughal Conflict (1519 - 1538 AD)</strong><a class="headerlink" href="#6-fall-and-afghan-mughal-conflict-1519-1538-ad" title="Anchor link to this section for reference">¶</a></h3>
 <p>After the death of Hussain Shah, the Sultanate started becoming weak and the arrival of external forces (বহিরাগত শক্তি) happened.</p>
 <ul>
 <li><strong>1519 AD:</strong> Hussain Shah's son <strong>Nasrat Shah</strong> came to power.</li>
@@ -22072,28 +21927,28 @@ The Bengal Sultanate was an independent dynasty (স্বাধীন রাজ
 <li><strong>1533-38 AD:</strong> After the death of Nasrat Shah, his brother <strong>Ghiyasuddin Mahmud Shah</strong> came to power. He was an incompetent ruler.</li>
 <li><strong>1538 AD (Fall):</strong> Afghan leader of Bihar, <strong>Sher Khan (Sher Shah Suri)</strong>, attacked Gaur. Ghiyasuddin Mahmud Shah asked for help from Mughal Emperor Humayun but could not be saved. With the fall of Gaur in 1538, the independent Bengal Sultanate ended and Bengal went under the control of Afghans.</li>
 </ul>
-<p><strong>Conclusion:</strong><br />
+<p><strong>Conclusion:</strong><br>
 The seed of Muslim rule that was planted by Bakhtiar Khilji in 1204 AD took the shape of a massive tree or independent Sultanate in 1342 AD by the hand of Iliyas Shah. Although this glorious chapter ended with the fall of Ghiyasuddin Mahmud Shah in 1538 AD, the contribution (অবদান) of this Sultanate in Bengali language, literature, and architecture is immense (অপরিসীম).</p>
 </details>
 <details>
 <summary>Bangladesh Development and Govt. Strategy</summary>
 <p><strong>(iii) Economy of Bangladesh</strong></p>
 <p>The economy (অর্থনীতি) of Bangladesh is a developing economy mainly based on agriculture (কৃষি), industry (শিল্প), and services (সেবা). Over the years, Bangladesh has shown steady economic growth (অর্থনৈতিক প্রবৃদ্ধি) through effective use of labor force (শ্রমশক্তি), natural resources (প্রাকৃতিক সম্পদ), and export-oriented activities (রপ্তানিমুখী কার্যক্রম).</p>
-<h3 id="key-sectors">Key Sectors<a class="headerlink" href="#key-sectors" title="Anchor link to this section for reference">&para;</a></h3>
-<p><strong>Agriculture Sector</strong><br />
+<h3 id="key-sectors">Key Sectors<a class="headerlink" href="#key-sectors" title="Anchor link to this section for reference">¶</a></h3>
+<p><strong>Agriculture Sector</strong><br>
 Agriculture (কৃষি) is one of the traditional key sectors of the economy of Bangladesh. It provides employment (কর্মসংস্থান) to a large portion of the population and ensures food security (খাদ্য নিরাপত্তা). Major agricultural products include rice, jute, wheat, vegetables, and fisheries. Although its contribution to GDP (Gross Domestic Product জিডিপি) has declined over time, agriculture still plays a vital role in rural development (গ্রামীণ উন্নয়ন).</p>
-<p><strong>Industrial Sector</strong><br />
+<p><strong>Industrial Sector</strong><br>
 The industrial sector (শিল্প খাত) is the main driving force of economic growth in Bangladesh. The readymade garments industry (তৈরি পোশাক শিল্প) is the largest industrial sector and the main source of export earnings (রপ্তানি আয়). Other important industries include textiles, pharmaceuticals, leather goods, shipbuilding, and cement. Industrialization (শিল্পায়ন) has increased employment and foreign exchange earnings (বৈদেশিক মুদ্রা আয়).</p>
-<p><strong>Service Sector</strong><br />
+<p><strong>Service Sector</strong><br>
 The service sector (সেবা খাত) is the largest contributor to GDP. It includes trade, transport, banking, insurance, education, health, and information technology (তথ্য প্রযুক্তি). The growth of this sector reflects urbanization (নগরায়ন) and improvement in human capital (মানব সম্পদ). It supports both agriculture and industry by providing necessary services.</p>
-<p><strong>Overseas Employment and Remittance</strong><br />
+<p><strong>Overseas Employment and Remittance</strong><br>
 Overseas employment (প্রবাসী কর্মসংস্থান) is another important sector of the economy. Bangladeshi workers abroad send remittance (প্রবাসী আয়), which contributes significantly to national income and foreign exchange reserves (বৈদেশিক মুদ্রা রিজার্ভ). It helps reduce poverty (দারিদ্র্য) and improves living standards.</p>
-<h3 id="government-strategy">Government Strategy<a class="headerlink" href="#government-strategy" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="government-strategy">Government Strategy<a class="headerlink" href="#government-strategy" title="Anchor link to this section for reference">¶</a></h3>
 <p>The government of Bangladesh follows various development strategies (উন্নয়ন কৌশল) to strengthen the economy. It emphasizes sustainable development (টেকসই উন্নয়ন) through long-term planning. Policies are taken to modernize agriculture, expand industrial base, and improve service delivery.</p>
 <p>The government encourages export diversification (রপ্তানি বৈচিত্র্য) and foreign direct investment (বিদেশি প্রত্যক্ষ বিনিয়োগ). Special Economic Zones (বিশেষ অর্থনৈতিক অঞ্চল) are being established to promote industrial growth. Investment in infrastructure development (অবকাঠামো উন্নয়ন) such as roads, ports, and power generation is also given priority.</p>
 <p>Human resource development (মানব সম্পদ উন্নয়ন) is another major strategy. The government invests in education, technical training, and digitalization (ডিজিটালাইজেশন) to build a skilled workforce. Social safety net programs (সামাজিক নিরাপত্তা কর্মসূচি) are implemented to support poor and vulnerable groups.</p>
 <p>In conclusion, the economy of Bangladesh is progressing through balanced development of key sectors and effective government strategies. With proper planning and implementation, Bangladesh has the potential to achieve higher economic stability (অর্থনৈতিক স্থিতিশীলতা) and growth in the future.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Economy of Bangladesh" src="../bangladesh%20development.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Economy of Bangladesh" src="../bangladesh%20development.png"></a></p>
 </details>
 
 
@@ -22108,7 +21963,7 @@ Overseas employment (প্রবাসী কর্মসংস্থান) is
 
 
 
-  <form class="md-feedback" name="feedback" hidden>
+  <form class="md-feedback" name="feedback" hidden="">
     <fieldset>
       <legend class="md-feedback__title">
         Was this page helpful?
@@ -22117,17 +21972,17 @@ Overseas employment (প্রবাসী কর্মসংস্থান) is
         <div class="md-feedback__list">
           
             <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"></path></svg>
             </button>
           
             <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"></path></svg>
             </button>
           
         </div>
         <div class="md-feedback__note">
           
-            <div data-md-value="1" hidden>
+            <div data-md-value="1" hidden="">
               
               
                 
@@ -22140,7 +21995,7 @@ Overseas employment (প্রবাসী কর্মসংস্থান) is
               Thanks for your feedback!
             </div>
           
-            <div data-md-value="0" hidden>
+            <div data-md-value="0" hidden="">
               
               
                 
@@ -22167,9 +22022,9 @@ Overseas employment (প্রবাসী কর্মসংস্থান) is
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -22179,13 +22034,13 @@ Overseas employment (প্রবাসী কর্মসংস্থান) is
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../../BS-Class-lectures/Class-01/" class="md-footer__link md-footer__link--prev" aria-label="Previous: BS - Class 01:">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -22210,7 +22065,7 @@ Overseas employment (প্রবাসী কর্মসংস্থান) is
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -22222,7 +22077,7 @@ Overseas employment (প্রবাসী কর্মসংস্থান) is
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2026 Rakibul Hashan
+      Copyright © 2026 Rakibul Hashan
     </div>
   
   
@@ -22239,7 +22094,7 @@ Overseas employment (প্রবাসী কর্মসংস্থান) is
       
     
     <a href="https://www.linkedin.com/in/rakibulhashanrabbi/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
     </a>
   
 </div>
@@ -22269,7 +22124,8 @@ Overseas employment (প্রবাসী কর্মসংস্থান) is
         <script src="../../../../../../javascripts/mathjax/tex-mml-chtml.js"></script>
       
     
-  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+  
+<script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
     try {
         var img = element.querySelector('img');
         if (img && img.src) {
@@ -22282,6 +22138,5 @@ Overseas employment (প্রবাসী কর্মসংস্থান) is
     }
 });
 const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
-</html>
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

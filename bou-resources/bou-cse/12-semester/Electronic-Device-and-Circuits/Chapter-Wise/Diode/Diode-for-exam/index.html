@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -78,220 +75,19 @@
     
     
   
-  <link rel="manifest" href="../../../../../../../manifest.json" />
+  <link rel="manifest" href="../../../../../../../manifest.json">
 
-   <link href="../../../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../../../assets/javascripts/glightbox.min.js"></script><script>(function() {
-    const customDynamicStyle = document.createElement("style");
-    // We must put it outside of the head and body, since they are replaced by the instant navigation feature in the Material theme
-    document.documentElement.appendChild(customDynamicStyle);
-
-    const TOGGLE_BUTTON_REFERENCE_ELEMENT_NOT_FOUND_WARNING = "[mkdocs-toggle-sidebar-plugin] Reference element for inserting 'toggle_button' not found. This version of the plugin may not be compatible with this version of the theme. Try updating both to the latest version. If that fails, you can open an GitHub issue.";
-
-    const loadBool = (name, default_value) => {
-        const value = localStorage.getItem(`TOGGLE_SIDEBAR_${name}`);
-        if (value == null) {
-            return default_value;
-        } else {
-            return value == "1";
-        }
-    }
-
-    const loadNavigationState = () => loadBool("NAVIGATION", true);
-    const loadTocState = () => loadBool("TOC", true);
-
-    const saveBool = (name, value) => {
-        localStorage.setItem(`TOGGLE_SIDEBAR_${name}`, value ? "1" : "0");
-    }
-
-    const toggleVisibility = (toggleNavigation, toggleTOC) => {
-        let newNavigation = loadNavigationState();
-        let newTOC = loadTocState();
-        
-        if (toggleNavigation) {
-            newNavigation = !newNavigation;
-            saveBool("NAVIGATION", newNavigation);
-        }
-        if (toggleTOC) {
-            newTOC = !newTOC;
-            saveBool("TOC", newTOC);
-        }
-        
-        _setVisibility(newNavigation, newTOC);
-    }
-
-    const _setVisibility = (newNavigation, newTOC) => {
-        console.debug(`Setting new visibility: navigation=${newNavigation}, TOC=${newTOC}`);
-        // combine this into one operation, so that it is more efficient (for toggling both) and easier to code with dynamic CSS generation
-        customDynamicStyle.innerHTML = setCombinedVisibility(newNavigation, newTOC);
-    }
-
-    // START OF INCLUDE
-    // This gets replaced with the definitions of: 
-    // - setCombinedVisibility(showNavigation: bool, showTOC: bool) -> string (dynamic CSS)
-    // - registerKeyboardEventHandler() -> void
-    const setCombinedVisibility = (showNavigation, showTOC) => {
-    // Hide the button when on mobile (and menu us shown as hamburger menu anyways).
-    // The exact max-width is taken from the styling of the 'body > header > nav > a' element
-    
-    let style = `
-.mkdocs-toggle-sidebar-button {
-    cursor: pointer;
-    margin-right: 5px;
-    margin-left: 1rem;
-}
-
-@media screen and (max-width: 76.1875em) {
-    .mkdocs-toggle-sidebar-button {
-        display: none;
-    }
-}
-`;
-// The TOC has a different break point than the navigation.
-// It can be seen on the nav.md-nav--secondary:nth-child(1) element (60em)
-// If the screen is smaller, it is shown in the navigation section if you click the nested hamburger menu
-if (!showTOC) {
-    style += `
-@media screen and (min-width: 60em) {
-    div.md-sidebar.md-sidebar--secondary {
-        display: none;
-    }
-}
-`;
-        }
-        
-    // We always have to show the navigation in mobile view, otherwise the hamburger menu is broken
-    if (!showNavigation) {
-        style += `
-@media screen and (min-width: 76.1875em) {
-    div.md-sidebar.md-sidebar--primary {
-        display: none;
-    }
-}
-`;
-    }
-
-    return style;
-}
-
-const addToggleButton = (toggleNavigation, toggleTOC) => {
-    const toggleBtn = createDefaultToggleButton(toggleNavigation, toggleTOC);
-    toggleBtn.classList.add("md-icon");
-  
-    const titleElement = document.querySelector(".md-header__title");
-    if (titleElement) {
-        titleElement.parentNode.insertBefore(toggleBtn, titleElement.nextSibling);  
-    } else {
-        console.warn(TOGGLE_BUTTON_REFERENCE_ELEMENT_NOT_FOUND_WARNING);
-    }
-}
-
-const registerKeyboardEventHandler = () => {
-    // Custom key handlers: SEE https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=key+bind#docsjavascriptsshortcutsjs
-    keyboard$.subscribe(key => {
-        if (key.mode === "global") {
-            if (coreEventListenerLogic(key.type)) {
-                // event handled, stop propagation
-                key.claim();
-            }
-        }
-    });
-}
-
-    // END OF INCLUDE
-
-    // argument: string, returns true if the key was handled and the event should be marked as already handled
-    const coreEventListenerLogic = (keyChar) => {
-        if (keyChar === "t") {
-            toggleVisibility(false, true);
-            return true;
-        } else if (keyChar === "m") {
-            toggleVisibility(true, false);
-            return true;
-        } else if (keyChar === "b") {
-            toggleVisibility(true, true);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    const onPageLoadedAction = () => {
-        console.log("The mkdocs-toggle-sidebar-plugin is installed. It adds the following key bindings:\n T -> toggle table of contents sidebar\n M -> toggle navigation menu sidebar\n B -> toggle both sidebars (TOC and navigation)");
-
-        const toggle_button = "none";
-        if (toggle_button == "none") {
-            // do nothing
-        } else if (toggle_button == "navigation") {
-            addToggleButton(true, false);
-        } else if (toggle_button == "toc") {
-            addToggleButton(false, true);
-        } else if (toggle_button == "all") {
-            addToggleButton(true, true);
-        } else {
-            console.error(`[mkdocs-toggle-sidebar-plugin] Unknown value for toggle_button: '${toggleButtonType}'`);
-        }
-
-        registerKeyboardEventHandler();
-    }
-
-    const createDefaultToggleButton = (toggleNavigation, toggleTOC) => {
-        const toggleBtn = document.createElement("div");
-        toggleBtn.className = "mkdocs-toggle-sidebar-button";
-        toggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>`;
-        if (toggleNavigation && toggleTOC) {
-            toggleBtn.title = "Toggle Navigation and Table of Contents";
-        } else if (toggleNavigation) {
-            toggleBtn.title = "Toggle Navigation";
-        } else if (toggleTOC) {
-            toggleBtn.title = "Toggle Table of Contents";
-        }
-        toggleBtn.addEventListener("click", () => toggleVisibility(toggleNavigation, toggleTOC));
-        return toggleBtn;
-    };
-
-    // Export functions that the user can call to modify the state
-    window.MkdocsToggleSidebarPlugin = {
-        setNavigationVisibility: (show) => {
-            saveBool("NAVIGATION", show);
-            _setVisibility(show, loadTocState());
-        },
-        setTocVisibility: (show) => {
-            saveBool("TOC", show);
-            _setVisibility(loadNavigationState(), show);
-        },
-        setAllVisibility: (showNavigation, showTOC) => {
-            saveBool("NAVIGATION", showNavigation);
-            saveBool("TOC", showTOC);
-            _setVisibility(showNavigation, showTOC);
-        },
-        toggleNavigationVisibility: () => toggleVisibility(true, false),
-        toggleTocVisibility: () => toggleVisibility(false, true),
-        toggleAllVisibility: () => toggleVisibility(true, true)
-    };
-
-    // Run this immediately instead of waiting for page.onload to prevent page flicker
-    customDynamicStyle.innerHTML = setCombinedVisibility(loadNavigationState(), loadTocState());
-    // console.log("Debug: hide sidebar completed");
-
-    // SEE https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event#checking_whether_loading_is_already_complete
-    if (document.readyState === "loading") {
-        // console.debug("Registering DOMContentLoaded event listener");
-        document.addEventListener("DOMContentLoaded", onPageLoadedAction);
-    } else {
-        // console.debug("DOMContentLoaded has already fired");
-        onPageLoadedAction();
-    }
-}());
-</script></head>
+  <link href="../../../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style><script src="../../../../../../../assets/javascripts/toggle-sidebar.js"></script></head>
   
   
     
@@ -324,8 +120,7 @@ const registerKeyboardEventHandler = () => {
 <div class="marquee-container">
   <div class="marquee-text">
     📢 BOU CSE ভর্তি বিজ্ঞপ্তি 2026 প্রকাশিত হয়েছে!
-    <a href="https://www.bou.ac.bd/upload/notice/admission/1876367910238366.pdf" target="_blank" rel="noopener">এখানে দেখুন</a
-    >
+    <a href="https://www.bou.ac.bd/upload/notice/admission/1876367910238366.pdf" target="_blank" rel="noopener">এখানে দেখুন</a>
     📄
   </div>
 </div>
@@ -350,7 +145,7 @@ const registerKeyboardEventHandler = () => {
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -375,20 +170,20 @@ const registerKeyboardEventHandler = () => {
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="yellow"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="yellow" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
       </label>
     
   
@@ -404,29 +199,29 @@ const registerKeyboardEventHandler = () => {
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -434,7 +229,7 @@ const registerKeyboardEventHandler = () => {
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -699,7 +494,7 @@ const registerKeyboardEventHandler = () => {
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -718,7 +513,7 @@ const registerKeyboardEventHandler = () => {
     Bou CSE Resources
   </label>
   
-  <ul class="md-nav__list" data-md-scrollfix>
+  <ul class="md-nav__list" data-md-scrollfix="">
     
       
       
@@ -778,7 +573,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -808,7 +603,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -847,7 +642,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -884,7 +679,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -1065,7 +860,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1102,7 +897,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1144,7 +939,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1181,7 +976,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1233,7 +1028,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1270,7 +1065,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1640,7 +1435,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1677,7 +1472,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1807,7 +1602,7 @@ const registerKeyboardEventHandler = () => {
   <span class="md-ellipsis">
     
   
-    Chapter data communication & networks
+    Chapter data communication &amp; networks
   
 
     
@@ -2071,7 +1866,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_4" id="__nav_2_2_2_4_label" tabindex="0">
@@ -2101,7 +1896,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -2421,7 +2216,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_11">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2458,7 +2253,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2668,7 +2463,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_12">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2705,7 +2500,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2831,7 +2626,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_5" id="__nav_2_2_2_5_label" tabindex="0">
@@ -2861,7 +2656,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3301,7 +3096,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_6" id="__nav_2_2_2_6_label" tabindex="0">
@@ -3331,7 +3126,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3595,7 +3390,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_7" id="__nav_2_2_2_7_label" tabindex="0">
@@ -3625,7 +3420,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3735,7 +3530,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_7_4" id="__nav_2_2_2_7_4_label" tabindex="0">
@@ -3765,7 +3560,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3865,7 +3660,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -3902,7 +3697,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3994,7 +3789,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -4031,7 +3826,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -4087,7 +3882,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_4_3" id="__nav_2_2_3_4_3_label" tabindex="0">
@@ -4117,7 +3912,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4179,7 +3974,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_4_4" id="__nav_2_2_3_4_4_label" tabindex="0">
@@ -4209,7 +4004,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4293,7 +4088,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -4330,7 +4125,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -4414,7 +4209,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_4" id="__nav_2_2_3_5_4_label" tabindex="0">
@@ -4444,7 +4239,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4506,7 +4301,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_5" id="__nav_2_2_3_5_5_label" tabindex="0">
@@ -4536,7 +4331,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4610,7 +4405,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_6" id="__nav_2_2_3_5_6_label" tabindex="0">
@@ -4640,7 +4435,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4872,7 +4667,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_7" id="__nav_2_2_3_5_7_label" tabindex="0">
@@ -4902,7 +4697,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5012,7 +4807,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6" id="__nav_2_2_3_6_label" tabindex="0">
@@ -5042,7 +4837,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5096,7 +4891,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_2" id="__nav_2_2_3_6_2_label" tabindex="0">
@@ -5126,7 +4921,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5188,7 +4983,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_3" id="__nav_2_2_3_6_3_label" tabindex="0">
@@ -5218,7 +5013,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5282,7 +5077,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_4" id="__nav_2_2_3_6_4_label" tabindex="0">
@@ -5312,7 +5107,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5402,7 +5197,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_5" id="__nav_2_2_3_6_5_label" tabindex="0">
@@ -5432,7 +5227,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5494,7 +5289,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_6" id="__nav_2_2_3_6_6_label" tabindex="0">
@@ -5524,7 +5319,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5588,7 +5383,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_7" id="__nav_2_2_3_6_7_label" tabindex="0">
@@ -5618,7 +5413,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5724,7 +5519,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7" checked="">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7" id="__nav_2_2_3_7_label" tabindex="0">
@@ -5754,7 +5549,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5808,7 +5603,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_2" id="__nav_2_2_3_7_2_label" tabindex="0">
@@ -5838,7 +5633,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5922,7 +5717,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3" checked="">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3" id="__nav_2_2_3_7_3_label" tabindex="0">
@@ -5952,7 +5747,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6034,7 +5829,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_3" id="__nav_2_2_3_7_3_3_label" tabindex="0">
@@ -6064,7 +5859,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6130,7 +5925,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_4" checked="">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_4" id="__nav_2_2_3_7_3_4_label" tabindex="0">
@@ -6160,7 +5955,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6222,7 +6017,7 @@ const registerKeyboardEventHandler = () => {
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#semiconductor-devices" class="md-nav__link">
@@ -6968,7 +6763,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_5" id="__nav_2_2_3_7_3_5_label" tabindex="0">
@@ -6998,7 +6793,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7060,7 +6855,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_6" id="__nav_2_2_3_7_3_6_label" tabindex="0">
@@ -7090,7 +6885,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7152,7 +6947,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_7" id="__nav_2_2_3_7_3_7_label" tabindex="0">
@@ -7182,7 +6977,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7244,7 +7039,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_8" id="__nav_2_2_3_7_3_8_label" tabindex="0">
@@ -7274,7 +7069,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7338,7 +7133,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_9" id="__nav_2_2_3_7_3_9_label" tabindex="0">
@@ -7368,7 +7163,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7458,7 +7253,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_10" id="__nav_2_2_3_7_3_10_label" tabindex="0">
@@ -7488,7 +7283,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7550,7 +7345,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_11" id="__nav_2_2_3_7_3_11_label" tabindex="0">
@@ -7580,7 +7375,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7654,7 +7449,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_4" id="__nav_2_2_3_7_4_label" tabindex="0">
@@ -7684,7 +7479,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7816,7 +7611,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8" id="__nav_2_2_3_8_label" tabindex="0">
@@ -7846,7 +7641,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7928,7 +7723,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8_3" id="__nav_2_2_3_8_3_label" tabindex="0">
@@ -7958,7 +7753,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8022,7 +7817,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8_4" id="__nav_2_2_3_8_4_label" tabindex="0">
@@ -8052,7 +7847,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8164,7 +7959,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9" id="__nav_2_2_3_9_label" tabindex="0">
@@ -8194,7 +7989,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8336,7 +8131,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_5" id="__nav_2_2_3_9_5_label" tabindex="0">
@@ -8366,7 +8161,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8486,7 +8281,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6" id="__nav_2_2_3_9_6_label" tabindex="0">
@@ -8516,7 +8311,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8542,7 +8337,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6_1" id="__nav_2_2_3_9_6_1_label" tabindex="0">
@@ -8572,7 +8367,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8636,7 +8431,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6_2" id="__nav_2_2_3_9_6_2_label" tabindex="0">
@@ -8666,7 +8461,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8766,7 +8561,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_7" id="__nav_2_2_3_9_7_label" tabindex="0">
@@ -8796,7 +8591,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8888,7 +8683,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_8" id="__nav_2_2_3_9_8_label" tabindex="0">
@@ -8918,7 +8713,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9034,7 +8829,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10" id="__nav_2_2_3_10_label" tabindex="0">
@@ -9064,7 +8859,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9260,7 +9055,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7" id="__nav_2_2_3_10_7_label" tabindex="0">
@@ -9290,7 +9085,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9324,7 +9119,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7_1" id="__nav_2_2_3_10_7_1_label" tabindex="0">
@@ -9354,7 +9149,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9534,7 +9329,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7_2" id="__nav_2_2_3_10_7_2_label" tabindex="0">
@@ -9564,7 +9359,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9720,7 +9515,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_8" id="__nav_2_2_3_10_8_label" tabindex="0">
@@ -9750,7 +9545,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9840,7 +9635,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_9" id="__nav_2_2_3_10_9_label" tabindex="0">
@@ -9870,7 +9665,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9950,7 +9745,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10" id="__nav_2_2_3_10_10_label" tabindex="0">
@@ -9980,7 +9775,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10204,7 +9999,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_8" id="__nav_2_2_3_10_10_8_label" tabindex="0">
@@ -10234,7 +10029,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10338,7 +10133,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_9" id="__nav_2_2_3_10_10_9_label" tabindex="0">
@@ -10368,7 +10163,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10634,7 +10429,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_10" id="__nav_2_2_3_10_10_10_label" tabindex="0">
@@ -10664,7 +10459,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10880,7 +10675,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10917,7 +10712,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -10959,7 +10754,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10996,7 +10791,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11054,7 +10849,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11086,7 +10881,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11124,7 +10919,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11156,7 +10951,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11194,7 +10989,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11226,7 +11021,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11264,7 +11059,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11296,7 +11091,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11338,7 +11133,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11375,7 +11170,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11501,7 +11296,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11538,7 +11333,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11598,7 +11393,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_3" id="__nav_2_2_4_3_3_label" tabindex="0">
@@ -11628,7 +11423,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -11750,7 +11545,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11787,7 +11582,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11859,7 +11654,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_5" id="__nav_2_2_4_3_5_label" tabindex="0">
@@ -11889,7 +11684,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12067,7 +11862,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12104,7 +11899,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12168,7 +11963,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_7" id="__nav_2_2_4_3_7_label" tabindex="0">
@@ -12198,7 +11993,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12262,7 +12057,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12294,7 +12089,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12332,7 +12127,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_9" id="__nav_2_2_4_3_9_label" tabindex="0">
@@ -12362,7 +12157,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12390,7 +12185,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12422,7 +12217,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12460,7 +12255,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_9_2" id="__nav_2_2_4_3_9_2_label" tabindex="0">
@@ -12490,7 +12285,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12596,7 +12391,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_10">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12633,7 +12428,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12753,7 +12548,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_11" id="__nav_2_2_4_3_11_label" tabindex="0">
@@ -12783,7 +12578,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12861,7 +12656,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_12">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12898,7 +12693,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13136,7 +12931,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_13">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13173,7 +12968,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13295,7 +13090,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13332,7 +13127,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13446,7 +13241,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13478,7 +13273,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13516,7 +13311,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_6" id="__nav_2_2_4_4_6_label" tabindex="0">
@@ -13546,7 +13341,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13638,7 +13433,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13670,7 +13465,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13708,7 +13503,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13740,7 +13535,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13776,7 +13571,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_9" id="__nav_2_2_4_4_9_label" tabindex="0">
@@ -13806,7 +13601,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13868,7 +13663,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_10" id="__nav_2_2_4_4_10_label" tabindex="0">
@@ -13898,7 +13693,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13962,7 +13757,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_11" id="__nav_2_2_4_4_11_label" tabindex="0">
@@ -13992,7 +13787,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14048,7 +13843,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14080,7 +13875,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14138,7 +13933,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5" id="__nav_2_2_4_5_label" tabindex="0">
@@ -14168,7 +13963,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14194,7 +13989,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5_1" id="__nav_2_2_4_5_1_label" tabindex="0">
@@ -14224,7 +14019,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14286,7 +14081,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5_2" id="__nav_2_2_4_5_2_label" tabindex="0">
@@ -14316,7 +14111,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14382,7 +14177,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14419,7 +14214,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14485,7 +14280,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14517,7 +14312,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14561,7 +14356,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_6" id="__nav_2_2_4_6_label" tabindex="0">
@@ -14591,7 +14386,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14665,7 +14460,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_7" id="__nav_2_2_4_7_label" tabindex="0">
@@ -14695,7 +14490,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14835,7 +14630,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14867,7 +14662,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14909,7 +14704,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_7_6" id="__nav_2_2_4_7_6_label" tabindex="0">
@@ -14939,7 +14734,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15087,7 +14882,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15119,7 +14914,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15183,7 +14978,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15220,7 +15015,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15278,7 +15073,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15310,7 +15105,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15346,7 +15141,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_4" id="__nav_2_2_4_8_4_label" tabindex="0">
@@ -15376,7 +15171,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15438,7 +15233,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_5" id="__nav_2_2_4_8_5_label" tabindex="0">
@@ -15468,7 +15263,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15498,7 +15293,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15535,7 +15330,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15609,7 +15404,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15641,7 +15436,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15677,7 +15472,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_7" id="__nav_2_2_4_8_7_label" tabindex="0">
@@ -15707,7 +15502,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15779,7 +15574,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_8" id="__nav_2_2_4_8_8_label" tabindex="0">
@@ -15809,7 +15604,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16013,7 +15808,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_9">
         
           
           <div class="md-nav__link md-nav__container">
@@ -16045,7 +15840,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -16085,7 +15880,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_10" id="__nav_2_2_4_8_10_label" tabindex="0">
@@ -16115,7 +15910,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16261,7 +16056,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9">
         
           
           <div class="md-nav__link md-nav__container">
@@ -16298,7 +16093,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -16564,7 +16359,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10" id="__nav_2_2_4_9_10_label" tabindex="0">
@@ -16594,7 +16389,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16632,7 +16427,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_1" id="__nav_2_2_4_9_10_1_label" tabindex="0">
@@ -16662,7 +16457,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16902,7 +16697,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_2" id="__nav_2_2_4_9_10_2_label" tabindex="0">
@@ -16932,7 +16727,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17142,7 +16937,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_3" id="__nav_2_2_4_9_10_3_label" tabindex="0">
@@ -17172,7 +16967,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17360,7 +17155,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_4" id="__nav_2_2_4_9_10_4_label" tabindex="0">
@@ -17390,7 +17185,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17660,7 +17455,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_5" id="__nav_2_2_4_9_10_5_label" tabindex="0">
@@ -17690,7 +17485,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17938,7 +17733,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_6" id="__nav_2_2_4_9_10_6_label" tabindex="0">
@@ -17968,7 +17763,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18294,7 +18089,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_7" id="__nav_2_2_4_9_10_7_label" tabindex="0">
@@ -18324,7 +18119,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18564,7 +18359,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_8" id="__nav_2_2_4_9_10_8_label" tabindex="0">
@@ -18594,7 +18389,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18830,7 +18625,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -18867,7 +18662,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -18895,7 +18690,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2" id="__nav_2_2_5_2_label" tabindex="0">
@@ -18925,7 +18720,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18951,7 +18746,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2_1" id="__nav_2_2_5_2_1_label" tabindex="0">
@@ -18981,7 +18776,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19007,7 +18802,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2_1_1" id="__nav_2_2_5_2_1_1_label" tabindex="0">
@@ -19037,7 +18832,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19117,7 +18912,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3" id="__nav_2_2_5_3_label" tabindex="0">
@@ -19147,7 +18942,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19157,6 +18952,10 @@ const registerKeyboardEventHandler = () => {
   
     
     
+      
+        
+      
+        
       
         
       
@@ -19179,7 +18978,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3_1" id="__nav_2_2_5_3_1_label" tabindex="0">
@@ -19209,7 +19008,35 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../22-semester/DBMS/Intro/DB-table-vs-ER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DB-table-vs-ER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -19302,6 +19129,34 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
+      <a href="../../../../../22-semester/DBMS/Intro/Storage-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../22-semester/DBMS/Intro/Types-of-SQL-Commands/" class="md-nav__link">
         
   
@@ -19355,7 +19210,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3_2" id="__nav_2_2_5_3_2_label" tabindex="0">
@@ -19385,7 +19240,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19461,7 +19316,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -19498,7 +19353,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -19530,7 +19385,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_4_2" id="__nav_2_2_5_4_2_label" tabindex="0">
@@ -19560,7 +19415,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19680,7 +19535,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -19712,7 +19567,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -19756,7 +19611,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_5" id="__nav_2_2_5_5_label" tabindex="0">
@@ -19786,7 +19641,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19856,7 +19711,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
@@ -19886,7 +19741,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19948,7 +19803,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
@@ -19978,7 +19833,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20040,7 +19895,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_8" id="__nav_2_2_8_label" tabindex="0">
@@ -20070,7 +19925,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20132,7 +19987,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_9" id="__nav_2_2_9_label" tabindex="0">
@@ -20162,7 +20017,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20228,7 +20083,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20265,7 +20120,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20293,7 +20148,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_10_2" id="__nav_2_2_10_2_label" tabindex="0">
@@ -20323,7 +20178,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20351,7 +20206,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20383,7 +20238,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20441,7 +20296,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20478,7 +20333,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20508,7 +20363,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20540,7 +20395,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20576,7 +20431,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_11_3" id="__nav_2_2_11_3_label" tabindex="0">
@@ -20606,7 +20461,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20676,7 +20531,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12">
         
           
           <label class="md-nav__link" for="__nav_2_2_12" id="__nav_2_2_12_label" tabindex="0">
@@ -20706,7 +20561,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20768,7 +20623,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13">
         
           
           <label class="md-nav__link" for="__nav_2_2_13" id="__nav_2_2_13_label" tabindex="0">
@@ -20798,7 +20653,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20836,7 +20691,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1" id="__nav_2_2_13_1_label" tabindex="0">
@@ -20866,7 +20721,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20920,7 +20775,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1_2" id="__nav_2_2_13_1_2_label" tabindex="0">
@@ -20950,7 +20805,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20978,7 +20833,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21010,7 +20865,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21056,7 +20911,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21088,7 +20943,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21124,7 +20979,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1_4" id="__nav_2_2_13_1_4_label" tabindex="0">
@@ -21154,7 +21009,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -21218,7 +21073,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21250,7 +21105,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21290,7 +21145,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21327,7 +21182,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21357,7 +21212,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21389,7 +21244,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21435,7 +21290,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21467,7 +21322,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21519,7 +21374,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_14">
         
           
           <label class="md-nav__link" for="__nav_2_2_14" id="__nav_2_2_14_label" tabindex="0">
@@ -21549,7 +21404,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -21853,7 +21708,7 @@ const registerKeyboardEventHandler = () => {
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -21867,7 +21722,7 @@ const registerKeyboardEventHandler = () => {
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#semiconductor-devices" class="md-nav__link">
@@ -22565,102 +22420,102 @@ const registerKeyboardEventHandler = () => {
 
 <details class="info">
 <summary>1. Semiconductor Devices</summary>
-<h2 id="semiconductor-devices">Semiconductor Devices<a class="headerlink" href="#semiconductor-devices" title="Anchor link to this section for reference">&para;</a></h2>
+<h2 id="semiconductor-devices">Semiconductor Devices<a class="headerlink" href="#semiconductor-devices" title="Anchor link to this section for reference">¶</a></h2>
 <p>Semiconductor devices are electronic components made using semiconductor materials like silicon and germanium. These materials have electrical conductivity between conductors and insulators. By adding impurities in a controlled way, we can change their electrical behavior and make useful devices such as diodes and transistors.</p>
-<hr />
-<h2 id="pn-junction-diode">PN Junction Diode<a class="headerlink" href="#pn-junction-diode" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="pn-junction-diode">PN Junction Diode<a class="headerlink" href="#pn-junction-diode" title="Anchor link to this section for reference">¶</a></h2>
 <p>A PN junction diode is a basic semiconductor device formed by joining P-type and N-type semiconductor materials together. It mainly allows current to flow in one direction and blocks it in the opposite direction.</p>
-<hr />
-<h3 id="formation-of-pn-junction">Formation of PN Junction<a class="headerlink" href="#formation-of-pn-junction" title="Anchor link to this section for reference">&para;</a></h3>
-<p>When P-type and N-type materials are joined together, a PN junction is formed.<br />
+<hr>
+<h3 id="formation-of-pn-junction">Formation of PN Junction<a class="headerlink" href="#formation-of-pn-junction" title="Anchor link to this section for reference">¶</a></h3>
+<p>When P-type and N-type materials are joined together, a PN junction is formed.<br>
 P-type material has more holes as majority charge carriers, while N-type material has more electrons as majority charge carriers.</p>
 <p>After joining, electrons from the N-side move towards the P-side and holes from the P-side move towards the N-side. This movement happens due to concentration difference of charge carriers.</p>
-<hr />
-<h3 id="depletion-region-and-barrier-potential">Depletion Region and Barrier Potential<a class="headerlink" href="#depletion-region-and-barrier-potential" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="depletion-region-and-barrier-potential">Depletion Region and Barrier Potential<a class="headerlink" href="#depletion-region-and-barrier-potential" title="Anchor link to this section for reference">¶</a></h3>
 <p>When electrons and holes recombine near the junction, a region is formed where no free charge carriers are present. This region is called the depletion region.</p>
 <p>Due to this recombination, fixed ions are left behind, creating an electric field. This electric field produces a potential difference across the junction, known as barrier potential. This barrier potential prevents further movement of charge carriers across the junction.</p>
-<hr />
-<h3 id="drift-current">Drift Current<a class="headerlink" href="#drift-current" title="Anchor link to this section for reference">&para;</a></h3>
-<p>Drift current is caused by the electric field present in the depletion region.<br />
+<hr>
+<h3 id="drift-current">Drift Current<a class="headerlink" href="#drift-current" title="Anchor link to this section for reference">¶</a></h3>
+<p>Drift current is caused by the electric field present in the depletion region.<br>
 Minority charge carriers are pushed across the junction due to this electric field. This movement of carriers under the influence of the electric field produces drift current.</p>
 <p>Drift current is very small in magnitude.</p>
-<hr />
-<h3 id="diffusion-current">Diffusion Current<a class="headerlink" href="#diffusion-current" title="Anchor link to this section for reference">&para;</a></h3>
-<p>Diffusion current is caused due to the difference in concentration of charge carriers.<br />
+<hr>
+<h3 id="diffusion-current">Diffusion Current<a class="headerlink" href="#diffusion-current" title="Anchor link to this section for reference">¶</a></h3>
+<p>Diffusion current is caused due to the difference in concentration of charge carriers.<br>
 Majority charge carriers move from higher concentration region to lower concentration region across the junction.</p>
 <p>Electrons diffuse from N-side to P-side and holes diffuse from P-side to N-side. This movement produces diffusion current.</p>
-<hr />
-<h3 id="equilibrium-condition-in-a-pn-junction">Equilibrium Condition in a PN Junction<a class="headerlink" href="#equilibrium-condition-in-a-pn-junction" title="Anchor link to this section for reference">&para;</a></h3>
-<p>In equilibrium condition, the PN junction is not connected to any external power supply.<br />
+<hr>
+<h3 id="equilibrium-condition-in-a-pn-junction">Equilibrium Condition in a PN Junction<a class="headerlink" href="#equilibrium-condition-in-a-pn-junction" title="Anchor link to this section for reference">¶</a></h3>
+<p>In equilibrium condition, the PN junction is not connected to any external power supply.<br>
 At this condition, diffusion current and drift current are equal in magnitude but opposite in direction.</p>
 <p>As a result, the net current through the PN junction becomes zero. The depletion region and barrier potential remain constant in equilibrium.</p>
 </details>
 <details class="info">
 <summary>2. Diodes</summary>
-<h2 id="2-diode">2. Diode<a class="headerlink" href="#2-diode" title="Anchor link to this section for reference">&para;</a></h2>
+<h2 id="2-diode">2. Diode<a class="headerlink" href="#2-diode" title="Anchor link to this section for reference">¶</a></h2>
 <p>A diode is a two terminal semiconductor device formed using a PN junction. It allows current to flow in one direction and restricts current in the opposite direction. Diodes are mainly used for rectification and protection in electronic circuits.</p>
-<hr />
-<h2 id="construction-and-biasing">Construction and Biasing<a class="headerlink" href="#construction-and-biasing" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="physical-construction-of-a-diode">Physical Construction of a Diode<a class="headerlink" href="#physical-construction-of-a-diode" title="Anchor link to this section for reference">&para;</a></h3>
-<p>A diode is constructed by joining P-type and N-type semiconductor materials together.<br />
-The P-type region is doped with trivalent impurities and has holes as majority charge carriers.<br />
+<hr>
+<h2 id="construction-and-biasing">Construction and Biasing<a class="headerlink" href="#construction-and-biasing" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="physical-construction-of-a-diode">Physical Construction of a Diode<a class="headerlink" href="#physical-construction-of-a-diode" title="Anchor link to this section for reference">¶</a></h3>
+<p>A diode is constructed by joining P-type and N-type semiconductor materials together.<br>
+The P-type region is doped with trivalent impurities and has holes as majority charge carriers.<br>
 The N-type region is doped with pentavalent impurities and has electrons as majority charge carriers.</p>
-<p>Metal contacts are provided on both P-side and N-side for external connections.<br />
+<p>Metal contacts are provided on both P-side and N-side for external connections.<br>
 The junction formed between P-type and N-type materials creates a depletion region inside the diode.</p>
-<hr />
-<h3 id="forward-bias">Forward Bias<a class="headerlink" href="#forward-bias" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="forward-bias">Forward Bias<a class="headerlink" href="#forward-bias" title="Anchor link to this section for reference">¶</a></h3>
 <p>A diode is said to be forward biased when the P-side is connected to the positive terminal of the power supply and the N-side is connected to the negative terminal.</p>
-<p>In forward bias, the barrier potential decreases and the depletion region becomes thinner.<br />
-This allows majority charge carriers to cross the junction easily.<br />
+<p>In forward bias, the barrier potential decreases and the depletion region becomes thinner.<br>
+This allows majority charge carriers to cross the junction easily.<br>
 As a result, current flows through the diode.</p>
-<hr />
-<h3 id="reverse-bias">Reverse Bias<a class="headerlink" href="#reverse-bias" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="reverse-bias">Reverse Bias<a class="headerlink" href="#reverse-bias" title="Anchor link to this section for reference">¶</a></h3>
 <p>A diode is said to be reverse biased when the P-side is connected to the negative terminal of the power supply and the N-side is connected to the positive terminal.</p>
-<p>In reverse bias, the barrier potential increases and the depletion region becomes wider.<br />
-Majority charge carriers are blocked from crossing the junction.<br />
+<p>In reverse bias, the barrier potential increases and the depletion region becomes wider.<br>
+Majority charge carriers are blocked from crossing the junction.<br>
 Only a very small current flows due to minority charge carriers.</p>
 </details>
 <details class="info">
 <summary>V–I Characteristics of a Diode</summary>
-<h2 id="vi-characteristics-of-a-diode">V–I Characteristics of a Diode<a class="headerlink" href="#vi-characteristics-of-a-diode" title="Anchor link to this section for reference">&para;</a></h2>
+<h2 id="vi-characteristics-of-a-diode">V–I Characteristics of a Diode<a class="headerlink" href="#vi-characteristics-of-a-diode" title="Anchor link to this section for reference">¶</a></h2>
 <p>The V–I characteristics of a diode show the relationship between the voltage applied across the diode and the current flowing through it. This characteristic curve helps to understand the behavior of the diode in different operating regions.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-4.png" /></a></p>
-<h3 id="forward-region-behavior">Forward Region Behavior<a class="headerlink" href="#forward-region-behavior" title="Anchor link to this section for reference">&para;</a></h3>
-<p>When the diode is forward biased, it operates in the forward region.<br />
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-4.png"></a></p>
+<h3 id="forward-region-behavior">Forward Region Behavior<a class="headerlink" href="#forward-region-behavior" title="Anchor link to this section for reference">¶</a></h3>
+<p>When the diode is forward biased, it operates in the forward region.<br>
 Initially, when a small forward voltage is applied, the current through the diode is very small. This happens because the barrier potential still opposes the flow of charge carriers.</p>
 <p>As the forward voltage increases beyond a certain value, the barrier potential is reduced significantly. After this point, a large number of majority charge carriers cross the junction. Because of this, the diode current increases rapidly with a small increase in voltage.</p>
 <p>In the forward region, the diode conducts current easily.</p>
-<hr />
-<h3 id="reverse-region-behavior">Reverse Region Behavior<a class="headerlink" href="#reverse-region-behavior" title="Anchor link to this section for reference">&para;</a></h3>
-<p>When the diode is reverse biased, it operates in the reverse region.<br />
+<hr>
+<h3 id="reverse-region-behavior">Reverse Region Behavior<a class="headerlink" href="#reverse-region-behavior" title="Anchor link to this section for reference">¶</a></h3>
+<p>When the diode is reverse biased, it operates in the reverse region.<br>
 In this condition, the depletion region becomes wider and majority charge carriers are blocked.</p>
 <p>Only a very small current flows due to minority charge carriers. This current is called reverse saturation current. It is almost constant and very small in magnitude.</p>
 <p>Therefore, in the reverse region, the diode behaves like an open circuit.</p>
-<hr />
-<h3 id="cut-in-voltage">Cut-in Voltage<a class="headerlink" href="#cut-in-voltage" title="Anchor link to this section for reference">&para;</a></h3>
-<p>The cut-in voltage is the minimum forward voltage at which the diode starts conducting appreciable current.<br />
+<hr>
+<h3 id="cut-in-voltage">Cut-in Voltage<a class="headerlink" href="#cut-in-voltage" title="Anchor link to this section for reference">¶</a></h3>
+<p>The cut-in voltage is the minimum forward voltage at which the diode starts conducting appreciable current.<br>
 Below this voltage, the diode current is very small and can be neglected.</p>
-<p>For silicon diodes, the cut-in voltage is approximately 0.7 volt.<br />
+<p>For silicon diodes, the cut-in voltage is approximately 0.7 volt.<br>
 For germanium diodes, it is approximately 0.3 volt.</p>
 <p>Once the applied voltage exceeds the cut-in voltage, the diode current increases sharply.</p>
-<hr />
-<h3 id="breakdown-region">Breakdown Region<a class="headerlink" href="#breakdown-region" title="Anchor link to this section for reference">&para;</a></h3>
-<p>When a very high reverse voltage is applied to the diode, the diode enters the breakdown region.<br />
+<hr>
+<h3 id="breakdown-region">Breakdown Region<a class="headerlink" href="#breakdown-region" title="Anchor link to this section for reference">¶</a></h3>
+<p>When a very high reverse voltage is applied to the diode, the diode enters the breakdown region.<br>
 In this region, the reverse current increases suddenly and sharply.</p>
 <p>This happens due to strong electric field across the junction which breaks the covalent bonds inside the semiconductor. If the current is not limited, the diode may get permanently damaged.</p>
 <p>In normal PN junction diodes, breakdown is undesirable. However, in special diodes like Zener diodes, breakdown is used for voltage regulation.</p>
-<h2 id="diagram-description-pn-junction-diode-and-its-vi-characteristics">Diagram Description: PN Junction Diode and Its V–I Characteristics<a class="headerlink" href="#diagram-description-pn-junction-diode-and-its-vi-characteristics" title="Anchor link to this section for reference">&para;</a></h2>
+<h2 id="diagram-description-pn-junction-diode-and-its-vi-characteristics">Diagram Description: PN Junction Diode and Its V–I Characteristics<a class="headerlink" href="#diagram-description-pn-junction-diode-and-its-vi-characteristics" title="Anchor link to this section for reference">¶</a></h2>
 <p>This diagram shows the <strong>structure of a PN junction diode</strong>, its <strong>symbol</strong>, and the <strong>V–I characteristics curve</strong> under forward and reverse bias.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-5.png" /></a></p>
-<h2 id="1-pn-junction-structure-top-part">1. PN Junction Structure (Top Part)<a class="headerlink" href="#1-pn-junction-structure-top-part" title="Anchor link to this section for reference">&para;</a></h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-5.png"></a></p>
+<h2 id="1-pn-junction-structure-top-part">1. PN Junction Structure (Top Part)<a class="headerlink" href="#1-pn-junction-structure-top-part" title="Anchor link to this section for reference">¶</a></h2>
 <p>The left side of the diagram shows a <strong>PN junction</strong>.</p>
 <ul>
 <li>The <strong>N-region</strong> contains electrons as majority charge carriers.</li>
 <li>The <strong>P-region</strong> contains holes as majority charge carriers.</li>
 </ul>
 <p>These two regions are joined together to form a <strong>PN junction diode</strong>.</p>
-<hr />
-<h2 id="2-diode-terminals-and-symbol">2. Diode Terminals and Symbol<a class="headerlink" href="#2-diode-terminals-and-symbol" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="2-diode-terminals-and-symbol">2. Diode Terminals and Symbol<a class="headerlink" href="#2-diode-terminals-and-symbol" title="Anchor link to this section for reference">¶</a></h2>
 <p>The diode has two terminals.</p>
 <ul>
 <li><strong>Anode (A)</strong> is connected to the P-type region.</li>
@@ -22672,16 +22527,16 @@ In this region, the reverse current increases suddenly and sharply.</p>
 <li>The <strong>vertical line represents the cathode</strong>.</li>
 </ul>
 <p>The arrow direction indicates the <strong>direction of conventional current flow</strong> when the diode is forward biased.</p>
-<hr />
-<h2 id="3-conventional-current-flow">3. Conventional Current Flow<a class="headerlink" href="#3-conventional-current-flow" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="3-conventional-current-flow">3. Conventional Current Flow<a class="headerlink" href="#3-conventional-current-flow" title="Anchor link to this section for reference">¶</a></h2>
 <p>Conventional current flows from <strong>positive to negative terminal</strong>.</p>
 <ul>
 <li>In forward bias, current flows from <strong>anode to cathode</strong>.</li>
 <li>This direction is shown clearly in the diagram.</li>
 </ul>
 <p>Electron flow is opposite to conventional current, but in exams we usually show conventional current.</p>
-<hr />
-<h2 id="4-axes-of-vi-characteristics-graph">4. Axes of V–I Characteristics Graph<a class="headerlink" href="#4-axes-of-vi-characteristics-graph" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="4-axes-of-vi-characteristics-graph">4. Axes of V–I Characteristics Graph<a class="headerlink" href="#4-axes-of-vi-characteristics-graph" title="Anchor link to this section for reference">¶</a></h2>
 <p>The right side of the diagram shows the <strong>V–I characteristics of the diode</strong>.</p>
 <ul>
 <li>
@@ -22701,55 +22556,55 @@ In this region, the reverse current increases suddenly and sharply.</p>
 </li>
 <li>Downward direction shows <strong>reverse current</strong>.</li>
 </ul>
-<hr />
-<h2 id="5-forward-bias-region">5. Forward Bias Region<a class="headerlink" href="#5-forward-bias-region" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="5-forward-bias-region">5. Forward Bias Region<a class="headerlink" href="#5-forward-bias-region" title="Anchor link to this section for reference">¶</a></h2>
 <p>In the <strong>forward bias region</strong>, the anode is positive and the cathode is negative.</p>
 <ul>
 <li>Initially, current is very small.</li>
 <li>After reaching a certain voltage, current increases sharply.</li>
 </ul>
 <p>This sharp rise shows that the diode conducts heavily in forward bias.</p>
-<hr />
-<h2 id="6-cut-in-voltage-knee-voltage">6. Cut-in Voltage (Knee Voltage)<a class="headerlink" href="#6-cut-in-voltage-knee-voltage" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="6-cut-in-voltage-knee-voltage">6. Cut-in Voltage (Knee Voltage)<a class="headerlink" href="#6-cut-in-voltage-knee-voltage" title="Anchor link to this section for reference">¶</a></h2>
 <p>The point where current starts increasing rapidly is called <strong>cut-in voltage</strong>.</p>
 <ul>
 <li>For <strong>silicon diode</strong>, cut-in voltage is about <strong>0.7 V</strong>.</li>
 <li>For <strong>germanium diode</strong>, cut-in voltage is about <strong>0.3 V</strong>.</li>
 </ul>
 <p>Below this voltage, the diode current is very small and almost negligible.</p>
-<hr />
-<h2 id="7-reverse-bias-region">7. Reverse Bias Region<a class="headerlink" href="#7-reverse-bias-region" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="7-reverse-bias-region">7. Reverse Bias Region<a class="headerlink" href="#7-reverse-bias-region" title="Anchor link to this section for reference">¶</a></h2>
 <p>In reverse bias, the anode is negative and the cathode is positive.</p>
 <ul>
 <li>The diode does not conduct current.</li>
 <li>Only a very small current flows, called <strong>leakage current</strong> or <strong>reverse saturation current</strong>.</li>
 </ul>
 <p>This current is shown as a small downward current on the graph.</p>
-<hr />
-<h2 id="8-leakage-current">8. Leakage Current<a class="headerlink" href="#8-leakage-current" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="8-leakage-current">8. Leakage Current<a class="headerlink" href="#8-leakage-current" title="Anchor link to this section for reference">¶</a></h2>
 <p>Leakage current flows due to <strong>minority charge carriers</strong>.</p>
 <ul>
 <li>It is very small in silicon diodes.</li>
 <li>It is slightly higher in germanium diodes.</li>
 </ul>
 <p>The diagram shows approximate values for leakage current.</p>
-<hr />
-<h2 id="9-breakdown-region">9. Breakdown Region<a class="headerlink" href="#9-breakdown-region" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="9-breakdown-region">9. Breakdown Region<a class="headerlink" href="#9-breakdown-region" title="Anchor link to this section for reference">¶</a></h2>
 <p>When reverse voltage increases beyond a limit, the diode enters <strong>breakdown region</strong>.</p>
 <ul>
 <li>Reverse current suddenly increases sharply.</li>
 <li>This region is marked clearly in the graph.</li>
 </ul>
 <p>In normal diodes, breakdown can damage the diode if current is not limited.</p>
-<hr />
-<h2 id="10-zener-breakdown-mention">10. Zener Breakdown Mention<a class="headerlink" href="#10-zener-breakdown-mention" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="10-zener-breakdown-mention">10. Zener Breakdown Mention<a class="headerlink" href="#10-zener-breakdown-mention" title="Anchor link to this section for reference">¶</a></h2>
 <p>The diagram also mentions <strong>Zener or avalanche breakdown</strong>.</p>
 <ul>
 <li>This type of breakdown is controlled and used in <strong>Zener diodes</strong>.</li>
 <li>It is useful for voltage regulation.</li>
 </ul>
-<hr />
-<h2 id="11-summary-of-the-diagram">11. Summary of the Diagram<a class="headerlink" href="#11-summary-of-the-diagram" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="11-summary-of-the-diagram">11. Summary of the Diagram<a class="headerlink" href="#11-summary-of-the-diagram" title="Anchor link to this section for reference">¶</a></h2>
 <ul>
 <li>Left side explains <strong>structure and symbol of diode</strong>.</li>
 <li>Right side explains <strong>electrical behavior using V–I curve</strong>.</li>
@@ -22757,41 +22612,41 @@ In this region, the reverse current increases suddenly and sharply.</p>
 <li>Reverse bias shows small leakage current.</li>
 <li>Breakdown region shows sudden rise in reverse current.</li>
 </ul>
-<hr />
-<h2 id="final-exam-conclusion">Final Exam Conclusion<a class="headerlink" href="#final-exam-conclusion" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="final-exam-conclusion">Final Exam Conclusion<a class="headerlink" href="#final-exam-conclusion" title="Anchor link to this section for reference">¶</a></h2>
 <p>This diagram clearly explains the <strong>construction</strong>, <strong>current flow</strong>, and <strong>V–I characteristics</strong> of a PN junction diode under different biasing conditions. It helps to understand why a diode allows current in one direction and blocks it in the opposite direction.</p>
 </details>
 <details class="info">
 <summary>Transistors vs Diodes and their relationship</summary>
-<h2 id="diode">Diode<a class="headerlink" href="#diode" title="Anchor link to this section for reference">&para;</a></h2>
+<h2 id="diode">Diode<a class="headerlink" href="#diode" title="Anchor link to this section for reference">¶</a></h2>
 <p>A diode is a two terminal semiconductor device formed by a single PN junction. The two terminals are anode and cathode. The main function of a diode is to allow current to flow in one direction and block current in the opposite direction.</p>
 <p>When a diode is forward biased, it conducts current after overcoming the barrier potential. When it is reverse biased, it blocks current except for a very small leakage current. Because of this unidirectional property, diodes are mainly used in rectifiers, voltage protection circuits, and signal clipping applications.</p>
 <p>The operation of a diode is simple and depends only on the applied voltage across its two terminals.</p>
-<hr />
-<h2 id="transistor">Transistor<a class="headerlink" href="#transistor" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="transistor">Transistor<a class="headerlink" href="#transistor" title="Anchor link to this section for reference">¶</a></h2>
 <p>A transistor is a three terminal semiconductor device formed using two PN junctions. The three terminals are emitter, base, and collector. A transistor can be of different types such as NPN or PNP.</p>
 <p>The main function of a transistor is to control current and amplify signals. A small current applied at the base terminal controls a much larger current flowing between the collector and emitter. This property is called current amplification.</p>
 <p>Transistors are widely used in amplifiers, switches, oscillators, and digital logic circuits. Compared to a diode, the operation of a transistor is more complex because it involves interaction between two PN junctions.</p>
-<hr />
-<h2 id="transistors-vs-diodes-detailed-explanation">Transistors vs Diodes (Detailed Explanation)<a class="headerlink" href="#transistors-vs-diodes-detailed-explanation" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="transistors-vs-diodes-detailed-explanation">Transistors vs Diodes (Detailed Explanation)<a class="headerlink" href="#transistors-vs-diodes-detailed-explanation" title="Anchor link to this section for reference">¶</a></h2>
 <p>A diode has only one PN junction, while a transistor has two PN junctions connected back to back. Because of this structural difference, their functions are also different.</p>
 <p>A diode has two terminals, so current flow depends only on the applied voltage. Once forward biased, current flows freely, and there is no external control over the amount of current except circuit resistance.</p>
 <p>In contrast, a transistor has three terminals. The current flowing through the collector and emitter is controlled by a small base current. This makes the transistor a current controlled device, while the diode is not.</p>
 <p>A diode cannot amplify signals because it does not provide power gain. It only allows or blocks current. A transistor can amplify signals because a small input signal at the base produces a larger output signal at the collector.</p>
 <p>In terms of application, diodes are mainly used where direction control of current is required. Transistors are used where signal amplification, switching, or control is needed.</p>
-<hr />
-<h2 id="relationship-between-diode-and-transistor">Relationship Between Diode and Transistor<a class="headerlink" href="#relationship-between-diode-and-transistor" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="relationship-between-diode-and-transistor">Relationship Between Diode and Transistor<a class="headerlink" href="#relationship-between-diode-and-transistor" title="Anchor link to this section for reference">¶</a></h2>
 <p>The relationship between diode and transistor is based on their internal structure and operation.</p>
 <p>A transistor is actually formed by combining two diodes back to back. In an NPN transistor, there is a diode between the base and emitter, and another diode between the base and collector. Similarly, in a PNP transistor, the same diode structure exists but with opposite polarity.</p>
 <p>The basic behavior of a transistor depends on the diode action of its PN junctions. For example, in normal transistor operation, the base-emitter junction is forward biased like a diode, while the base-collector junction is reverse biased like a diode.</p>
 <p>Without the PN junction behavior of diodes, a transistor cannot function. Therefore, diode operation is the foundation of transistor operation.</p>
-<hr />
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Anchor link to this section for reference">&para;</a></h2>
-<p>A diode is a simple device used for one direction current flow.<br />
-A transistor is a more advanced device used for current control and amplification.<br />
-Structurally and functionally, a transistor is built using diode principles.<br />
+<hr>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Anchor link to this section for reference">¶</a></h2>
+<p>A diode is a simple device used for one direction current flow.<br>
+A transistor is a more advanced device used for current control and amplification.<br>
+Structurally and functionally, a transistor is built using diode principles.<br>
 Thus, diodes and transistors are closely related semiconductor devices, but they serve different purposes in electronic circuits.</p>
-<h2 id="diode-vs-transistor-and-their-relationship">Diode vs Transistor and Their Relationship<a class="headerlink" href="#diode-vs-transistor-and-their-relationship" title="Anchor link to this section for reference">&para;</a></h2>
+<h2 id="diode-vs-transistor-and-their-relationship">Diode vs Transistor and Their Relationship<a class="headerlink" href="#diode-vs-transistor-and-their-relationship" title="Anchor link to this section for reference">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -22853,8 +22708,8 @@ Thus, diodes and transistors are closely related semiconductor devices, but they
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="relationship-between-diode-and-transistor_1">Relationship Between Diode and Transistor<a class="headerlink" href="#relationship-between-diode-and-transistor_1" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="relationship-between-diode-and-transistor_1">Relationship Between Diode and Transistor<a class="headerlink" href="#relationship-between-diode-and-transistor_1" title="Anchor link to this section for reference">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -22885,26 +22740,26 @@ Thus, diodes and transistors are closely related semiconductor devices, but they
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="conclusion_1">Conclusion<a class="headerlink" href="#conclusion_1" title="Anchor link to this section for reference">&para;</a></h2>
-<p>Diode controls direction of current only.<br />
-Transistor controls and amplifies current.<br />
+<hr>
+<h2 id="conclusion_1">Conclusion<a class="headerlink" href="#conclusion_1" title="Anchor link to this section for reference">¶</a></h2>
+<p>Diode controls direction of current only.<br>
+Transistor controls and amplifies current.<br>
 Transistor operation is based on diode principles.</p>
 </details>
 <details class="info">
 <summary>Introduction to Zener Diode</summary>
-<h2 id="3-zener-diode">3. Zener Diode<a class="headerlink" href="#3-zener-diode" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Anchor link to this section for reference">&para;</a></h3>
+<h2 id="3-zener-diode">3. Zener Diode<a class="headerlink" href="#3-zener-diode" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Anchor link to this section for reference">¶</a></h3>
 <p>A Zener diode is a special type of PN junction diode which is designed to operate safely in the reverse bias breakdown region (রিভার্স বায়াস ব্রেকডাউন অঞ্চল). Unlike an ordinary diode (সাধারণ ডায়োড), a Zener diode does not get damaged (ক্ষতিগ্রস্ত) when reverse voltage exceeds (অতিক্রম করে) a certain limit (সীমা). Instead, it allows current (কারেন্ট) to flow while keeping the voltage (ভোল্টেজ) almost constant (প্রায় স্থির). Because of this property (বৈশিষ্ট্য), the Zener diode is mainly used for voltage regulation (ভোল্টেজ নিয়ন্ত্রণ) and voltage reference (ভোল্টেজ রেফারেন্স) in electronic circuits (ইলেকট্রনিক সার্কিট).</p>
-<hr />
-<h2 id="zener-diode-operation">Zener Diode Operation<a class="headerlink" href="#zener-diode-operation" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="zener-diode-operation">Zener Diode Operation<a class="headerlink" href="#zener-diode-operation" title="Anchor link to this section for reference">¶</a></h2>
 <p>The operation (কার্যপ্রণালী) of a Zener diode can be explained by studying its behavior (আচরণ) under forward bias (ফরওয়ার্ড বায়াস) and reverse bias (রিভার্স বায়াস) conditions (অবস্থা).</p>
-<h3 id="forward-bias-operation">Forward Bias Operation<a class="headerlink" href="#forward-bias-operation" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="forward-bias-operation">Forward Bias Operation<a class="headerlink" href="#forward-bias-operation" title="Anchor link to this section for reference">¶</a></h3>
 <p>When a Zener diode is connected (সংযুক্ত) in forward bias, it behaves (আচরণ করে) like a normal silicon diode (সাধারণ সিলিকন ডায়োড). The current (কারেন্ট) starts flowing after the cut in voltage (কাট-ইন ভোল্টেজ) of approximately (প্রায়) 0.7 V. In this region, it is not used for regulation purposes (নিয়ন্ত্রণের উদ্দেশ্যে). The forward bias operation is similar (সদৃশ) to an ordinary PN junction diode.</p>
-<h3 id="reverse-bias-operation">Reverse Bias Operation<a class="headerlink" href="#reverse-bias-operation" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="reverse-bias-operation">Reverse Bias Operation<a class="headerlink" href="#reverse-bias-operation" title="Anchor link to this section for reference">¶</a></h3>
 <p>When the Zener diode is connected in reverse bias, very little current flows initially (শুরুর দিকে). As the reverse voltage increases, a point comes where the diode suddenly (হঠাৎ) starts conducting (পরিবাহিতা শুরু করে) heavily (বেশি পরিমাণে). This voltage is called the Zener breakdown voltage (জেনার ব্রেকডাউন ভোল্টেজ). At this point, the voltage across the diode remains nearly constant even if the current increases. This is the most important operating region (কার্যকরী অঞ্চল) of the Zener diode.</p>
-<hr />
-<h2 id="zener-breakdown">Zener Breakdown<a class="headerlink" href="#zener-breakdown" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="zener-breakdown">Zener Breakdown<a class="headerlink" href="#zener-breakdown" title="Anchor link to this section for reference">¶</a></h2>
 <p>Zener breakdown occurs (ঘটে) at low reverse voltages, usually (সাধারণত) below 5 V. This breakdown happens due to a very strong electric field (বৈদ্যুতিক ক্ষেত্র) across the depletion region (ডিপ্লিশন অঞ্চল).</p>
 <p>In a heavily doped (বেশি ডোপড) Zener diode, the depletion layer (ডিপ্লিশন স্তর) is very thin (পাতলা). When reverse voltage is applied (প্রয়োগ করা হয়), the electric field becomes strong enough to pull electrons (ইলেকট্রন) directly from their valence bonds (ভ্যালেন্স বন্ধন). These electrons move to the conduction band (কন্ডাকশন ব্যান্ড) and cause a sudden increase in current.</p>
 <p>Important points of Zener breakdown:</p>
@@ -22915,8 +22770,8 @@ Transistor operation is based on diode principles.</p>
 <li>Breakdown is reversible (পুনরায় আগের অবস্থায় ফেরা যায়) and does not damage the diode if current is limited (সীমিত রাখা হয়)</li>
 </ul>
 <p>Zener breakdown is stable (স্থিতিশীল) and predictable (পূর্বানুমেয়), which makes it suitable (উপযুক্ত) for voltage regulation.</p>
-<hr />
-<h2 id="avalanche-breakdown">Avalanche Breakdown<a class="headerlink" href="#avalanche-breakdown" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="avalanche-breakdown">Avalanche Breakdown<a class="headerlink" href="#avalanche-breakdown" title="Anchor link to this section for reference">¶</a></h2>
 <p>Avalanche breakdown occurs at higher reverse voltages, usually above 5 V. This type of breakdown is caused by the collision (সংঘর্ষ) of charge carriers (চার্জ বাহক).</p>
 <p>In this process, free electrons (মুক্ত ইলেকট্রন) gain high kinetic energy (গতিশক্তি) due to the applied reverse voltage. These high energy electrons collide with atoms (পরমাণু) and knock out more electrons. This creates a chain reaction (শৃঙ্খল প্রতিক্রিয়া) known as avalanche effect (অ্যাভালাঞ্চ প্রভাব), resulting in a sudden rise (হঠাৎ বৃদ্ধি) in current.</p>
 <p>Important points of avalanche breakdown:</p>
@@ -22927,12 +22782,12 @@ Transistor operation is based on diode principles.</p>
 <li>Breakdown is also reversible if current is controlled (নিয়ন্ত্রিত রাখা হয়)</li>
 </ul>
 <p>Both avalanche and Zener breakdowns are safe operating modes (নিরাপদ কার্যপ্রণালী) when the diode is properly designed (সঠিকভাবে নকশা করা).</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-7.png" /></a></p>
-<h2 id="v-i-characteristics-of-zener-diode">V I Characteristics of Zener Diode<a class="headerlink" href="#v-i-characteristics-of-zener-diode" title="Anchor link to this section for reference">&para;</a></h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../image-7.png"></a></p>
+<h2 id="v-i-characteristics-of-zener-diode">V I Characteristics of Zener Diode<a class="headerlink" href="#v-i-characteristics-of-zener-diode" title="Anchor link to this section for reference">¶</a></h2>
 <p>The V I characteristics (ভোল্টেজ-কারেন্ট বৈশিষ্ট্য) of a Zener diode explain the relationship (সম্পর্ক) between voltage and current in both forward and reverse bias conditions.</p>
-<h3 id="forward-bias-characteristics">Forward Bias Characteristics<a class="headerlink" href="#forward-bias-characteristics" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="forward-bias-characteristics">Forward Bias Characteristics<a class="headerlink" href="#forward-bias-characteristics" title="Anchor link to this section for reference">¶</a></h3>
 <p>In the forward bias region, the Zener diode behaves like a normal diode. The current increases rapidly (দ্রুত) after the cut in voltage of about 0.7 V for silicon diode. This region is not important for Zener diode applications (প্রয়োগ).</p>
-<h3 id="reverse-bias-characteristics">Reverse Bias Characteristics<a class="headerlink" href="#reverse-bias-characteristics" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="reverse-bias-characteristics">Reverse Bias Characteristics<a class="headerlink" href="#reverse-bias-characteristics" title="Anchor link to this section for reference">¶</a></h3>
 <p>In the reverse bias region, initially only a small leakage current (লিকেজ কারেন্ট) flows. As the reverse voltage increases and reaches the Zener voltage, the current suddenly increases while the voltage across the diode remains almost constant. This flat portion (সমতল অংশ) of the curve (বক্ররেখা) shows the voltage regulation property.</p>
 <p>Key observations (পর্যবেক্ষণ) from V I characteristics:</p>
 <ul>
@@ -22941,17 +22796,17 @@ Transistor operation is based on diode principles.</p>
 <li>Voltage remains constant in breakdown region</li>
 </ul>
 <p>This constant voltage region is used in power supply circuits (পাওয়ার সাপ্লাই সার্কিট) to protect devices (ডিভাইস) from voltage variations (ভোল্টেজ পরিবর্তন).</p>
-<hr />
-<h2 id="conclusion_2">Conclusion<a class="headerlink" href="#conclusion_2" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="conclusion_2">Conclusion<a class="headerlink" href="#conclusion_2" title="Anchor link to this section for reference">¶</a></h2>
 <p>The Zener diode is an important semiconductor device (সেমিকন্ডাক্টর ডিভাইস) used mainly for voltage regulation. Its ability (ক্ষমতা) to operate safely in the breakdown region makes it different from ordinary diodes. Zener breakdown and avalanche breakdown are two mechanisms (প্রক্রিয়া) that allow current flow in reverse bias. The V I characteristics clearly show why the Zener diode is suitable for maintaining a constant output voltage (আউটপুট ভোল্টেজ) in electronic circuits.</p>
 </details>
 <details class="info">
 <summary>Zener Regulator</summary>
-<h2 id="zener-regulator">Zener Regulator<a class="headerlink" href="#zener-regulator" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="introduction_1">Introduction<a class="headerlink" href="#introduction_1" title="Anchor link to this section for reference">&para;</a></h3>
+<h2 id="zener-regulator">Zener Regulator<a class="headerlink" href="#zener-regulator" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="introduction_1">Introduction<a class="headerlink" href="#introduction_1" title="Anchor link to this section for reference">¶</a></h3>
 <p>A Zener regulator is a simple voltage regulating circuit that uses a Zener diode to maintain a constant output voltage. It is commonly used in low power electronic circuits where a stable voltage supply is required. The Zener regulator works by operating the Zener diode in its reverse bias breakdown region (রিভার্স বায়াস ব্রেকডাউন অঞ্চল).</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Zener Regulator Circuit Diagram" src="../image-8.png" /></a></p>
-<h2 id="circuit-diagram">Circuit Diagram<a class="headerlink" href="#circuit-diagram" title="Anchor link to this section for reference">&para;</a></h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Zener Regulator Circuit Diagram" src="../image-8.png"></a></p>
+<h2 id="circuit-diagram">Circuit Diagram<a class="headerlink" href="#circuit-diagram" title="Anchor link to this section for reference">¶</a></h2>
 <p>The circuit diagram (সার্কিট চিত্র) of a Zener regulator consists of a DC input voltage source (ডিসি ইনপুট ভোল্টেজ উৎস), a series resistor (সিরিজ রেজিস্টর), a Zener diode (জেনার ডায়োড), and a load resistor (লোড রেজিস্টর).</p>
 <p>The series resistor is connected between the input supply and the Zener diode. The Zener diode is connected in reverse bias across the load. The output voltage is taken across the Zener diode and the load resistor.</p>
 <p>Main parts of the circuit:</p>
@@ -22961,53 +22816,53 @@ Transistor operation is based on diode principles.</p>
 <li>Zener diode (জেনার ডায়োড)</li>
 <li>Load resistor (লোড রেজিস্টর)</li>
 </ul>
-<hr />
-<h2 id="principle-of-voltage-regulation">Principle of Voltage Regulation<a class="headerlink" href="#principle-of-voltage-regulation" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="principle-of-voltage-regulation">Principle of Voltage Regulation<a class="headerlink" href="#principle-of-voltage-regulation" title="Anchor link to this section for reference">¶</a></h2>
 <p>The principle of voltage regulation (ভোল্টেজ নিয়ন্ত্রণের নীতি) in a Zener regulator is based on the constant voltage property (স্থির ভোল্টেজ বৈশিষ্ট্য) of the Zener diode in the breakdown region.</p>
 <p>When the input voltage increases, the current through the series resistor increases. As a result, more current flows through the Zener diode, but the voltage across it remains almost constant at the Zener voltage (জেনার ভোল্টেজ). When the input voltage decreases, the Zener current decreases, but the Zener diode still maintains nearly the same voltage across the load.</p>
 <p>Thus, variations (পরিবর্তন) in input voltage do not affect the output voltage significantly. This is how the Zener regulator provides a stable output voltage.</p>
 <div class="admonition error">
 <p class="admonition-title">Voltage Regulation Characteristics &amp; Mechanism of Zener Diode</p>
-<h3 id="voltage-regulation-characteristics-mechanism-of-zener-diode"><strong>Voltage Regulation Characteristics &amp; Mechanism of Zener Diode</strong><a class="headerlink" href="#voltage-regulation-characteristics-mechanism-of-zener-diode" title="Anchor link to this section for reference">&para;</a></h3>
-<p><strong>1. Operating Region &amp; Breakdown Mechanism (অপারেটিং অঞ্চল ও ব্রেকডাউন কৌশল)</strong><br />
+<h3 id="voltage-regulation-characteristics-mechanism-of-zener-diode"><strong>Voltage Regulation Characteristics &amp; Mechanism of Zener Diode</strong><a class="headerlink" href="#voltage-regulation-characteristics-mechanism-of-zener-diode" title="Anchor link to this section for reference">¶</a></h3>
+<p><strong>1. Operating Region &amp; Breakdown Mechanism (অপারেটিং অঞ্চল ও ব্রেকডাউন কৌশল)</strong><br>
 To work as a voltage regulator, the Zener diode must operate in the Reverse Breakdown Region (রিভার্স ব্রেকডাউন অঞ্চল).</p>
 <ul>
 <li><strong>Reason:</strong> After reaching a specific voltage (), the covalent bonds (সমযোজী বন্ধন) of silicon atoms break forcefully due to the intense electric field (তীব্র বৈদ্যুতিক ক্ষেত্র) of the junction. As a result, many free electrons (মুক্ত ইলেকট্রন) are released, which help to keep the voltage constant (স্থির).</li>
 </ul>
-<p><strong>2. Current vs Voltage Relationship (কারেন্ট বনাম ভোল্টেজ সম্পর্ক)</strong><br />
+<p><strong>2. Current vs Voltage Relationship (কারেন্ট বনাম ভোল্টেজ সম্পর্ক)</strong><br>
 After reaching the breakdown voltage, even if the current () through the diode changes widely (ব্যাপকভাবে), for example from  to , the voltage () across its two terminals remains almost unchanged (অপরিবর্তিত). In the graph, this part becomes vertical (উল্লম্ব).</p>
 <ul>
 <li><strong>Reason:</strong> After the breaking of bonds, a flood of charge carriers (চার্জ বাহক) flows inside. As a result, the diode can conduct more current without increasing the voltage or pressure (চাপ).</li>
 </ul>
-<p><strong>3. Dynamic Impedance (পরিবর্তনশীল রোধ)</strong><br />
+<p><strong>3. Dynamic Impedance (পরিবর্তনশীল রোধ)</strong><br>
 In the breakdown state, the internal resistance or impedance () of the Zener diode becomes extremely negligible (নগণ্য). Consequently, if there is a slight attempt to change the voltage, the diode absorbs (শুষে নেয়) a lot of current.</p>
 <ul>
 <li><strong>Reason:</strong> Due to the electrons released after the bond breaking, the obstacle or resistance (বাধা) in the path of electricity flow drops to almost zero level.</li>
 </ul>
-<p><strong>4. Role of Series Resistor (সিরিজ রেজিস্টরের ভূমিকা)</strong><br />
+<p><strong>4. Role of Series Resistor (সিরিজ রেজিস্টরের ভূমিকা)</strong><br>
 In the regulation process, Voltage Drop (ভোল্টেজ ড্রপ) is extremely important.</p>
 <ul>
 <li><strong>Process:</strong> When input voltage increases, the diode current increases. That extra current goes through the series resistor (). As a result, the voltage drop in  increases.</li>
 <li><strong>Equation:</strong> </li>
 <li>That means, as much as the input increases, the drop in the series resistor increases by exactly that amount. Therefore, the output () remains constant.</li>
 </ul>
-<p><strong>Summary (সারসংক্ষেপ)</strong><br />
+<p><strong>Summary (সারসংক্ষেপ)</strong><br>
 The Zener diode breaks the Covalent Bond due to the high electric field and decreases its Dynamic Impedance. As a result, it converts any voltage fluctuation (ভোল্টেজ ওঠানামা) of the input into current fluctuation (কারেন্ট ওঠানামা) and uses that extra current to cause a voltage drop in the series resistor to keep the output voltage constant.</p>
 </div>
-<hr />
-<h2 id="line-regulation">Line Regulation<a class="headerlink" href="#line-regulation" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="line-regulation">Line Regulation<a class="headerlink" href="#line-regulation" title="Anchor link to this section for reference">¶</a></h2>
 <p>Line regulation (লাইন রেগুলেশন) refers to the ability of the Zener regulator to maintain a constant output voltage when the input voltage changes.</p>
 <p>If the input voltage increases or decreases within a certain range, the Zener diode adjusts its current automatically to keep the output voltage nearly constant. A good Zener regulator has very small change in output voltage for a large change in input voltage.</p>
-<p>Line regulation is usually expressed as:<br />
+<p>Line regulation is usually expressed as:<br>
 Change in output voltage divided by change in input voltage.</p>
 <p>Good line regulation means better voltage stability.</p>
-<hr />
-<h2 id="load-regulation">Load Regulation<a class="headerlink" href="#load-regulation" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="load-regulation">Load Regulation<a class="headerlink" href="#load-regulation" title="Anchor link to this section for reference">¶</a></h2>
 <p>Load regulation (লোড রেগুলেশন) refers to the ability of the Zener regulator to maintain a constant output voltage when the load current changes.</p>
 <p>When the load resistance decreases, the load current increases. In this case, the current through the Zener diode decreases. When the load resistance increases, the load current decreases and more current flows through the Zener diode. In both cases, the voltage across the load remains almost constant.</p>
 <p>Load regulation shows how well the regulator responds to changes in load condition (লোড অবস্থা). A good Zener regulator has very small change in output voltage with change in load current.</p>
-<hr />
-<h2 id="conclusion_3">Conclusion<a class="headerlink" href="#conclusion_3" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="conclusion_3">Conclusion<a class="headerlink" href="#conclusion_3" title="Anchor link to this section for reference">¶</a></h2>
 <p>The Zener regulator is a simple and effective voltage regulating circuit used in low power applications. Its operation is based on the constant voltage characteristic of the Zener diode in the breakdown region. The circuit diagram, principle of operation, line regulation, and load regulation together explain how a Zener regulator maintains a stable output voltage despite changes in input voltage and load current.</p>
 </details>
 
@@ -23023,7 +22878,7 @@ Change in output voltage divided by change in input voltage.</p>
 
 
 
-  <form class="md-feedback" name="feedback" hidden>
+  <form class="md-feedback" name="feedback" hidden="">
     <fieldset>
       <legend class="md-feedback__title">
         Was this page helpful?
@@ -23032,17 +22887,17 @@ Change in output voltage divided by change in input voltage.</p>
         <div class="md-feedback__list">
           
             <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"></path></svg>
             </button>
           
             <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"></path></svg>
             </button>
           
         </div>
         <div class="md-feedback__note">
           
-            <div data-md-value="1" hidden>
+            <div data-md-value="1" hidden="">
               
               
                 
@@ -23055,7 +22910,7 @@ Change in output voltage divided by change in input voltage.</p>
               Thanks for your feedback!
             </div>
           
-            <div data-md-value="0" hidden>
+            <div data-md-value="0" hidden="">
               
               
                 
@@ -23082,9 +22937,9 @@ Change in output voltage divided by change in input voltage.</p>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -23094,13 +22949,13 @@ Change in output voltage divided by change in input voltage.</p>
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../../BJT/BJT/" class="md-footer__link md-footer__link--prev" aria-label="Previous: BJT">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -23125,7 +22980,7 @@ Change in output voltage divided by change in input voltage.</p>
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -23137,7 +22992,7 @@ Change in output voltage divided by change in input voltage.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2026 Rakibul Hashan
+      Copyright © 2026 Rakibul Hashan
     </div>
   
   
@@ -23154,7 +23009,7 @@ Change in output voltage divided by change in input voltage.</p>
       
     
     <a href="https://www.linkedin.com/in/rakibulhashanrabbi/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
     </a>
   
 </div>
@@ -23184,7 +23039,8 @@ Change in output voltage divided by change in input voltage.</p>
         <script src="../../../../../../../javascripts/mathjax/tex-mml-chtml.js"></script>
       
     
-  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+  
+<script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
     try {
         var img = element.querySelector('img');
         if (img && img.src) {
@@ -23197,6 +23053,5 @@ Change in output voltage divided by change in input voltage.</p>
     }
 });
 const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
-</html>
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

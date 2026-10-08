@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -78,220 +75,19 @@
     
     
   
-  <link rel="manifest" href="../../../../../../../manifest.json" />
+  <link rel="manifest" href="../../../../../../../manifest.json">
 
-   <link href="../../../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../../../assets/javascripts/glightbox.min.js"></script><script>(function() {
-    const customDynamicStyle = document.createElement("style");
-    // We must put it outside of the head and body, since they are replaced by the instant navigation feature in the Material theme
-    document.documentElement.appendChild(customDynamicStyle);
-
-    const TOGGLE_BUTTON_REFERENCE_ELEMENT_NOT_FOUND_WARNING = "[mkdocs-toggle-sidebar-plugin] Reference element for inserting 'toggle_button' not found. This version of the plugin may not be compatible with this version of the theme. Try updating both to the latest version. If that fails, you can open an GitHub issue.";
-
-    const loadBool = (name, default_value) => {
-        const value = localStorage.getItem(`TOGGLE_SIDEBAR_${name}`);
-        if (value == null) {
-            return default_value;
-        } else {
-            return value == "1";
-        }
-    }
-
-    const loadNavigationState = () => loadBool("NAVIGATION", true);
-    const loadTocState = () => loadBool("TOC", true);
-
-    const saveBool = (name, value) => {
-        localStorage.setItem(`TOGGLE_SIDEBAR_${name}`, value ? "1" : "0");
-    }
-
-    const toggleVisibility = (toggleNavigation, toggleTOC) => {
-        let newNavigation = loadNavigationState();
-        let newTOC = loadTocState();
-        
-        if (toggleNavigation) {
-            newNavigation = !newNavigation;
-            saveBool("NAVIGATION", newNavigation);
-        }
-        if (toggleTOC) {
-            newTOC = !newTOC;
-            saveBool("TOC", newTOC);
-        }
-        
-        _setVisibility(newNavigation, newTOC);
-    }
-
-    const _setVisibility = (newNavigation, newTOC) => {
-        console.debug(`Setting new visibility: navigation=${newNavigation}, TOC=${newTOC}`);
-        // combine this into one operation, so that it is more efficient (for toggling both) and easier to code with dynamic CSS generation
-        customDynamicStyle.innerHTML = setCombinedVisibility(newNavigation, newTOC);
-    }
-
-    // START OF INCLUDE
-    // This gets replaced with the definitions of: 
-    // - setCombinedVisibility(showNavigation: bool, showTOC: bool) -> string (dynamic CSS)
-    // - registerKeyboardEventHandler() -> void
-    const setCombinedVisibility = (showNavigation, showTOC) => {
-    // Hide the button when on mobile (and menu us shown as hamburger menu anyways).
-    // The exact max-width is taken from the styling of the 'body > header > nav > a' element
-    
-    let style = `
-.mkdocs-toggle-sidebar-button {
-    cursor: pointer;
-    margin-right: 5px;
-    margin-left: 1rem;
-}
-
-@media screen and (max-width: 76.1875em) {
-    .mkdocs-toggle-sidebar-button {
-        display: none;
-    }
-}
-`;
-// The TOC has a different break point than the navigation.
-// It can be seen on the nav.md-nav--secondary:nth-child(1) element (60em)
-// If the screen is smaller, it is shown in the navigation section if you click the nested hamburger menu
-if (!showTOC) {
-    style += `
-@media screen and (min-width: 60em) {
-    div.md-sidebar.md-sidebar--secondary {
-        display: none;
-    }
-}
-`;
-        }
-        
-    // We always have to show the navigation in mobile view, otherwise the hamburger menu is broken
-    if (!showNavigation) {
-        style += `
-@media screen and (min-width: 76.1875em) {
-    div.md-sidebar.md-sidebar--primary {
-        display: none;
-    }
-}
-`;
-    }
-
-    return style;
-}
-
-const addToggleButton = (toggleNavigation, toggleTOC) => {
-    const toggleBtn = createDefaultToggleButton(toggleNavigation, toggleTOC);
-    toggleBtn.classList.add("md-icon");
-  
-    const titleElement = document.querySelector(".md-header__title");
-    if (titleElement) {
-        titleElement.parentNode.insertBefore(toggleBtn, titleElement.nextSibling);  
-    } else {
-        console.warn(TOGGLE_BUTTON_REFERENCE_ELEMENT_NOT_FOUND_WARNING);
-    }
-}
-
-const registerKeyboardEventHandler = () => {
-    // Custom key handlers: SEE https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=key+bind#docsjavascriptsshortcutsjs
-    keyboard$.subscribe(key => {
-        if (key.mode === "global") {
-            if (coreEventListenerLogic(key.type)) {
-                // event handled, stop propagation
-                key.claim();
-            }
-        }
-    });
-}
-
-    // END OF INCLUDE
-
-    // argument: string, returns true if the key was handled and the event should be marked as already handled
-    const coreEventListenerLogic = (keyChar) => {
-        if (keyChar === "t") {
-            toggleVisibility(false, true);
-            return true;
-        } else if (keyChar === "m") {
-            toggleVisibility(true, false);
-            return true;
-        } else if (keyChar === "b") {
-            toggleVisibility(true, true);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    const onPageLoadedAction = () => {
-        console.log("The mkdocs-toggle-sidebar-plugin is installed. It adds the following key bindings:\n T -> toggle table of contents sidebar\n M -> toggle navigation menu sidebar\n B -> toggle both sidebars (TOC and navigation)");
-
-        const toggle_button = "none";
-        if (toggle_button == "none") {
-            // do nothing
-        } else if (toggle_button == "navigation") {
-            addToggleButton(true, false);
-        } else if (toggle_button == "toc") {
-            addToggleButton(false, true);
-        } else if (toggle_button == "all") {
-            addToggleButton(true, true);
-        } else {
-            console.error(`[mkdocs-toggle-sidebar-plugin] Unknown value for toggle_button: '${toggleButtonType}'`);
-        }
-
-        registerKeyboardEventHandler();
-    }
-
-    const createDefaultToggleButton = (toggleNavigation, toggleTOC) => {
-        const toggleBtn = document.createElement("div");
-        toggleBtn.className = "mkdocs-toggle-sidebar-button";
-        toggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>`;
-        if (toggleNavigation && toggleTOC) {
-            toggleBtn.title = "Toggle Navigation and Table of Contents";
-        } else if (toggleNavigation) {
-            toggleBtn.title = "Toggle Navigation";
-        } else if (toggleTOC) {
-            toggleBtn.title = "Toggle Table of Contents";
-        }
-        toggleBtn.addEventListener("click", () => toggleVisibility(toggleNavigation, toggleTOC));
-        return toggleBtn;
-    };
-
-    // Export functions that the user can call to modify the state
-    window.MkdocsToggleSidebarPlugin = {
-        setNavigationVisibility: (show) => {
-            saveBool("NAVIGATION", show);
-            _setVisibility(show, loadTocState());
-        },
-        setTocVisibility: (show) => {
-            saveBool("TOC", show);
-            _setVisibility(loadNavigationState(), show);
-        },
-        setAllVisibility: (showNavigation, showTOC) => {
-            saveBool("NAVIGATION", showNavigation);
-            saveBool("TOC", showTOC);
-            _setVisibility(showNavigation, showTOC);
-        },
-        toggleNavigationVisibility: () => toggleVisibility(true, false),
-        toggleTocVisibility: () => toggleVisibility(false, true),
-        toggleAllVisibility: () => toggleVisibility(true, true)
-    };
-
-    // Run this immediately instead of waiting for page.onload to prevent page flicker
-    customDynamicStyle.innerHTML = setCombinedVisibility(loadNavigationState(), loadTocState());
-    // console.log("Debug: hide sidebar completed");
-
-    // SEE https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event#checking_whether_loading_is_already_complete
-    if (document.readyState === "loading") {
-        // console.debug("Registering DOMContentLoaded event listener");
-        document.addEventListener("DOMContentLoaded", onPageLoadedAction);
-    } else {
-        // console.debug("DOMContentLoaded has already fired");
-        onPageLoadedAction();
-    }
-}());
-</script></head>
+  <link href="../../../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style><script src="../../../../../../../assets/javascripts/toggle-sidebar.js"></script></head>
   
   
     
@@ -324,8 +120,7 @@ const registerKeyboardEventHandler = () => {
 <div class="marquee-container">
   <div class="marquee-text">
     📢 BOU CSE ভর্তি বিজ্ঞপ্তি 2026 প্রকাশিত হয়েছে!
-    <a href="https://www.bou.ac.bd/upload/notice/admission/1876367910238366.pdf" target="_blank" rel="noopener">এখানে দেখুন</a
-    >
+    <a href="https://www.bou.ac.bd/upload/notice/admission/1876367910238366.pdf" target="_blank" rel="noopener">এখানে দেখুন</a>
     📄
   </div>
 </div>
@@ -350,7 +145,7 @@ const registerKeyboardEventHandler = () => {
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -375,20 +170,20 @@ const registerKeyboardEventHandler = () => {
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="yellow"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="yellow" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
       </label>
     
   
@@ -404,29 +199,29 @@ const registerKeyboardEventHandler = () => {
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -434,7 +229,7 @@ const registerKeyboardEventHandler = () => {
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -699,7 +494,7 @@ const registerKeyboardEventHandler = () => {
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -718,7 +513,7 @@ const registerKeyboardEventHandler = () => {
     Bou CSE Resources
   </label>
   
-  <ul class="md-nav__list" data-md-scrollfix>
+  <ul class="md-nav__list" data-md-scrollfix="">
     
       
       
@@ -778,7 +573,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -808,7 +603,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -847,7 +642,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -884,7 +679,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -1065,7 +860,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1102,7 +897,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1144,7 +939,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1181,7 +976,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1233,7 +1028,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1270,7 +1065,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1640,7 +1435,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1677,7 +1472,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1807,7 +1602,7 @@ const registerKeyboardEventHandler = () => {
   <span class="md-ellipsis">
     
   
-    Chapter data communication & networks
+    Chapter data communication &amp; networks
   
 
     
@@ -2071,7 +1866,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_4" id="__nav_2_2_2_4_label" tabindex="0">
@@ -2101,7 +1896,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -2421,7 +2216,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_11">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2458,7 +2253,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2668,7 +2463,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4_12">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2705,7 +2500,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2831,7 +2626,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_5" id="__nav_2_2_2_5_label" tabindex="0">
@@ -2861,7 +2656,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3301,7 +3096,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_6" id="__nav_2_2_2_6_label" tabindex="0">
@@ -3331,7 +3126,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3595,7 +3390,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_7" id="__nav_2_2_2_7_label" tabindex="0">
@@ -3625,7 +3420,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3735,7 +3530,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_7_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_2_7_4" id="__nav_2_2_2_7_4_label" tabindex="0">
@@ -3765,7 +3560,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -3865,7 +3660,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -3902,7 +3697,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3994,7 +3789,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -4031,7 +3826,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -4087,7 +3882,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_4_3" id="__nav_2_2_3_4_3_label" tabindex="0">
@@ -4117,7 +3912,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4179,7 +3974,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_4_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_4_4" id="__nav_2_2_3_4_4_label" tabindex="0">
@@ -4209,7 +4004,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4293,7 +4088,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -4330,7 +4125,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -4414,7 +4209,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_4" id="__nav_2_2_3_5_4_label" tabindex="0">
@@ -4444,7 +4239,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4506,7 +4301,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_5" id="__nav_2_2_3_5_5_label" tabindex="0">
@@ -4536,7 +4331,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4610,7 +4405,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_6" id="__nav_2_2_3_5_6_label" tabindex="0">
@@ -4640,7 +4435,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -4872,7 +4667,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_5_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_5_7" id="__nav_2_2_3_5_7_label" tabindex="0">
@@ -4902,7 +4697,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5012,7 +4807,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6" id="__nav_2_2_3_6_label" tabindex="0">
@@ -5042,7 +4837,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5096,7 +4891,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_2" id="__nav_2_2_3_6_2_label" tabindex="0">
@@ -5126,7 +4921,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5188,7 +4983,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_3" id="__nav_2_2_3_6_3_label" tabindex="0">
@@ -5218,7 +5013,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5282,7 +5077,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_4" id="__nav_2_2_3_6_4_label" tabindex="0">
@@ -5312,7 +5107,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5402,7 +5197,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_5" id="__nav_2_2_3_6_5_label" tabindex="0">
@@ -5432,7 +5227,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5494,7 +5289,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_6" id="__nav_2_2_3_6_6_label" tabindex="0">
@@ -5524,7 +5319,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5588,7 +5383,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_6_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_6_7" id="__nav_2_2_3_6_7_label" tabindex="0">
@@ -5618,7 +5413,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5722,7 +5517,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7" id="__nav_2_2_3_7_label" tabindex="0">
@@ -5752,7 +5547,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5806,7 +5601,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_2" id="__nav_2_2_3_7_2_label" tabindex="0">
@@ -5836,7 +5631,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -5918,7 +5713,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3" id="__nav_2_2_3_7_3_label" tabindex="0">
@@ -5948,7 +5743,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6030,7 +5825,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_3" id="__nav_2_2_3_7_3_3_label" tabindex="0">
@@ -6060,7 +5855,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6124,7 +5919,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_4" id="__nav_2_2_3_7_3_4_label" tabindex="0">
@@ -6154,7 +5949,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6244,7 +6039,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_5" id="__nav_2_2_3_7_3_5_label" tabindex="0">
@@ -6274,7 +6069,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6336,7 +6131,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_6" id="__nav_2_2_3_7_3_6_label" tabindex="0">
@@ -6366,7 +6161,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6428,7 +6223,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_7" id="__nav_2_2_3_7_3_7_label" tabindex="0">
@@ -6458,7 +6253,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6520,7 +6315,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_8" id="__nav_2_2_3_7_3_8_label" tabindex="0">
@@ -6550,7 +6345,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6614,7 +6409,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_9" id="__nav_2_2_3_7_3_9_label" tabindex="0">
@@ -6644,7 +6439,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6734,7 +6529,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_10" id="__nav_2_2_3_7_3_10_label" tabindex="0">
@@ -6764,7 +6559,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6826,7 +6621,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_3_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_3_11" id="__nav_2_2_3_7_3_11_label" tabindex="0">
@@ -6856,7 +6651,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -6930,7 +6725,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_7_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_7_4" id="__nav_2_2_3_7_4_label" tabindex="0">
@@ -6960,7 +6755,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7092,7 +6887,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8" id="__nav_2_2_3_8_label" tabindex="0">
@@ -7122,7 +6917,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7204,7 +6999,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8_3" id="__nav_2_2_3_8_3_label" tabindex="0">
@@ -7234,7 +7029,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7298,7 +7093,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_8_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_8_4" id="__nav_2_2_3_8_4_label" tabindex="0">
@@ -7328,7 +7123,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7442,7 +7237,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9" checked="">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9" id="__nav_2_2_3_9_label" tabindex="0">
@@ -7472,7 +7267,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7614,7 +7409,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_5" id="__nav_2_2_3_9_5_label" tabindex="0">
@@ -7644,7 +7439,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7766,7 +7561,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6" checked="">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6" id="__nav_2_2_3_9_6_label" tabindex="0">
@@ -7796,7 +7591,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7822,7 +7617,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6_1" id="__nav_2_2_3_9_6_1_label" tabindex="0">
@@ -7852,7 +7647,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -7918,7 +7713,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_6_2" checked="">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_6_2" id="__nav_2_2_3_9_6_2_label" tabindex="0">
@@ -7948,7 +7743,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8014,7 +7809,7 @@ const registerKeyboardEventHandler = () => {
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
@@ -8580,7 +8375,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_7" id="__nav_2_2_3_9_7_label" tabindex="0">
@@ -8610,7 +8405,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8702,7 +8497,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_9_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_9_8" id="__nav_2_2_3_9_8_label" tabindex="0">
@@ -8732,7 +8527,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -8848,7 +8643,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10" id="__nav_2_2_3_10_label" tabindex="0">
@@ -8878,7 +8673,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9074,7 +8869,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7" id="__nav_2_2_3_10_7_label" tabindex="0">
@@ -9104,7 +8899,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9138,7 +8933,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7_1" id="__nav_2_2_3_10_7_1_label" tabindex="0">
@@ -9168,7 +8963,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9348,7 +9143,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_7_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_7_2" id="__nav_2_2_3_10_7_2_label" tabindex="0">
@@ -9378,7 +9173,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9534,7 +9329,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_8" id="__nav_2_2_3_10_8_label" tabindex="0">
@@ -9564,7 +9359,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9654,7 +9449,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_9" id="__nav_2_2_3_10_9_label" tabindex="0">
@@ -9684,7 +9479,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -9764,7 +9559,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10" id="__nav_2_2_3_10_10_label" tabindex="0">
@@ -9794,7 +9589,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10018,7 +9813,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_8" id="__nav_2_2_3_10_10_8_label" tabindex="0">
@@ -10048,7 +9843,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10152,7 +9947,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_9" id="__nav_2_2_3_10_10_9_label" tabindex="0">
@@ -10182,7 +9977,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10448,7 +10243,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_10_10_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_3_10_10_10" id="__nav_2_2_3_10_10_10_label" tabindex="0">
@@ -10478,7 +10273,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -10694,7 +10489,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10731,7 +10526,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -10773,7 +10568,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10810,7 +10605,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -10868,7 +10663,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10900,7 +10695,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -10938,7 +10733,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -10970,7 +10765,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11008,7 +10803,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11040,7 +10835,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11078,7 +10873,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11110,7 +10905,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11152,7 +10947,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11189,7 +10984,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11315,7 +11110,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11352,7 +11147,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11412,7 +11207,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_3" id="__nav_2_2_4_3_3_label" tabindex="0">
@@ -11442,7 +11237,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -11564,7 +11359,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11601,7 +11396,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11673,7 +11468,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_5" id="__nav_2_2_4_3_5_label" tabindex="0">
@@ -11703,7 +11498,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -11881,7 +11676,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -11918,7 +11713,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -11982,7 +11777,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_7" id="__nav_2_2_4_3_7_label" tabindex="0">
@@ -12012,7 +11807,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12076,7 +11871,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12108,7 +11903,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12146,7 +11941,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_9" id="__nav_2_2_4_3_9_label" tabindex="0">
@@ -12176,7 +11971,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12204,7 +11999,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12236,7 +12031,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12274,7 +12069,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_9_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_9_2" id="__nav_2_2_4_3_9_2_label" tabindex="0">
@@ -12304,7 +12099,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12410,7 +12205,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_10">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12447,7 +12242,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12567,7 +12362,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_3_11" id="__nav_2_2_4_3_11_label" tabindex="0">
@@ -12597,7 +12392,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -12675,7 +12470,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_12">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12712,7 +12507,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -12950,7 +12745,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3_13">
         
           
           <div class="md-nav__link md-nav__container">
@@ -12987,7 +12782,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13109,7 +12904,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13146,7 +12941,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13260,7 +13055,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13292,7 +13087,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13330,7 +13125,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_6" id="__nav_2_2_4_4_6_label" tabindex="0">
@@ -13360,7 +13155,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13452,7 +13247,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13484,7 +13279,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13522,7 +13317,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13554,7 +13349,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13590,7 +13385,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_9" id="__nav_2_2_4_4_9_label" tabindex="0">
@@ -13620,7 +13415,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13682,7 +13477,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_10" id="__nav_2_2_4_4_10_label" tabindex="0">
@@ -13712,7 +13507,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13776,7 +13571,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_4_11" id="__nav_2_2_4_4_11_label" tabindex="0">
@@ -13806,7 +13601,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -13862,7 +13657,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4_11_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -13894,7 +13689,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -13952,7 +13747,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5" id="__nav_2_2_4_5_label" tabindex="0">
@@ -13982,7 +13777,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14008,7 +13803,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5_1" id="__nav_2_2_4_5_1_label" tabindex="0">
@@ -14038,7 +13833,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14100,7 +13895,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_5_2" id="__nav_2_2_4_5_2_label" tabindex="0">
@@ -14130,7 +13925,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14196,7 +13991,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14233,7 +14028,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14299,7 +14094,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_5_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14331,7 +14126,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14375,7 +14170,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_6" id="__nav_2_2_4_6_label" tabindex="0">
@@ -14405,7 +14200,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14479,7 +14274,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_7" id="__nav_2_2_4_7_label" tabindex="0">
@@ -14509,7 +14304,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14649,7 +14444,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14681,7 +14476,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14723,7 +14518,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_7_6" id="__nav_2_2_4_7_6_label" tabindex="0">
@@ -14753,7 +14548,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -14901,7 +14696,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_7_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -14933,7 +14728,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -14997,7 +14792,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15034,7 +14829,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15092,7 +14887,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15124,7 +14919,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15160,7 +14955,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_4" id="__nav_2_2_4_8_4_label" tabindex="0">
@@ -15190,7 +14985,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15252,7 +15047,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_5" id="__nav_2_2_4_8_5_label" tabindex="0">
@@ -15282,7 +15077,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15312,7 +15107,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_5_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15349,7 +15144,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15423,7 +15218,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15455,7 +15250,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15491,7 +15286,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_7" id="__nav_2_2_4_8_7_label" tabindex="0">
@@ -15521,7 +15316,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15593,7 +15388,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_8" id="__nav_2_2_4_8_8_label" tabindex="0">
@@ -15623,7 +15418,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -15827,7 +15622,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_9">
         
           
           <div class="md-nav__link md-nav__container">
@@ -15859,7 +15654,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -15899,7 +15694,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_8_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_8_10" id="__nav_2_2_4_8_10_label" tabindex="0">
@@ -15929,7 +15724,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16075,7 +15870,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9">
         
           
           <div class="md-nav__link md-nav__container">
@@ -16112,7 +15907,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -16378,7 +16173,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10" id="__nav_2_2_4_9_10_label" tabindex="0">
@@ -16408,7 +16203,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16446,7 +16241,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_1" id="__nav_2_2_4_9_10_1_label" tabindex="0">
@@ -16476,7 +16271,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16716,7 +16511,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_2" id="__nav_2_2_4_9_10_2_label" tabindex="0">
@@ -16746,7 +16541,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -16956,7 +16751,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_3" id="__nav_2_2_4_9_10_3_label" tabindex="0">
@@ -16986,7 +16781,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17174,7 +16969,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_4" id="__nav_2_2_4_9_10_4_label" tabindex="0">
@@ -17204,7 +16999,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17474,7 +17269,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_5" id="__nav_2_2_4_9_10_5_label" tabindex="0">
@@ -17504,7 +17299,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -17752,7 +17547,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_6" id="__nav_2_2_4_9_10_6_label" tabindex="0">
@@ -17782,7 +17577,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18108,7 +17903,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_7" id="__nav_2_2_4_9_10_7_label" tabindex="0">
@@ -18138,7 +17933,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18378,7 +18173,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_9_10_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_4_9_10_8" id="__nav_2_2_4_9_10_8_label" tabindex="0">
@@ -18408,7 +18203,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18644,7 +18439,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -18681,7 +18476,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -18709,7 +18504,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2" id="__nav_2_2_5_2_label" tabindex="0">
@@ -18739,7 +18534,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18765,7 +18560,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2_1" id="__nav_2_2_5_2_1_label" tabindex="0">
@@ -18795,7 +18590,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18821,7 +18616,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2_1_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_2_1_1" id="__nav_2_2_5_2_1_1_label" tabindex="0">
@@ -18851,7 +18646,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18931,7 +18726,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3" id="__nav_2_2_5_3_label" tabindex="0">
@@ -18961,7 +18756,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -18971,6 +18766,10 @@ const registerKeyboardEventHandler = () => {
   
     
     
+      
+        
+      
+        
       
         
       
@@ -18993,7 +18792,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3_1" id="__nav_2_2_5_3_1_label" tabindex="0">
@@ -19023,7 +18822,35 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../22-semester/DBMS/Intro/DB-table-vs-ER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DB-table-vs-ER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -19116,6 +18943,34 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
+      <a href="../../../../../22-semester/DBMS/Intro/Storage-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../22-semester/DBMS/Intro/Types-of-SQL-Commands/" class="md-nav__link">
         
   
@@ -19169,7 +19024,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_3_2" id="__nav_2_2_5_3_2_label" tabindex="0">
@@ -19199,7 +19054,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19275,7 +19130,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -19312,7 +19167,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -19344,7 +19199,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_4_2" id="__nav_2_2_5_4_2_label" tabindex="0">
@@ -19374,7 +19229,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19494,7 +19349,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -19526,7 +19381,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -19570,7 +19425,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_5">
         
           
           <label class="md-nav__link" for="__nav_2_2_5_5" id="__nav_2_2_5_5_label" tabindex="0">
@@ -19600,7 +19455,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19670,7 +19525,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6">
         
           
           <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
@@ -19700,7 +19555,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19762,7 +19617,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7">
         
           
           <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
@@ -19792,7 +19647,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19854,7 +19709,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8">
         
           
           <label class="md-nav__link" for="__nav_2_2_8" id="__nav_2_2_8_label" tabindex="0">
@@ -19884,7 +19739,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -19946,7 +19801,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_9">
         
           
           <label class="md-nav__link" for="__nav_2_2_9" id="__nav_2_2_9_label" tabindex="0">
@@ -19976,7 +19831,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20042,7 +19897,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20079,7 +19934,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20107,7 +19962,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_10_2" id="__nav_2_2_10_2_label" tabindex="0">
@@ -20137,7 +19992,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20165,7 +20020,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_10_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20197,7 +20052,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20255,7 +20110,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20292,7 +20147,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20322,7 +20177,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20354,7 +20209,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20390,7 +20245,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11_3">
         
           
           <label class="md-nav__link" for="__nav_2_2_11_3" id="__nav_2_2_11_3_label" tabindex="0">
@@ -20420,7 +20275,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20490,7 +20345,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12">
         
           
           <label class="md-nav__link" for="__nav_2_2_12" id="__nav_2_2_12_label" tabindex="0">
@@ -20520,7 +20375,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20582,7 +20437,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13">
         
           
           <label class="md-nav__link" for="__nav_2_2_13" id="__nav_2_2_13_label" tabindex="0">
@@ -20612,7 +20467,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20650,7 +20505,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1" id="__nav_2_2_13_1_label" tabindex="0">
@@ -20680,7 +20535,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20734,7 +20589,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1_2" id="__nav_2_2_13_1_2_label" tabindex="0">
@@ -20764,7 +20619,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -20792,7 +20647,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_2_1">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20824,7 +20679,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20870,7 +20725,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_3">
         
           
           <div class="md-nav__link md-nav__container">
@@ -20902,7 +20757,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -20938,7 +20793,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_4">
         
           
           <label class="md-nav__link" for="__nav_2_2_13_1_4" id="__nav_2_2_13_1_4_label" tabindex="0">
@@ -20968,7 +20823,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -21032,7 +20887,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_5">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21064,7 +20919,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21104,7 +20959,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21141,7 +20996,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21171,7 +21026,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_6_2">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21203,7 +21058,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21249,7 +21104,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13_1_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -21281,7 +21136,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -21333,7 +21188,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_14">
         
           
           <label class="md-nav__link" for="__nav_2_2_14" id="__nav_2_2_14_label" tabindex="0">
@@ -21363,7 +21218,7 @@ const registerKeyboardEventHandler = () => {
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -21667,7 +21522,7 @@ const registerKeyboardEventHandler = () => {
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -21683,7 +21538,7 @@ const registerKeyboardEventHandler = () => {
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
@@ -22187,11 +22042,11 @@ const registerKeyboardEventHandler = () => {
 
 
 
-<h1 id="_1"><strong>ডিফারেনশিয়াল ইকুয়েশন সমাধান: সম্পূর্ণ নোট</strong><a class="headerlink" href="#_1" title="Anchor link to this section for reference">&para;</a></h1>
+<h1 id="_1"><strong>ডিফারেনশিয়াল ইকুয়েশন সমাধান: সম্পূর্ণ নোট</strong><a class="headerlink" href="#_1" title="Anchor link to this section for reference">¶</a></h1>
 <p>এই নোটে একটি প্রথম-অর্ডার ডিফারেনশিয়াল ইকুয়েশন ধাপে ধাপে সমাধানের উদাহরণ এবং সাধারণ পদ্ধতি ও কৌশল আলোচনা করা হয়েছে।</p>
-<hr />
-<h2 id="_2"><strong>উদাহরণ: একটি ডিফারেনশিয়াল ইকুয়েশনের সমাধান</strong><a class="headerlink" href="#_2" title="Anchor link to this section for reference">&para;</a></h2>
-<h3 id="exact-equation"><strong>ধাপ ১: Exact Equation কি না তা পরীক্ষা করা</strong> 🧐<a class="headerlink" href="#exact-equation" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h2 id="_2"><strong>উদাহরণ: একটি ডিফারেনশিয়াল ইকুয়েশনের সমাধান</strong><a class="headerlink" href="#_2" title="Anchor link to this section for reference">¶</a></h2>
+<h3 id="exact-equation"><strong>ধাপ ১: Exact Equation কি না তা পরীক্ষা করা</strong> 🧐<a class="headerlink" href="#exact-equation" title="Anchor link to this section for reference">¶</a></h3>
 <p>ধরি একটি সমীকরণ আছে:</p>
 <div class="arithmatex">\[
 M(x,y)\,dx + N(x,y)\,dy = 0
@@ -22213,8 +22068,8 @@ M(x,y) = 12y + 4y^3 + 6x^2, \quad N(x,y) = 3x + 3xy^2
 \frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x},
 \]</div>
 <p>সুতরাং সমীকরণটি <strong>Exact নয়</strong>।</p>
-<hr />
-<h3 id="integrating-factor-if"><strong>ধাপ ২: Integrating Factor (I.F.) বের করা</strong> ⚙️<a class="headerlink" href="#integrating-factor-if" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="integrating-factor-if"><strong>ধাপ ২: Integrating Factor (I.F.) বের করা</strong> ⚙️<a class="headerlink" href="#integrating-factor-if" title="Anchor link to this section for reference">¶</a></h3>
 <p>যদি সমীকরণ <strong>Exact না হয়</strong>, তবে Integrating Factor (I.F.) খুঁজতে হবে।</p>
 <p><strong>N দিয়ে ভাগ করার সূত্র:</strong></p>
 <div class="arithmatex">\[
@@ -22227,8 +22082,8 @@ f(x) = \frac{\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}}{N}
 <div class="arithmatex">\[
 I.F. = e^{\int f(x)\,dx} = e^{\int \frac{3}{x}\,dx} = e^{3 \ln x} = x^3
 \]</div>
-<hr />
-<h3 id="exact-equation-"><strong>ধাপ ৩: Exact Equation-এ রূপান্তর</strong> ✅<a class="headerlink" href="#exact-equation-" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="exact-equation-"><strong>ধাপ ৩: Exact Equation-এ রূপান্তর</strong> ✅<a class="headerlink" href="#exact-equation-" title="Anchor link to this section for reference">¶</a></h3>
 <p>মূল সমীকরণকে <span class="arithmatex">\(I.F. = x^3\)</span> দিয়ে গুণ করি:</p>
 <div class="arithmatex">\[
 (12y + 4y^3 + 6x^2)x^3 \, dx + (3x + 3xy^2)x^3 \, dy = 0
@@ -22242,8 +22097,8 @@ M_1(x,y) = 12x^3y + 4x^3y^3 + 6x^5, \quad N_1(x,y) = 3x^4 + 3x^4y^2
 \frac{\partial M_1}{\partial y} = 12x^3 + 12x^3y^2, \quad \frac{\partial N_1}{\partial x} = 12x^3 + 12x^3y^2
 \]</div>
 <p>দুটো সমান → সমীকরণটি এখন <strong>Exact</strong>।</p>
-<hr />
-<h3 id="exact-equation_1"><strong>ধাপ ৪: Exact Equation সমাধান</strong><a class="headerlink" href="#exact-equation_1" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="exact-equation_1"><strong>ধাপ ৪: Exact Equation সমাধান</strong><a class="headerlink" href="#exact-equation_1" title="Anchor link to this section for reference">¶</a></h3>
 <p>Potential function <span class="arithmatex">\(F(x,y)\)</span> বের করি:</p>
 <div class="arithmatex">\[
 \frac{\partial F}{\partial x} = M_1, \quad \frac{\partial F}{\partial y} = N_1
@@ -22256,13 +22111,13 @@ F(x,y) = \int M_1\,dx = \int (12x^3y + 4x^3y^3 + 6x^5)\,dx = 3x^4y + x^4y^3 + x^
 \frac{\partial F}{\partial y} = 3x^4 + 3x^4y^2 + h'(y) = N_1
 \]</div>
 <p>সুতরাং <span class="arithmatex">\(h'(y) = 0 \Rightarrow h(y) = C\)</span></p>
-<hr />
-<h3 id="_3"><strong>চূড়ান্ত সমাধান</strong><a class="headerlink" href="#_3" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="_3"><strong>চূড়ান্ত সমাধান</strong><a class="headerlink" href="#_3" title="Anchor link to this section for reference">¶</a></h3>
 <div class="arithmatex">\[
 \boxed{x^6 + x^4y^3 + 3x^4y = C}
 \]</div>
-<hr />
-<h2 id="_4"><strong>ডিফারেনশিয়াল ইকুয়েশন সমাধানের সাধারণ ফ্লোচার্ট</strong> 🗺️<a class="headerlink" href="#_4" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="_4"><strong>ডিফারেনশিয়াল ইকুয়েশন সমাধানের সাধারণ ফ্লোচার্ট</strong> 🗺️<a class="headerlink" href="#_4" title="Anchor link to this section for reference">¶</a></h2>
 <ol>
 <li><strong>স্ট্যান্ডার্ড ফর্মে নিন:</strong></li>
 </ol>
@@ -22298,8 +22153,8 @@ I.F. = e^{\int f(x)\,dx} \quad \text{অথবা} \quad I.F. = e^{\int g(y)\,dy
 <div class="arithmatex">\[
 \int M\,dx + \int \big(N - (\text{যেসব পদে } x \text{ আছে})\big)\,dy = C
 \]</div>
-<hr />
-<h2 id="if"><strong>I.F. সূত্র নির্বাচনের কৌশল</strong> 💡<a class="headerlink" href="#if" title="Anchor link to this section for reference">&para;</a></h2>
+<hr>
+<h2 id="if"><strong>I.F. সূত্র নির্বাচনের কৌশল</strong> 💡<a class="headerlink" href="#if" title="Anchor link to this section for reference">¶</a></h2>
 <ul>
 <li><strong>N দিয়ে ভাগ:</strong></li>
 </ul>
@@ -22314,7 +22169,7 @@ I.F. = e^{\int f(x)\,dx} \quad \text{অথবা} \quad I.F. = e^{\int g(y)\,dy
 \frac{1}{M}\left(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\right)
 \]</div>
 <p>শুধু <span class="arithmatex">\(y\)</span>-এর ফাংশন হলে ব্যবহার করুন।</p>
-<h4 id="_5"><strong>উদাহরণ:</strong><a class="headerlink" href="#_5" title="Anchor link to this section for reference">&para;</a></h4>
+<h4 id="_5"><strong>উদাহরণ:</strong><a class="headerlink" href="#_5" title="Anchor link to this section for reference">¶</a></h4>
 <div class="arithmatex">\[
 y \log y \,dx + (x - \log y) \,dy = 0
 \]</div>
@@ -22331,8 +22186,8 @@ y \log y \,dx + (x - \log y) \,dy = 0
 \frac{1}{M}\left(\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\right) = -\frac{1}{y} \quad (\text{শুধু y}) \; ✅
 \]</div>
 <p>সুতরাং, I.F. বের করতে হবে দ্বিতীয় সূত্র ব্যবহার করে।</p>
-<hr />
-<h3 id="_6"><strong>ধাপ ১: সমীকরণটিকে স্ট্যান্ডার্ড ফর্মে সাজানো</strong><a class="headerlink" href="#_6" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="_6"><strong>ধাপ ১: সমীকরণটিকে স্ট্যান্ডার্ড ফর্মে সাজানো</strong><a class="headerlink" href="#_6" title="Anchor link to this section for reference">¶</a></h3>
 <p>প্রথমে, আমরা সমীকরণটিকে <span class="arithmatex">\(M(x,y)dx + N(x,y)dy = 0\)</span> আকারে সাজাবো।</p>
 <div class="arithmatex">\[
 y^2(ydx + 2xdy) - x^2(2ydx + xdy) = 0
@@ -22349,8 +22204,8 @@ y^3dx + 2xy^2dy - 2x^2ydx - x^3dy = 0
 <li><span class="arithmatex">\(M(x,y) = y^3 - 2x^2y\)</span></li>
 <li><span class="arithmatex">\(N(x,y) = 2xy^2 - x^3\)</span></li>
 </ul>
-<hr />
-<h3 id="exactness"><strong>ধাপ ২: Exactness পরীক্ষা করা</strong><a class="headerlink" href="#exactness" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="exactness"><strong>ধাপ ২: Exactness পরীক্ষা করা</strong><a class="headerlink" href="#exactness" title="Anchor link to this section for reference">¶</a></h3>
 <p>এখন সমীকরণটি exact কি না, তা পরীক্ষা করতে হবে।</p>
 <div class="arithmatex">\[
 \frac{\partial M}{\partial y} = \frac{\partial}{\partial y}(y^3 - 2x^2y) = 3y^2 - 2x^2
@@ -22359,8 +22214,8 @@ y^3dx + 2xy^2dy - 2x^2ydx - x^3dy = 0
 \frac{\partial N}{\partial x} = \frac{\partial}{\partial x}(2xy^2 - x^3) = 2y^2 - 3x^2
 \]</div>
 <p>যেহেতু <span class="arithmatex">\(\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}\)</span>, সমীকরণটি <strong>exact নয়</strong>।</p>
-<hr />
-<h3 id="integrating-factor-if_1"><strong>ধাপ ৩: Integrating Factor (I.F.) নির্ণয়</strong><a class="headerlink" href="#integrating-factor-if_1" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="integrating-factor-if_1"><strong>ধাপ ৩: Integrating Factor (I.F.) নির্ণয়</strong><a class="headerlink" href="#integrating-factor-if_1" title="Anchor link to this section for reference">¶</a></h3>
 <p>যেহেতু সমীকরণটি exact নয়, আমাদের একটি Integrating Factor (I.F.) বের করতে হবে।</p>
 <p>আগের গণিতের মতো, আমরা প্রথমে দুটি সাধারণ নিয়ম চেষ্টা করবো:</p>
 <p>1.</p>
@@ -22377,14 +22232,14 @@ y^3dx + 2xy^2dy - 2x^2ydx - x^3dy = 0
 = \frac{-(x^2+y^2)}{y(y^2-2x^2)}
 \]</div>
 <p>→ এটি শুধু <span class="arithmatex">\(y\)</span>-এর ফাংশন নয়।</p>
-<p>যেহেতু সাধারণ নিয়মগুলো কাজ করছে না, আমাদের অন্য পদ্ধতি দেখতে হবে।<br />
-এই সমীকরণটি একটি <strong>homogeneous</strong> সমীকরণ, তাই এর I.F. <span class="arithmatex">\(x^a y^b\)</span> আকারের হবে।<br />
+<p>যেহেতু সাধারণ নিয়মগুলো কাজ করছে না, আমাদের অন্য পদ্ধতি দেখতে হবে।<br>
+এই সমীকরণটি একটি <strong>homogeneous</strong> সমীকরণ, তাই এর I.F. <span class="arithmatex">\(x^a y^b\)</span> আকারের হবে।<br>
 <span class="arithmatex">\(a\)</span> এবং <span class="arithmatex">\(b\)</span> এর মান বের করার পর দেখা যায়:</p>
 <div class="arithmatex">\[
 I.F. = xy
 \]</div>
-<hr />
-<h3 id="exact"><strong>ধাপ ৪: সমীকরণকে Exact বানানো</strong><a class="headerlink" href="#exact" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="exact"><strong>ধাপ ৪: সমীকরণকে Exact বানানো</strong><a class="headerlink" href="#exact" title="Anchor link to this section for reference">¶</a></h3>
 <p>এখন মূল সমীকরণকে <span class="arithmatex">\(I.F. = xy\)</span> দিয়ে গুণ করে নতুন একটি exact সমীকরণ তৈরি করি।</p>
 <div class="arithmatex">\[
 xy(y^3 - 2x^2y)\,dx + xy(2xy^2 - x^3)\,dy = 0
@@ -22393,8 +22248,8 @@ xy(y^3 - 2x^2y)\,dx + xy(2xy^2 - x^3)\,dy = 0
 (xy^4 - 2x^3y^2)\,dx + (2x^2y^3 - x^4y)\,dy = 0
 \]</div>
 <p>এই নতুন সমীকরণটি এখন exact।</p>
-<hr />
-<h3 id="exact_1"><strong>ধাপ ৫: Exact সমীকরণের সমাধান</strong><a class="headerlink" href="#exact_1" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="exact_1"><strong>ধাপ ৫: Exact সমীকরণের সমাধান</strong><a class="headerlink" href="#exact_1" title="Anchor link to this section for reference">¶</a></h3>
 <p>এখন আমরা exact সমীকরণটি সমাধান করবো।</p>
 <ul>
 <li>নতুন <span class="arithmatex">\(M_{new} = xy^4 - 2x^3y^2\)</span></li>
@@ -22420,10 +22275,10 @@ x^2y^4 - x^4y^2 = C_1
 x^2y^2(y^2 - x^2) = C_1
 \]</div>
 <p>এটিই হলো নির্ণেয় সমাধান।</p>
-<hr />
+<hr>
 <div class="admonition example">
 <p class="admonition-title"><span class="arithmatex">\((12y + 4y^3 + 6x^2)dx + 3(x + xy^2)dy = 0\)</span></p>
-<h3 id="_7"><strong>ধাপ ১: স্ট্যান্ডার্ড ফর্ম</strong><a class="headerlink" href="#_7" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="_7"><strong>ধাপ ১: স্ট্যান্ডার্ড ফর্ম</strong><a class="headerlink" href="#_7" title="Anchor link to this section for reference">¶</a></h3>
 <p>প্রদত্ত সমীকরণ:</p>
 <div class="arithmatex">\[
 (12y + 4y^3 + 6x^2)dx + 3(x + xy^2)dy = 0
@@ -22432,15 +22287,15 @@ x^2y^2(y^2 - x^2) = C_1
 <div class="arithmatex">\[
 M(x,y) = 12y + 4y^3 + 6x^2, \quad N(x,y) = 3x + 3xy^2
 \]</div>
-<hr />
-<h3 id="exactness_1"><strong>ধাপ ২: Exactness পরীক্ষা</strong><a class="headerlink" href="#exactness_1" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="exactness_1"><strong>ধাপ ২: Exactness পরীক্ষা</strong><a class="headerlink" href="#exactness_1" title="Anchor link to this section for reference">¶</a></h3>
 <div class="arithmatex">\[
 \frac{\partial M}{\partial y} = 12 + 12y^2, \quad
 \frac{\partial N}{\partial x} = 3 + 3y^2
 \]</div>
 <p>যেহেতু <span class="arithmatex">\(\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}\)</span>, সমীকরণটি <strong>exact নয়</strong>।</p>
-<hr />
-<h3 id="integrating-factor-if_2"><strong>ধাপ ৩: Integrating Factor (I.F.) নির্ণয়</strong><a class="headerlink" href="#integrating-factor-if_2" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="integrating-factor-if_2"><strong>ধাপ ৩: Integrating Factor (I.F.) নির্ণয়</strong><a class="headerlink" href="#integrating-factor-if_2" title="Anchor link to this section for reference">¶</a></h3>
 <p>ফর্মুলা:</p>
 <div class="arithmatex">\[
 f(x) = \frac{1}{N} \Big(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\Big)
@@ -22456,8 +22311,8 @@ I.F. = e^{\int f(x) dx} = e^{\int \frac{3}{x} dx} = e^{3 \ln x} = x^3
 <ul>
 <li><strong>I.F. = <span class="arithmatex">\(x^3\)</span></strong></li>
 </ul>
-<hr />
-<h3 id="exact_2"><strong>ধাপ ৪: সমীকরণকে Exact বানানো</strong><a class="headerlink" href="#exact_2" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="exact_2"><strong>ধাপ ৪: সমীকরণকে Exact বানানো</strong><a class="headerlink" href="#exact_2" title="Anchor link to this section for reference">¶</a></h3>
 <p>মূল সমীকরণে I.F. দ্বারা গুণ করলে:</p>
 <div class="arithmatex">\[
 x^3(12y + 4y^3 + 6x^2)dx + x^3(3x + 3xy^2)dy = 0
@@ -22465,8 +22320,8 @@ x^3(12y + 4y^3 + 6x^2)dx + x^3(3x + 3xy^2)dy = 0
 <div class="arithmatex">\[
 (12x^3y + 4x^3y^3 + 6x^5)dx + (3x^4 + 3x^4y^2)dy = 0
 \]</div>
-<hr />
-<h3 id="exact_3"><strong>ধাপ ৫: Exact সমীকরণের সমাধান</strong><a class="headerlink" href="#exact_3" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="exact_3"><strong>ধাপ ৫: Exact সমীকরণের সমাধান</strong><a class="headerlink" href="#exact_3" title="Anchor link to this section for reference">¶</a></h3>
 <p>নতুন exact সমীকরণে:</p>
 <div class="arithmatex">\[
 M_{new} = 12x^3y + 4x^3y^3 + 6x^5, \quad N_{new} = 3x^4 + 3x^4y^2
@@ -22491,10 +22346,10 @@ x^6 + x^4y^3 + 3x^4y = C
 \]</div>
 <p>এটিই হলো নির্ণেয় সমাধান।</p>
 </div>
-<hr />
+<hr>
 <div class="admonition example">
 <p class="admonition-title">Example: Solve the differential equation</p>
-<h3 id="step-1-standard-form">Step 1: Standard Form<a class="headerlink" href="#step-1-standard-form" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="step-1-standard-form">Step 1: Standard Form<a class="headerlink" href="#step-1-standard-form" title="Anchor link to this section for reference">¶</a></h3>
 <p>Write the equation in standard form <span class="arithmatex">\(M(x,y)dx + N(x,y)dy = 0\)</span>:</p>
 <div class="arithmatex">\[
 (12y + 4y^3 + 6x^2)dx + 3(x + xy^2)dy = 0
@@ -22503,16 +22358,16 @@ x^6 + x^4y^3 + 3x^4y = C
 <div class="arithmatex">\[
 M(x,y) = 12y + 4y^3 + 6x^2, \quad N(x,y) = 3x + 3xy^2
 \]</div>
-<hr />
-<h3 id="step-2-test-for-exactness">Step 2: Test for Exactness<a class="headerlink" href="#step-2-test-for-exactness" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-2-test-for-exactness">Step 2: Test for Exactness<a class="headerlink" href="#step-2-test-for-exactness" title="Anchor link to this section for reference">¶</a></h3>
 <p>Compute the partial derivatives:</p>
 <div class="arithmatex">\[
 \frac{\partial M}{\partial y} = 12 + 12y^2, \quad
 \frac{\partial N}{\partial x} = 3 + 3y^2
 \]</div>
 <p>Since <span class="arithmatex">\(\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}\)</span>, the equation is <strong>not exact</strong>.</p>
-<hr />
-<h3 id="step-3-find-the-integrating-factor-if">Step 3: Find the Integrating Factor (I.F.)<a class="headerlink" href="#step-3-find-the-integrating-factor-if" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-3-find-the-integrating-factor-if">Step 3: Find the Integrating Factor (I.F.)<a class="headerlink" href="#step-3-find-the-integrating-factor-if" title="Anchor link to this section for reference">¶</a></h3>
 <p>Use the formula:</p>
 <div class="arithmatex">\[
 f(x) = \frac{1}{N}\left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\right)
@@ -22525,8 +22380,8 @@ f(x) = \frac{(12 + 12y^2) - (3 + 3y^2)}{3x + 3xy^2} = \frac{3}{x}
 <div class="arithmatex">\[
 I.F. = e^{\int f(x) dx} = e^{3 \ln x} = x^3
 \]</div>
-<hr />
-<h3 id="step-4-make-the-equation-exact">Step 4: Make the Equation Exact<a class="headerlink" href="#step-4-make-the-equation-exact" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-4-make-the-equation-exact">Step 4: Make the Equation Exact<a class="headerlink" href="#step-4-make-the-equation-exact" title="Anchor link to this section for reference">¶</a></h3>
 <p>Multiply the original equation by <span class="arithmatex">\(x^3\)</span>:</p>
 <div class="arithmatex">\[
 x^3(12y + 4y^3 + 6x^2)dx + x^3(3x + 3xy^2)dy = 0
@@ -22535,8 +22390,8 @@ x^3(12y + 4y^3 + 6x^2)dx + x^3(3x + 3xy^2)dy = 0
 <div class="arithmatex">\[
 (12x^3y + 4x^3y^3 + 6x^5)dx + (3x^4 + 3x^4y^2)dy = 0
 \]</div>
-<hr />
-<h3 id="step-5-solve-the-exact-equation">Step 5: Solve the Exact Equation<a class="headerlink" href="#step-5-solve-the-exact-equation" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-5-solve-the-exact-equation">Step 5: Solve the Exact Equation<a class="headerlink" href="#step-5-solve-the-exact-equation" title="Anchor link to this section for reference">¶</a></h3>
 <p>Here,</p>
 <div class="arithmatex">\[
 M_{new} = 12x^3y + 4x^3y^3 + 6x^5, \quad N_{new} = 3x^4 + 3x^4y^2
@@ -22550,17 +22405,17 @@ M_{new} = 12x^3y + 4x^3y^3 + 6x^5, \quad N_{new} = 3x^4 + 3x^4y^2
 x^6 + x^4y^3 + 3x^4y = C
 \]</div>
 </div>
-<hr />
+<hr>
 <div class="admonition info">
 <p class="admonition-title"> <span class="arithmatex">\(y \log y \,dx + (x - \log y) \,dy = 0\)</span> </p>
-<h3 id="step-1-standard-form_1"><strong>Step 1: Standard Form</strong><a class="headerlink" href="#step-1-standard-form_1" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="step-1-standard-form_1"><strong>Step 1: Standard Form</strong><a class="headerlink" href="#step-1-standard-form_1" title="Anchor link to this section for reference">¶</a></h3>
 <p>The equation is already in the standard form <span class="arithmatex">\(M(x,y)dx + N(x,y)dy = 0\)</span>.</p>
 <div class="arithmatex">\[y \log y \,dx + (x - \log y) \,dy = 0\]</div>
-<p>Here, we can identify:<br />
-* <span class="arithmatex">\(M(x,y) = y \log y\)</span><br />
+<p>Here, we can identify:<br>
+* <span class="arithmatex">\(M(x,y) = y \log y\)</span><br>
 * <span class="arithmatex">\(N(x,y) = x - \log y\)</span></p>
-<hr />
-<h3 id="step-2-test-for-exactness_1"><strong>Step 2: Test for Exactness</strong><a class="headerlink" href="#step-2-test-for-exactness_1" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-2-test-for-exactness_1"><strong>Step 2: Test for Exactness</strong><a class="headerlink" href="#step-2-test-for-exactness_1" title="Anchor link to this section for reference">¶</a></h3>
 <p>Next, we check if the equation is <strong>exact</strong> by calculating the partial derivatives.</p>
 <ul>
 <li>
@@ -22573,8 +22428,8 @@ x^6 + x^4y^3 + 3x^4y = C
 </li>
 </ul>
 <p>Since <span class="arithmatex">\(\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}\)</span>, the equation is <strong>not exact</strong>.</p>
-<hr />
-<h3 id="step-3-find-the-integrating-factor-if_1"><strong>Step 3: Find the Integrating Factor (I.F.)</strong><a class="headerlink" href="#step-3-find-the-integrating-factor-if_1" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-3-find-the-integrating-factor-if_1"><strong>Step 3: Find the Integrating Factor (I.F.)</strong><a class="headerlink" href="#step-3-find-the-integrating-factor-if_1" title="Anchor link to this section for reference">¶</a></h3>
 <p>Since the equation is not exact, we need an <strong>Integrating Factor (I.F.)</strong>.</p>
 <p>First, we test the rule for a function of <span class="arithmatex">\(x\)</span>:</p>
 <div class="arithmatex">\[\frac{1}{N}\left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\right) = \frac{(\log y + 1) - 1}{x - \log y} = \frac{\log y}{x - \log y}\]</div>
@@ -22585,13 +22440,13 @@ x^6 + x^4y^3 + 3x^4y = C
 <p>This result is a function of <span class="arithmatex">\(y\)</span> only, so we can use it to find the I.F.</p>
 <div class="arithmatex">\[I.F. = e^{\int g(y)dy} = e^{\int -\frac{1}{y}dy} = e^{-\ln y} = e^{\ln(y^{-1})} = y^{-1} = \frac{1}{y}\]</div>
 <p>The Integrating Factor is <strong><span class="arithmatex">\(\frac{1}{y}\)</span></strong>.</p>
-<hr />
-<h3 id="step-4-make-the-equation-exact_1"><strong>Step 4: Make the Equation Exact</strong><a class="headerlink" href="#step-4-make-the-equation-exact_1" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-4-make-the-equation-exact_1"><strong>Step 4: Make the Equation Exact</strong><a class="headerlink" href="#step-4-make-the-equation-exact_1" title="Anchor link to this section for reference">¶</a></h3>
 <p>Now, we multiply the original equation by the I.F. (<span class="arithmatex">\(\frac{1}{y}\)</span>) to make it exact.</p>
 <div class="arithmatex">\[\frac{1}{y} \big(y \log y \,dx\big) + \frac{1}{y} \big((x - \log y) \,dy\big) = 0\]</div>
 <div class="arithmatex">\[\log y \,dx + \left(\frac{x}{y} - \frac{\log y}{y}\right)dy = 0\]</div>
-<hr />
-<h3 id="step-5-solve-the-exact-equation_1"><strong>Step 5: Solve the Exact Equation</strong><a class="headerlink" href="#step-5-solve-the-exact-equation_1" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-5-solve-the-exact-equation_1"><strong>Step 5: Solve the Exact Equation</strong><a class="headerlink" href="#step-5-solve-the-exact-equation_1" title="Anchor link to this section for reference">¶</a></h3>
 <p>This new equation is exact. The solution is found using the formula:</p>
 <div class="arithmatex">\[
 \int\limits_{\substack{y=\text{const.}}} M_{new}\,dx
@@ -22620,40 +22475,40 @@ x^6 + x^4y^3 + 3x^4y = C
 <p>Combining the parts gives the final solution:</p>
 <div class="arithmatex">\[x \log y - \frac{(\log y)^2}{2} = C\]</div>
 </div>
-<hr />
+<hr>
 <div class="admonition info">
 <p class="admonition-title">Solution Method:01: <span class="arithmatex">\(y^2(ydx + 2xdy) - x^2(2ydx + xdy) = 0\)</span> </p>
-<h3 id="step-1-standard-form_2"><strong>Step 1: Standard Form</strong><a class="headerlink" href="#step-1-standard-form_2" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="step-1-standard-form_2"><strong>Step 1: Standard Form</strong><a class="headerlink" href="#step-1-standard-form_2" title="Anchor link to this section for reference">¶</a></h3>
 <p>First, we need to expand the equation and arrange it into the standard form <span class="arithmatex">\(M(x,y)dx + N(x,y)dy = 0\)</span>.</p>
 <div class="arithmatex">\[y^2(ydx + 2xdy) - x^2(2ydx + xdy) = 0$$
 $$y^3dx + 2xy^2dy - 2x^2ydx - x^3dy = 0\]</div>
 <p>Now, we group the <span class="arithmatex">\(dx\)</span> and <span class="arithmatex">\(dy\)</span> terms:</p>
 <div class="arithmatex">\[(y^3 - 2x^2y)dx + (2xy^2 - x^3)dy = 0\]</div>
-<p>From this, we can identify:<br />
-* <span class="arithmatex">\(M(x,y) = y^3 - 2x^2y\)</span><br />
+<p>From this, we can identify:<br>
+* <span class="arithmatex">\(M(x,y) = y^3 - 2x^2y\)</span><br>
 * <span class="arithmatex">\(N(x,y) = 2xy^2 - x^3\)</span></p>
-<hr />
-<h3 id="step-2-test-for-exactness_2"><strong>Step 2: Test for Exactness</strong><a class="headerlink" href="#step-2-test-for-exactness_2" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-2-test-for-exactness_2"><strong>Step 2: Test for Exactness</strong><a class="headerlink" href="#step-2-test-for-exactness_2" title="Anchor link to this section for reference">¶</a></h3>
 <p>Next, we check if the equation is <strong>exact</strong> by calculating the partial derivatives.</p>
 <div class="arithmatex">\[\frac{\partial M}{\partial y} = \frac{\partial}{\partial y}(y^3 - 2x^2y) = 3y^2 - 2x^2\]</div>
 <div class="arithmatex">\[\frac{\partial N}{\partial x} = \frac{\partial}{\partial x}(2xy^2 - x^3) = 2y^2 - 3x^2\]</div>
 <p>Since <span class="arithmatex">\(\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}\)</span>, the equation is <strong>not exact</strong>.</p>
-<hr />
-<h3 id="step-3-find-the-integrating-factor-if_2"><strong>Step 3: Find the Integrating Factor (I.F.)</strong><a class="headerlink" href="#step-3-find-the-integrating-factor-if_2" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-3-find-the-integrating-factor-if_2"><strong>Step 3: Find the Integrating Factor (I.F.)</strong><a class="headerlink" href="#step-3-find-the-integrating-factor-if_2" title="Anchor link to this section for reference">¶</a></h3>
 <p>We need to find an <strong>Integrating Factor (I.F.)</strong>. The two standard rules for finding an I.F. do not yield a function of a single variable in this case.</p>
 <p>However, since the equation is a <strong>homogeneous</strong> differential equation, we can look for an integrating factor of the form <span class="arithmatex">\(x^a y^b\)</span>. By solving for the exponents, we find that <span class="arithmatex">\(a=1\)</span> and <span class="arithmatex">\(b=1\)</span>.</p>
 <p>Therefore, the Integrating Factor is <strong><span class="arithmatex">\(xy\)</span></strong>.</p>
-<hr />
-<h3 id="step-4-make-the-equation-exact_2"><strong>Step 4: Make the Equation Exact</strong><a class="headerlink" href="#step-4-make-the-equation-exact_2" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-4-make-the-equation-exact_2"><strong>Step 4: Make the Equation Exact</strong><a class="headerlink" href="#step-4-make-the-equation-exact_2" title="Anchor link to this section for reference">¶</a></h3>
 <p>Now, we multiply the standard form of the equation by the I.F. (<span class="arithmatex">\(xy\)</span>) to make it exact.</p>
 <div class="arithmatex">\[xy \big((y^3 - 2x^2y)dx\big) + xy \big((2xy^2 - x^3)dy\big) = 0\]</div>
 <div class="arithmatex">\[(xy^4 - 2x^3y^2)dx + (2x^2y^3 - x^4y)dy = 0\]</div>
-<hr />
-<h3 id="step-5-solve-the-exact-equation_2"><strong>Step 5: Solve the Exact Equation</strong><a class="headerlink" href="#step-5-solve-the-exact-equation_2" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-5-solve-the-exact-equation_2"><strong>Step 5: Solve the Exact Equation</strong><a class="headerlink" href="#step-5-solve-the-exact-equation_2" title="Anchor link to this section for reference">¶</a></h3>
 <p>This new equation is exact. The solution is found using the formula:</p>
 <div class="arithmatex">\[\int M_{new}\,dx + \int (\text{terms in } N_{new} \text{ free from } x)\,dy = C\]</div>
-<p>Here,<br />
-* <span class="arithmatex">\(M_{new} = xy^4 - 2x^3y^2\)</span><br />
+<p>Here,<br>
+* <span class="arithmatex">\(M_{new} = xy^4 - 2x^3y^2\)</span><br>
 * <span class="arithmatex">\(N_{new} = 2x^2y^3 - x^4y\)</span></p>
 <p>Since all terms in <span class="arithmatex">\(N_{new}\)</span> contain <span class="arithmatex">\(x\)</span>, the second integral is <span class="arithmatex">\(0\)</span>. We only need to integrate <span class="arithmatex">\(M_{new}\)</span> with respect to <span class="arithmatex">\(x\)</span>, treating <span class="arithmatex">\(y\)</span> as a constant.</p>
 <div class="arithmatex">\[\int (xy^4 - 2x^3y^2)dx = C\]</div>
@@ -22666,21 +22521,21 @@ $$y^3dx + 2xy^2dy - 2x^2ydx - x^3dy = 0\]</div>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Solution Method:02 <span class="arithmatex">\(y^2(ydx + 2xdy) - x^2(2ydx + xdy) = 0\)</span> </p>
-<h3 id="step-1-rearrange-into-fracdydx-form"><strong>Step 1: Rearrange into <span class="arithmatex">\(\frac{dy}{dx}\)</span> form</strong><a class="headerlink" href="#step-1-rearrange-into-fracdydx-form" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="step-1-rearrange-into-fracdydx-form"><strong>Step 1: Rearrange into <span class="arithmatex">\(\frac{dy}{dx}\)</span> form</strong><a class="headerlink" href="#step-1-rearrange-into-fracdydx-form" title="Anchor link to this section for reference">¶</a></h3>
 <p>First, we expand and group the terms to isolate <span class="arithmatex">\(\frac{dy}{dx}\)</span>.</p>
 <div class="arithmatex">\[y^3dx + 2xy^2dy - 2x^2ydx - x^3dy = 0\]</div>
 <div class="arithmatex">\[(2xy^2 - x^3)dy = (2x^2y - y^3)dx\]</div>
 <div class="arithmatex">\[\frac{dy}{dx} = \frac{2x^2y - y^3}{2xy^2 - x^3}\]</div>
 <p>This is a <strong>homogeneous equation</strong> because all terms in the numerator and denominator are of the same degree (degree 3).</p>
-<hr />
-<h3 id="step-2-apply-the-substitution"><strong>Step 2: Apply the Substitution</strong><a class="headerlink" href="#step-2-apply-the-substitution" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-2-apply-the-substitution"><strong>Step 2: Apply the Substitution</strong><a class="headerlink" href="#step-2-apply-the-substitution" title="Anchor link to this section for reference">¶</a></h3>
 <p>We use the substitution <strong><span class="arithmatex">\(y=vx\)</span></strong>, which implies <strong><span class="arithmatex">\(\frac{dy}{dx} = v + x\frac{dv}{dx}\)</span></strong>.</p>
 <p>Substitute these into the equation:</p>
 <div class="arithmatex">\[v + x\frac{dv}{dx} = \frac{2x^2(vx) - (vx)^3}{2x(vx)^2 - x^3}\]</div>
 <p>Now, we simplify the right side by factoring out <span class="arithmatex">\(x^3\)</span>:</p>
 <div class="arithmatex">\[v + x\frac{dv}{dx} = \frac{x^3(2v - v^3)}{x^3(2v^2 - 1)} = \frac{2v - v^3}{2v^2 - 1}\]</div>
-<hr />
-<h3 id="step-3-separate-the-variables"><strong>Step 3: Separate the Variables</strong><a class="headerlink" href="#step-3-separate-the-variables" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-3-separate-the-variables"><strong>Step 3: Separate the Variables</strong><a class="headerlink" href="#step-3-separate-the-variables" title="Anchor link to this section for reference">¶</a></h3>
 <p>Next, we isolate the <span class="arithmatex">\(v\)</span> and <span class="arithmatex">\(x\)</span> variables.</p>
 <div class="arithmatex">\[x\frac{dv}{dx} = \frac{2v - v^3}{2v^2 - 1} - v\]</div>
 <div class="arithmatex">\[x\frac{dv}{dx} = \frac{2v - v^3 - v(2v^2 - 1)}{2v^2 - 1}\]</div>
@@ -22688,8 +22543,8 @@ $$y^3dx + 2xy^2dy - 2x^2ydx - x^3dy = 0\]</div>
 <div class="arithmatex">\[x\frac{dv}{dx} = \frac{3v(1 - v^2)}{2v^2 - 1}\]</div>
 <p>Now, we rearrange to separate the variables for integration:</p>
 <div class="arithmatex">\[\frac{2v^2 - 1}{3v(1 - v^2)}dv = \frac{1}{x}dx\]</div>
-<hr />
-<h3 id="step-4-integrate-both-sides"><strong>Step 4: Integrate Both Sides</strong><a class="headerlink" href="#step-4-integrate-both-sides" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-4-integrate-both-sides"><strong>Step 4: Integrate Both Sides</strong><a class="headerlink" href="#step-4-integrate-both-sides" title="Anchor link to this section for reference">¶</a></h3>
 <p>The left side requires integration by <strong>partial fractions</strong>, which breaks it down into:</p>
 <div class="arithmatex">\[\frac{1}{3} \int \left( -\frac{1}{v} + \frac{1/2}{1-v} - \frac{1/2}{1+v} \right)dv = \int \frac{1}{x}dx\]</div>
 <p>Integrating both sides gives us:</p>
@@ -22699,8 +22554,8 @@ $$y^3dx + 2xy^2dy - 2x^2ydx - x^3dy = 0\]</div>
 <div class="arithmatex">\[\ln|x^3| + \ln|v| + \ln|\sqrt{1-v^2}| = C_2\]</div>
 <div class="arithmatex">\[\ln|x^3 v \sqrt{1-v^2}| = C_2\]</div>
 <div class="arithmatex">\[x^3 v \sqrt{1-v^2} = C_3\]</div>
-<hr />
-<h3 id="step-5-substitute-back"><strong>Step 5: Substitute Back</strong><a class="headerlink" href="#step-5-substitute-back" title="Anchor link to this section for reference">&para;</a></h3>
+<hr>
+<h3 id="step-5-substitute-back"><strong>Step 5: Substitute Back</strong><a class="headerlink" href="#step-5-substitute-back" title="Anchor link to this section for reference">¶</a></h3>
 <p>Finally, substitute <strong><span class="arithmatex">\(v = \frac{y}{x}\)</span></strong> back into the equation.</p>
 <div class="arithmatex">\[x^3 \left(\frac{y}{x}\right) \sqrt{1 - \left(\frac{y}{x}\right)^2} = C_3\]</div>
 <div class="arithmatex">\[x^2 y \sqrt{\frac{x^2 - y^2}{x^2}} = C_3\]</div>
@@ -22709,7 +22564,7 @@ $$y^3dx + 2xy^2dy - 2x^2ydx - x^3dy = 0\]</div>
 <p>Squaring both sides gives the final, simplified solution:</p>
 <div class="arithmatex">\[x^2y^2(x^2 - y^2) = C\]</div>
 </div>
-<hr />
+<hr>
 <div class="admonition example">
 <p class="admonition-title"> $<span class="arithmatex">\((1 + xy)y \,dx + (1 - xy)x \,dy = 0\)</span>$ </p>
 <div class="arithmatex">\[(1 + xy)y \,dx + (1 - xy)x \,dy = 0\]</div>
@@ -22725,16 +22580,16 @@ $$y^3dx + 2xy^2dy - 2x^2ydx - x^3dy = 0\]</div>
 <div class="arithmatex">\[\int \frac{d(xy)}{(xy)^2} = \int \frac{d(y/x)}{y/x}\]</div>
 <div class="arithmatex">\[-\frac{1}{xy} = \ln\left|\frac{y}{x}\right| + C\]</div>
 </div>
-<hr />
+<hr>
 <div class="admonition info">
 <p class="admonition-title">s</p>
 <p><strong>Given Differential Equation:</strong></p>
 <div class="arithmatex">\[(6x - 5y + 4)dy + (y - 2x - 1)dx = 0\]</div>
-<h3 id="step-1-rearrange-and-prepare-for-substitution">Step 1: Rearrange and Prepare for Substitution<a class="headerlink" href="#step-1-rearrange-and-prepare-for-substitution" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="step-1-rearrange-and-prepare-for-substitution">Step 1: Rearrange and Prepare for Substitution<a class="headerlink" href="#step-1-rearrange-and-prepare-for-substitution" title="Anchor link to this section for reference">¶</a></h3>
 <p>First, we write the equation in the form <span class="arithmatex">\(\frac{dy}{dx}\)</span>:</p>
 <div class="arithmatex">\[\frac{dy}{dx} = - \frac{y - 2x - 1}{6x - 5y + 4} = \frac{2x - y + 1}{6x - 5y + 4} \quad \cdots (1)\]</div>
 <p>Since <span class="arithmatex">\(\frac{a_1}{a_2} \neq \frac{b_1}{b_2}\)</span> (i.e., <span class="arithmatex">\(\frac{2}{6} \neq \frac{-1}{-5}\)</span>), we use the substitution:</p>
-<p>Let <span class="arithmatex">\(x = x' + h \implies dx = dx'\)</span><br />
+<p>Let <span class="arithmatex">\(x = x' + h \implies dx = dx'\)</span><br>
 Let <span class="arithmatex">\(y = y' + k \implies dy = dy'\)</span></p>
 <p>Equation (1) becomes:</p>
 <div class="arithmatex">\[\frac{dy'}{dx'} = \frac{2(x' + h) - (y' + k) + 1}{6(x' + h) - 5(y' + k) + 4} = \frac{2x' - y' + (2h - k + 1)}{6x' - 5y' + (6h - 5k + 4)}\]</div>
@@ -22743,12 +22598,12 @@ Let <span class="arithmatex">\(y = y' + k \implies dy = dy'\)</span></p>
 <li><span class="arithmatex">\(2h - k + 1 = 0\)</span></li>
 <li><span class="arithmatex">\(6h - 5k + 4 = 0\)</span></li>
 </ol>
-<p><strong>Correction 1:</strong> The values for <span class="arithmatex">\(h\)</span> and <span class="arithmatex">\(k\)</span> must be calculated correctly.<br />
-From (1), <span class="arithmatex">\(k = 2h + 1\)</span>. Substituting into (2):<br />
-<span class="arithmatex">\(6h - 5(2h+1) + 4 = 0 \implies 6h - 10h - 5 + 4 = 0 \implies -4h - 1 = 0 \implies h = -\frac{1}{4}\)</span>.<br />
-Then, <span class="arithmatex">\(k = 2(-\frac{1}{4}) + 1 = \frac{1}{2}\)</span>.<br />
+<p><strong>Correction 1:</strong> The values for <span class="arithmatex">\(h\)</span> and <span class="arithmatex">\(k\)</span> must be calculated correctly.<br>
+From (1), <span class="arithmatex">\(k = 2h + 1\)</span>. Substituting into (2):<br>
+<span class="arithmatex">\(6h - 5(2h+1) + 4 = 0 \implies 6h - 10h - 5 + 4 = 0 \implies -4h - 1 = 0 \implies h = -\frac{1}{4}\)</span>.<br>
+Then, <span class="arithmatex">\(k = 2(-\frac{1}{4}) + 1 = \frac{1}{2}\)</span>.<br>
 (Your work had an error in the sign of <span class="arithmatex">\(h\)</span>).</p>
-<h3 id="step-2-solve-the-homogeneous-equation">Step 2: Solve the Homogeneous Equation<a class="headerlink" href="#step-2-solve-the-homogeneous-equation" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="step-2-solve-the-homogeneous-equation">Step 2: Solve the Homogeneous Equation<a class="headerlink" href="#step-2-solve-the-homogeneous-equation" title="Anchor link to this section for reference">¶</a></h3>
 <p>The equation reduces to the homogeneous form:</p>
 <div class="arithmatex">\[\frac{dy'}{dx'} = \frac{2x' - y'}{6x' - 5y'} \quad \cdots (2)\]</div>
 <p>Again, let <span class="arithmatex">\(y' = vx'\)</span>. Differentiating with respect to <span class="arithmatex">\(x'\)</span> gives <span class="arithmatex">\(\frac{dy'}{dx'} = v + x' \frac{dv}{dx'} \quad \cdots (3)\)</span>.</p>
@@ -22758,32 +22613,32 @@ Then, <span class="arithmatex">\(k = 2(-\frac{1}{4}) + 1 = \frac{1}{2}\)</span>.
 <p><strong>Correction 2:</strong> The next algebraic step in your work contained a sign error.</p>
 <div class="arithmatex">\[x' \frac{dv}{dx'} = \frac{2 - v - v(6 - 5v)}{6 - 5v} = \frac{2 - v - 6v + 5v^2}{6 - 5v}\]</div>
 <div class="arithmatex">\[x' \frac{dv}{dx'} = \frac{5v^2 - 7v + 2}{6 - 5v}\]</div>
-<h3 id="step-3-separate-variables-and-integrate">Step 3: Separate Variables and Integrate<a class="headerlink" href="#step-3-separate-variables-and-integrate" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="step-3-separate-variables-and-integrate">Step 3: Separate Variables and Integrate<a class="headerlink" href="#step-3-separate-variables-and-integrate" title="Anchor link to this section for reference">¶</a></h3>
 <p>Now, we separate the variables. This will look different from your version due to the corrected algebra above.</p>
 <div class="arithmatex">\[\frac{dx'}{x'} = \frac{6 - 5v}{5v^2 - 7v + 2} dv$$The denominator factors to $(v-1)(5v-2)$. Using partial fractions:$$\frac{6 - 5v}{(v-1)(5v-2)} = \frac{A}{v-1} + \frac{B}{5v-2}\]</div>
 <p>Solving this gives <span class="arithmatex">\(A = \frac{1}{3}\)</span> and <span class="arithmatex">\(B = -\frac{20}{3}\)</span>.</p>
 <p>Now, we arrange for integration:</p>
 <div class="arithmatex">\[\frac{dx'}{x'} = \left[ \frac{1}{3(v-1)} - \frac{20}{3(5v-2)} \right] dv\]</div>
 <div class="arithmatex">\[\int \frac{dx'}{x'} - \int \frac{1}{3(v-1)} dv + \int \frac{20}{3(5v-2)} dv = 0\]</div>
-<p>Now integrating all terms:<br />
+<p>Now integrating all terms:<br>
 $<span class="arithmatex">\(\ln|x'| - \frac{1}{3}\ln|v-1| + \frac{20}{3} \cdot \frac{1}{5}\ln|5v-2| = C_1\)</span>$</p>
 <div class="arithmatex">\[\ln|x'| - \frac{1}{3}\ln|v-1| + \frac{4}{3}\ln|5v-2| = C_1\]</div>
 <p>Multiply by 3 to clear the fractions and set <span class="arithmatex">\(3C_1 = \ln C\)</span>:</p>
 <div class="arithmatex">\[3\ln|x'| - \ln|v-1| + 4\ln|5v-2| = \ln C$$Using logarithm properties:$$\ln|(x')^3| - \ln|v-1| + \ln|(5v-2)^4| = \ln C\]</div>
 <div class="arithmatex">\[\ln \left| \frac{(x')^3 (5v-2)^4}{v-1} \right| = \ln C$$$$\frac{(x')^3 (5v-2)^4}{v-1} = C\]</div>
 <div class="arithmatex">\[(x')^3 (5v-2)^4 = C(v-1)\]</div>
-<h3 id="step-4-back-substitute">Step 4: Back-Substitute<a class="headerlink" href="#step-4-back-substitute" title="Anchor link to this section for reference">&para;</a></h3>
+<h3 id="step-4-back-substitute">Step 4: Back-Substitute<a class="headerlink" href="#step-4-back-substitute" title="Anchor link to this section for reference">¶</a></h3>
 <p>Substitute <span class="arithmatex">\(x' = x + \frac{1}{4}\)</span>, <span class="arithmatex">\(y' = y - \frac{1}{2}\)</span>, and <span class="arithmatex">\(v = \frac{y'}{x'} = \frac{y-1/2}{x+1/4} = \frac{4y-2}{4x+1}\)</span>.</p>
 <p>After substitution and simplification (as shown in the previous detailed answer), we arrive at the final solution:</p>
 <div class="arithmatex">\[(4y - 4x - 3) = K(5y - 2x - 3)^4\]</div>
 <p>where <span class="arithmatex">\(K\)</span> is the final constant.</p>
 </div>
-<hr />
+<hr>
 <p>Of course. Here is the solution, following the exact step-by-step format from the image, but with all the necessary corrections.</p>
-<hr />
-<p><strong>Given Equation:</strong><br />
+<hr>
+<p><strong>Given Equation:</strong><br>
 $<span class="arithmatex">\(\frac{dy}{dx} = \frac{4x+6y+5}{3y+2x+4} = \frac{2(2x+3y)+5}{(2x+3y)+4}\)</span>$</p>
-<p><strong>Let</strong> <span class="arithmatex">\(2x + 3y = t\)</span><br />
+<p><strong>Let</strong> <span class="arithmatex">\(2x + 3y = t\)</span><br>
 Differentiating with respect to <span class="arithmatex">\(x\)</span>:</p>
 <div class="arithmatex">\[2 + 3\frac{dy}{dx} = \frac{dt}{dx}\]</div>
 <div class="arithmatex">\[\frac{dy}{dx} = \frac{1}{3}\left(\frac{dt}{dx} - 2\right)\]</div>
@@ -22827,7 +22682,7 @@ Differentiating with respect to <span class="arithmatex">\(x\)</span>:</p>
 
 
 
-  <form class="md-feedback" name="feedback" hidden>
+  <form class="md-feedback" name="feedback" hidden="">
     <fieldset>
       <legend class="md-feedback__title">
         Was this page helpful?
@@ -22836,17 +22691,17 @@ Differentiating with respect to <span class="arithmatex">\(x\)</span>:</p>
         <div class="md-feedback__list">
           
             <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"></path></svg>
             </button>
           
             <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"></path></svg>
             </button>
           
         </div>
         <div class="md-feedback__note">
           
-            <div data-md-value="1" hidden>
+            <div data-md-value="1" hidden="">
               
               
                 
@@ -22859,7 +22714,7 @@ Differentiating with respect to <span class="arithmatex">\(x\)</span>:</p>
               Thanks for your feedback!
             </div>
           
-            <div data-md-value="0" hidden>
+            <div data-md-value="0" hidden="">
               
               
                 
@@ -22886,9 +22741,9 @@ Differentiating with respect to <span class="arithmatex">\(x\)</span>:</p>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -22898,13 +22753,13 @@ Differentiating with respect to <span class="arithmatex">\(x\)</span>:</p>
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../../Linear-Algebra/Determinant/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Determinant">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -22929,7 +22784,7 @@ Differentiating with respect to <span class="arithmatex">\(x\)</span>:</p>
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -22941,7 +22796,7 @@ Differentiating with respect to <span class="arithmatex">\(x\)</span>:</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2026 Rakibul Hashan
+      Copyright © 2026 Rakibul Hashan
     </div>
   
   
@@ -22958,7 +22813,7 @@ Differentiating with respect to <span class="arithmatex">\(x\)</span>:</p>
       
     
     <a href="https://www.linkedin.com/in/rakibulhashanrabbi/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
     </a>
   
 </div>
@@ -22988,7 +22843,8 @@ Differentiating with respect to <span class="arithmatex">\(x\)</span>:</p>
         <script src="../../../../../../../javascripts/mathjax/tex-mml-chtml.js"></script>
       
     
-  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+  
+<script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
     try {
         var img = element.querySelector('img');
         if (img && img.src) {
@@ -23001,6 +22857,5 @@ Differentiating with respect to <span class="arithmatex">\(x\)</span>:</p>
     }
 });
 const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
-</html>
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
