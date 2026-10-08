@@ -2,7 +2,7 @@
 
 When building a database for an organization, there are two primary **Design Approaches** (ডিজাইন পদ্ধতিসমূহ) to make sure the data is structured cleanly without errors:
 
----
+![Primary-Design-Approaches](https://res.cloudinary.com/zopgecx6/image/upload/v1791445853/design_approaches_-_BOU_CSE_NOtes_uwcdsq.jpg)
 
 ### 1. Normalization Theory (নরমালাইজেশন তত্ত্ব)
 
