@@ -4,6 +4,14 @@
 
  ---
 
+!!! info "Practice MySQL in Browser"
+    
+    Our SQL - A Practice platform for mySQL in phpMyAdmin in your browser
+    
+    <a href="https://aitodoc.onrender.com/">
+       ![Our SQL - A Practice platform for mySQL in phpMyAdmin in your browser](https://res.cloudinary.com/zopgecx6/image/upload/v1791405844/oursql_practice_lkbwmo.jpg)
+    </a>
+
 !!! info "8086 Microprocessor 3d Diagram"
     
     [8086 Microprocessor Pin Diagram](https://8086-microprocessor.vercel.app/)
