@@ -105,6 +105,38 @@
     3. **ব্রেডবোর্ড সংযোগ:** ব্রেডবোর্ডে পিন পুরোপুরি না বসলে লাইন ড্রপ করে; সরাসরি জাম্পার ওয়্যার ব্যবহার করলে এই সমস্যা এড়ানো যায়।
 
 
+    ??? "Buzzer পরিচিতি"
+    
+    বাজার (Buzzer) হলো একটি অডিও সংকেত সৃষ্টিকারী ইলেকট্রনিক যন্ত্র (Audio signaling device), যা বিদ্যুৎ প্রবাহ বা সিগন্যাল পেলে নির্দিষ্ট কম্পাঙ্কে শব্দ বা বিপ (Beep) তৈরি করে।
+
+    বাজারে থাকা **`+`** এবং **`-`** হলো এর দুটি বিদ্যুৎ প্রবাহের প্রান্ত বা টার্মিনাল (Terminals):
+
+    ---
+
+    ### ১. ধনাত্মক প্রান্ত বা পজিটিভ পিন (`+` Pin / Anode)
+
+    * **কাজ:** এই পিনটি দিয়ে বাজারে সিগন্যাল বা বিদ্যুৎ সরবরাহ (Power/Signal) প্রবেশ করে।
+
+
+    * **সংযোগ (Connection):** আরডুইনো দিয়ে বাজার নিয়ন্ত্রণ করার জন্য এই পিনটিকে আরডুইনোর যেকোনো ডিজিটাল পিনে (যেমন: D8 বা D7) সংযোগ করতে হয়। কোড থেকে যখন ওই পিনে সংকেত পাঠানো হয়, তখনই বাজারটি শব্দ করা শুরু করে।
+    * **বাস্তবে চেনার উপায়:** বাস্তব হার্ডওয়্যারে এই পিনের পা বা লেগটি (Leg) তুলনামূলকভাবে লম্বা থাকে এবং প্লাস্টিক কেসিংয়ের ওপরে অনেক সময় `+` চিহ্ন খোদাই করা থাকে।
+
+    ---
+
+    ### ২. ঋণাত্মক প্রান্ত বা নেগেটিভ পিন (`-` Pin / Cathode)
+
+    * **কাজ:** বিদ্যুৎ প্রবাহের পথ বা সার্কিট সম্পূর্ণ করে গ্রাউন্ডে ফেরত নেওয়ার কাজ করে এই পিনটি (Ground / Return path)।
+
+
+    * **সংযোগ (Connection):** এই পিনটিকে সবসময় সার্কিটের গ্রাউন্ড অর্থাৎ আরডুইনোর **GND** পিনের সাথে যুক্ত করতে হয়।
+    * **বাস্তবে চেনার উপায়:** বাস্তব বাজারে এর পা বা লেগটি (Leg) পজিটিভ পিনের চেয়ে কিছুটা খাটো থাকে।
+
+    ---
+
+    ### উল্টো লাগালে কী হবে?
+
+    বেশিরভাগ বাজারই হলো পোলারাইজড (Polarized), অর্থাৎ নির্দিষ্ট ধনাত্মক ও ঋণাত্মক দিক মেনে চলে। পজিটিভ ও নেগেটিভ উল্টো সংযোগ দিলে বাজারের ভেতর দিয়ে বিদ্যুৎ সঠিক পথে প্রবাহিত হতে পারে না, ফলে বাজার থেকে কোনো শব্দ বের হবে না।
+
 
 === "English"
 
@@ -204,3 +236,5 @@
     * **Screen shows nothing in Tinkercad:** Tinkercad’s default I2C LCD uses an **MCP23008** chip. Using the `LiquidCrystal_I2C.h` library will not show text; use `Adafruit_LiquidCrystal.h` instead. On physical hardware with a `PCF8574` backpack, standard `LiquidCrystal_I2C(0x27, 16, 2)` works.
     * **Sensor reads 0 cm continuously:** Check whether the `VCC` pin has 5V power. If power is loose or floating, the transmitter never fires sound pulses.
     * **Flickering numbers on screen:** Always add empty spaces at the end of the print statement (e.g., `" cm   "`). This clears leftovers when numbers drop from two digits to one.
+
+

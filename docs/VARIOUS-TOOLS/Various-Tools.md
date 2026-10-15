@@ -4,11 +4,18 @@
 
  ---
 
+!!! info "Arduino Uno all components view"
+    
+    View all the components of an Arduino Uno in detached or assembled way.
+    
+    <a href="oursql.vercel.app/">
+
+    </a>
 !!! info "Practice MySQL in Browser"
     
     Our SQL - A Practice platform for mySQL in phpMyAdmin in your browser
     
-    <a href="https://aitodoc.onrender.com/">
+    <a href="https://oursql.vercel.app/">
        ![Our SQL - A Practice platform for mySQL in phpMyAdmin in your browser](https://res.cloudinary.com/zopgecx6/image/upload/v1791405844/oursql_practice_lkbwmo.jpg)
     </a>
 
