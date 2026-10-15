@@ -19380,6 +19380,39 @@ const registerKeyboardEventHandler = () => {
 </li>
         
           <li class="md-nav__item">
+  <a href="#pin-anode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ১. ধনাত্মক প্রান্ত বা পজিটিভ পিন (+ Pin / Anode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-pin-cathode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ২. ঋণাত্মক প্রান্ত বা নেগেটিভ পিন (- Pin / Cathode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        উল্টো লাগালে কী হবে?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#introduction_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -21571,6 +21604,39 @@ const registerKeyboardEventHandler = () => {
 </li>
         
           <li class="md-nav__item">
+  <a href="#pin-anode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ১. ধনাত্মক প্রান্ত বা পজিটিভ পিন (+ Pin / Anode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-pin-cathode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ২. ঋণাত্মক প্রান্ত বা নেগেটিভ পিন (- Pin / Cathode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        উল্টো লাগালে কী হবে?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#introduction_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -21762,6 +21828,36 @@ const registerKeyboardEventHandler = () => {
 <li><strong>সেন্সর কাজ না করা:</strong> সেন্সরের <code>VCC</code> পিনে ৫ ভোল্ট ঠিকমতো পাচ্ছে কি না তা নিশ্চিত করুন। পাওয়ার সংযোগ বিচ্ছিন্ন থাকলে ইকো পিন কোনো মান ফেরত পাঠায় না।</li>
 <li><strong>ব্রেডবোর্ড সংযোগ:</strong> ব্রেডবোর্ডে পিন পুরোপুরি না বসলে লাইন ড্রপ করে; সরাসরি জাম্পার ওয়্যার ব্যবহার করলে এই সমস্যা এড়ানো যায়।</li>
 </ol>
+<details>
+<summary>Buzzer পরিচিতি</summary>
+</details>
+<p>বাজার (Buzzer) হলো একটি অডিও সংকেত সৃষ্টিকারী ইলেকট্রনিক যন্ত্র (Audio signaling device), যা বিদ্যুৎ প্রবাহ বা সিগন্যাল পেলে নির্দিষ্ট কম্পাঙ্কে শব্দ বা বিপ (Beep) তৈরি করে।</p>
+<p>বাজারে থাকা <strong><code>+</code></strong> এবং <strong><code>-</code></strong> হলো এর দুটি বিদ্যুৎ প্রবাহের প্রান্ত বা টার্মিনাল (Terminals):</p>
+<hr />
+<h3 id="pin-anode">১. ধনাত্মক প্রান্ত বা পজিটিভ পিন (<code>+</code> Pin / Anode)<a class="headerlink" href="#pin-anode" title="Anchor link to this section for reference">&para;</a></h3>
+<ul>
+<li>
+<p><strong>কাজ:</strong> এই পিনটি দিয়ে বাজারে সিগন্যাল বা বিদ্যুৎ সরবরাহ (Power/Signal) প্রবেশ করে।</p>
+</li>
+<li>
+<p><strong>সংযোগ (Connection):</strong> আরডুইনো দিয়ে বাজার নিয়ন্ত্রণ করার জন্য এই পিনটিকে আরডুইনোর যেকোনো ডিজিটাল পিনে (যেমন: D8 বা D7) সংযোগ করতে হয়। কোড থেকে যখন ওই পিনে সংকেত পাঠানো হয়, তখনই বাজারটি শব্দ করা শুরু করে।</p>
+</li>
+<li><strong>বাস্তবে চেনার উপায়:</strong> বাস্তব হার্ডওয়্যারে এই পিনের পা বা লেগটি (Leg) তুলনামূলকভাবে লম্বা থাকে এবং প্লাস্টিক কেসিংয়ের ওপরে অনেক সময় <code>+</code> চিহ্ন খোদাই করা থাকে।</li>
+</ul>
+<hr />
+<h3 id="-pin-cathode">২. ঋণাত্মক প্রান্ত বা নেগেটিভ পিন (<code>-</code> Pin / Cathode)<a class="headerlink" href="#-pin-cathode" title="Anchor link to this section for reference">&para;</a></h3>
+<ul>
+<li>
+<p><strong>কাজ:</strong> বিদ্যুৎ প্রবাহের পথ বা সার্কিট সম্পূর্ণ করে গ্রাউন্ডে ফেরত নেওয়ার কাজ করে এই পিনটি (Ground / Return path)।</p>
+</li>
+<li>
+<p><strong>সংযোগ (Connection):</strong> এই পিনটিকে সবসময় সার্কিটের গ্রাউন্ড অর্থাৎ আরডুইনোর <strong>GND</strong> পিনের সাথে যুক্ত করতে হয়।</p>
+</li>
+<li><strong>বাস্তবে চেনার উপায়:</strong> বাস্তব বাজারে এর পা বা লেগটি (Leg) পজিটিভ পিনের চেয়ে কিছুটা খাটো থাকে।</li>
+</ul>
+<hr />
+<h3 id="_1">উল্টো লাগালে কী হবে?<a class="headerlink" href="#_1" title="Anchor link to this section for reference">&para;</a></h3>
+<p>বেশিরভাগ বাজারই হলো পোলারাইজড (Polarized), অর্থাৎ নির্দিষ্ট ধনাত্মক ও ঋণাত্মক দিক মেনে চলে। পজিটিভ ও নেগেটিভ উল্টো সংযোগ দিলে বাজারের ভেতর দিয়ে বিদ্যুৎ সঠিক পথে প্রবাহিত হতে পারে না, ফলে বাজার থেকে কোনো শব্দ বের হবে না।</p>
 </div>
 <div class="tabbed-block">
 <h3 id="introduction_1">Introduction<a class="headerlink" href="#introduction_1" title="Anchor link to this section for reference">&para;</a></h3>
