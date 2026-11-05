@@ -4,6 +4,14 @@
 
  ---
 
+!!! info "3d PC with Anatomic view"
+    
+    3D PC EXPLORER
+    
+    <a href="pc3d.rakibulhashanrabbi.com">
+    ![3D PC EXPLORER](https://res.cloudinary.com/zopgecx6/image/upload/v1793908032/pc3d.rakibulhashanrabbi.com_hq4py0.jpg)
+    </a>
+
 !!! info "Arduino Uno all components view"
     
     View all the components of an Arduino Uno in detached or assembled way.
@@ -25,7 +33,8 @@
 
 !!! info "8086 Microprocessor Pin Diagram"
     
-    [8086 Microprocessor Pin Diagram](https://8086-microprocessor.vercel.app/)
+    [Query Quest Game - SQL Game](https://qqgame.vercel.app/)
+    
 
 !!! info "KMap Generator"
     
