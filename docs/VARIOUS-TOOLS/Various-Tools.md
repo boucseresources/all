@@ -8,18 +8,12 @@
     
     Codenrun - Online code editor
     
-    <a href="https://sqlboi.vercel.app/">
+    <a href="https://codenrun.vercel.app/">
     ![codenrun](https://res.cloudinary.com/zopgecx6/image/upload/v1795662465/codenrun_n8ng5n.jpg)
     
     </a>
 
-!!! info "3d PC with Anatomic view"
-    
-    3D PC EXPLORER
-    
-    <a href="https://sqlboi.vercel.app/">
-    ![3D PC EXPLORER](https://res.cloudinary.com/zopgecx6/image/upload/v1793908032/pc3d.rakibulhashanrabbi.com_hq4py0.jpg)
-    </a>
+
 !!! info "3d PC with Anatomic view"
     
     3D PC EXPLORER
