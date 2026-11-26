@@ -1,6 +1,6 @@
 # Defects In Solid
 
-![Classification](<Defects in solid.png>)
+![Classification](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0486_je0z5m.png>)
 
 
 # Exam Study Notes: Additional Crucial Terminologies

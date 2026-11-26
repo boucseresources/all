@@ -4,7 +4,7 @@
 ---
 === "Bangla Version"
     !!! info "Breadboard"
-        ![breadboard-full-hd](image-1.png)
+        ![breadboard-full-hd](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0392_alx1ci.png)
 
 
         ## 🌱 Part-1: Breadboard কী?
@@ -23,7 +23,7 @@
         ## 🧩 Part-2: ভিতরের Connection Secret
 
         ### ⚡ Breadboard আসলে ভিতরে কীভাবে connected?
-        ![breadboard-details](image.png)
+        ![breadboard-details](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0399_fjtl9i.png)
         Breadboard এর **holes গুলো সব আলাদা না**। ভেতরে hidden metal strips আছে।
 
         * **মাঝখানে:**
@@ -106,7 +106,7 @@
     ---
 
     ## 🧱 Package & Pin Numbering (DIP উদাহরণ)
-    ![and-gate-ic](image-2.png)
+    ![and-gate-ic](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0177_sm8ri4.png)
     - Notch/dot ওপরে ধরলে **বাম দিকের উপরের পা = Pin‑1**  
     - Anti‑clockwise ঘুরে নম্বর বাড়ে; **14‑pin**-এ সাধারণত **Pin‑14 = Vcc**, **Pin‑7 = GND**
 

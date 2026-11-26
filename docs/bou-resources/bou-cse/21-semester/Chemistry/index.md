@@ -1,7 +1,7 @@
 ## Detailed Syllabus
 
-![alt text](image-1.png)
-![alt text](image-2.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0246_a8tqhd.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0202_brvh4y.png)
 
 ??? "Syllabus Details"
 

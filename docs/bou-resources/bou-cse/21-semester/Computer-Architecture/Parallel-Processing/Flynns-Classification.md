@@ -1,12 +1,12 @@
-![alt text](image-13.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0457_yhkdbk.png)
 
-![MIMD](image-14.png)
+![MIMD](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0389_x0spc2.png)
 
 ### Detailed Technical Notes on Flynn's Taxonomy Categories
 
 #### 1. Single Instruction, Single Data (SISD) Computers
 
-![Single Data (SISD)](image-15.png)
+![Single Data (SISD)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0147_a2p2ga.png)
 
 * **System Characteristics:** An SISD architecture is a standard uni-processor machine (ইউনিপ্রসেসর মেশিন) configured to run a single instruction stream acting on a single data stream.
 * **Execution Paradigm:** During any single operational clock cycle, only one specific instruction stream is executed by the Central Processing Unit (CPU) targeting a single input data stream. It defines a classic serial (non-parallel) computer.
@@ -17,7 +17,7 @@
 
 #### 2. Single Instruction, Multiple Data (SIMD) Computers
 
-![SIMD](image-16.png)
+![SIMD](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0069_hcpexz.png)
 
 * **System Characteristics:** An SIMD system configuration is capable of broadcasting the exact same instruction step across all processing cores simultaneously, but each core operates on independent, different data streams.
 * **Hardware Architecture:** The setup integrates a single shared control unit (CU) alongside multiple separate Processing Units (PUs) or Arithmetic Logic Units (ALUs). The master control unit issues only one instruction at a given time slice, while the array of processing units carries out calculations across multiple independent datasets simultaneously.
@@ -75,7 +75,7 @@ Based on whether the instruction and data streams are single or multiple, Flynn 
 #### The Four Core Flynn Categories
 
 ##### 1. Single Instruction, Single Data (SISD)
-![Single Data (SISD)](image-15.png)
+![Single Data (SISD)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0147_a2p2ga.png)
 * **Operating Principle:** A basic uni-processor machine configuration where a single processing unit executes a single instruction stream acting on a single data stream during any single clock cycle.
 * **Execution Behavior:** The machine operates purely sequentially (ধাপ অনুসারে). At any one moment in time, only one instruction can manipulate one data element.
 * **Internal Parallelism:** Although it is fundamentally a serial (non-parallel) computer, internal parallel processing can still be achieved by introducing design mechanisms like instruction pipelining (পাইপলাইনিং) or inserting multiple specialized functional units under one control block.
@@ -84,8 +84,8 @@ Based on whether the instruction and data streams are single or multiple, Flynn 
 
 ##### 2. Single Instruction, Multiple Data (SIMD)
 
-![alt text](image-17.png)
-![SIMD Example](image-18.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0069_hcpexz.png)
+![SIMD Example](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0159_ncs9fk.png)
 
 * **Operating Principle:** A parallel system configuration capable of executing the exact same instruction step simultaneously across multiple processing cores, but each core operates on a different, unique data element.
 * **Execution Behavior:** The system utilizes a single master control unit (CU) that fetches and broadcasts a single instruction stream to an array of multiple Processing Units (PUs) or ALUs. Each processing unit operates on its own separate, distinct data stream.
@@ -96,7 +96,7 @@ Based on whether the instruction and data streams are single or multiple, Flynn 
 
 ##### 3. Multiple Instruction, Single Data (MISD)
 
-![MISD](image-19.png)
+![MISD](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0188_a0ltry.png)
 
 * **Operating Principle:** An architecture where multiple independent processing elements receive multiple separate instruction streams, but all of them manipulate the exact same single data stream concurrently.
 * **Execution Behavior:** Multiple different operations are carried out on the same piece of data at the same time mark.
@@ -104,11 +104,11 @@ Based on whether the instruction and data streams are single or multiple, Flynn 
 * **Primary Use Case:** Specialized real-time backup setups or fault-tolerant structures where multiple processors check the same data stream for safety and errors.
 
 * **Examples:** Systolic Arrays (সিস্টোলিক অ্যারে).
-![ MISD Example ](image-20.png)
+![ MISD Example ](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0385_yrcmyc.png)
 
 ##### 4. Multiple Instruction, Multiple Data (MIMD)
 
-![MIMD](image-21.png)
+![MIMD](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0342_lomcqt.png)
 
 * **Operating Principle:** The most powerful parallel computing architecture where multiple independent processors execute completely different instruction streams on multiple independent data streams simultaneously.
 * **Execution Behavior:** Every individual processing unit contains its own control unit and its own data pathway. This configuration offers the highest degree of parallelism, allowing diverse programs to run concurrently without waiting for a shared control block.

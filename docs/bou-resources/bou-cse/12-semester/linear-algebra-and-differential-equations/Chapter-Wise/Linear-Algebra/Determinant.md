@@ -2,7 +2,7 @@
 
 ??? "as image"
 
-    ![alt text](image.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0526_vnzv9o.png)
 
 The formula $|\mathbf{C}| = |\mathbf{P}|^{n-1}$ is a property of a **cofactor matrix (C)** derived from an original **square matrix (P)** of order $n \times n$. Specifically, the determinant of the cofactor matrix is equal to the determinant of the original matrix raised to the power of $n - 1$.
 

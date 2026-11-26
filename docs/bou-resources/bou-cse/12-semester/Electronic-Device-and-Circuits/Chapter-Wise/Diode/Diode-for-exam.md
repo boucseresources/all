@@ -102,7 +102,7 @@
 
     The V–I characteristics of a diode show the relationship between the voltage applied across the diode and the current flowing through it. This characteristic curve helps to understand the behavior of the diode in different operating regions.
 
-    ![alt text](image-4.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0114_xgmaf0.png)
  
 
     ### Forward Region Behavior
@@ -152,7 +152,7 @@
 
     This diagram shows the **structure of a PN junction diode**, its **symbol**, and the **V–I characteristics curve** under forward and reverse bias.
 
-    ![alt text](image-5.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0230_vwhkjm.png)
 
     ## 1. PN Junction Structure (Top Part)
 
@@ -436,7 +436,7 @@
 
     Both avalanche and Zener breakdowns are safe operating modes (নিরাপদ কার্যপ্রণালী) when the diode is properly designed (সঠিকভাবে নকশা করা).
 
-    ![alt text](image-7.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0534_qr6tor.png)
 
     ## V I Characteristics of Zener Diode
 
@@ -472,7 +472,7 @@
 
     A Zener regulator is a simple voltage regulating circuit that uses a Zener diode to maintain a constant output voltage. It is commonly used in low power electronic circuits where a stable voltage supply is required. The Zener regulator works by operating the Zener diode in its reverse bias breakdown region (রিভার্স বায়াস ব্রেকডাউন অঞ্চল).
 
-    ![Zener Regulator Circuit Diagram](image-8.png)
+    ![Zener Regulator Circuit Diagram](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0196_lyqan8.png)
 
     ## Circuit Diagram
 

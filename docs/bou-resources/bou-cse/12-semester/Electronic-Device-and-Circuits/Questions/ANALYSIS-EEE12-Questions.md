@@ -205,7 +205,7 @@ Short questions, easy marks, often ignored.
 
 ## 2. Horizontal Heatmap (Easy Visual Priority)
 
-![alt text](image-13.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0182_bii162.png)
 
 **Interpretation in one line:**
 If time is short, **PN Diode + BJT + FET + Op-Amp** alone can safely cover **5 full questions**.

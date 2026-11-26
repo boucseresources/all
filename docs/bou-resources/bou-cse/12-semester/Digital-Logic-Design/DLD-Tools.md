@@ -18,4 +18,4 @@
 ### Circuit Generators:
 
 - [Circuitlab](https://www.circuitlab.com/editor/#?id=7pq5wm&from=homepage) - এটা যদিও ফ্রি না। তবে ফ্রিতে অনেক সময় ধরে কাজ করা যায় আর খুবই standard components এখানে পাওয়া যায়। তবে মূলত এসাইনমেন্টের ছবি বা এ ধরনের bookish circuit বানাতে এটা অনেক ভালো। একটা tips দেই, সেটা হচ্ছে Grid lines গুলো remove করে screenshot দিয়ে এটা যেকোন এসাইনমেন্ট বা digital note এ ব্যবহার করা যায়।
-  ![circuitlab](image.png)
+  ![circuitlab](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0440_vrptaq.png)

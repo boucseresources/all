@@ -56,7 +56,7 @@
         Input_Output --- Bus
     ```
 
-    ![alt text](image.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0471_fd9o0m.png)
 
     ## ⚠️ Important Warnings for Beginners
 
@@ -132,7 +132,7 @@
 
     > ⚠️ **মনে রাখবেন:** **Flag Register (F)** খুব গুরুত্বপূর্ণ। এটি বলে দেয় কোনো যোগফল কি শূন্য হয়েছে (Z-flag) নাকি হাতে কিছু রয়ে গেছে (Carry flag)।
 
-    ![alt text](<General Register Processor (2).png>)
+    ![alt text](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0456_vvhx0o.png>)
 
     আপনার দেওয়া ছবিটি একটি **সাধারণ রেজিস্টার প্রসেসরের (General Register Processor)** গঠন বা আর্কিটেকচার তুলে ধরছে। নিচে ডায়াগ্রামের প্রতিটি অংশের বিস্তারিত ব্যাখ্যা বাংলায় দেওয়া হলো:
 
@@ -182,8 +182,8 @@
 
 
     ---
-    ![Accumulator Based Processor (English)](<Accumulator Based Processor (English)-tinified.png>)
-    ![Accumulator Based Processor (Bangla)](<Accumulator Based Processor (Bangla)-tinified.png>)
+    ![Accumulator Based Processor (English)](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0540_d6xj7o.png>)
+    ![Accumulator Based Processor (Bangla)](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0329_spez7w.png>)
 === "English"
     ###  English Version (Easy/Indian Style)
 
@@ -195,7 +195,7 @@
 
     #### 2. How Computer Changes its Path
     Normally, computer goes 1, 2, 3... in order. But in Figure 1.3, it shows two special cases:
-    ![alt text](image-2.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0551_urcwry.png)
     *   **Branching (Jump):** Look at picture 'a', the computer is at location 4, but suddenly it **jumps** to Location B. It skips the middle steps! 🔀
     *   **Subroutine (Call):** In picture 'b', at location 5, it calls a mini-program at location S. After finishing that work, it uses a **Return instruction** to come back to location 6. 🔄
 

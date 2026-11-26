@@ -229,7 +229,7 @@
 
     ---
 
-    ![alt text](image.png){width=50%}
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0369_uzfmi8.png){width=50%}
 
     ## Solution Using Thevenin’s Theorem
 

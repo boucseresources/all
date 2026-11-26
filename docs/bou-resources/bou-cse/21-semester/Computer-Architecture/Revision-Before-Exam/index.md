@@ -227,7 +227,7 @@ Response time বলে **একটি কাজ কত দ্রুত শে�
 ### Figure: functional organization
 
 ![Basic Functional Units of a Computer](figures/02_basic_functional_units.svg)
-![Basic Functional Units of a Computer](image.png){height=400px}
+![Basic Functional Units of a Computer](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0470_y45jvo.png){height=400px}
 
 
 A stored-program computer contains five fundamental units:
@@ -290,7 +290,7 @@ A bus that connects the computer's primary hardware components (CPU, memory, and
 * **Data Bus:** This bus carries only data from one component to another. It consists of 8, 16, 32, or more parallel data lines. Because it is used for both receiving data (from memory or input devices) and sending data (to memory or output devices), the data bus is **bidirectional**.
 * **Address Bus:** This bus carries only the address of a memory location or an I/O device. It typically consists of 16, 20, or 24 address lines. Because the CPU can only perform one operation at a time on this bus—either sending an address to write or receiving an address to read—the address bus is **unidirectional**.
 * **Control Bus:** This bus carries control information in the form of control signals provided by the control unit. These signals are required to perform various activities, such as reading data from an input device, writing data to memory, or displaying data on an output device.
-![System Bus](image-3.png)
+![System Bus](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0522_mvad6c.png)
 ---
 
 ## **3. Types of Bus Structures**
@@ -300,13 +300,13 @@ There are three main types of bus structures used in computer architecture:
 ### **A. Single Bus Structure**
 
 In this structure, the data bus, address bus, and control bus are combined into a single system bus. All major hardware components are connected to this one bus.
-![Single Bus Structure](image-4.png)
+![Single Bus Structure](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0113_ixsslk.png)
 * **Operation:** The most important rule here is that **only one transfer can be done at a time**. This means only two major components (e.g., the CPU and memory, or the CPU and an I/O device) can actively use the bus at any given moment.
 * **Advantages:** It is highly cost-effective and provides great flexibility for attaching a large number of peripheral devices to the system.
 * **Disadvantages:** Because only two units can communicate at a time, all other connected peripherals must wait in an inactive state until the current transfer is complete. This results in high **propagation delay** and slower overall performance.
 
 ### **B. Double Bus Structure**
-![Double Bus Structure](image-2.png)
+![Double Bus Structure](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0379_e4hlhq.png)
 As the name implies, this structure utilizes two separate buses to improve efficiency:
 
 1. **Memory Bus:** Used primarily by the processor to fetch instructions and transfer data to and from the memory unit.
@@ -318,7 +318,7 @@ As the name implies, this structure utilizes two separate buses to improve effic
 ### **C. Multiple Bus Structure**
 
 The multiple bus structure incorporates several specialized buses to handle different capacities and speeds. Aside from the standard system bus, it mainly focuses on three specific buses:
-![Multiple Bus Structure](image-1.png)
+![Multiple Bus Structure](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0473_iskwpn.png)
 1. **Local Bus:** This connects the processor to the cache memory through a local I/O controller.
 2. **High-Speed Bus:** High-capacity I/O devices (like graphics cards, video, and LAN networks) operate at very fast speeds. These are connected to the high-speed bus using interfaces like SCSI (Small Computer System Interface) and P1394 (FireWire). This bus is also connected directly to the cache memory.
 3. **Expansion Bus:** Low-capacity and slower I/O devices (like fax machines, modems, and serial devices) are connected to the expansion bus.
@@ -355,7 +355,7 @@ Synchronous bus clock অনুসরণ করে; asynchronous bus request/ack
 ??? info "A6. Instruction Set Architecture and MIPS Instruction Formats"
 
       **Explanation of the ISA Layered Diagram**
-      ![ISA Layered Diagram](image-5.png)
+      ![ISA Layered Diagram](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0559_mpxsd1.png)
       Let us carefully look at the provided image to understand the real-life feeling of how Instruction Set Architecture works. The picture beautifully shows a layered computer system where the ISA block sits exactly in the middle.
 
       To feel how ISA actually works, we need to divide this image into three simple zones.
@@ -482,7 +482,7 @@ Synchronous bus clock অনুসরণ করে; asynchronous bus request/ack
       | Examples | MIPS, RISC-V, SPARC, ARM conceptually | x86, VAX, Motorola 68000 |
 
       RISC aims to make frequent operations fast and pipeline-friendly. CISC aims to express more work per instruction and preserve compact, powerful instruction semantics. Modern x86 processors decode complex x86 instructions into simpler internal micro-operations, while modern RISC processors include sophisticated caches, prediction and out-of-order execution. Therefore, implementation quality and workload matter more than the label alone.
-      ![alt text](image-6.png)
+      ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0283_xgllnm.png)
 
 ---
 
@@ -532,7 +532,7 @@ Synchronous bus clock অনুসরণ করে; asynchronous bus request/ack
       ### MIPS-এ মাত্র ৩২টি রেজিস্টার কেন?
 
       MIPS-এ মোট ৩২টি জেনারেল-পারপাস রেজিস্টার থাকে। এর প্রধান কারণ হলো **"Smaller is faster"**। অর্থাৎ, মেমরি বা রেজিস্টারের আকার যত ছোট হবে, প্রসেসর সেখান থেকে তত দ্রুত ডেটা খুঁজে বের করতে পারবে। স্পিড বা দ্রুতগতির জন্যই এতে খুব বেশি রেজিস্টার রাখা হয়নি।   
-      ![alt text](image-7.png)
+      ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0568_dhkley.png)
 
       আপনার দেওয়া স্লাইড এবং ভিডিওটি থেকে MIPS Instruction Format-এর পুরো বিষয়টি সহজ ও গুছিয়ে নিচে তুলে ধরা হলো।
 
@@ -1870,7 +1870,7 @@ Complex modes reduce instruction count but increase address-generation complexit
 	[ স্ট্যাটাস ফ্ল্যাগস ]    --------> |   CU   | -------> [ মেমোরি রিড/রাইট সিগন্যাল ]
 	[ সিস্টেম বাস সিগন্যাল ] --------> +--------+ -------> [ I/O ডিভাইস কন্ট্রোল ]
 
-	![alt text](image-9.png)
+	![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0130_mv7gfu.png)
 
 	## ৩. ইনস্ট্রাকশন সাইকেল বা মেশিন সাইকেল (The Machine Cycle)
 	কন্ট্রোল ইউনিটের মূল উদ্দেশ্যটি মূলত ৪টি ধাপে চক্রাকারে সম্পন্ন হয়:
@@ -2135,7 +2135,7 @@ Complex modes reduce instruction count but increase address-generation complexit
 
 	the loaded data becomes available only after the load’s MEM stage, too late for the immediately following EX stage. A hazard-detection unit inserts one bubble; then `MEM/WB` forwarding supplies the value. Thus forwarding reduces but does not eliminate all RAW stalls.
 
-	![alt text](image-11.png)
+	![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0259_mfhxq6.png)
 
 ## 20. Datapath Modification to Support Forwarding
 
@@ -2147,7 +2147,7 @@ Complex modes reduce instruction count but increase address-generation complexit
 	১০ মিনিট পরীক্ষার আগে ঝটপট খাতায় আঁকার জন্য নিচে একটি সহজ টেক্সট-ভিত্তিক ব্লকিং ডায়াগ্রাম এবং তার সংক্ষিপ্ত ব্যাখ্যা দেওয়া হলো:
 
 	## 🛤️ ডেটাপাথের পরিবর্তন (Text-Based Modified Datapath)
-	![Datapath Additions for Operand Forwarding](image-10.png)
+	![Datapath Additions for Operand Forwarding](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0481_cjupyc.png)
 
 	## 🛠️ ৩টি প্রধান মডিফিকেশন (পরীক্ষার খাতায় লেখার বুলেট পয়েন্ট)
 
@@ -2236,8 +2236,8 @@ Complex modes reduce instruction count but increase address-generation complexit
 
 ## 22. Multiplication Algorithm and Processor Hardware
 	
-	![alt text](image-12.png)
-	![alt text](image-13.png)
+	![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0377_hictpm.png)
+	![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0237_cujhnk.png)
 
 
 ## 23. Divide \((1010)_2\) by \((0010)_2\)

@@ -1,8 +1,8 @@
 # Data Structure: Class Notes
 
 ## Referred Book by  Sir
-![DATA STRUCTURES WITH C SEYMOUR LIPSCHUTZ](image.png)
-![alt text](-2147483648_-210013.webp)
+![DATA STRUCTURES WITH C SEYMOUR LIPSCHUTZ](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0119_pgfmvx.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0572_unsyhs.webp)
 
 ## Stack
 ??? "Stack"

@@ -1,6 +1,6 @@
 # Chapter 1: Introduction to Wye-Delta Transformations
 
-![Introduction to Wye-Delta Transformations](image.png){width=70%}
+![Introduction to Wye-Delta Transformations](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0193_mtrakx.png){width=70%}
  /// caption
  Introduction to Wye-Delta Transformations
  ///
@@ -42,7 +42,7 @@ To find the equivalent resistors in the **Wye** network ($R_a, R_b, R_c$) from t
 **The Rule:** The value of any resistor in the Y network is the **product of the two adjacent resistors** in the $\Delta$ network, divided by the **sum of all three resistors** in the $\Delta$ network.
 
 Let's look at the formulas based on the diagram below:
-  ![Introduction to Wye-Delta Transformations](image-1.png)
+  ![Introduction to Wye-Delta Transformations](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0450_hhen7t.png)
    /// caption
    A highlighted Delta configuration in the circuit, labeled with nodes A, B, C and resistors R1, R2, R3
    ///
@@ -55,7 +55,7 @@ $$
 
 - To find $R_b$: Look at node **B**. The two adjacent resistors are $R_2$ and $R_3$.
 
-![alt text](image-2.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0065_zj8e2x.png)
  /// caption
  A highlighted Delta configuration in the circuit, labeled with nodes A, B, C and resistors R1, R2, R3
  ///
@@ -66,7 +66,7 @@ $$
 
 - To find $R_c$: Look at node **C**. The two adjacent resistors are $R_1$ and $R_3$.
 
-![alt text](image-3.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0325_wz0ixj.png)
 
  /// caption
  A highlighted Delta configuration in the circuit, labeled with nodes A, B, C and resistors R1, R2, R3
@@ -79,7 +79,7 @@ $$
 Notice the denominator is the same in all three equations—it's simply the sum of all resistors in the delta.
 
 So, the final simplified circuit is: 
-![the final simplified circuit](image-5.png)
+![the final simplified circuit](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0517_eks4cm.png)
 
 ### 2.2 Wye (Y) to Delta ($\Delta$) Transformation
 
@@ -89,29 +89,29 @@ To go in the opposite direction, converting from a **Wye** to a **Delta**, we fo
 
 Let's look at the formulas based on the diagram below:
 
-![A labeled Wye-to-Delta diagram showing which resistors are opposite](image-6.png)
+![A labeled Wye-to-Delta diagram showing which resistors are opposite](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0361_huwejm.png)
 
 First, calculate the numerator, which is the same for all three formulas:
-![alt text](image-7.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0512_ikblq7.png)
 
 $$\text{Numerator} = R_a R_b + R_b R_c + R_c R_a$$
 
 - To find $R_1$ (between nodes A and C): The resistor in the Y network _opposite_ to $R_1$ is $R_b$.
-![alt text](image-8.png){ width="200px" }
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0537_lyr9pp.png){ width="200px" }
 
 $$
 R_1 = \frac{R_a R_b + R_b R_c + R_c R_a}{R_b}
 $$
 
 - To find $R_2$ (between nodes A and B): The resistor opposite to $R_2$ is $R_c$.
-![alt text](image-9.png){ width="200px" }
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0339_powkui.png){ width="200px" }
 
 $$
 R_2 = \frac{R_a R_b + R_b R_c + R_c R_a}{R_c}
 $$
 
 - To find $R_3$ (between nodes B and C): The resistor opposite to $R_3$ is $R_a$.
-![alt text](image-10.png){ width="200px" }
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0420_n0xhir.png){ width="200px" }
 
 $$
 R_3 = \frac{R_a R_b + R_b R_c + R_c R_a}{R_a}

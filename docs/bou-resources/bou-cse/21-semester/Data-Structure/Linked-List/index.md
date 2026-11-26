@@ -28,8 +28,8 @@ To access the data, we follow the pointer in `START` to reach the first node. We
 - **Nodes:** Represented as boxes with two compartments.
 - **Arrows:** Represent the address stored in the link field pointing to the next node.
 - **Terminal:** The 'X' in the final node represents the end of the data chain.
-  ![alt text](image.png)
-  ![alt text](image-1.png)
+  ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0487_o5pzpp.png)
+  ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0154_zby05s.png)
 
 ---
 

@@ -72,7 +72,7 @@ _[N.B.: Answer any 5 (five) questions. The figures in the right margin indicate 
 2. (a) What is the difference between normal and Zener diodes? Draw the diagrams in both cases. 3+2
    (b) When does an ideal diode work as switch: ON and OFF modes. 3
    (c) Determine whether the ideal Zener diode of the Fig. is properly biased? Explain why? 6
-   ![Circuit Diagram Representation](image.png)
+   ![Circuit Diagram Representation](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0231_mxou46.png)
 
 (1kΩ Resistor in series, Zener diode in parallel)
 10V source
@@ -80,7 +80,7 @@ Where, Vz = 10v, Iz(max) = 6mA. 3. (a) Show that “Transistor can be used as an
 (b) Draw and explain the input and output characteristic curve of transistor with common emitter connection. 5
 (c) Two diodes are connected parallel in the circuit. What will be the current in the circuit? 5
 
-![Circuit Diagram Representation](image-1.png)
+![Circuit Diagram Representation](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0075_vll3mx.png)
 
 (Resistor 4Ω in series with parallel branches)
 12 V source
@@ -92,10 +92,10 @@ Branch 2: D2, 2 Ω 4. (a) What is the difference between a JFET and a bipolar tr
 (c) Illustrate the response curve for band pass, low pass and high pass filters. 6. (a) Why op-amp is so called? For an inverting op-amp, show that , where symbols have their usual meaning.
 (b) Design an adder and high pass filter using op-amp. 3
 (c) For the op-amp circuit in Fig, calculate the output voltage . 5
-![alt text](image-2.png) 7. (a) What is UJT? Design UJT and explain its working principle. 1+4
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0437_uz7rff.png) 7. (a) What is UJT? Design UJT and explain its working principle. 1+4
 (b) Explain the UJT characteristics curve. What do you mean by negative resistance? 4+2
 (c) Refer to the Fig. below, determine the minimum value of that will produce saturation. Where refers to the base current. 3
-![alt text](image-3.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0327_dqb24h.png)
 
 ---
 
@@ -147,13 +147,13 @@ _[N.B.: Answer any 5 (five) questions. The figures in the right margin indicate 
 
 1. (a) State and explain Norton's theorem. 3
    (b) Determine the current flowing through the resistor 30Ω in the Fig-1(b). 6
-   ![alt text](image-4.png)
+   ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0271_uocdcq.png)
 
 - A bridge circuit with resistors: 10Ω, 20Ω, 30Ω (center), 10Ω, 20Ω.
 - Sources: 10V (left), 10 (right, likely Current or Voltage source, unit unclear in print but standard text implies Voltage usually or Current based on context, looks like 10).
 
 (c) Replace the Y-configuration of the following circuit shown in fig-1(c) with a Delta-configuration and solve the source current . 5
-![Fig-1(c) Circuit Diagram](image-5.png)
+![Fig-1(c) Circuit Diagram](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0419_zh2gky.png)
 
 - Resistors: 6KΩ, 6KΩ, 6KΩ.
 - Sources: 10V, 5V.
@@ -167,7 +167,7 @@ _[N.B.: Answer any 5 (five) questions. The figures in the right margin indicate 
    (b) How a zener diode can be used for supplying constant voltage? 4
    (c) Two diodes are connected parallel in the circuit shown below, so what will be the current in 4
    circuit?
-   ![alt text](image-6.png)
+   ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0179_sxf2b3.png)
 
 - Resistor: 4 Ω
 - Voltage Source: 12 V
@@ -190,7 +190,7 @@ _[N.B.: Answer any 5 (five) questions. The figures in the right margin indicate 
    (b) Classify filter. Show the transfer function of each of the filter with necessary diagram. 2+4
    (c) Design a band-pass filter of the figure shown below with lower cutoff frequency of 20.1KHz 4
    and an upper cutoff frequency of 20.3KHz. Take R = 20KΩ. Calculate L and C.
-   ![alt text](image-7.png)
+   ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0394_eiwdg7.png)
 
 - Inductor (L) and Capacitor (C) in series.
 - Resistor (R) in parallel with output .
@@ -321,7 +321,7 @@ _[N.B.: Answer any 5 (five) questions. The figures in the right margin indicate 
    (b) Discuss the forward and reverse biasing for silicon diode. 5
    (c) Write the difference between the drift current and diffusion current. Find the zener diode current and 2+3
    the output power from the circuit.
-   ![3C](image-12.png)
+   ![3C](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0403_styt3x.png)
 
 - Source: 40V
 - Series Resistor: 10 kΩ
@@ -333,7 +333,7 @@ _[N.B.: Answer any 5 (five) questions. The figures in the right margin indicate 
 5. (a) Narrate the operation of n-channel E-MOSFET with drain transfer characteristics. 4
    (b) Calculate the output voltage in the circuit in figure-5(b). 6
 
-![Figure-5(b) Description](image-11.png)
+![Figure-5(b) Description](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0538_g6iciz.png)
 
 - Op-amp circuit with input 3V source.
 - Resistors: 1kΩ (feedback), 5kΩ (feedback path), 2kΩ (input), 5kΩ (ground).
@@ -354,13 +354,13 @@ _[N.B.: Answer any 5 (five) questions. The figures in the right margin indicate 
 
 - Triangular wave input graph.
 
-![alt text](image-9.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0054_zlqpvh.png)
 
 7. (a) Define filter. Show the classification of filter. 1+3
    (b) Explain the frequency versus gain curve of a first order active filter with circuit diagram. 6
    (c) If and , find in the op-amp summing integrator circuit. Assume that the 4
    voltage across the capacitor is initially zero.
-   ![alt text](image-8.png)
+   ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0546_q71oum.png)
 
 **Bangladesh Open University**
 **School of Science and Technology**

@@ -96,7 +96,7 @@ Double bias = 1023 → exponent = 1022
 > **Design a 4-bit binary multiplier ✖️💻 with detailed implementation. 🛠️📝**
 
 ## উত্তর
-![alt text](image-14.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0371_dgaasw.png)
 
 দুটি 4-bit unsigned সংখ্যা ধরি:
 

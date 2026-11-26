@@ -49,10 +49,10 @@ Ref: [C Programming – Features & The First C Program](https://youtu.be/rLf3jnH
     এখন একটা ক্রুশিয়াল কোশ্চেন মাথায় আসতে পারে যে, ফাংশনের প্রোটোটাইপ আর মেইন কোড কেন আলাদা আলাদা ফাইলে রাখা হয়?
 
     1. **ডিক্লেয়ারেশন আর ডেফিনেশনের সেপারেশন (Separation of Declarations and Definitions):** হেডার ফাইল `stdio.h` এ জাস্ট ফাংশনের ঘোষণা (Declarations) থাকে যা কম্পাইলারকে অ্যালার্ট করে যে আমরা এই ফাংশনগুলো ইউজ করতেছি। আর সি স্ট্যান্ডার্ড লাইব্রেরিতে (C standard library) থাকে `printf` এর মতো ফাংশনের আসল কাজের ডেফিনেশন বা মূল কার্যকরী কোড (Actual definitions)।
-    ![alt text](image-3.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0249_gmzbfb.png)
 
     2. **লিঙ্কার প্রোগ্রামের ভেলকি (The Linker Program):** প্রি-প্রসেসর যখন প্রোটোটাইপগুলোকে সোর্স কোডের সাথে মিক্স করে একটা এক্সপ্যান্ডেড সোর্স কোড (Expanded source code) বানায়, তখন লিঙ্কার (Linker) নামের একটা প্রোগ্রাম এই প্রোটোটাইপগুলোকে স্ট্যান্ডার্ড লাইব্রেরির আসল কোডের সাথে ম্যাপ (Map) করিয়ে দেয়। লিঙ্কার জাস্ট ডিরেকশন দেখায় বা ম্যাপ করে, প্রি-প্রসেসরের মতো ফাইল কপি-পেস্ট মারে না।
-    ![alt text](image-4.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0469_qwb6iq.png)
 
     3. **কম্পাইলেশন স্পিড সুপারফাস্ট করা (Compilation Speed Efficiency):** লিঙ্কিংয়ের এই আলাদা প্রসেসের কারণে প্রোগ্রামের কম্পিউটেশন অনেক ফাস্ট হয়। একটু ভাবো, প্রি-প্রসেসর যদি লাইব্রেরির সব ঢাউস ঢাউস কোড টেনে এনে আপনার মেইন কোডে পেস্ট করা শুরু করত, তবে কোডের সাইজ জ্যামিতিক হারে (Exponentially) বেড়ে যেত। তখন কম্পাইলারের ওপর মারাত্মক লোড পড়ত আর কম্পাইলেশনের স্পিড একদম ড্রাস্টিকালি (Drastically) কমে যেত। তাই হেডার ফাইল আর স্ট্যান্ডার্ড লাইব্রেরি আলাদা রাখা একদম ম্যান্ডেটরি।
 
@@ -65,13 +65,13 @@ Ref: [C Programming – Features & The First C Program](https://youtu.be/rLf3jnH
 
     যদি কোডে কোনো চেঞ্জ না করে সেকেন্ড টাইম রান করতে চাও, তবে জাস্ট **রান (Run)** বাটন চাপলেই চলে। কিন্তু কোডে একটুও এডিট করলে আবার নতুন করে বিল্ড অ্যান্ড রান করতে হবে। কোডে কোনো ভুল বা বাগ থাকলে তা নিচের **বিল্ড মেসেজেস (Build Messages)** ট্যাবে ক্রিস্টাল ক্লিয়ার দেখা যায়।
 
-    ![Excercise](image-5.png)
+    ![Excercise](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0225_mcpmpz.png)
 
 === "English"
 
     ### Core Features of C Programming
 
-    ![alt text](image-1.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0300_msvv1k.png)
 
     C programming language holds several fundamental characteristics that make it highly efficient for software development. The most important initial features are portability (বহনযোগ্যতা) and less lines of code (কম লাইনের কোড)। Let us explore the advanced core features details inside C language:
 
@@ -80,7 +80,7 @@ Ref: [C Programming – Features & The First C Program](https://youtu.be/rLf3jnH
 
     2. **Degree of Abstraction (বিমূর্ততার মাত্রা):** The distinction (পার্থক্য) between high level language and low level language points directly to the degree of abstraction. Abstraction means hiding system level details (সিস্টেম স্তরের জটিল বিবরণ লুকিয়ে রাখা)। A high degree of abstraction means less efforts to the user or more user friendliness (ব্যবহারকারী বান্ধব) because we do not have to worry about what is happening inside. For example, in a simple text editor, you are just typing out the text and hitting the save button without worrying about how it is getting stored or where it is getting stored. Examples of high level languages are COBOL, FORTRAN, C++, LIPS, Pascal, and Prolog. Conversely, a lower degree of abstraction means more efforts to the user, where you have to know each and every internal detail about the computer. The example of a low level language is Assembly language.
 
-    ![alt text](image.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0465_negrb7.png)
 
     3. **Middle Level Language Classification (মধ্যম স্তরের ভাষা):** C language is called a middle level language because it does make programming simpler for human beings, but on the other hand, it also allows us to access system level features. These unique system level features include:
 
@@ -90,7 +90,7 @@ Ref: [C Programming – Features & The First C Program](https://youtu.be/rLf3jnH
 
     Because of these unique features, C became a popular choice for developing both system level applications like kernels (কার্নেল), device drivers (ডিভাইস ড্রাইভার), operating systems (অপারেটিং সিস্টেম) and various software applications like games, editors, and other graphic rich applications. C offers a wide variety of built in functions, standard libraries, and header files, which makes programming a cake walk (অত্যন্ত সহজসাধ্য বিষয়) for programmers.
 
-    ![alt text](image-2.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0071_fnthik.png)
 
     ### Detailed Structure of the First C Program
 

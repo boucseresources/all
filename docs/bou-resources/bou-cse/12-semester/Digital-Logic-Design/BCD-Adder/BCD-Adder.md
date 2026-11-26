@@ -1,8 +1,8 @@
 === "Concept বুঝি"
 
-    ![BCD vs Binary](image-2.png)
+    ![BCD vs Binary](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0563_r7xkmx.png)
 
-    ![Gates KMap and function ](image-3.png)
+    ![Gates KMap and function ](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0248_ogaoxu.png)
     ### BCD অ্যাডার কী? (ক্লাস ৫-এর মতো সহজ করে)
 
     ধরো, আপনি গুনতে জানো ০ থেকে ৯ পর্যন্ত।
@@ -90,9 +90,9 @@
     যেটা দশমিক সংখ্যা যোগ করে
     আর ভুল হলে নিজে নিজে ঠিক করে নেয়।
 
-    ![4 bit BCD অ্যাডার ](image.png)
+    ![4 bit BCD অ্যাডার ](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0405_kulwtv.png)
 
-    ![4 Bit BCD adder with Inputs](<unnamed (3).jpg>)
+    ![4 Bit BCD adder with Inputs](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0021_zhqsjt.jpg>)
 
 
 
@@ -250,9 +250,9 @@
 
 === "BCD Adder TinkerCad"
 
-    ![4 Bit BCD adder](image-4.png)
+    ![4 Bit BCD adder](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0223_pl8wby.png)
 
-    ![4 bit binary BCD Adder TinkerCad](<4 bit binary BCD Adder TinkerCad.gif>)
+    ![4 bit binary BCD Adder TinkerCad](<https://res.cloudinary.com/zopgecx6/image/upload/bou20261126_0003_geub3n.gif>)
 
     You can copy (Tinker) this from this link:
     [https://www.tinkercad.com/things/jDmE54A3BRP-bcd-adder-4-bit-binary-adder](https://www.tinkercad.com/things/jDmE54A3BRP-bcd-adder-4-bit-binary-adder)

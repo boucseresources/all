@@ -134,7 +134,7 @@ Dividing history into these periods helps scholars and students:
 
 The **Pathans (Pashtuns)** are an ethnic group primarily inhabiting Afghanistan and the north-western regions of Pakistan. For centuries, they have been known for their strong tribal identity, warrior spirit, and resilience in the face of challenges. Historically, they entered India through the **Khyber Pass** and played important roles in the Delhi Sultanate and Mughal periods.
 
-![Pathans (Pashtuns)](image.png)
+![Pathans (Pashtuns)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0444_dpwqnb.png)
 ---
 
 ### 2. Historical Characteristics
@@ -510,7 +510,7 @@ The Indian subcontinent’s history moves from early urban settlements to empire
 
     On what basis can history be divided? Explain the different approaches of studying history (such as social, anthropological, literary, manuscript-based, and scientific) with suitable examples
     ---
-    ![How is history written or collected?](image-3.png)
+    ![How is history written or collected?](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0387_cuwnxd.png)
     
     ## Answer
     History is the record of human experiences across time. To study it properly, scholars often divide it into different branches or approaches. This division is not arbitrary; it is based on the nature of sources, the method of analysis, and the kind of questions historians wish to answer. Each approach provides a unique way of understanding the past, and together they help create a fuller picture of human life and development.

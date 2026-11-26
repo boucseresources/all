@@ -96,7 +96,7 @@ Draw the UML diagram that involves Octagon, GeometricObject, Comparable, and Clo
 
 **Exp 4.** Suppose an input file named as "INPUT.txt" contains numeric values (0 to 9) in a single line as shown in below sample input/output. Now write a Java program to count the single number from the "INPUT.txt" file and write it to the file name as "OUTPUT.txt" as shown in below. If any number (0 to 9) is disappearing, then count 0 and if the number appears more than one then count total number. The sample input/out is shown below:
 
-![Sample input/output](assets/CSE21P8_161_Exp04_Input_Output.png)
+![Sample input/output](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0201_ryfx7t.png)
 
 ### Term 211
 
@@ -118,7 +118,7 @@ Draw the UML diagram that involves Octagon, GeometricObject, Comparable, and Clo
 
 **Exp 6.** Write a Java Applet program that displays the following window with displayed message. The background color should be set black:
 
-![Applet window](assets/CSE21P8_161_Exp06_Applet_Window.png)
+![Applet window](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0488_cjk1xs.png)
 
 ### Term 171
 
@@ -131,7 +131,7 @@ Draw the UML diagram that involves Octagon, GeometricObject, Comparable, and Clo
 
 **Exp 6.** Write a Java program to create a Simple administrative Login System as follows, where if you put username as "CSE" and Password as "BOUCSE" in their Textfields and then if you click "OK" button the simple message "Login Successful" is displayed in another label and if you click on "Clear" button the Text fields' data will be cleared.
 
-![Administrator Login System](assets/CSE21P8_171_Exp06_Login_System.png)
+![Administrator Login System](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0367_m08gzf.png)
 
 ### Term 191
 
@@ -144,13 +144,13 @@ Draw the UML diagram that involves Octagon, GeometricObject, Comparable, and Clo
 
 **Exp 10.** Write a Java Graphics to draw a text, line, rectangle, and circle/oval as follows.
 
-![Java Graphics output](assets/CSE21P8_191_Exp10_Java_Graphics.png)
+![Java Graphics output](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0105_odgf86.png)
 
 ### Term 211
 
 **Exp 02.** Design the GUI given below using Java Swing.
 
-![Java Swing GUI](assets/CSE21P8_211_Exp02_GUI.png)
+![Java Swing GUI](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0063_litta2.png)
 
 **Exp 09.** Write a Java program using Applets that simulates a traffic light. The program lets the user select one of three lights: red, yellow, or green with radio buttons. On selecting a button, an appropriate message with "stop" or "ready" or "go" should appear above the buttons in a selected color. Initially there is no message shown.
 

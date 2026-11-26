@@ -11,8 +11,8 @@
 
     An atom consists (গঠিত হওয়া) of a central (কেন্দ্রীয়) nucleus (নিউক্লিয়াস) surrounded by a cloud of electrons (ইলেকট্রন). The nucleus is very small compared to the overall (সামগ্রিক) size of the atom, but it contains almost all of its mass (ভর).
     
-    ![alt text](image-4.png)
-    ![alt text](image-5.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0288_wovcmk.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0106_pwxdj6.png)
 
     ### Subatomic Particles (উপ-পারমাণবিক কণা)
 

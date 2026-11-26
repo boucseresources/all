@@ -124,7 +124,7 @@ Let the given coordinates be assigned as:
 * $B(x_2, y_2) = (-4, -6)$
 * $C(x_3, y_3) = (k, 12)$
 
-![alt text](image.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0355_njelpm.png)
 
 The gradient formula between two points is defined as:
 
@@ -632,7 +632,7 @@ Transformation of axes by changing the origin (also known as translation of axes
 Let the old coordinate axes be $OX$ and $OY$ with the original origin at $O(0,0)$.
 Let the new origin be shifted to a point $O'(h, k)$. The new parallel coordinate axes are designated as $O'X'$ and $O'Y'$.
 
-![Transformation of axes](image-1.png)  
+![Transformation of axes](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0346_zwyle5.png)\
 
 Consider an arbitrary point $P$ in the plane. Let its coordinates be:
 
@@ -2321,7 +2321,7 @@ We define our setup in three dimensions:
 2. Let $P_1(x_p, y_p, z_p)$ be a **Fixed Point** sitting on the plane. Its position vector is $\vec{p_1} = x_p\hat{i} + y_p\hat{j} + z_p\hat{k}$.
 3. Let $P(x, y, z)$ be a **General Variable Point** that is also on the plane. Its position vector is $\vec{p} = x\hat{i} + y\hat{j} + z\hat{k}$.
 
-![Normal Form of a plane figure](image-2.png){width=200px height=200px}
+![Normal Form of a plane figure](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0447_e69sle.png){width=200px height=200px}
 
 We can construct a new displacement vector $\vec{P_1P}$ running from our fixed point to our variable point. By vector subtraction laws, this vector must lie perfectly flat inside the plane surface:
 

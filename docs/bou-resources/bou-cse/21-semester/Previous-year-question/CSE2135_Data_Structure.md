@@ -224,7 +224,7 @@
 - **Q7(a) [2]:** How many ways a binary tree can be represented in memory?
 - **Q7(b) [6]:** Consider the following binary tree. Find the sequence of nodes when traversing in (i) Pre-order, (ii) In-order, and (iii) Post-order.
 
-  ![Binary tree](assets/CSE2135_161_Q7b_Binary_Tree.png)
+  ![Binary tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0144_p1gqth.png)
 
 - **Q7(c) [6]:** Draw the binary tree using the following algebra expression: `[a + (b - c) * [(d - c) / (f + g - h)]]`. Then traverse it in (i) pre-order and (ii) Post order.
 
@@ -234,7 +234,7 @@
 - **Q7(b) [3]:** Build a heap from the following list of numbers: 54, 40, 60, 32, 70, 55, 47, 25.
 - **Q7(c) [3]:** Consider the following binary tree. Find the sequence of nodes when traversing in (i) Pre-order, (ii) In-order, and Post-order.
 
-  ![Binary tree](assets/CSE2135_171_Q7c_Binary_Tree.png)
+  ![Binary tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0178_alsh5s.png)
 
 - **Q7(d) [3]:** Develop a Huffman tree and find Huffman code using the following node weights:
 
@@ -246,7 +246,7 @@
 
 - **Q5(a) [3]:** Consider the following binary tree. Find the sequence of nodes when traversing in (i) Pre-order, (ii) In-order, and (iii) Post-order.
 
-  ![Binary tree](assets/CSE2135_181_Q5a_Binary_Tree.png)
+  ![Binary tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0509_udzumw.png)
 
 - **Q5(b) [3]:** Write the definition of Complete Binary-tree and 2-Tree.
 - **Q5(c) [4]:** Built a Max-heap from the following list of numbers: 22, 62, 32, 52, 42, 72, 92, 82, 12.
@@ -257,7 +257,7 @@
 
 - **Q5(a) [3]:** Consider the following binary tree. Find the sequence of nodes when traversing in (i) Pre-order, (ii) In-order, and (iii) Post-order.
 
-  ![Binary tree](assets/CSE2135_191_Q5a_Binary_Tree.png)
+  ![Binary tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0489_dvvhhy.png)
 
 - **Q5(b) [3]:** Define binary search tree. Draw a binary search tree from the following data: 50, 33, 44, 22, 77, 35, 60, 15, 85, 20, 100.
 - **Q5(c) [3]:** Build a max heap from the following list of numbers: 15, 35, 45, 25, 75, 55, 65, 05, 95, 85.
@@ -290,11 +290,11 @@
 - **Q5(d) [2]:** Write an algorithm for heap-sort (using max-heap).
 - **Q6(a) [3]:** The following graph represents a m-way search tree (with m=3). How to delete element 100 from the tree? [Show the steps of deletion]
 
-  ![M-way search tree](assets/CSE2135_211_Q6a_M_Way_Search_Tree.png)
+  ![M-way search tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0221_enlfrr.png)
 
 - **Q6(b) [3]:** Suppose, you are given a Red-Black tree. Show how to insert element "I" into the tree?
 
-  ![Red-Black tree](assets/CSE2135_211_Q6b_Red_Black_Tree.png)
+  ![Red-Black tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0359_xm83d6.png)
 
 ## Graphs and Their Applications
 
@@ -307,11 +307,11 @@
 - **Q6(a) [4]:** Write down the Depth-First Search algorithm of graph.
 - **Q6(b) [4]:** Find BFS for the following graph using 'A' as the starting node and 'G' is the destination.
 
-  ![BFS graph](assets/CSE2135_171_Q6b_BFS_Graph.png)
+  ![BFS graph](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0293_d55pme.png)
 
 - **Q6(c) [4]:** Construct an adjacent matrix and adjacent list for the following directed graph.
 
-  ![Directed graph](assets/CSE2135_171_Q6c_Directed_Graph.png)
+  ![Directed graph](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0316_q6nif1.png)
 
 - **Q6(d) [2]:** Define minimum spanning tree.
 
@@ -320,32 +320,32 @@
 - **Q6(a) [1+2]:** What is graph? List the real-world applications of graphs.
 - **Q6(b) [4]:** Demonstrate the adjacency matrix and linked list representation of the following graph:
 
-  ![Graph](assets/CSE2135_181_Q6b_Graph.png)
+  ![Graph](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0115_i4wbc5.png)
 
 - **Q6(c) [3+4]:** What is BFS and DFS? Find all the possible path which is reachable from E for following graph [use DFS algorithm].
 
-  ![DFS graph](assets/CSE2135_181_Q6c_DFS_Graph.png)
+  ![DFS graph](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0222_cqbj2r.png)
 
 ### Term 191
 
 - **Q6(a) [3]:** Explain Depth First Search and Breadth First Search algorithm with example.
 - **Q6(b) [3]:** Construct an adjacent matrix and adjacent list for the following directed graph.
 
-  ![Directed graph](assets/CSE2135_191_Q6b_Directed_Graph.png)
+  ![Directed graph](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0240_i4vcoc.png)
 
 - **Q6(c) [5]:** Find all the possible path which is reachable from A for following graph [use DFS algorithm].
 
-  ![DFS graph](assets/CSE2135_191_Q6c_DFS_Graph.png)
+  ![DFS graph](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0356_wxeuek.png)
 
 ### Term 201
 
 - **Q6(a) [2]:** Which of the multigraphs in figure are (i) connected, (ii) loop-free, and (iii) graphs.
 
-  ![Multigraphs](assets/CSE2135_201_Q6a_Multigraphs.png)
+  ![Multigraphs](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0290_b6a9ca.png)
 
 - **Q6(b) [7]:** Suppose the graph G represents the daily flights between cities of some airlines, and, suppose we want to fly from city A to city J with the minimum number of stops. Find out the minimum path P from A to J using breadth first search (BFS) algorithm.
 
-  ![Airline graph](assets/CSE2135_201_Q6b_Airline_Graph.png)
+  ![Airline graph](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0398_n1fvgb.png)
 
 ### Term 211
 

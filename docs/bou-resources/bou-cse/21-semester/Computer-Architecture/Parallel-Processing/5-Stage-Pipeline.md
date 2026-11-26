@@ -1,1 +1,1 @@
-![5-Stage-Pipeline](<NotebookLM Mind Map.png>)
+![5-Stage-Pipeline](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0129_kghd4z.png>)

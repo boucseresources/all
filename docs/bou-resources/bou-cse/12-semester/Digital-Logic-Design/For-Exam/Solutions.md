@@ -4,11 +4,11 @@
 
 ??? "Number Conversion"
 
-    ![alt text](<number system conversion shortcut.jpg>)
+    ![alt text](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0017_lvbbxw.jpg>)
 
 ??? "Boolean Identities"
     
-    ![alt text](image-26.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0373_z3ukvb.png)
 
 ???  ""
 ---
@@ -17,7 +17,7 @@
 
     [Boolean function implementation using NAND and NOR gate in Bangla | NAND and NOR gate implementation](https://youtu.be/F2ATq6HYHpY)
 
-    ![alt text](image-21.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0093_l96umc.png)
 
     ---
 
@@ -102,7 +102,7 @@
 
     #### NAND Diagram:
 
-    ![NAND Diagram](image.png)
+    ![NAND Diagram](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0384_ctnz55.png)
 
     ---
 
@@ -154,7 +154,7 @@
 
 ??? "Tabulation method" 
 
-    ![alt text](image-1.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0532_tdki83.png)
     
     Here is the complete answer:
 
@@ -263,7 +263,7 @@
 
 ??? "Carry Propagate and Carry Output"
     
-    ![Carry Propagate and Carry Output](image-2.png)
+    ![Carry Propagate and Carry Output](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0118_hsl1ba.png)
 
     Based on the full image provided, here is the complete step-by-step derivation in an exam-style format.
     (b) Consider the carry propagate and carry generate as follows:
@@ -532,7 +532,7 @@
     6. **Direct:** Connect input C directly to **$F\_0$**.
     7. **Ground:** Connect **$F\_1$** to ground.
 
-    ![alt text](image-12.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0269_giglw5.png)
 
 ??? "Sequential Circuit"
 
@@ -572,8 +572,8 @@
 
     The architecture of a sequential circuit consists of two main components:
 
-    ![Basic Block Diagram & Architecture](image-3.png)
-    ![Basic Block Diagram & Architecture](image-4.png)
+    ![Basic Block Diagram & Architecture](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0109_xanu65.png)
+    ![Basic Block Diagram & Architecture](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0260_ntpvie.png)
 
     1. **Combinational Logic Circuit:** Performs the logic operations (AND, OR, NOT gates) to determine outputs and next states.
     2. **Memory Elements:** Storage devices (Flip-Flops or Latches) connected in a **feedback path**.
@@ -594,7 +594,7 @@
 
     Sequential circuits are primarily classified based on **how the memory elements are triggered** (Timing) and **how the outputs are derived** (State Output Relationship).
    
-    ![alt text](image-5.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0547_r0vflo.png)
     ### **A. Classification based on Timing (Clocking)**
 
     This is the most fundamental classification.
@@ -662,7 +662,7 @@
 
     Below, we illustrate the excitation tables for RS, D, JK, and T flip-flops individually.
     
-    ![Excitation Table of Flip-Flops](image-6.png)
+    ![Excitation Table of Flip-Flops](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0334_co1pxv.png)
 
     * * *
 
@@ -743,7 +743,7 @@
 
 ??? "Counter  Design" 
 
-    ![alt text](image-7.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0564_cec7no.png)
 
     Here is a step-by-step solution to design the specified counter.
 
@@ -788,7 +788,7 @@
 
     Using Karnaugh maps (K-maps) for each J and K input, we can derive the simplified boolean expressions.
 
-    ![kmap](image-8.png)
+    ![kmap](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0544_rucsws.png)
 
     For $J_A$ and $K_A$:
     Grouping the 1s and Xs in the K-maps gives:
@@ -827,7 +827,7 @@
     - $$ K_C = Q_B $$
 
     #### Step 4: Draw the Logic Diagram
-    ![alt text](image-9.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0528_efqy0h.png)
     Based on the derived equations, we can now draw the circuit diagram for the counter. All flip-flops are connected to a common clock signal (CLK) for synchronous operation.
 
     - **Flip-Flop A ($Q_A$):** Connect both $J_A$ and $K_A$ inputs to the $Q_B$ output of the second flip-flop.
@@ -838,8 +838,8 @@
 
 ???  "Fewer NAND gate"
 
-    ![alt text](image-10.png)
-    ![alt text](image-11.png) 
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0412_zvuxvu.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0461_b8iifj.png)
 
 ??? "3 input Combinational circuit  to square output - ROM"
 
@@ -948,7 +948,7 @@
     * * *
 
     ### Step 5: ROM Block Diagram (to draw in exam)
-    ![ROM Block Diagram](image-13.png)
+    ![ROM Block Diagram](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0124_vrfond.png)
     
 
     * * *
@@ -971,7 +971,7 @@
 ??? "Dual equals Complement"
     
     Q: (c) Show that the dual of the equivalence function is equal to its complement
-    ![alt text](image-14.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0251_nmm3yy.png)
 
 ??? "Canonical vs Standard"
 
@@ -1024,7 +1024,7 @@
 
 ??? "State Table and State Digram"
 
-    ![alt text](image-15.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0164_htlwab.png)
 
     ### **Solution for Question (b): Sequential Circuit Analysis**
 
@@ -1122,7 +1122,7 @@
 
 ???  "PLA Problem"
 
-    ![alt text](image-16.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0197_thwapa.png)
 
 ??? "4 bit binary 9's complement"
 
@@ -1232,7 +1232,7 @@
 
 ??? "Number of gates in SOP vs POS"
     
-    ![alt text](image-17.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0209_yhvanx.png)
 ??? "AvC=1 , AC=1 Combinational Circuit"
 
     Based on the image provided, here is the step-by-step solution to design the combinational circuit.
@@ -1317,15 +1317,15 @@
 
 ??? "combinational circuit XYZ --> ABC"
     
-    ![alt text](image-18.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0091_fqqrpk.png)
 
 ??? "Minimization of funtion and NAND gate"
 
-    ![alt text](image-19.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0133_jzzg6z.png)
 
 ??? "Binary, Decimal and other Conversion"
 
-    ![alt text](image-20.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0254_lnq2cm.png)
 
     ### **(i) Express the decimal number $158.58$ as a sum of values of each digit.**
 
@@ -1417,7 +1417,7 @@
 
 ??? "PLD and classification"
     
-    ![alt text](image-22.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0380_yogfye.png)
 
     ### PLD (Programmable Logic Device)
 
@@ -1437,13 +1437,13 @@
 
 ??? "POS to SOP"
 
-    ![alt text](image-23.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0050_ch4kp5.png)
 
 ??? "MUX implementation from expression"
 
-    ![alt text](image-24.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0081_jccgb2.png)
 
 ??? "Logic diagram from expression"
 
-    ![alt text](image-25.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0228_tswbod.png)
 

@@ -10,7 +10,7 @@
 ## ৩. Object = রিয়েল অবজেক্ট (Real Object)
 ওই প্রোটোটাইপ (Class) সফলভাবে কাজ করার পর ফ্যাক্টরির অ্যাসেম্বলি লাইন থেকে লাখ লাখ গাড়ি তৈরি হয়ে শোরুমে চলে আসলো। যেমন আপনার কেনা লাল রঙের টয়োটা গাড়িটি, যেটায় আপনি চাবি দিয়ে স্টার্ট দিচ্ছেন এবং ড্রাইভ করছেন। এটিই হলো আসল Object বা মেমোরিতে জায়গা নেওয়া রিয়াল এলিমেন্ট।
 
-![alt text](image.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0296_ln3cfu.png)
 
 ------------------------------
 ## এক নজরে আপনার তৈরি করা মেমোরি ম্যাপ:
@@ -130,7 +130,7 @@
     | char | ২ Bytes | short এর সমান |
     | boolean | ১ bit | সবচেয়ে ছোট (শুধু True/False) |
 
-    ![java types mnemonic cheat sheet](<java types mnemonic cheat sheet.png>)
+    ![java types mnemonic cheat sheet](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0278_fy4ccd.png>)
 
 
 ## What is multithreading in Java? Discuss the advantages of multithreading over process based multitasking

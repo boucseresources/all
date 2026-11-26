@@ -78,7 +78,7 @@
     return 0;
     }
     ```
-    ![alt text](image-4.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0333_bvdf1s.png)
 
 !!! info "Pattern Type 04"
     
@@ -100,7 +100,7 @@
         return 0;
     }
     ```
-    ![alt text](image-5.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0242_mlqurg.png)
 
 !!! info "Pattern Type 05"
 
@@ -129,7 +129,7 @@
         return 0;
     }
     ```
-    ![alt text](image-6.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0264_phyhbi.png)
 
 !!! info "Pattern Type 06"
 
@@ -156,13 +156,13 @@
         return 0;
     }
     ```
-    ![alt text](image-7.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0458_pz1c0j.png)
 
     ---
     ```c
 
     ```
-    ![alt text](image-8.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0536_mponul.png)
     ---
     ```c
     #include <stdio.h>
@@ -201,7 +201,7 @@
     }
 
     ```
-    ![alt text](image-9.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0344_pnhbhn.png)
     ---
 
 
@@ -258,7 +258,7 @@
     🟢🟢🟢🟢🟢🟢🟢🟢🟢
 
     ```
-    ![alt text](image.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0112_gsccm9.png)
 !!! info "Pattern Type 14"
 
     ```text
@@ -323,7 +323,7 @@
     ```
 !!! info "Pattern Type 01"
     
-    ![alt text](image.png)  
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0112_gsccm9.png)\
 
 !!! info "Pattern Type 00"
     
@@ -343,7 +343,7 @@
     return 0;
     }
     ```
-    ![Output](image-1.png)
+    ![Output](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0153_ojfhsf.png)
 
 
 Pattern Questions

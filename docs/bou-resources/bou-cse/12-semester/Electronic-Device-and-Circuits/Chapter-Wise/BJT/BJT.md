@@ -8,7 +8,7 @@
 
     A BJT has three terminals (টার্মিনাল), namely emitter (এমিটার), base (বেস), and collector (কালেক্টর). There are two types of BJTs. One is NPN transistor (এনপিএন ট্রানজিস্টর) and the other is PNP transistor (পিএনপি ট্রানজিস্টর).
 
-    ![BJT Basics](image.png)
+    ![BJT Basics](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0137_sgasuv.png)
 
     ## Construction of BJT
 

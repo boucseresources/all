@@ -84,7 +84,7 @@ Let us look at the mathematical difference in performance to see how our through
 * Total time taken for 3 cars = $9 \text{ minutes}$
 * Average latency (বিলম্বকাল) per car = $\frac{9}{3} = 3 \text{ minutes}$
 
-![Pipeline vs Non-Pipelined Analogy](image-2.png)
+![Pipeline vs Non-Pipelined Analogy](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0441_acznvn.png)
 
 ### Pipelined Performance:
 
@@ -142,7 +142,7 @@ All these hardware stages and interface registers are connected to a common syst
 ## Visualizing Execution: The Space-Time Diagram
 
 To understand how multiple instructions execute over real-time clock cycles, computer architects use a visualization tool (দৃশ্যমান করার মাধ্যম) called the Space-Time Diagram.
-![alt text](image-5.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0549_mk4qm7.png)
 * **X-axis:** Represents the Time in terms of Clock Cycles (যেমন: Cycle 1, Cycle 2, Cycle 3).
 * **Y-axis:** Represents the physical Pipeline Stages or Segments.
 
@@ -201,7 +201,7 @@ The overlapping execution sequence is tracked using a Space-Time Diagram (স্
 | **$S_5$ (WB)** |  |  |  |  | $I_1$ | $I_2$ | $I_3$ | $I_4$ | $I_5$ | $I_6$ | $I_7$ | $I_8$ |
 
 
-![Space Time matrix mapping](image-4.png)
+![Space Time matrix mapping](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0181_l3crpy.png)
 
 ### Mathematical Formulation of Pipelined Time
 

@@ -120,7 +120,7 @@
 - **Q1(b) [4]:** Define accessors (getters), mutators (setters) and constructors in your own word.
 - **Q1(c) [2+2+2]:** Answer the following questions using the Class diagram for an animal class shown below.
 
-  ![Animal class diagram](assets/CSE2137_201_Q1c_Animal_Class.png)
+  ![Animal class diagram](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0172_nmqlyj.png)
 
   1. How many member variables are there in the animal class? Mention their names and types.
   2. Identify the mutators and accessors.
@@ -154,7 +154,7 @@
 - **Q3(c) [3]:** What are abstract methods? Describe the circumstances in which an abstract method would be appropriate.
 - **Q4(c) [4]:** Write a Java program for the following hierarchical inheritance block diagram.
 
-  ![Hierarchical inheritance](assets/CSE2137_161_Q4c_Hierarchical_Inheritance.png)
+  ![Hierarchical inheritance](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0160_qz5bzs.png)
 - **Q6(c) [4]:** Discuss public, private, protected and default access modifier with example.
 
 ### Term 171
@@ -179,7 +179,7 @@
 - **Q3(a) [1+1]:** What is inheritance in OOP? Does Java support multiple inheritances?
 - **Q3(b) [2+2]:** What are the main features of OOPs? Write a Java program for the following hierarchical inheritance block diagram.
 
-  ![Document inheritance diagram](assets/CSE2137_201_Q3b_Document_Inheritance.png)
+  ![Document inheritance diagram](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0501_ic252v.png)
 - **Q4(b) [4]:** Why do you use Upcasting and Downcasting in Java? Explain with examples.
 
 ### Term 211

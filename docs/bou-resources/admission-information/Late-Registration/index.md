@@ -3,12 +3,12 @@ title: "Late Registration Guide - BOU CSE Resources"
 date: 2026-07-25
 authors: [admin]
 description: This is a short excerpt of my blog post.
-image: docs/bou-resources/admission-information/Late-Registration/thumbnail-late-fee.png
+image: https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0535_mylxmo.png
 ---
 
 # নির্ধারিত সময়ের মধ্যে রেজিস্ট্রেশনের কাগজপত্র জমা দিতে না পারলে কী করবেন?
 
-![Thumbnail](thumbnail-late-fee.png)
+![Thumbnail](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0535_mylxmo.png)
 
 <!-- more -->
 
@@ -72,7 +72,7 @@ image: docs/bou-resources/admission-information/Late-Registration/thumbnail-late
 
 তবে আবেদনটি হুবহু কপি না করে নিজের সমস্যা, তারিখ, শিক্ষার্থী পরিচিতি এবং দেরির প্রকৃত কারণ অনুযায়ী পরিবর্তন করে নেওয়া উচিত।
 
-![late fee application](<late fee application.png>)
+![late fee application](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0523_zf7ksf.png>)
 
 ## শেষ কথা
 

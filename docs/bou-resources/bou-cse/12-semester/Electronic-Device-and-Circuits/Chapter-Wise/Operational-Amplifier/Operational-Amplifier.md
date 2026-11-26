@@ -4,10 +4,10 @@ Operational Amplifier: [https://youtu.be/_ZuJgt4NfFI](https://youtu.be/_ZuJgt4Nf
 Operational Amplifier Playlist Bangla: [Operational Amplifier Playlist Bangla](https://www.youtube.com/playlist?list=PLP48XoBlOMADncExQY7Ci7Rr4EZg2SjQU)
 
 --- 
-![Operational Amplifier](image.png)
-![Operational Amplifier all types](image-1.png) 
-![operational amplifier ic pin diagram](image-2.png)
-![operational amplifier ic pin diagram](image-3.png)
+![Operational Amplifier](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0499_yal5jz.png)
+![Operational Amplifier all types](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0183_o011ef.png)
+![operational amplifier ic pin diagram](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0088_imzigp.png)
+![operational amplifier ic pin diagram](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0372_tpqqel.png)
 
 
 ## **1. Op-Amp কী?**

@@ -78,7 +78,7 @@ However, there is a solution for this! You can use the `strcpy()` function and a
 
 === "Results"
 
-    ![alt text](image.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0566_se5y42.png)
 
 ### Simpler Syntax
 
@@ -142,5 +142,5 @@ If we want to directly print a structure variable directly, the first problem we
     ```
 === "Result"
     
-    ![Garbage value printing](brave_cHzPHuuXQu.gif)
+    ![Garbage value printing](https://res.cloudinary.com/zopgecx6/image/upload/bou20261126_0000_vkigyl.gif)
 

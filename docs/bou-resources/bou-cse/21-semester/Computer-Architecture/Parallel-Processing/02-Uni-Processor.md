@@ -6,7 +6,7 @@
 A uni-processor computer system (ইউনিপ্রসেসর সিস্টেম) is a classic machine configuration that contains a single central processing unit. Even with only one processor core, it needs to execute computational programs efficiently.
 
 
-![Uni-Processor Architecture](image-7.png)
+![Uni-Processor Architecture](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0363_pp5zz5.png)
 
 ##### Three Core Subsystems
 
@@ -25,7 +25,7 @@ All three major subsystems communicate with each other using a shared **Common S
 
 The VAX 11/980 is a standard real-world implementation of a single-processor computer system configuration. It utilizes a special bus called the **Synchronous Backplane Interconnect (SBI)** to link all hardware subsystems.
 
-![VAX 11/980 Uni-Processor Architecture](image-8.png)
+![VAX 11/980 Uni-Processor Architecture](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0079_jxl0fy.png)
 
 ##### Detailed Hardware Components of VAX 11/980:
 
@@ -44,20 +44,20 @@ Even though a uni-processor has only one physical CPU core, we can introduce par
 #### I. Multiplicity of Functional Units
 
 Instead of having just one general ALU that does all the work, the internal structure of the ALU is broken down into multiple, specialized **Functional Units** that operate concurrently (সমান্তরালভাবে).
-![Multiplicity of Functional Units (diagram)](image-9.png)
-![Multiplicity of Functional Units (CDC6600)](image-10.png)
+![Multiplicity of Functional Units (diagram)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0406_nkkgbo.png)
+![Multiplicity of Functional Units (CDC6600)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0306_jejwey.png)
 * **Working Principle:** A single instruction stream is distributed among different independent blocks like dedicated adders, multipliers, dividers, shifters, and incrementers. A control block called a **Scoreboard** tracks which functional units and registers are free to schedule the next operations without delay.
 * **Real-World Example:** The **CDC 6600** computer architecture, which integrates 10 parallel specialized functional units along with 24 internal registers inside a single CPU.
 
 #### II. Parallelism and Pipelining Within the CPU
-![alt text](image-11.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0204_miynee.png)
 * **Parallel Hardware Design:** Replacing slow serial adders with high-speed parallel adders like **Carry Look-Ahead Adders (CLA)**, **fast multipliers**, and **convergence dividers** to increase processing speed at the circuit level.
 * **Pipelining (4/5 stage pipelines):** Breaking the standard instruction execution cycle into separate stages (Fetch, Decode, Execute, and Result Storage). Multiple instructions are overlapped (ওভারল্যাপ) inside the execution pipeline. While instruction 1 is executing, instruction 2 is being decoded, and instruction 3 is being fetched from memory.
 
 
 #### 1. Overlapped CPU and I/O Operations (Hardware Method)
 
-![alt text](image-12.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0360_mg6uvf.png)
 
 * **Core Concept:** To stop the main processor from sitting idle, input/output tasks are offloaded to specialized hardware parts like I/O controllers, channels, and separate I/O processors. This design allows the CPU to execute math operations while I/O tasks are happening concurrently (সমান্তরালভাবে).
 * **Direct Memory Access (DMA):** The DMA channel provides a direct data transfer pathway between peripheral I/O devices and the main memory. It completely bypasses the CPU, freeing up the processor to handle other computational instructions.

@@ -68,7 +68,7 @@
 
 === "ALU Design Guide"
 
-    ![alt text](image.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0503_jetosr.png)
    
 
     নিচে **ALU বানানোর জন্য Logisim Evolution-এ দরকারি সব গুরুত্বপূর্ণ Info / Properties একটাই টেবিলে** সাজিয়ে দিলাম।

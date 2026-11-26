@@ -7,7 +7,7 @@ A 4-stage pipeline has stage delays as 150, 120, 160, and 140 ns. Registers are 
 * **c)** $165.5\ \mu\text{sec}$
 * **d)** $590\ \mu\text{sec}$
 
-![alt text](image-6.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0445_sbybuu.png)
 
 
 ## 1. Finding the Optimum Clock Cycle Time ($t_p$)

@@ -1,4 +1,4 @@
-![alt text](image.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0533_vb8mjp.png)
 
 **Omni-Classification** of Data Structures:
 

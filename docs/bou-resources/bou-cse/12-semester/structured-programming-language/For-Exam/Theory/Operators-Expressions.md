@@ -111,7 +111,7 @@
     1. First, the current (original) value of the variable is used in the expression or assignment.
     2. After that line is executed, the value of the variable is increased by 1.
 
-    ![Difference between Pre-increment and Post-increment](image-4.png)
+    ![Difference between Pre-increment and Post-increment](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0111_jeea2v.png)
 
     **Example:**
 
@@ -179,7 +179,7 @@
 
     The main reason lies in the **Number of Steps** the computer has to perform internally to execute the instruction.
 
-    ![Difference between Pre-increment and Post-increment](image-4.png)
+    ![Difference between Pre-increment and Post-increment](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0111_jeea2v.png)
     
     **1. How Post-increment (`x++`) works:**
     When we write `y = x++;`, the computer has to do extra work to "remember" the old value.

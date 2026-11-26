@@ -220,7 +220,7 @@ $$A_1 \times A_2 \times \dots \times A_n = \{(a_1, a_2, \dots, a_n) \mid a_i \in
 
 * Some authors use the **notation** `(প্রতীক/চিহ্ন)`: $\prod_{i=1}^{n} A_i$.
 
-![Summary](image.png)
+![Summary](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0475_advmqr.png)
 
 
 Here is your structured, comprehensive exam note for **Set Operations** based exactly on your slides. Uncommon or technical words are translated into Bangla `(বাংলা)` right next to them to maximize your last-minute revision efficiency.
@@ -335,8 +335,8 @@ $$|A \cup B| = |A| + |B| - |A \cap B|$$
 
 You must memorize these laws and names perfectly for the exam:
 
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0100_wlthyv.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0401_lmv9z8.png)
 
 ## 4. Membership Table (সদস্যতা সারণী)
 
@@ -389,4 +389,4 @@ $$A_1 \cap A_2 \cap \dots \cap A_n = \bigcap_{i=1}^{n} A_i$$
 
 
 
-![Set Operation s2.2](image-1.png)
+![Set Operation s2.2](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0468_ygeppq.png)

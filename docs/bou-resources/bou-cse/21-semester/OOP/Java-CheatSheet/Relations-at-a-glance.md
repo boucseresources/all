@@ -37,7 +37,7 @@ Expression → তৈরি করে → Statement → তৈরি করে �
 * সহজ কথা: ক্লাসের নকশা দেখে তৈরি করা বাস্তব উপাদান, যা মেমোরিতে জায়গা নেয় এবং সত্যি সত্যি কাজ করে।
 * সম্পর্ক: ক্লাস না থাকলে অবজেক্ট তৈরি করা অসম্ভব।
 
-![alt text](image.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0128_m5wo9a.png)
 
 ------------------------------
 ## অবজেক্ট অরিয়েন্টেড (OOP) ৪টি স্তম্ভের সহজ সম্পর্ক:
@@ -48,4 +48,4 @@ Expression → তৈরি করে → Statement → তৈরি করে �
 * Inheritance (ইনহেরিটেন্স): এক ক্লাসের বৈশিষ্ট্য (কোড) অন্য ক্লাসে পুনরায় ব্যবহার করা।
 * Polymorphism (পলিমরফিজম): একই মেথড বা অবজেক্টের পরিস্থিতি অনুযায়ী ভিন্ন ভিন্ন রূপ ধারণ করা। 
 
-![alt text](image-1.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0435_wwl4ry.png)

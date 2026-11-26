@@ -197,7 +197,7 @@
     ## Verified Flow of Semiconductor Devices
     
     
-    ![Hierarchy of semiconductor devices chart](<Your paragraph text (3).png>)
+    ![Hierarchy of semiconductor devices chart](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0282_r4q2br.png>)
     ### 1. Semiconductor Materials
 
     **Semiconductor (সেমিকন্ডাক্টর)** materials form the base of all electronic devices.

@@ -62,7 +62,7 @@
 - **Q1(b) [4]:** Define accessors (getters), mutators (setters) and constructors in your own word.
 - **Q1(c) [2+2+2]:** Answer the following questions using the Class diagram for an animal class shown below.
 
-  ![Animal class diagram](/bou-resources/bou-cse/21-semester/Previous-year-question/assets/CSE2137_201_Q1c_Animal_Class.png)
+  ![Animal class diagram](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0172_nmqlyj.png)
   1. How many member variables are there in the animal class? Mention their names and types.
   2. Identify the mutators and accessors.
   3. Write Java codes to implement the constructor.

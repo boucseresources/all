@@ -198,7 +198,7 @@ These methods ensure that problems are solved in an organized and efficient mann
     **Step 10:** Stop.
 
     ### Flowchart:
-    ![Flowchart](<Student DVISION Flowchart.png>)
+    ![Flowchart](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0352_ydlanu.png>)
 
     ### C program:
     ```c
@@ -281,7 +281,7 @@ These methods ensure that problems are solved in an organized and efficient mann
     ### **Flowchart**
 
     Here is the flowchart that matches your code logic.
-    ![alt text](image.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0560_ilu9mt.png)
 
     ### **Your C Program**
 

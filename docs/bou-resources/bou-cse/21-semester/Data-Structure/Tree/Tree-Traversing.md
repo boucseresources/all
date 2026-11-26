@@ -8,10 +8,10 @@ So in summary, always go from the root in counterclockwise direction around the 
  - For Post-order, print the nodes when you visit them for the last time.
 
 Shortcut formula:
-![The Gravity Drop Method (Inorder)](image-1.png)
+![The Gravity Drop Method (Inorder)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0386_xzkvt5.png)
 
 Problem Sets:
-![alt text](image.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0374_npjgrq.png)
 
 
 ## `(a*b)/(c+d)` এর জন্য এক্সপ্রেশন ট্রির ধারণা (Concept of Expression Tree)

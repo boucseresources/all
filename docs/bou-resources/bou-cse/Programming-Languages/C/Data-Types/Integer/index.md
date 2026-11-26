@@ -1,6 +1,6 @@
 # Integer
 
-![alt text](image.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0150_hwwntx.png)
 
 === "Bangla"
 

@@ -3,7 +3,7 @@
 
 !!! info "232 Final Exam Routine"
     
-    ![alt text](<232 Final Exam Routine  1 of 1-1.png>)
+    ![alt text](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0123_y6di8x.png>)
     
 
 ??? info "13–14 NOV 2025"
@@ -204,7 +204,7 @@
     Number righ-angle-triangle,
     Number  reversed righ-angle-triangle,
     Reversed righ-angle-triangle showing asterisk (*),
-    ![SPL Lab patterns](image-4.png){ width=300px }
+    ![SPL Lab patterns](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0323_friz0l.png){ width=300px }
 
 ??? info "OCT 10-11 2025"
 

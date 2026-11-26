@@ -1,9 +1,9 @@
 ## Diode – Exam-oriented Notes with Easy Explanation and Analogy
 
-![P-N-Junction-Diode-Symbol-and-Polarity-or-Terminal](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![simple-diode-circuit](image-3.png)
+![P-N-Junction-Diode-Symbol-and-Polarity-or-Terminal](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0270_yaacnv.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0274_endcsm.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0423_prusmn.png)
+![simple-diode-circuit](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0442_ynjyt1.png)
 
 ### What is a diode 
 

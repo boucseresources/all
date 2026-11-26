@@ -12,7 +12,7 @@ title: NOT Gate from NOR Gate
 
 ডিজিটাল ইলেকট্রনিক্সে, একটি NOT gate হলো একটি basic logic gate যার কেবল একটি ইনপুট এবং একটি আউটপুট থাকে। এটি এমন এক ধরনের logic gate যার আউটপুট সবসময় ইনপুটের complement হয়। এজন্য NOT gate কে **inverter** নামেও ডাকা হয়।
 
-![What is a NOT Gate](image-4.png)
+![What is a NOT Gate](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0235_m7gmkv.png)
 
 যদি NOT gate এর ইনপুট LOW (Logic 0) হয়, তাহলে এটি HIGH (Logic 1) আউটপুট দেয়। যদি ইনপুট HIGH (Logic 1) হয়, তাহলে NOT gate LOW (Logic 0) আউটপুট দেয়। Figure-1 এ NOT gate এর লজিক সিম্বল দেখানো হয়েছে।
 
@@ -45,7 +45,7 @@ $$
 $$
 
 
-![nor-gate](image-5.png)
+![nor-gate](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0326_o94tfh.png)
 
 একটি NOR gate যেকোনো সংখ্যক ইনপুট নিতে পারে এবং একটি আউটপুট দেয়। NOR gate এর আউটপুট HIGH (Logic 1) হবে তখনই যখন সব ইনপুট LOW (Logic 0) থাকে। অন্য যেকোনো ইনপুট কম্বিনেশনে এর আউটপুট LOW (Logic 0) হয়। Figure-2 তে একটি two-input NOR gate এর লজিক সিম্বল দেখানো হয়েছে।
 

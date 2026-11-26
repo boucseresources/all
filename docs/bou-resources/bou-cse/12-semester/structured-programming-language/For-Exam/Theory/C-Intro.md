@@ -203,7 +203,7 @@
     4. **Strings:** Sequence of characters like `"Hello World"`.
     5. **Special Symbols:** Punctuation like `;`, `{}`, `()`, `#`.
     6. **Operators:** Symbols that perform operations like `+`, `-`, `*`, `++`.
-    ![Classification of Tokens](image-1.png)
+    ![Classification of Tokens](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0464_s6q2tp.png)
     **Example:**
 
     ```c
@@ -454,7 +454,7 @@
 
 
     * *Note:* Multiplication and Division happen before Addition and Subtraction.
-    ![alt text](image-2.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0232_blcsex.png)
 
     #### **3. Shift Operators**
 
@@ -768,5 +768,5 @@
     ### **Conclusion**
 
     To write any meaningful C program, we need to use a combination of these three instructions. We start with Type Declaration to set up memory, use Arithmetic Instructions to calculate values, and use Control Instructions to manage the logic flow.
-    ![alt text](image-3.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0421_ypqjos.png)
     

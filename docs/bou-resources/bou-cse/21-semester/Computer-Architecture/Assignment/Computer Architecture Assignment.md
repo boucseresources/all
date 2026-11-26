@@ -76,7 +76,7 @@ This defines the programmer-visible part of the machine: instruction formats, op
 
 A computing system is organized as a hierarchy of layers, where each layer provides an abstraction to the layer above it while hiding the implementation details of the layers below it. This layered structure allows programmers, compiler designers, and hardware engineers to work independently at their own level without needing to understand the full depth of the system. There are seven such layers, arranged from the most abstract to the most physical.
 
-![image-100.png](/bou-resources/media-library/image-100.png)
+![image-100.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0433_nxew5f.png)
 
 **Software Layers**
 
@@ -174,31 +174,31 @@ In essence, CISC trades hardware simplicity at the compiler level for complexity
 
 SISD, SIMD, MIMD, and SPMD are different ways to describe how a computer handles instructions and data during execution. The first three, SISD, SIMD, and MIMD, are part of Flynn's Taxonomy. This is a classification made by Michael Flynn based on how many instruction streams and data streams a system can process at the same time. SPMD is a bit different. It is a programming model, not a hardware type, and it is usually used on top of MIMD hardware.
 
-![image-101.png](/bou-resources/media-library/image-101.png)
+![image-101.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0057_gjfarl.png)
 
 **SISD (Single Instruction, Single Data)**
 
 In SISD, there is only one instruction stream and one data stream at a time. This means the processor executes one instruction, on one piece of data, one after another. This is the normal model of a simple, traditional computer with a single processor. Most old personal computers and simple single-core CPUs work like this. Because there is no parallel work happening, performance can only be increased by things like pipelining or making the clock faster.
 
-![image-102.png](/bou-resources/media-library/image-102.png)
+![image-102.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0396_jiimga.png)
 
 **SIMD (Single Instruction, Multiple Data)**
 
 In SIMD, one single instruction is sent to many processing units at the same time, but each unit works on different data. So the same operation is done on many data values at once, in parallel. This is very useful for tasks like image processing, graphics, and scientific calculations where the same operation is repeated on large amounts of data. Examples of SIMD are array processors, vector processors, and modern GPUs. Also, many normal CPUs have SIMD instruction sets built in, like Intel's SSE and AVX.
 
-![image-103.png](/bou-resources/media-library/image-103.png)
+![image-103.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0330_gsnp90.png)
 
 **MIMD (Multiple Instruction, Multiple Data)**
 
 In MIMD, many processors run at the same time, but each one executes its own instruction stream on its own data. This is more flexible than SIMD because each processor can do a completely different task, or work on a different part of the same task, independently. Multicore processors, multiprocessor systems, and computer clusters are common examples of MIMD. MIMD systems can be divided into two types: shared-memory MIMD, where all processors use one common memory, and distributed-memory MIMD, where each processor has its own memory and they communicate through a network.
 
-![image-104.png](/bou-resources/media-library/image-104.png)
+![image-104.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0459_nf1cle.png)
 
 **SPMD (Single Program, Multiple Data)**
 
 SPMD is not a hardware type like the other three. It is a programming model that usually runs on MIMD hardware. In SPMD, every processor runs the same program, but each one works on a different part of the data. Even though the program is the same, different processors can take different paths inside the program, for example using if-conditions based on the processor's ID. Since each processor runs on its own, without needing to stay in exact lockstep like SIMD, SPMD is more flexible. Because of this, SPMD is used a lot in real-world parallel programming, and it is the basic idea behind tools like MPI and CUDA programming for GPUs.
 
-![image-105.png](/bou-resources/media-library/image-105.png)
+![image-105.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0492_kuo6nk.png)
 
 **Comparison Table**
 
@@ -221,19 +221,19 @@ Intel 80386, 80486, and Pentium are three important processors in the history of
 
 The 80386, also called i386, was released by Intel in 1985. It was the first 32-bit processor in the x86 family, while earlier processors like the 8086 and 80286 were only 16-bit. Because of this, the 80386 could handle 32-bit data and addresses, which means it could access much more memory, up to 4 GB, compared to earlier chips. It also introduced virtual memory support and protected mode, which allowed multitasking and better memory protection between different programs. But the 80386 did not have a built-in floating-point unit (FPU); it needed a separate chip called the 80387 math coprocessor if floating-point operations were needed. It also did not have any on-chip cache.
 
-![image-106.png](/bou-resources/media-library/image-106.png)
+![image-106.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0315_i54um4.png)
 
 **Intel 80486**
 
 The 80486 came out in 1989 and was a big improvement over the 80386. The most important change is that the 80486 included a built-in floating-point unit right inside the chip, so a separate math coprocessor was no longer required for most versions. Another major addition was an on-chip cache memory (usually 8 KB), which reduced the need to access slower main memory again and again, and improved performance a lot. The 80486 also introduced pipelining into its execution, which allowed instructions to overlap during execution, something the 80386 did not have. Because of the pipeline and cache, the 80486 was much faster than the 80386 even at similar clock speeds.
 
-![image-107.png](/bou-resources/media-library/image-107.png)
+![image-107.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0207_oog6ah.png)
 
 **Pentium**
 
 The Pentium processor was released in 1993 and represents another big jump. Unlike 80386 and 80486, which were part of Intel's numbered series (hence "486" instead of a name), Intel started using the name "Pentium" because numbers could not be trademarked. The Pentium introduced a superscalar architecture, meaning it had two execution pipelines (called u-pipe and v-pipe), so it could execute two instructions at the same time in one clock cycle, which was not possible in the 80486's single pipeline design. It also had a much improved floating-point unit, separate instruction and data caches, and introduced branch prediction to reduce pipeline stalls caused by branch instructions. The data bus was also widened to 64 bits, even though it was still internally a 32-bit processor, which allowed faster data transfer with memory.
 
-![image-108.png](/bou-resources/media-library/image-108.png)
+![image-108.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0466_r8uybo.png)
 
 **Comparison Table**
 
@@ -261,11 +261,11 @@ MIPS measures the number of instructions a CPU can execute in one second, indica
 - Higher MIPS doesn’t guarantee faster execution for complex programs.
 - Actual performance depends on memory, cache, I/O, and instruction efficiency.
 
-![image-115.png](/bou-resources/media-library/image-115.png)
+![image-115.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0173_yxehfp.png)
 
 MIPS is a RISC architecture, so all its instructions have a fixed length of 32 bits. But even though every instruction is 32 bits, the way these 32 bits are divided depends on what kind of instruction it is.
 
-![image-109.png](/bou-resources/media-library/image-109.png)
+![image-109.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0552_x4zm8f.png)
 
 MIPS has three main instruction formats: R-type, I-type, and J-type. Each format arranges the bits in a different way, depending on how many registers or values the instruction needs to use. All MIPS instructions are encoded in binary.
 
@@ -274,7 +274,7 @@ All MIPS instructions are 32 bits long. Examples:
 `001000 10011010100000000000000100`
 `000010 00000000000000000100000001`
 
-![image-114.png](/bou-resources/media-library/image-114.png)
+![image-114.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0236_s4ktel.png)
 
 **R-type (Register Type)**
 
@@ -284,7 +284,7 @@ R-type format is used for instructions that work only with registers, like arith
 | opcode (6) | rs (5) | rt (5) | rd (5) | shamt (5) | funct (6) |
 ```
 
-![image-110.png](/bou-resources/media-library/image-110.png)
+![image-110.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0087_euicnb.png)
 
 Here, opcode is mostly 0 for R-type instructions, and the actual operation is decided by the funct field. rs and rt are the two source registers, rd is the destination register where the result is stored, and shamt is used only for shift instructions to say how many bits to shift.
 
@@ -310,7 +310,7 @@ Here opcode is 000000, since it is an R-type instruction, rs = $t1 (register 9),
 
 **Example**
 add $s0, $s1, $s2 (registers 16, 17, 18)
-![image-113.png](/bou-resources/media-library/image-113.png)
+![image-113.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0446_bqdyt6.png)
 
 **I-type (Immediate Type)**
 
@@ -345,7 +345,7 @@ Another common I-type example is `beq $t1, $t2, label`, where `rs` and rt are th
 **Example**
 add i $t2, $s3, 4 (registers 10 and 19)
 
-![image-112.png](/bou-resources/media-library/image-112.png)
+![image-112.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0338_qjh8i6.png)
 
 **J-type (Jump Type)**
 
@@ -357,7 +357,7 @@ J-type format is used only for jump instructions, like `j` and `jal`, where the 
 
 Here, the 26-bit address field gives a large part of the target address directly. Since MIPS instructions are word-aligned, this address is combined with the upper bits of the program counter and shifted to make the final full jump address.
 
-![image-111.png](/bou-resources/media-library/image-111.png)
+![image-111.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0134_foge4t.png)
 
 **J-type Example**
 
@@ -395,7 +395,7 @@ Addressing mode means the method by which a processor finds the actual operand n
 
 In register addressing, the operand value is directly present inside a register, and no memory access is needed at all. This is the fastest addressing mode because the ALU can read the operand directly from the register file.
 
-![image-116.png](/bou-resources/media-library/image-116.png)
+![image-116.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0149_kumxx4.png)
 
 Example: `add $t0, $t1, $t2`
 
@@ -405,7 +405,7 @@ Here, the values of $t1 and $t2 are taken directly from registers, added togethe
 
 In immediate addressing, one of the operands is a constant value that is embedded directly inside the instruction itself, instead of being fetched from a register or memory.
 
-![image-117.png](/bou-resources/media-library/image-117.png)
+![image-117.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0131_gp5st7.png)
 
 Example: `addi $t0, $t1, 25`
 
@@ -415,7 +415,7 @@ Here, 25 is the immediate value, taken directly from the 16-bit immediate field 
 
 Base addressing, also called displacement addressing, is the primary addressing mode used for accessing memory in MIPS, specifically for load and store instructions. In this mode, the effective memory address is calculated by adding a constant offset (the displacement) to the value contained in a base register.
 
-![image-118.png](/bou-resources/media-library/image-118.png)
+![image-118.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0514_y0qlz8.png)
 
 Example: `lw $t0, 8($s1)`
 
@@ -429,7 +429,7 @@ The processor then goes to that computed memory address, fetches the word stored
 
 PC-relative addressing is used specifically in branch instructions, where the target address of the branch is calculated relative to the current value of the program counter (PC), instead of using an absolute address.
 
-![image-119.png](/bou-resources/media-library/image-119.png)
+![image-119.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0378_zqr6ru.png)
 
 Example: `beq $t1, $t2, label`
 
@@ -443,7 +443,7 @@ The immediate field holds a signed offset (in words, not bytes), which gets mult
 
 Pseudo-direct addressing is used only in jump instructions like j and jal, where a large 26-bit address field from the instruction is combined with a few bits from the current PC to compute the actual jump target, since 26 bits alone are not enough to represent a full 32-bit address.
 
-![image-120.png](/bou-resources/media-library/image-120.png)
+![image-120.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0504_xkc7hw.png)
 
 Example: `j 4096`
 
@@ -575,7 +575,7 @@ A basic block is a fundamental concept used in compiler design and program analy
 
 A basic block is defined as a straight-line sequence of code with the following two properties: first, there is no branch or jump target anywhere inside the block except at the very first instruction, meaning nothing from outside can jump into the middle of the block; second, there is no branch, jump, or control transfer instruction anywhere inside the block except possibly at the very last instruction, meaning control cannot leave the block from the middle either. In simple words, once execution enters a basic block, it will always execute every single instruction inside it, one after another, in order, without any interruption, until it reaches the end.
 
-![image-121.png](/bou-resources/media-library/image-121.png)
+![image-121.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0395_xfjlsq.png)
 
 **Why Basic Blocks Are Important**
 
@@ -636,7 +636,7 @@ The four main stages are:
 
 The C program goes through the following phases during compilation:
 
-![image-122.png](/bou-resources/media-library/image-122.png)
+![image-122.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0565_grcrws.png)
 
 **Preprocessing**
 
@@ -708,7 +708,7 @@ This stage is handled by a program called the assembler. The assembler takes the
 
 Output of this stage is called an object file, usually having extension `.o` or `.obj`. This object file already contains machine code, but it is still not directly executable, because it may have references to some external functions or variables which are defined somewhere else, like inside a library file.
 
-![image-124.png](/bou-resources/media-library/image-124.png)
+![image-124.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0298_djiblp.png)
 
 **Linking**
 
@@ -722,7 +722,7 @@ Final output of this stage is a single executable file, which contains complete 
 
 **Complete Flow**
 
-![image-123.png](/bou-resources/media-library/image-123.png)
+![image-123.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0472_p2kpwc.png)
 
 | Stage         | Tool Used    | Input                    | Output             |
 | ------------- | ------------ | ------------------------ | ------------------ |
@@ -1065,7 +1065,7 @@ Booth's algorithm works by inspecting two bits at a time, that is current multip
 
 To see how this procedure works, the following trace is provided. Assume that $M = -4 = 1100$ and $Q = 7 = 0111$.
 
-![image-125.png](/bou-resources/media-library/image-125.png)
+![image-125.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0265_eaaxfy.png)
 
 **Observations from the Trace**
 
@@ -1089,7 +1089,7 @@ A Q that will make the product VQ very close to D is needed, and this implies th
 
 Subtractive division algorithms are derived from the paper and pencil approach, using $D = 22$ and $Q = 3$ as illustration.
 
-![image-128.png](/bou-resources/media-library/image-128.png)
+![image-128.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0287_iktvuo.png)
 
 In this method, one quotient bit per iteration is generated. First, the divisor is lined up against the dividend, and subtraction from dividend is tried. If result of subtraction is positive, a 1 is entered for the quotient, and divisor is shifted one position to the right, then the whole process is repeated. However, if divisor cannot be subtracted from dividend without yielding a negative result, a 0 is entered for the quotient, and divisor is shifted to the right without subtracting. This process continues until all bits of dividend are covered.
 
@@ -1114,7 +1114,7 @@ To divide two n-bit numbers using restoring division algorithm, these steps are 
 
 Assume $M = 3 = 00011$ and dividend is such that $Q = 1011$.
 
-![image-127.png](/bou-resources/media-library/image-127.png)
+![image-127.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0455_nojvgb.png)
 
 From this trace, Quotient = 3 and Remainder = 2.
 
@@ -1142,13 +1142,13 @@ This algorithm eliminates the need to restore contents of A within the main loop
 
 The flowchart works as follows: loop counter is initialized to n. Then sign bit of A register is checked. If sign bit is zero, AQ is shifted left and M is subtracted from A (net result $2A - M$). If sign bit is not zero, AQ is shifted left and M is added with A (net result $2A + M$). After this, sign bit of A register is checked again: if it is 1, Q₀ is set to 1; if not, Q₀ is cleared to 0. Loop counter is then decremented by 1, and checked against 0. If loop counter is not 0, the process repeats. If loop counter is 0, sign bit of A is checked one final time: if it is not zero, A is restored by adding M with A, to recover the final remainder, and the process stops.
 
-![image-129.png](/bou-resources/media-library/image-129.png)
+![image-129.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0416_mvgbx8.png)
 
 **Nonrestoring Division Example**
 
 Assume $M = 3 = 00011$ and $Q = 1011$.
 
-![image-130.png](/bou-resources/media-library/image-130.png)
+![image-130.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0194_cbspbn.png)
 
 Quotient = 3, Remainder = 2.
 
@@ -1189,7 +1189,7 @@ Finally, the exponent is checked for overflow and underflow separately. If overf
 
 **Flowchart**
 
-![image-131.png](/bou-resources/media-library/image-131.png)
+![image-131.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0299_x7t1kf.png)
 
 **Example**
 
@@ -1232,7 +1232,7 @@ Following are the major components used in building this data path:
 - **Multiplexers (MUX):** placed at different points in the data path, to select the correct signal depending on which instruction type is running
 - **Control unit:** generates all the required control signals, based on opcode field (and `funct` field, for R-type instructions)
 
-![image-133.png](/bou-resources/media-library/image-133.png)
+![image-133.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0507_eyhd61.png)
 
 **Instruction Fetch**
 
@@ -1273,7 +1273,7 @@ Since different instructions need slightly different paths through the same shar
 
 The control unit reads opcode field of the fetched instruction, and based on that, it generates all necessary control signals for that particular instruction, such as RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, and ALUOp. All these signals control every multiplexer and every read/write enable line inside the datapath, and this makes sure the correct path gets activated automatically, depending on which instruction is currently running.
 
-![image-132.png](/bou-resources/media-library/image-132.png)
+![image-132.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0317_fon9a6.png)
 
 In simple words, the single cycle data path connects instruction memory, register file, ALU, data memory, and PC logic all together, using multiplexers that are controlled by the control unit, so that this one single shared hardware path can correctly handle R-type, load-store, and branch instructions, each within just one clock cycle. Even though this design is quite easy to understand and build, its main problem is that clock cycle time gets fixed according to the slowest instruction, which is usually load word, so even a fast and simple instruction like add ends up wasting time, waiting for the full clock cycle to finish. This is exactly why pipelined and multi-cycle designs are considered more efficient compared to single cycle implementation.
 
@@ -1329,7 +1329,7 @@ After fabrication, the actual manufactured chips are tested physically, to check
 
 **Flow Summary**
 
-![image-136.png](/bou-resources/media-library/image-136.png)
+![image-136.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0157_kgxesc.png)
 
 Designing a microprocessor is a long, layered process, moving step by step from a high-level idea of what the processor should do, all the way down to a physical, fabricated, and tested silicon chip. This process directly connects back to the layered computing system architecture discussed in an earlier question, since each step here, like ISA design, data path design, and logic design, actually corresponds to moving down through those same abstraction layers, one at a time, from software-visible architecture down to physical hardware.
 
@@ -1393,7 +1393,7 @@ This value gets loaded directly into PC, and execution continues from this new a
 
 The `jal` instruction (jump and link) works exactly the same way for calculating the jump target, but it has one extra step: before jumping, it saves the return address, which is $PC + 4$ (the address of the instruction right after jal), into register $31 (also called $ra). This is done using an extra write into the register file, alongside the normal jump target calculation, and this is what allows the program to return back to this point later, using a jr $ra instruction, making jal useful for implementing function calls.
 
-![image-137.png](/bou-resources/media-library/image-137.png)
+![image-137.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0304_cbqlwg.png)
 
 Jump instruction implementation in MIPS relies on the J-type format's 26-bit address field, combined with the upper 4 bits of $PC + 4$ and two appended zero bits, to form the complete 32-bit target address, and this calculated address is loaded directly into PC using a dedicated multiplexer controlled by the Jump signal. Since jump does not need any ALU comparison like branch does, its implementation is comparatively simpler, needing only wiring and concatenation logic, rather than actual arithmetic computation, and the jal variant additionally saves the return address into register $31, making function calls possible in MIPS assembly.
 
@@ -1407,7 +1407,7 @@ Pipelining is a technique used in processor design, where execution of an instru
 
 In a non-pipelined (single cycle) processor, one complete instruction must finish entirely before the next instruction can even start, so every instruction, whether simple or complex, takes the same long clock cycle to complete. In a pipelined processor, execution of an instruction is divided into separate stages, for example fetch, decode, execute, memory access, and write back, and each stage is handled by a separate hardware unit. While one instruction is being decoded, the next instruction can already be fetched at the same time, and while that instruction is being executed, yet another instruction can be fetched, and so on. This way, multiple instructions move through the pipeline simultaneously, each at a different stage.
 
-![image-138.png](/bou-resources/media-library/image-138.png)
+![image-138.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0263_kxixv7.png)
 
 **How Pipeline Improves Performance**
 
@@ -1457,7 +1457,7 @@ Pipelining increases processor performance mainly by increasing instruction thro
 
 MIPS pipeline breaks down the execution of every instruction into five separate stages, and this design is often called the classic 5-stage MIPS pipeline. Each stage is handled by a different hardware unit, and at any given moment, five different instructions can be present inside the pipeline together, each one at a different stage, following the overlapping concept discussed in the previous question.
 
-![image-139.png](/bou-resources/media-library/image-139.png)
+![image-139.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0256_w4lewr.png)
 
 **The Five Pipeline Stages**
 
@@ -1517,7 +1517,7 @@ Structural hazard happens when two or more instructions inside the pipeline need
 
 For example, if instruction memory and data memory are combined into a single shared memory unit, then a load instruction, which needs to access memory in its MEM stage, and a different instruction, which needs to fetch a new instruction in its IF stage, might end up needing to access this same shared memory at the same clock cycle. Since only one memory access can happen at a time in a single-ported memory, this creates a structural hazard.
 
-![image-140.png](/bou-resources/media-library/image-140.png)
+![image-140.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0121_lek0up.png)
 
 This type of hazard is usually solved by design itself, for example by using separate instruction memory and data memory (following Harvard architecture style), so both accesses can happen simultaneously without conflict.
 
@@ -1525,7 +1525,7 @@ This type of hazard is usually solved by design itself, for example by using sep
 
 Data hazard happens when an instruction depends on the result of a previous instruction that has not yet completed and written its result back, but the pipeline tries to read that value too early, before it becomes available.
 
-![image-141.png](/bou-resources/media-library/image-141.png)
+![image-141.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0309_rx39mc.png)
 
 For example, consider this sequence:
 
@@ -1540,7 +1540,7 @@ Here, the second instruction needs the value of $t0, but $t0 is only calculated 
 
 Control hazard happens because of branch and jump instructions, where the pipeline does not know for certain what the next instruction should be, until the branch decision itself is calculated, but by that time, the pipeline has usually already fetched several following instructions, assuming normal sequential execution.
 
-![image-142.png](/bou-resources/media-library/image-142.png)
+![image-142.png](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0233_zu3fyw.png)
 
 For example, consider this sequence:
 

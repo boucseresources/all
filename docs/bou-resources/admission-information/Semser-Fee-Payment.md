@@ -13,7 +13,7 @@
     - সেশন
     - সেমিস্টারের টার্ম (যেমন: ৩য়, ৪র্থ ইত্যাদি)
     - সেমিস্টারের বছর (যেমন: ২০২৫)
-![Fee Registration Form](image.png){:height="auto" width="250px"}
+![Fee Registration Form](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0443_yfzxds.png){:height="auto" width="250px"}
 3. যদি আপনি আগের সেমিস্টারে সব সাবজেক্টে পরীক্ষা দিয়ে থাকেন, তাহলে পরবর্তী সেমিস্টারে সব কোর্সে এনরোল করতে পারবেন।
 4. তবে যদি কোনো কোর্সের **prerequisite** কোর্স আপনি না করে থাকেন বা পরীক্ষা না দিয়ে থাকেন, তাহলে সেই কোর্সে এনরোল করা যাবে না।
 
@@ -75,13 +75,13 @@
 
 2. জমাদান স্থান সাধারণত **DRC ভবনের দ্বিতীয় তলায়**।
 
-<kbd>![BOU Academic Card](bou-academic-card.png)</kbd>
+<kbd>![BOU Academic Card](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0500_oama6m.png)</kbd>
 
-<kbd>![bou-semester-fee-form](bou-semester-fee-form.png)</kbd>
+<kbd>![bou-semester-fee-form](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0307_u4uozk.png)</kbd>
 
-<kbd>![bou-janata-bank-pay-check](bou-janata-bank-pay-check.png){:height="auto" width="800px"}</kbd>
+<kbd>![bou-janata-bank-pay-check](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0168_ruw9zo.png){:height="auto" width="800px"}</kbd>
 
-<kbd>![bou-janata-bank-check-paid](bou-janata-bank-check-paid.png){:height="auto" width="500px"}</kbd>
+<kbd>![bou-janata-bank-check-paid](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0224_qvmznt.png){:height="auto" width="500px"}</kbd>
 
 ---
 

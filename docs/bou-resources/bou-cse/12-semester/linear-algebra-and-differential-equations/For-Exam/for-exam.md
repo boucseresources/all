@@ -23,10 +23,10 @@
     * **Linear independence**: no brick is redundant.
     * **Basis**: the smallest set of bricks that still builds the whole apartment (spans V and is independent).
     * **Dimension**: how many bricks are in a basis (how many independent “directions” the apartment needs).
-    ![alt text](image.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0110_uoihuy.png)
 
 ??? "System of Linear eqn"
-![alt text](<System of Linear eqn  maths.png>)
+![alt text](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0397_v7qrci.png>)
 
 ??? "Equation checking"
 

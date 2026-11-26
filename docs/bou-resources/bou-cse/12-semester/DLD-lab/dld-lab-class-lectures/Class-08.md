@@ -7,7 +7,7 @@ A combinational logic circuit that can add two binary digits (bits) and a carry 
 
 In other words, a combinational circuit which is designed to add three binary digits and produces two outputs (sum and carry) is known as a full adder. Thus, a full adder circuit adds three binary digits, where two are the inputs and one is the carry forwarded from the previous addition. The block diagram and circuit diagram of the full adder are shown in Figure-1.
 
-![Full Adder](image-36.png)
+![Full Adder](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0059_xio0s3.png)
 
 Hence, the circuit of the full adder consists of one EX-OR gate, three AND gates and one OR gate, which are connected together as shown in the full adder circuit in Figure-1.
 
@@ -43,7 +43,7 @@ While the carry output has a carry of 1 if two or three inputs are equal to 1.
 K-Map (Karnaugh Map) is a tool for simplifying binary complex Boolean algebraic expressions.
 The K-Map for full adder is shown in Figure-2.
 
-![K-Map for Full Adder](image-37.png)
+![K-Map for Full Adder](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0146_ivxyyt.png)
 
 \[
 S = A'B'C_{in} + A'BC'*{in} + AB'C'*{in} + ABC_{in}
@@ -156,7 +156,7 @@ A full-subtractor is a combinational circuit that has three inputs A, B, bin and
 As we know that the half-subtractor can only be used for subtraction of LSB (least significant bit) of binary numbers. If there is any borrow during the subtraction of the LSBs of two binary numbers, then it will affect the subtraction of next stages. Therefore, the subtraction with borrow are performed by a full subtractor.
 
 The block diagram and circuit diagram of a full-subtractor is shown in Figure-1.
-![Full subtractor](image-33.png)
+![Full subtractor](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0086_tytp0f.png)
 
 Therefore, we can realize the full-subtractor using two XOR gates, two NOT gates, two AND gates, and one OR gate.
 
@@ -176,7 +176,7 @@ From the logic circuit diagram of the full subtractor, it is clear that the diff
 
 The truth table is one that gives relationship between input and output of a logic circuit. The following is the truth table of the full-subtractor −
 
-![alt text](image-34.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0102_go58rp.png)
 
 ---
 
@@ -185,7 +185,7 @@ The truth table is one that gives relationship between input and output of a log
 We can use the K-Map (or Karnaugh Map), a method for simplifying Boolean algebra, to determine equations of the difference bit (d) and the output borrow bit (b).
 
 The K-Map simplification for half subtractor is shown in Figure-2.
-![alt text](image-35.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0198_qidsg1.png)
 
 ---
 

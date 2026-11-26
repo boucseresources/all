@@ -1,4 +1,4 @@
-![red and magenta panel](image.png)
+![red and magenta panel](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0241_l2zbwp.png)
 
 
 ```java

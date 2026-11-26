@@ -17,7 +17,7 @@
    * যে সেমিস্টারের কোর্সে Retake বা Improvement দিতে চান
    * পরীক্ষার বছর (যেমন: ২০২৫)
    * কোর্স কোড ও কোর্স নাম (যেগুলোতে Retake বা Improvement প্রযোজ্য)
-     ![Retake Improvement Form](image.png){:height="auto" width="250px"}
+     ![Retake Improvement Form](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0443_yfzxds.png){:height="auto" width="250px"}
 3. **Retake Exam** এর ক্ষেত্রে শুধুমাত্র যেসব কোর্সে আপনি ফেল করেছেন, সেগুলোই ফর্মে উল্লেখ করবেন।
 4. **Improvement Exam** এর ক্ষেত্রে যেসব কোর্সে পাস করেছেন কিন্তু গ্রেড উন্নত করতে চান, সেগুলো আলাদা করে উল্লেখ করবেন।
 5. যে কোর্সে আগে পরীক্ষা দেওয়া হয়নি বা রেজিস্ট্রেশন করা ছিল না, সেই কোর্সে Retake বা Improvement দেওয়া যাবে না।
@@ -71,9 +71,9 @@
 
 3. সাধারণত জমাদান স্থান হয় **DRC ভবনের দ্বিতীয় তলায়** (নোটিশ অনুযায়ী ভিন্ন হতে পারে)।
 
-<kbd>![CSE Retake system](<BOU CSE Retake system.jpg>)</kbd>
+<kbd>![CSE Retake system](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0027_mtdtdi.jpg>)</kbd>
 
-<kbd>![CSE Retake systemalt text](<BOU CSE Retake system 02.jpg>){:height="auto" width="800px"}</kbd>
+<kbd>![CSE Retake systemalt text](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0035_emtzmh.jpg>){:height="auto" width="800px"}</kbd>
 
 
 ### 📞 সহায়তা

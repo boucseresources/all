@@ -50,7 +50,7 @@ public class BorderLayoutExample {
 
 ## চিত্র থেকে যা বুঝবেন:
 
-![alt text](image-1.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0277_km1wsw.png)
 
 * NORTH (উত্তর): এটি সবসময় উইন্ডোর ঠিক ওপরের পুরো অংশ জুড়ে থাকে।
 * SOUTH (দক্ষিণ): এটি উইন্ডোর একেবারে নিচের পুরো অংশটি নিয়ে থাকে।

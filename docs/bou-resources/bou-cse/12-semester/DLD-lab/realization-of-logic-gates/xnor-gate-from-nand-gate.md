@@ -8,13 +8,13 @@ title: XNOR Gate from NAND Gate
 
 ![image-47.png](/bou-resources/bou-cse/media-library/image-47.png)
 
-![Full AND/OR/NOT Set to Implement Ex-NOR](image-20.png)
+![Full AND/OR/NOT Set to Implement Ex-NOR](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0411_rilw2y.png)
 
 ## What is a XNOR Gate?
 
 XNOR (Exclusive-NOR) Gate হলো একটি derived logic gate। এর দুটি ইনপুট এবং একটি আউটপুট থাকে। XNOR gate তখনই HIGH (Logic 1) আউটপুট দেয় যখন দুটি ইনপুট সমান থাকে (উভয়ই 0 অথবা উভয়ই 1)। কিন্তু যখন দুটি ইনপুট আলাদা থাকে, তখন আউটপুট LOW (Logic 0) হয়।
 
-![Figure 1 - XNOR Gate](image.png)
+![Figure 1 - XNOR Gate](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0555_wunkqq.png)
 
 ### Output Equation of XNOR Gate
 
@@ -38,7 +38,7 @@ $$
 ## What is a NAND Gate?
 
 NAND Gate হলো একটি **universal logic gate**। এটি মূলত AND এবং NOT gate-এর সমন্বয়। NAND gate-এর আউটপুট LOW হয় তখনই যখন এর সব ইনপুট HIGH হয়, বাকি সব ক্ষেত্রে আউটপুট HIGH থাকে।
-![NAND Gate](image-1.png)
+![NAND Gate](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0255_id27tc.png)
 
 ### Output Equation of NAND Gate
 
@@ -61,7 +61,7 @@ $$
 
 ## Implementation of XNOR Gate from NAND Gate
 
-![alt text](image-2.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0376_a3qj8r.png)
 Figure-3-এ ৫টি NAND gate ব্যবহার করে একটি XNOR gate এর বাস্তবায়ন দেখানো হয়েছে।
 
 এখন ধাপে ধাপে দেখি কীভাবে এই সার্কিট কাজ করে।
@@ -106,7 +106,7 @@ $$
 
 ## IC Implementation of the XNOR using NAND:
 
-![IC Implementation of the XNOR using NAND](image-3.png)
+![IC Implementation of the XNOR using NAND](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0090_vovown.png)
 
 ## Testing:
 

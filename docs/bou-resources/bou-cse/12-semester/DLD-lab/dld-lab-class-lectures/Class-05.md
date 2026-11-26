@@ -26,7 +26,7 @@ title: DLDL - Class 05
     👉 যখন **সব ইনপুট = 1**, তখন আউটপুট হবে **0**।
     👉 অন্য যেকোনো ইনপুট কম্বিনেশনে আউটপুট হবে **1**।
 
-    ![NAND Gate Basics](image-18.png)
+    ![NAND Gate Basics](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0541_ivb1sy.png)
     **NAND গেটের প্রতীক (Symbol)**
 
     দুই ইনপুট NAND গেটের **Truth Table** নিচে দেওয়া হলো:
@@ -79,7 +79,7 @@ title: DLDL - Class 05
 
     NOT গেট NAND গেট দিয়ে বানাতে হলে:
    
-    ![NAND-as-NOT](image-25.png)
+    ![NAND-as-NOT](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0053_z3tiwv.png)
     * উভয় ইনপুটকে একসাথে শর্ট করে একই ইনপুট দিতে হবে।
     * আউটপুট লাইনে পাওয়া যাবে **উল্টানো মান (Inverter Output)**।
 
@@ -102,7 +102,7 @@ title: DLDL - Class 05
 * 2য় NAND Gate → আউটপুট = $\overline{\overline{A \cdot B}} = A \cdot B$ |
 * চূড়ান্ত আউটপুট = AND Gate |
 
-![AND Gate Using NAND Gate](image-16.png)
+![AND Gate Using NAND Gate](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0388_cdkhnx.png)
 ---
 
 
@@ -141,7 +141,7 @@ title: DLDL - Class 05
 
     ![XOR0-Gate-Using-NAND-Gate.png](/bou-resources/bou-cse/media-library/XOR0-Gate-Using-NAND-Gate.png)
     **FULL Implementation:**
-    ![XOR Gate Using NAND Gate](image-19.png)
+    ![XOR Gate Using NAND Gate](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0343_jgl7cu.png)
 
 
     # What is a XOR Gate?
@@ -273,11 +273,11 @@ title: DLDL - Class 05
         Y = \big((\overline{A}B)' \cdot (A\overline{B})'\big)' \;=\; \overline{A}B + A\overline{B}
         $$
 
-        ![Implementation of XOR Gate from NAND Gate](image-23.png)
+        ![Implementation of XOR Gate from NAND Gate](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0060_plvsf3.png)
 
 
 
-    ![XOR using NAND Gate](image-24.png)
+    ![XOR using NAND Gate](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0205_rtd9wn.png)
     এটাই হলো XOR gate-এর আউটপুট। সুতরাং, শুধুমাত্র NAND gate ব্যবহার করেও XOR gate বাস্তবায়ন করা সম্ভব।
 
 
@@ -291,7 +291,7 @@ title: DLDL - Class 05
 
     ![image-47.png](/bou-resources/bou-cse/media-library/image-47.png)
 
-    ![Full AND/OR/NOT Set to Implement Ex-NOR](image-20.png)
+    ![Full AND/OR/NOT Set to Implement Ex-NOR](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0411_rilw2y.png)
     ---
 
     # What is a XNOR Gate?
@@ -391,7 +391,7 @@ title: DLDL - Class 05
 
 ---
 ## Universal Logic Gates using only NAND Gates
-![Universal Logic Gates using only NAND Gates](image-21.png)
+![Universal Logic Gates using only NAND Gates](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0169_dhhy7w.png)
 ---
 
 ## 🟥 NOR Universal Logic Gate
@@ -440,7 +440,7 @@ title: DLDL - Class 05
 
 
 # Universal Logic Gates using only NOR Gates
-![Universal Logic Gates using only NOR Gates](image-22.png)
+![Universal Logic Gates using only NOR Gates](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0375_tt8jty.png)
 ---
 
 📌 **Final Note:**

@@ -7,7 +7,7 @@ share_link: https://share.note.sx/g5krwrq5#6G/NmM+fE4xA6oxJmqnI4SnRXvJDc+lgCHEIh
 share_updated: 2025-07-05T02:36:26+06:00
 ---
 
-![alt text](e6bc26c7a2617dafea44379d5d236b97.gif)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/bou20261126_0013_yp1oea.gif)
 
 ![image-30.png](/bou-resources/bou-cse/media-library/image-30.png)
 

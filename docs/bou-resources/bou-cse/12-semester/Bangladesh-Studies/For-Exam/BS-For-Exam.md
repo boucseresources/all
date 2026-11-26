@@ -1,11 +1,11 @@
-![alt text](image-2.png)
+![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0099_io6wmb.png)
 
 
 
 ??? "The ancient Trade of Rome with India"
 
-    ![alt text](image-1.png)
-    ![alt text](image-4.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0462_ok4qph.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0216_qnczot.png)
 
     **Assignment on The Ancient Trade of India with Rome**
 
@@ -318,7 +318,7 @@
 
     **Conclusion**
     To conclude, the birth of the Muslim League was a logical outcome of the political circumstances (পরিস্থিতি) of that time. The fear of Hindu domination and the need for a separate identity drove the Muslims to unite. Starting from the Aligarh movement to the Partition of Bengal, every event contributed to this. The establishment of the League in Dhaka in 1906 ultimately changed the course of Indian history.
-    ![alt text](image-3.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0247_yuxt0i.png)
 
 ??? "Bangla Sultanat"
 
@@ -420,4 +420,4 @@
 
     In conclusion, the economy of Bangladesh is progressing through balanced development of key sectors and effective government strategies. With proper planning and implementation, Bangladesh has the potential to achieve higher economic stability (অর্থনৈতিক স্থিতিশীলতা) and growth in the future.
 
-    ![Economy of Bangladesh](<bangladesh development.png>)
+    ![Economy of Bangladesh](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0529_ewmzqc.png>)

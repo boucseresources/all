@@ -27,7 +27,7 @@ The circuit of a half adder is built using:
 
 It has **two input terminals** (A, B) and **two output terminals** (S, C).
 
-![half-adder-circuit](image-27.png)
+![half-adder-circuit](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0116_ds0ba8.png)
 
 ## Circuit Representation
 
@@ -85,8 +85,8 @@ C = A \cdot B
 $$
 
 #### Simulation on TinkerCad: 
-![Half Adder TinkerCad Truth table check | TinkerCad | Halal Coder](image-31.png)
-![Half Adder TinkerCad Truth table check | TinkerCad | Halal Coder](<Half Adder TinkerCad Truth table check simulation.gif>)
+![Half Adder TinkerCad Truth table check | TinkerCad | Halal Coder](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0520_qibdbh.png)
+![Half Adder TinkerCad Truth table check | TinkerCad | Halal Coder](<https://res.cloudinary.com/zopgecx6/image/upload/bou20261126_0011_anuazf.gif>)
 
 <iframe width="1258" height="619" src="https://www.youtube.com/embed/V-__-oLekYM" title="Half Adder TinkerCad Truth table check | TinkerCad | Halal Coder" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -127,7 +127,7 @@ In the subtraction (A − B):
 
 The block diagram and logic circuit diagram of the half subtractor is shown in **Figure 1**.
 
-![Half-Subtractor](image-29.png)
+![Half-Subtractor](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0189_xrmdcg.png)
 
 ### Half Subtractor Block Diagram & Circuit Diagram
 
@@ -178,7 +178,7 @@ We can use the **K-Map (Karnaugh Map)** method to simplify the Boolean equations
 
 The K-Map simplification for the half subtractor is shown in **Figure 2**.
 
-![K-Map simplification for the half subtractor](image-30.png)
+![K-Map simplification for the half subtractor](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0482_b69tps.png)
 
 ## Characteristic Equations of Half Subtractor
 
@@ -197,8 +197,8 @@ b = A′B
 $$
 
 
-![Half Subtractor TinkerCad Truth table check | TinkerCad | Halal Coder](image-32.png)
-![Half Subtractor TinkerCad Truth table check](<Half Subtractor TinkerCad Truth table check.gif>)
+![Half Subtractor TinkerCad Truth table check | TinkerCad | Halal Coder](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0284_jqrko6.png)
+![Half Subtractor TinkerCad Truth table check](<https://res.cloudinary.com/zopgecx6/image/upload/bou20261126_0004_a4xykz.gif>)
 <iframe width="1258" height="619" src="https://www.youtube.com/embed/uZz0RJ-BHnM" title="Half Subtractor TinkerCad Truth table check" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 

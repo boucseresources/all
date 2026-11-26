@@ -95,7 +95,7 @@
     $R_{B1}$ is the variable resistance between the Emitter and Base 1.
     $R_{B2}$ is the fixed resistance between the Emitter and Base 2.
 
-    ![alt text](<UJT Definition and Equivalent Circuit.png>)
+    ![alt text](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0370_dzx2zw.png>)
 
     # 7. Drift Current and Diffusion Current
 
@@ -162,7 +162,7 @@
     ## Reverse Bias (বিপরীত ঝোঁক)
 
     When the positive terminal is connected to the N-side, the diode is reverse biased. Practically zero current flows (only a tiny leakage current). If the reverse voltage is increased too much, it hits the Breakdown voltage, and current shoots up.
-    ![V-I Characteristics Curve of a PN Junction Diode](image-14.png)
+    ![V-I Characteristics Curve of a PN Junction Diode](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0230_vwhkjm.png)
 
 
     # 9. Zener Diode as a Voltage Regulator

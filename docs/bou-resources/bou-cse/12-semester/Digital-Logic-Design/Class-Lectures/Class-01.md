@@ -46,7 +46,7 @@ Truth Table basically সব possible input combination এর জন্য outp
 
 Circuit বানাতে প্রথমে A আর B এর উপর **NOT gate** লাগাবো, তারপর output দুইটা **AND gate** দিয়ে connect করব, তারপর C এর সাথে একটা **OR gate** এ দিবো। Final output হবে F.
 
-![Figure 1: Logic circuit implementation of 𝐹 = 𝐴 ‾ ⋅ 𝐵 ‾ ∨ 𝐶 F= A ⋅ B ∨C using NOT, AND, and OR gates](image-1.png)
+![Figure 1: Logic circuit implementation of 𝐹 = 𝐴 ‾ ⋅ 𝐵 ‾ ∨ 𝐶 F= A ⋅ B ∨C using NOT, AND, and OR gates](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0351_zmbnjb.png)
 *Figure 1: Logic circuit implementation of $F = \overline{A} \cdot \overline{B} \vee C$ using NOT, AND, and OR gates.*
 
 ---

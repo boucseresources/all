@@ -49,7 +49,7 @@
     4. এখানে প্রসেসিংয়ের কাজ একা হয় না; বরং জটিল ক্যালকুলেশনগুলোকে **মাল্টিপল ফাংশনাল ইউনিটের (Multiple Functional Units)** মাধ্যমে সমান্তরালভাবে বা প্যারালালি (**Parallelly**) এক্সিকিউট করা হয়। এর ফলে প্রসেসিং স্পিড অনেক হাই (High Performance) হয়।
     5. এক্সিকিউশন শেষ হওয়ার পর এরে প্রসেসর ফলাফলটিকে পুনরায় তার **Local Memory**-তে সেভ করে।
     6. সবশেষে, লোকাল মেমোরি থেকে সেই আউটপুট বা রেজাল্ট আবার হাই-স্পিড বাসের মাধ্যমে মেইন কম্পিউটারের **Main Memory**-তে ফেরত চলে আসে। এভাবেই পুরো কার্যপ্রক্রিয়া সম্পন্ন হয়।
-    ![Attached Array Processor](image.png)   
+    ![Attached Array Processor](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0366_uku9kw.png)\
 
     ### ২. এসআইএমডি এরে প্রসেসর (SIMD Array Processor)
 
@@ -60,7 +60,7 @@
     #### **অভ্যন্তরীণ গঠন ও ব্লক ডায়াগ্রামের ব্যাখ্যা:**
 
     এসআইএমডি এরে প্রসেসরের আর্কিটেকচার বা গঠন নিচে দেওয়া হলো:
-    ![SIMD Array Processor](image-1.png)
+    ![SIMD Array Processor](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0491_i7ra0v.png)
     * **কমন কন্ট্রোল ইউনিট (Common Control Unit / Master CPU):** এটি পুরো সিস্টেমের মাথা বা মাস্টার প্রসেসর। এর কাজ হলো ইনস্ট্রাকশন মেইন মেমোরি থেকে আনা এবং নিচের প্রসেসিং এলিমেন্টগুলোকে নিয়ন্ত্রণ করা।
     * **মেইন মেমোরি (Main Memory):** মাস্টার সিপিইউ-এর সাথে মেইন মেমোরি যুক্ত থাকে, যেখানে প্রসেস করার মতো সমস্ত ইনস্ট্রাকশন জমা থাকে।
     * **প্রসেসিং এলিমেন্টস (Processing Elements - PE):** এখানে অনেকগুলো প্রসেসর প্যারালালি বসানো থাকে, যাদের $PE_1, PE_2, PE_3 ... PE_n$ বলা হয়।
@@ -130,7 +130,7 @@
     
     An Attached Array Processor system consists of the following fundamental blocks:
     
-    ![Attached Array Processor](image.png)
+    ![Attached Array Processor](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0366_uku9kw.png)
 
     * **Host Computer (General Purpose Computer):** The main computer that manages standard system operations and controls the workflow.
     * **Input-Output (I/O) Interface:** This interface connects the host computer with the attached processor. Its primary job is to resolve any architectural or speed differences between the two units.
@@ -158,7 +158,7 @@
     #### **Internal Architecture & Block Diagram Explanation:**
 
     The architectural layout of an SIMD Array Processor includes:
-    ![SIMD Array Processor](image-1.png)
+    ![SIMD Array Processor](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0491_i7ra0v.png)
     * **Common Control Unit (Master CPU):** This is the brain or master controller of the entire architecture. It fetches instructions from the memory and orchestrates the processing elements.
     * **Main Memory:** Directly connected to the Master CPU, this memory holds all the primary instructions waiting to be executed.
     * **Processing Elements (PE):** This consists of an array of multiple parallel processing units designated as $PE_1, PE_2, PE_3 ... PE_n$.

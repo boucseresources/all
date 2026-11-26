@@ -14,17 +14,17 @@
 
 ??? "Class routine and academic calendar"
 
-    ![21 Class routine](image-1.png)
-    ![2026 academic calendar](image-2.png)
+    ![21 Class routine](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0185_jsmro2.png)
+    ![2026 academic calendar](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0058_lw7wct.png)
 
 ??? "Faculty Members and Subject-wise Resources"
 
-    ![Our faculty member group photo](image-11.png){width=400px height=400px}
+    ![Our faculty member group photo](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0305_vsflm7.png){width=400px height=400px}
     ### 📐 Coordinate Geometry and Vector Analysis
 
     * 🔢 **Code**: MAT2131
     * 👨‍🏫 **Teacher**: Mr. Md. Ershad Ali (EA)
-    ![Mr. Md. Ershad Ali](<Ershad Ali Sir.png>){width=200px height=200px}
+    ![Mr. Md. Ershad Ali](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0152_iebuar.png>){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/coordinate-geometry-and-vector-analysis/)
     * 📱 **WhatsApp Group**: [21 MATH (MAT2131)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
@@ -34,7 +34,7 @@
 
     * 🔢 **Code**: CHE2122
     * 👨‍🏫 **Teacher**: Prof. Dr. Md. Amirul Islam (PAI)
-    ![Dr. Md. Amirul Islam](image-7.png){width=200px height=200px}
+    ![Dr. Md. Amirul Islam](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0407_gdqky6.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/chemistry/)
     * 📱 **WhatsApp Group**: [Chemistry (CHE2122)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
@@ -44,7 +44,7 @@
 
     * 🔢 **Code**: CSE2133
     * 👨‍🏫 **Teacher**: Prof. Dr. Md. Zulfiker Mahmud (ZM)
-    ![Md. Zulfiker Mahmud (ZM)](image-6.png){width=200px height=200px}
+    ![Md. Zulfiker Mahmud (ZM)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0496_k6mgg8.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/discrete-mathematics/)
     * 📱 **WhatsApp Group**: [Discrete Math (CSE2133)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
@@ -53,7 +53,7 @@
     ### 🏗️ Computer Architecture and Organizations
 
     * 🔢 **Code**: CSE2134
-    ![Mohammed Nasir Uddin](image-5.png){width=200px height=200px}
+    ![Mohammed Nasir Uddin](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0083_qr0osr.png){width=200px height=200px}
     * 👨‍🏫 **Teacher**: Prof. Dr. Mohammed Nasir Uddin (MNU)
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/computer-architecture/)
     * 📱 **WhatsApp Group**: [Computer Architecture (CSE2134)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
@@ -64,10 +64,10 @@
 
     * 🔢 **Code**: CSE2135
     * 👨‍🏫 **Teacher**: Mir Md Kawsur (MK)
-    ![Mir Md Kawsur ](image-4.png){width=200px height=200px}
+    ![Mir Md Kawsur ](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0424_gyfloo.png){width=200px height=200px}
     * 🔗 **Resources**:
     * ??? info "Data Structure Routine"
-        ![alt text](image-8.png)
+        ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0570_xaqsgw.png)
 
     * 📱 **WhatsApp Group**: [BOU-DS](https://chat.whatsapp.com/FrulEnMBw6G3PWtVcQmfgA)
 
@@ -77,11 +77,11 @@
 
     * 🔢 **Code**: CSE21P6
     * 👨‍🏫 **Teacher**: Mir Md Kawsur (MK)
-    ![Mir Md Kawsur ](image-4.png){width=200px height=200px}
+    ![Mir Md Kawsur ](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0424_gyfloo.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/data-structure-lab/)
 
     * ??? info "Data Structure Lab Routine"
-        ![alt text](image-9.png)
+        ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0335_c8vf4p.png)
 
     * 📱 **WhatsApp Group**: [BOU-DS](https://chat.whatsapp.com/FrulEnMBw6G3PWtVcQmfgA)
 
@@ -91,7 +91,7 @@
 
     * 🔢 **Code**: CSE2137
     * 👨‍🏫 **Teacher**: Mr. Md. Mahmudul Hasan (MH)
-    ![Md. Mahmudul Hasan (MH)](image-10.png){width=200px height=200px}
+    ![Md. Mahmudul Hasan (MH)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0319_i4kzu5.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/oop/)
     * 📱 **WhatsApp Group**: [OOP Theory (CSE2137)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
@@ -101,13 +101,13 @@
 
     * 🔢 **Code**: CSE21P8
     * 👨‍🏫 **Teacher**: Mr. Md. Mahmudul Hasan (MH)
-    ![Mahmudul Hasan](image-3.png){width=200px height=200px}
+    ![Mahmudul Hasan](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0220_zpwfqq.png){width=200px height=200px}
     * 🔗 **Resources**: [View](https://www.google.com/search?q=/bou-resources/bou-cse/21-semester/oop-lab/)
     * 📱 **WhatsApp Group**: [OOP Lab (CSE21P8)](https://www.google.com/search?q=https://chat.whatsapp.com/example)
 
 ??? "Subjects"
 
-    ![alt text](image.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0368_syu5ry.png)
 
 ## Assignments and CTs
 

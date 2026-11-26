@@ -19,14 +19,14 @@
 
 ??? "Sum of a symmetric or skew symmetric"
 
-    ![Sum of a symmetric or skew symmetric](image-2.png)
+    ![Sum of a symmetric or skew symmetric](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0267_oeus5g.png)
 
 ??? "Orthogonal Matrix"
     
-    ![alt text](image-3.png)    
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0295_elw2fb.png)\
 
 ??? "Cramer's Rules"
     
-    ![Cramer's Rules](image-4.png)
+    ![Cramer's Rules](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0187_dw96sp.png)
 
     

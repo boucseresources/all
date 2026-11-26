@@ -60,6 +60,8 @@ theme:
 plugins:
   - search
   - privacy:
+      assets_exclude:
+        - res.cloudinary.com/*
   - meta
   - glightbox
   - obsidian-bridge

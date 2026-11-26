@@ -9,7 +9,7 @@
 - **Q7(a) [2]:** How many ways a binary tree can be represented in memory?
 - **Q7(b) [6]:** Consider the following binary tree. Find the sequence of nodes when traversing in (i) Pre-order, (ii) In-order, and (iii) Post-order.
 
-  ![Binary tree](/bou-resources/bou-cse/21-semester/Previous-year-question/assets/CSE2135_161_Q7b_Binary_Tree.png)
+  ![Binary tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0144_p1gqth.png)
 
 - **Q7(c) [6]:** Draw the binary tree using the following algebra expression: `[a + (b - c) * [(d - c) / (f + g - h)]]`. Then traverse it in (i) pre-order and (ii) Post order.
 
@@ -19,7 +19,7 @@
 - **Q7(b) [3]:** Build a heap from the following list of numbers: 54, 40, 60, 32, 70, 55, 47, 25.
 - **Q7(c) [3]:** Consider the following binary tree. Find the sequence of nodes when traversing in (i) Pre-order, (ii) In-order, and Post-order.
 
-  ![Binary tree](/bou-resources/bou-cse/21-semester/Previous-year-question/assets/CSE2135_171_Q7c_Binary_Tree.png)
+  ![Binary tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0178_alsh5s.png)
 
 - **Q7(d) [3]:** Develop a Huffman tree and find Huffman code using the following node weights:
 
@@ -31,7 +31,7 @@
 
 - **Q5(a) [3]:** Consider the following binary tree. Find the sequence of nodes when traversing in (i) Pre-order, (ii) In-order, and (iii) Post-order.
 
-  ![Binary tree](/bou-resources/bou-cse/21-semester/Previous-year-question/assets/CSE2135_181_Q5a_Binary_Tree.png)
+  ![Binary tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0509_udzumw.png)
 
 - **Q5(b) [3]:** Write the definition of Complete Binary-tree and 2-Tree.
 - **Q5(c) [4]:** Built a Max-heap from the following list of numbers: 22, 62, 32, 52, 42, 72, 92, 82, 12.
@@ -42,7 +42,7 @@
 
 - **Q5(a) [3]:** Consider the following binary tree. Find the sequence of nodes when traversing in (i) Pre-order, (ii) In-order, and (iii) Post-order.
 
-  ![Binary tree](/bou-resources/bou-cse/21-semester/Previous-year-question/assets/CSE2135_191_Q5a_Binary_Tree.png)
+  ![Binary tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0489_dvvhhy.png)
 
 - **Q5(b) [3]:** Define binary search tree. Draw a binary search tree from the following data: 50, 33, 44, 22, 77, 35, 60, 15, 85, 20, 100.
 - **Q5(c) [3]:** Build a max heap from the following list of numbers: 15, 35, 45, 25, 75, 55, 65, 05, 95, 85.
@@ -75,8 +75,8 @@
 - **Q5(d) [2]:** Write an algorithm for heap-sort (using max-heap).
 - **Q6(a) [3]:** The following graph represents a m-way search tree (with m=3). How to delete element 100 from the tree? [Show the steps of deletion]
 
-  ![M-way search tree](/bou-resources/bou-cse/21-semester/Previous-year-question/assets/CSE2135_211_Q6a_M_Way_Search_Tree.png)
+  ![M-way search tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0221_enlfrr.png)
 
 - **Q6(b) [3]:** Suppose, you are given a Red-Black tree. Show how to insert element "I" into the tree?
 
-  ![Red-Black tree](/bou-resources/bou-cse/21-semester/Previous-year-question/assets/CSE2135_211_Q6b_Red_Black_Tree.png)
+  ![Red-Black tree](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0359_xm83d6.png)

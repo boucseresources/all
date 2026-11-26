@@ -4,7 +4,7 @@
 
 অ্যালডল ঘনীভবন বিক্রিয়া হলো জৈব রসায়নের অন্যতম গুরুত্বপূর্ণ একটি বিক্রিয়া।
 
-![Aldol Condensation](image.png)
+![Aldol Condensation](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0186_lbgati.png)
 
 === "Bangla"
 

@@ -39,7 +39,7 @@
 
 * 🔢 **Code**: HUM1222
 * 👨‍🏫 **Teacher**: Dr. Zahidur Rahman (ZR)
-  ![Dr. Zahidur Rahman (ZR)](<Zahidur Rahman.jpg>){width=200px height=200px}
+  ![Dr. Zahidur Rahman (ZR)](<https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0042_oxcbbd.jpg>){width=200px height=200px}
 * 🔗 **Resources**: [View](/bou-resources/bou-cse/12-semester/bangladesh-studies/)
 * 📝 **MCQ Practice**: [Start](/quizzes/12-hum1222)
 * 📱 **WhatsApp Group**: [Bangladesh Studies (HUM1222)](https://chat.whatsapp.com/Hya0uwmCfrmFxu4m5bUGza)
@@ -50,7 +50,7 @@
 
 * 🔢 **Code**: EEE1233
 * 👨‍🏫 **Teacher**: Professor Dr. Md. Adnan Kiber (AK)
-  ![Professor Dr. Md. Adnan Kiber (AK)](image.png){width=200px height=200px}
+  ![Professor Dr. Md. Adnan Kiber (AK)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0174_f87r6z.png){width=200px height=200px}
 * 🔗 **Resources**: [View](/bou-resources/bou-cse/12-semester/edc/)
 * 📝 **MCQ Practice**: [Start](/quizzes/12-eee1233)
 * 📱 **WhatsApp Group**: [12 EEE Theory](https://chat.whatsapp.com/EtIC3TeOjXHBmfDuvE7Q5E)
@@ -61,7 +61,7 @@
 
 * 🔢 **Code**: EEE12P4
 * 👨‍🏫 **Teacher**: Prof. Dr. K.M. Rezanur Rahman (KMRR)
-  ![Prof. Dr. K.M. Rezanur Rahman (KMRR)](image-1.png){width=200px height=200px}
+  ![Prof. Dr. K.M. Rezanur Rahman (KMRR)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0200_l7yelx.png){width=200px height=200px}
 * 🔗 **Resources**: [View](/bou-resources/bou-cse/12-semester/edc-lab/)
 * 📱 **WhatsApp Group**: [12 EEE Lab](https://chat.whatsapp.com/LlWmHOoHncMCmyJ3NUf7yf)
 
@@ -71,7 +71,7 @@
 
 * 🔢 **Code**: CSE1235
 * 👨‍🏫 **Teacher**: Prof. Dr. Mohammed Nasir Uddin (MNU)
-  ![Prof. Dr. Mohammed Nasir Uddin (MNU)](image-2.png){width=200px height=200px}
+  ![Prof. Dr. Mohammed Nasir Uddin (MNU)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0083_qr0osr.png){width=200px height=200px}
 
   * 📞 **Phone**: 01929-125856
 * 🔗 **Resources**: [View](/bou-resources/bou-cse/12-semester/dld/)
@@ -85,7 +85,7 @@
 
 * 🔢 **Code**: CSE12P6
 * 👨‍🏫 **Teacher**: Mr. Md. Mahmudul Hasan (MH)
-  ![Mr. Md. Mahmudul Hasan (MH)](image-3.png){width=200px height=200px}
+  ![Mr. Md. Mahmudul Hasan (MH)](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0308_qpipsd.png){width=200px height=200px}
 
   * E-mail: [mahmudulhasan@bou.ac.bd](mailto:mahmudulhasan@bou.ac.bd)
   * 📞 **Cell**: +8801739-966934

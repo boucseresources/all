@@ -134,7 +134,7 @@
     *   **Von Neumann Architecture:** Utilizes a **unified memory space** and a single physical bus for both instructions and data. This means the CPU cannot fetch an instruction and perform a data read/write simultaneously.
     *   **Harvard Architecture:** Utilizes **physically separate memory pathways** (address and data buses) for instructions and data. This allows for concurrent access to both.
 
-    ![alt text](image-3.png)
+    ![alt text](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0545_s2sthh.png)
 
     ### 2. Comparative Analysis
 

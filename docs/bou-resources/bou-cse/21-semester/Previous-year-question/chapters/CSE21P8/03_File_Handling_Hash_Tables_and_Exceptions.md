@@ -6,7 +6,7 @@
 
 **Exp 4.** Suppose an input file named as "INPUT.txt" contains numeric values (0 to 9) in a single line as shown in below sample input/output. Now write a Java program to count the single number from the "INPUT.txt" file and write it to the file name as "OUTPUT.txt" as shown in below. If any number (0 to 9) is disappearing, then count 0 and if the number appears more than one then count total number. The sample input/out is shown below:
 
-![Sample input/output](/bou-resources/bou-cse/21-semester/Previous-year-question/assets/CSE21P8_161_Exp04_Input_Output.png)
+![Sample input/output](https://res.cloudinary.com/zopgecx6/image/upload/f_auto,q_auto/bou20261126_0201_ryfx7t.png)
 
 ### Term 211
 
