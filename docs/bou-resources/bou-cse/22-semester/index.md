@@ -49,7 +49,7 @@
     !!! note
         The regular routine changes slightly near the end of the term. Follow the official routine for the January classes.
 
-    [📄 Download Official Class Routine](DRC_Y2S2%20-%20252%20Term_Routine.pdf){ .md-button .md-button--primary }
+    [📄 Download Official Class Routine](https://drive.google.com/file/d/1bEneE9c3L59fueWGqNePCxT1iV-tZWHm/view?usp=sharing){ .md-button .md-button--primary }
 
 ??? "Academic Calendar"
 
@@ -75,7 +75,7 @@
 
         **Admit Card Required — NO Admit, NO Exam**
 
-    [📄 Download Official Academic Calendar](DRC_Y2S2%20-%20252%20Term_Academic_Calendar.pdf){ .md-button .md-button--primary }
+    [📄 Download Official Academic Calendar](https://drive.google.com/file/d/1pvt0CpLoGobV1PgRHho8O8VDUamL_10d/view?usp=sharing){ .md-button .md-button--primary }
 
 ??? "Faculty Members and Subject-wise Resources"
 
