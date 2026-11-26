@@ -1,0 +1,260 @@
+:root {
+  --bg-dot: #e9ecef;
+  --ink: #0f172a; /* deep slate */
+  --muted: #475569; /* label */
+  --accent: #1f3aa2; /* royal-ish blue */
+  --accent-2: #e10606; /* red (for “School of Science & Technology”) */
+  --line: #0f172a;
+}
+
+/* ==== Page & Print ==== */
+@page {
+  size: A4;
+  margin: 18mm;
+}
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .sheet {
+    padding: 0!important;
+    margin: 0!important;
+  }
+   body, html {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  [contenteditable="true"] {
+    outline: none;
+  }
+
+  .fieldline .value {
+    border-bottom: 1.8px solid var(--line);
+  }
+}
+
+html,
+body {
+  height: 100%;
+  background: #fff;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+/* dotted background like the design */
+.sheet {
+  position: relative;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: 12mm 14mm;
+  /* subtle radial dot grid */
+  background-image: radial-gradient(
+    circle at 0 0,
+    var(--bg-dot) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+}
+/* mask the center content area to keep dots subtle */
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(#fff, #fff);
+  opacity: 0.82;
+  pointer-events: none;
+}
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* === Header === */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 2mm;
+  justify-content: center;
+}
+.brand img {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+.brand .txt {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+  justify-content: center;
+}
+.brand .bou {
+  font-weight: 800;
+  font-size: 36px;
+  letter-spacing: 0.2px;
+  color: #1446b3;
+}
+.brand .school {
+  margin-top: 4px;
+  font-weight: 800;
+  font-size: 30px;
+  color: var(--accent-2);
+}
+
+.title {
+    margin: 2mm 0 8mm;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.1px;
+  text-align: center;
+}
+.subtitle {
+  margin-top: 2mm;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Lab Report No pill */
+.pill-wrap {
+    max-width: 400px;
+  display: flex;
+  align-items: center;
+  /* gap: 10px; */
+  margin: 12mm 0 8mm;
+  border: 3px solid blue;
+   margin: auto;
+
+}
+.pill {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 800;
+  padding: 10px 20px;
+  /* border-radius: 6px; */
+  font-size: 18px;
+  min-width: fit-content;
+  text-align: center;
+}
+.pill-num {
+  flex-shrink: 1;
+  width: 100%;
+  /* border: 2px solid #1f2937; */
+  height: 40px;
+  /* border-radius: 6px; */
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-weight: 700;
+  font-size: 18px;
+ 
+}
+
+/* two-column lines */
+.rows {
+  /* margin-top: 6mm; */
+  display: grid;
+  gap: 6px;
+  max-width: 100%;
+}
+.fieldline {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  align-items: baseline;
+  column-gap: 18px;
+}
+.label {
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 16px;
+}
+.value {
+  min-height: 28px;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1.8px solid var(--line);
+  padding-bottom: 3px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.value[contenteditable="true"] {
+  cursor: text;
+}
+
+/* Card headings like “Submitted By / To” */
+.cardhead {
+  width: 420px;
+  max-width: 100%;
+  border: 2px solid #1f2937;
+  padding: 10px 14px;
+  /* border-radius: 6px; */
+  text-align: center;
+  font-weight: 800;
+  font-size: 18px;
+  margin:6mm auto;
+  margin-top: 10mm;
+  background: #fff;
+}
+
+/* Footer study center */
+.study {
+  position: relative;
+  margin-top: 10mm;
+}
+.study b {
+  font-size: 18px;
+}
+.study p {
+  color: #4b5563;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+/* helper */
+.hint {
+  color: #e30000;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.muted {
+  color: var(--muted);
+}
+
+/* toolbar */
+.toolbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  z-index: 999;
+  gap: 10px;
+  justify-content: flex-end;
+  background: #fff;
+  padding: 8px;
+  border-bottom: 1px dashed #e5e7eb;
+}
+.btn {
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #eef2f7;
+}
+
+/* Local storage */
+.toolbar { display: flex; align-items: center; gap: 8px; }
+.btn { padding: 8px 12px; border: 1px solid #ccc; background: #f8f8f8; cursor: pointer; border-radius: 6px; }
+.btn:hover { background: #eee; }
+.btn-ghost { background: transparent; }
+.status { font-size: 12px; color: #2e7d32; margin-left: 8px; }

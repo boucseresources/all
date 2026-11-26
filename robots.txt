@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://boucseresources.github.io/sitemap.xml

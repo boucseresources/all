@@ -1,0 +1,48 @@
+publish_mode: editorial_workflow
+
+# Backend Configuration
+# local_backend will override this when running locally. 
+# When online, it will use your GitHub Pages repo.
+backend:
+  name: github
+  repo: boucseresources/all # <-- Replace with your GitHub username/repo
+  branch: main                       # <-- Replace with your production branch (e.g., main or master)
+
+# Local dev proxy switch
+local_backend: true
+
+# Media paths (aligned to your static assets folder)
+media_folder: "docs/assets/images"
+public_folder: "/assets/images"
+
+# Global editor/slug settings
+editor:
+  preview: true
+slug:
+  encoding: unicode
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: pages
+    label: All Pages
+    folder: "docs"
+    create: true
+    extension: "md"
+    # Filter prevents Decap from treating non-content files (like CNAME or admin configs) as editable markdown pages
+    filter: { field: "title", value: ".*" } 
+    
+    # This pattern dynamically matches deep folder structures like docs/bou-resources/FAZIL/file.md
+    path: "{{dirname}}/{{slug}}"
+    
+    # Show nested tree
+    nested:
+      depth: 100
+    
+    summary: "{{fields.title}} — {{filename}}"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Body"
+        name: "body"
+        widget: "monaco-md"
